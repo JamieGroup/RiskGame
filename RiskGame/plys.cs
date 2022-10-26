@@ -6,23 +6,29 @@ using System.Threading.Tasks;
 
 namespace RiskGame
 {
-    class plys
+    [Serializable]
+    public class Plys
     {
-        private string username;
-        private string avatar;
-        private int gamesPlayed;
-        private int gamesWon;
-        private int gamesLost;
-        string accentColour;
-        int numberFriends;
-        List<string> friendsList = new List<string>(0);
-        int globalUserID;
-        string passwordHash;
-        bool accountLocked;
-        int globalRanking;
+        public string username { get; set; }
+        public string avatar { get; set; }
+        public int gamesPlayed { get; set; }
+        public int gamesWon { get; set; }
+        public int gamesLost { get; set; }
+        public string accentColour { get; set; }
+        public int numberFriends { get; set; }
+        
+        private List<string> friendsList = new List<string>(0);
 
-        //Constructors
-        public plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, string _accentColour, List<string>_friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRankning)
+        public int globalUserID { get; set; }
+        public string passwordHash { get; set; }
+        public bool accountLocked { get; set; }
+        public int globalRanking { get; set; }
+        
+        //Relative to local game - never saves outside of the program.
+        public int numberRegions { get; set; }
+
+    //Constructors
+        public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, string _accentColour, List<string>_friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)
         {
             username = _username;
             avatar = _avatar;
@@ -30,12 +36,25 @@ namespace RiskGame
             gamesWon = _gamesWon;
             gamesLost = _gamesLost;
             accentColour = _accentColour;
-            numberFriends;
-            friendsList;
-            globalUserID;
-            passwordHash;
-            accountLocked;
-            globalRanking;
-    }
+            friendsList = _friendsList;
+            globalUserID = _globalUserID;
+            passwordHash = _passwordHash;
+            accountLocked = _accountLocked;
+            globalRanking = _globalRanking;
+        }
+        public Plys()
+        {
+            username = "";
+            avatar = "";
+            gamesPlayed = 0;
+            gamesWon = 0;
+            gamesLost = 0;
+            accentColour = "Yellow";
+            accountLocked = false;
+        }
+        public void aquireRegion()
+        {
+            numberRegions++;
+        }
     }
 }

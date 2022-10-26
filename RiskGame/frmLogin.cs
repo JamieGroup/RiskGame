@@ -16,15 +16,21 @@ namespace RiskGame
          * Format for player file:
          * username~ENCpassword~avatar
          */
-        
+        public static Plys human = new Plys();
         public frmLogin()
         {
             InitializeComponent();
+            
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
