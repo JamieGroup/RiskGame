@@ -15,6 +15,7 @@ namespace RiskGame
         public frmDashboard()
         {
             InitializeComponent();
+            CenterToScreen();
         }
 
         private void pbAvatar_Click(object sender, EventArgs e)
@@ -29,8 +30,10 @@ namespace RiskGame
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
-            txtAccentColour.BackColor = Color.FromName(frmLogin.human.accentColour);
+            btnAccentColour.BackColor = Color.FromName(frmLogin.human.accentColour);
             btnAccentColourDisplay.BackColor = Color.FromName(frmLogin.human.accentColour);
+            lbUsername.Text = frmLogin.human.username;
+            pbAvatar.ImageLocation = "avatars\\" + frmLogin.human.avatar;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -52,11 +55,24 @@ namespace RiskGame
         {
             //Open the colour changer
             ColorDialog colorDialog = new ColorDialog();
-            colorDialog.Color = txtAccentColour.BackColor;
+            colorDialog.Color = btnAccentColourDisplay.BackColor;
 
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 btnAccentColourDisplay.BackColor = colorDialog.Color;
+                frmLogin.human.accentColour = colorDialog.Color.Name;
+            }
+        }
+
+        private void btnAccentColour_Click(object sender, EventArgs e)
+        {
+            //Open the colour changer
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.Color = btnAccentColour.BackColor;
+
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                btnAccentColour.BackColor = colorDialog.Color;
                 frmLogin.human.accentColour = colorDialog.Color.Name;
             }
         }

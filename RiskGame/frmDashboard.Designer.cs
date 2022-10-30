@@ -31,7 +31,6 @@ namespace RiskGame
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.txtAccentColour = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,11 +38,11 @@ namespace RiskGame
             this.lbLabelGamesLost = new System.Windows.Forms.Label();
             this.lbLabelGamesWon = new System.Windows.Forms.Label();
             this.lbGamesPlayed = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbUsername = new System.Windows.Forms.Label();
             this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.pnlSidebar2 = new System.Windows.Forms.Panel();
+            this.btnAccentColourDisplay = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,7 +52,7 @@ namespace RiskGame
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnAccentColourDisplay = new System.Windows.Forms.Button();
+            this.btnAccentColour = new System.Windows.Forms.Button();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.pnlSidebar2.SuspendLayout();
@@ -62,7 +61,7 @@ namespace RiskGame
             // 
             // pnlSidebar
             // 
-            this.pnlSidebar.Controls.Add(this.txtAccentColour);
+            this.pnlSidebar.Controls.Add(this.btnAccentColour);
             this.pnlSidebar.Controls.Add(this.label5);
             this.pnlSidebar.Controls.Add(this.label4);
             this.pnlSidebar.Controls.Add(this.label3);
@@ -70,24 +69,12 @@ namespace RiskGame
             this.pnlSidebar.Controls.Add(this.lbLabelGamesLost);
             this.pnlSidebar.Controls.Add(this.lbLabelGamesWon);
             this.pnlSidebar.Controls.Add(this.lbGamesPlayed);
-            this.pnlSidebar.Controls.Add(this.label1);
+            this.pnlSidebar.Controls.Add(this.lbUsername);
             this.pnlSidebar.Controls.Add(this.pbAvatar);
             this.pnlSidebar.Location = new System.Drawing.Point(0, 1);
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(146, 461);
             this.pnlSidebar.TabIndex = 0;
-            // 
-            // txtAccentColour
-            // 
-            this.txtAccentColour.BackColor = System.Drawing.Color.Yellow;
-            this.txtAccentColour.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtAccentColour.Enabled = false;
-            this.txtAccentColour.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccentColour.Location = new System.Drawing.Point(8, 345);
-            this.txtAccentColour.Name = "txtAccentColour";
-            this.txtAccentColour.ReadOnly = true;
-            this.txtAccentColour.Size = new System.Drawing.Size(131, 35);
-            this.txtAccentColour.TabIndex = 13;
             // 
             // label5
             // 
@@ -162,15 +149,15 @@ namespace RiskGame
             this.lbGamesPlayed.TabIndex = 6;
             this.lbGamesPlayed.Text = "Games Played: 0";
             // 
-            // label1
+            // lbUsername
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 149);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 30);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "TestAccount";
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.Location = new System.Drawing.Point(13, 149);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(126, 30);
+            this.lbUsername.TabIndex = 5;
+            this.lbUsername.Text = "TestAccount";
             // 
             // pbAvatar
             // 
@@ -186,7 +173,6 @@ namespace RiskGame
             // 
             this.pnlSidebar2.Controls.Add(this.btnAccentColourDisplay);
             this.pnlSidebar2.Controls.Add(this.label14);
-            this.pnlSidebar2.Controls.Add(this.textBox1);
             this.pnlSidebar2.Controls.Add(this.label6);
             this.pnlSidebar2.Controls.Add(this.pictureBox1);
             this.pnlSidebar2.Controls.Add(this.label7);
@@ -202,6 +188,15 @@ namespace RiskGame
             this.pnlSidebar2.TabIndex = 1;
             this.pnlSidebar2.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSidebar2_Paint);
             // 
+            // btnAccentColourDisplay
+            // 
+            this.btnAccentColourDisplay.Location = new System.Drawing.Point(110, 328);
+            this.btnAccentColourDisplay.Name = "btnAccentColourDisplay";
+            this.btnAccentColourDisplay.Size = new System.Drawing.Size(96, 30);
+            this.btnAccentColourDisplay.TabIndex = 15;
+            this.btnAccentColourDisplay.UseVisualStyleBackColor = true;
+            this.btnAccentColourDisplay.Click += new System.EventHandler(this.btnAccentColourDisplay_Click);
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -211,19 +206,6 @@ namespace RiskGame
             this.label14.Size = new System.Drawing.Size(180, 32);
             this.label14.TabIndex = 14;
             this.label14.Text = "Game Statistics";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Yellow;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(115, 328);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(95, 29);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label6
             // 
@@ -317,14 +299,14 @@ namespace RiskGame
             this.label13.TabIndex = 5;
             this.label13.Text = "TestAccount";
             // 
-            // btnAccentColourDisplay
+            // btnAccentColour
             // 
-            this.btnAccentColourDisplay.Location = new System.Drawing.Point(53, 240);
-            this.btnAccentColourDisplay.Name = "btnAccentColourDisplay";
-            this.btnAccentColourDisplay.Size = new System.Drawing.Size(135, 46);
-            this.btnAccentColourDisplay.TabIndex = 15;
-            this.btnAccentColourDisplay.UseVisualStyleBackColor = true;
-            this.btnAccentColourDisplay.Click += new System.EventHandler(this.btnAccentColourDisplay_Click);
+            this.btnAccentColour.Location = new System.Drawing.Point(7, 345);
+            this.btnAccentColour.Name = "btnAccentColour";
+            this.btnAccentColour.Size = new System.Drawing.Size(127, 30);
+            this.btnAccentColour.TabIndex = 16;
+            this.btnAccentColour.UseVisualStyleBackColor = true;
+            this.btnAccentColour.Click += new System.EventHandler(this.btnAccentColour_Click);
             // 
             // frmDashboard
             // 
@@ -349,19 +331,17 @@ namespace RiskGame
         #endregion
 
         private System.Windows.Forms.Panel pnlSidebar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.PictureBox pbAvatar;
         private System.Windows.Forms.Label lbLabelGamesLost;
         private System.Windows.Forms.Label lbLabelGamesWon;
         private System.Windows.Forms.Label lbGamesPlayed;
-        private System.Windows.Forms.TextBox txtAccentColour;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlSidebar2;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label7;
@@ -372,5 +352,6 @@ namespace RiskGame
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnAccentColourDisplay;
+        private System.Windows.Forms.Button btnAccentColour;
     }
 }

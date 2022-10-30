@@ -42,6 +42,11 @@ namespace RiskGame
             accountLocked = _accountLocked;
             globalRanking = _globalRanking;
         }
+        public Plys(string _username, string _avatar)
+        {
+            username = _username;
+            avatar = _avatar;
+        }
         public Plys()
         {
             username = "";
