@@ -23,6 +23,8 @@ namespace RiskGame
         static int numberOfUsers = File.ReadAllLines("users.txt").Count();
         static string[,] users = new string[numberOfUsers, 4];
 
+        static string passwordA = "";
+
         public frmLogin()
         {
             InitializeComponent();
@@ -44,6 +46,7 @@ namespace RiskGame
 
         private void AddToScreen(string id, string username, string avatar, string password)
         {
+            passwordA = password;
             // Add the user to the screen
             Panel pnl = new Panel();
             pnl.Name = "pnl_" + id;
@@ -99,9 +102,16 @@ namespace RiskGame
         private static void loginActionPictureBox_Click(object sender, EventArgs e)
         {
             string selectedUserID = ((PictureBox)sender).Name.Split('_')[1];
-            human.username = users[Convert.ToInt32(selectedUserID), 1];
-            human.avatar = users[Convert.ToInt32(selectedUserID), 2];
-            new frmDashboard().Show();
+            if (Microsoft.VisualBasic.Interaction.InputBox("Enter your password:", users[Convert.ToInt32(selectedUserID), 1], "", 0, 0) == users[Convert.ToInt32(selectedUserID), 3])
+            {
+                human.username = users[Convert.ToInt32(selectedUserID), 1];
+                human.avatar = users[Convert.ToInt32(selectedUserID), 2];
+                new frmDashboard().Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Password!");
+            }
         }
         
         private static void loginActionLabel_Click(object sender, EventArgs e)
