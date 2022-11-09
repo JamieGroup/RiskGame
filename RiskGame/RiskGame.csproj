@@ -130,5 +130,17 @@
   <ItemGroup>
     <None Include="Resources\PlayTutorialAnimation_Hover.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoutButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoutButton-Resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoutButton_NOTHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoutButton_NOTHover2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
