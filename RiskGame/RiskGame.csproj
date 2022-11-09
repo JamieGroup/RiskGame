@@ -118,5 +118,17 @@
   <ItemGroup>
     <None Include="Resources\NewUserIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayGameAnimation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayGameAnimation_Hover.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayTutorialAnimation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayTutorialAnimation_Hover.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -41,8 +41,10 @@ namespace RiskGame
             this.lbGamesPlayed = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
             this.pbAvatar = new System.Windows.Forms.PictureBox();
+            this.pbPlay = new System.Windows.Forms.PictureBox();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlay)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -164,11 +166,22 @@ namespace RiskGame
             this.pbAvatar.TabIndex = 4;
             this.pbAvatar.TabStop = false;
             // 
+            // pbPlay
+            // 
+            this.pbPlay.Image = global::RiskGame.Properties.Resources.PlayTutorialAnimation;
+            this.pbPlay.Location = new System.Drawing.Point(436, 180);
+            this.pbPlay.Name = "pbPlay";
+            this.pbPlay.Size = new System.Drawing.Size(465, 182);
+            this.pbPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPlay.TabIndex = 1;
+            this.pbPlay.TabStop = false;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 528);
+            this.Controls.Add(this.pbPlay);
             this.Controls.Add(this.pnlSidebar);
             this.Name = "frmDashboard";
             this.Text = "Risk: Dashboard";
@@ -176,6 +189,7 @@ namespace RiskGame
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlay)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -193,5 +207,6 @@ namespace RiskGame
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAccentColour;
+        private System.Windows.Forms.PictureBox pbPlay;
     }
 }

@@ -20,27 +20,39 @@ namespace RiskGame
         public static Plys human = new Plys();
         static int currentLine = 0;
 
-        static int numberOfUsers = File.ReadAllLines("users.txt").Count();
-        static string[,] users = new string[numberOfUsers, 4];
+        static int numberOfUsers;
+        static string[,] users;
 
         static string passwordA = "";
 
         public frmLogin()
         {
-            InitializeComponent();
-            CenterToScreen();
-
-            // Read in the details from the users.txt file
-            string[] userDetails = System.IO.File.ReadAllLines("users.txt");
-            foreach (string user in userDetails)
+            if (!File.Exists("users.conf"))
             {
-                var splitDetails = user.Split('~');
-                for (int i = 0; i<4; i++)
+                File.Create("users.conf");
+                Hide();
+                new frmRegister().Show();
+            }
+            else 
+            {
+                numberOfUsers = File.ReadAllLines("users.conf").Count();
+                users = new string[numberOfUsers, 4];
+
+                InitializeComponent();
+                CenterToScreen();
+
+                // Read in the details from the users.txt file
+                string[] userDetails = System.IO.File.ReadAllLines("users.conf");
+                foreach (string user in userDetails)
                 {
-                    users[currentLine, i] = splitDetails[i];
+                    var splitDetails = user.Split('~');
+                    for (int i = 0; i < 4; i++)
+                    {
+                        users[currentLine, i] = splitDetails[i];
+                    }
+                    AddToScreen(splitDetails[0], splitDetails[1], splitDetails[2], splitDetails[3]);
+                    currentLine++;
                 }
-                AddToScreen(splitDetails[0], splitDetails[1], splitDetails[2], splitDetails[3]);
-                currentLine++;
             }
         }
 
@@ -99,13 +111,14 @@ namespace RiskGame
             human.avatar = users[Convert.ToInt32(selectedUserID), 2];
         }
 
-        private static void loginActionPictureBox_Click(object sender, EventArgs e)
+        private void loginActionPictureBox_Click(object sender, EventArgs e)
         {
             string selectedUserID = ((PictureBox)sender).Name.Split('_')[1];
             if (Microsoft.VisualBasic.Interaction.InputBox("Enter your password:", users[Convert.ToInt32(selectedUserID), 1], "", 0, 0) == users[Convert.ToInt32(selectedUserID), 3])
             {
                 human.username = users[Convert.ToInt32(selectedUserID), 1];
                 human.avatar = users[Convert.ToInt32(selectedUserID), 2];
+                Hide();
                 new frmDashboard().Show();
             }
             else

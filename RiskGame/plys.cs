@@ -23,7 +23,9 @@ namespace RiskGame
         public string passwordHash { get; set; }
         public bool accountLocked { get; set; }
         public int globalRanking { get; set; }
-        
+
+        public bool firstLaunch { get; set; }
+
         //Relative to local game - never saves outside of the program.
         public int numberRegions { get; set; }
 
