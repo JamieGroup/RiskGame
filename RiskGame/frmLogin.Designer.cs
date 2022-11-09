@@ -32,6 +32,8 @@ namespace RiskGame
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.DEBUG_cbFirstLaunch = new System.Windows.Forms.CheckBox();
+            this.DEBUG_cbRequirePassword = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,11 +67,36 @@ namespace RiskGame
             this.label2.TabIndex = 2;
             this.label2.Text = "Please select your account.";
             // 
+            // DEBUG_cbFirstLaunch
+            // 
+            this.DEBUG_cbFirstLaunch.AutoSize = true;
+            this.DEBUG_cbFirstLaunch.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DEBUG_cbFirstLaunch.Location = new System.Drawing.Point(541, 55);
+            this.DEBUG_cbFirstLaunch.Name = "DEBUG_cbFirstLaunch";
+            this.DEBUG_cbFirstLaunch.Size = new System.Drawing.Size(253, 23);
+            this.DEBUG_cbFirstLaunch.TabIndex = 3;
+            this.DEBUG_cbFirstLaunch.Text = "Debug Tool: First Launch?";
+            this.DEBUG_cbFirstLaunch.UseVisualStyleBackColor = true;
+            this.DEBUG_cbFirstLaunch.CheckedChanged += new System.EventHandler(this.DEBUG_cbFirstLaunch_CheckedChanged);
+            // 
+            // DEBUG_cbRequirePassword
+            // 
+            this.DEBUG_cbRequirePassword.AutoSize = true;
+            this.DEBUG_cbRequirePassword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DEBUG_cbRequirePassword.Location = new System.Drawing.Point(225, 55);
+            this.DEBUG_cbRequirePassword.Name = "DEBUG_cbRequirePassword";
+            this.DEBUG_cbRequirePassword.Size = new System.Drawing.Size(289, 23);
+            this.DEBUG_cbRequirePassword.TabIndex = 4;
+            this.DEBUG_cbRequirePassword.Text = "Debug Tool: Require Password?";
+            this.DEBUG_cbRequirePassword.UseVisualStyleBackColor = true;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 583);
+            this.Controls.Add(this.DEBUG_cbRequirePassword);
+            this.Controls.Add(this.DEBUG_cbFirstLaunch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -87,5 +114,7 @@ namespace RiskGame
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox DEBUG_cbFirstLaunch;
+        private System.Windows.Forms.CheckBox DEBUG_cbRequirePassword;
     }
 }

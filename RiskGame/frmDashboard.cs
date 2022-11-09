@@ -16,6 +16,7 @@ namespace RiskGame
         {
             InitializeComponent();
             CenterToScreen();
+            pbLogout.Image = Properties.Resources.LogoutButton_NOTHover2;
         }
 
         private void pbAvatar_Click(object sender, EventArgs e)
@@ -33,6 +34,16 @@ namespace RiskGame
             btnAccentColour.BackColor = Color.FromName(frmLogin.human.accentColour);
             lbUsername.Text = frmLogin.human.username;
             pbAvatar.ImageLocation = "avatars\\" + frmLogin.human.avatar;
+
+            if (frmLogin.human.firstLaunch)
+            {
+                pbPlay.Image = Properties.Resources.PlayTutorialAnimation;
+                MessageBox.Show("Welcome to Risk! This is your first time playing, so we'll take you through a quick tutorial to get you started. Click the green animated button to continue.", "Welcome to Risk!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                pbPlay.Image = Properties.Resources.PlayGameAnimation;
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -61,6 +72,50 @@ namespace RiskGame
                 btnAccentColour.BackColor = colorDialog.Color;
                 frmLogin.human.accentColour = colorDialog.Color.Name;
             }
+        }
+
+        //These methods change the animated play button's image from the closed book to the open book depending on
+        //where the users mouse is (over the image or not).
+        //2 are needed for the 2 states of the button ("Game" and "Tutorial").
+        private void pbPlay_MouseEnter(object sender, EventArgs e)
+        {
+            if (frmLogin.human.firstLaunch)
+            {
+                pbPlay.Image = Properties.Resources.PlayTutorialAnimation_Hover;
+            }
+            else
+            {
+                pbPlay.Image = Properties.Resources.PlayGameAnimation_Hover;
+            }
+        }
+
+        private void pbPlay_MouseLeave(object sender, EventArgs e)
+        {
+            if (frmLogin.human.firstLaunch)
+            {
+                pbPlay.Image = Properties.Resources.PlayTutorialAnimation;
+            }
+            else
+            {
+                pbPlay.Image = Properties.Resources.PlayGameAnimation;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            frmLogin.human = new Plys();
+            new frmLogin().Show();
+        }
+
+        private void pbLogout_MouseEnter(object sender, EventArgs e)
+        {
+            pbLogout.Image = Properties.Resources.LogoutButton_Resize;
+        }
+
+        private void pbLogout_MouseLeave(object sender, EventArgs e)
+        {
+            pbLogout.Image = Properties.Resources.LogoutButton_NOTHover2;
         }
     }
 }

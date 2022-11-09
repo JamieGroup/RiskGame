@@ -29,12 +29,14 @@ namespace RiskGame
         {
             if (!File.Exists("users.conf"))
             {
+                frmLogin.human.firstLaunch = true;
                 File.Create("users.conf");
                 Hide();
                 new frmRegister().Show();
             }
             else 
             {
+                currentLine = 0;
                 numberOfUsers = File.ReadAllLines("users.conf").Count();
                 users = new string[numberOfUsers, 4];
 
@@ -104,20 +106,31 @@ namespace RiskGame
             pnl.Controls.Add(lb);
         }
 
-        private static void loginActionPanel_Click(object sender, EventArgs e)
+        private void loginActionPanel_Click(object sender, EventArgs e)
         {
             string selectedUserID = ((Panel)sender).Name.Split('_')[1];
-            human.username = users[Convert.ToInt32(selectedUserID), 1];
-            human.avatar = users[Convert.ToInt32(selectedUserID), 2];
+            loginUser(selectedUserID);
         }
 
         private void loginActionPictureBox_Click(object sender, EventArgs e)
         {
             string selectedUserID = ((PictureBox)sender).Name.Split('_')[1];
-            if (Microsoft.VisualBasic.Interaction.InputBox("Enter your password:", users[Convert.ToInt32(selectedUserID), 1], "", 0, 0) == users[Convert.ToInt32(selectedUserID), 3])
+            loginUser(selectedUserID);
+        }
+        
+        private void loginUser(string id)
+        {
+            if (!DEBUG_cbRequirePassword.Checked)
             {
-                human.username = users[Convert.ToInt32(selectedUserID), 1];
-                human.avatar = users[Convert.ToInt32(selectedUserID), 2];
+                frmLogin.human.username = users[Convert.ToInt32(id), 1];
+                frmLogin.human.avatar = users[Convert.ToInt32(id), 2];
+                Hide();
+                new frmDashboard().Show();
+            }
+            else if (Microsoft.VisualBasic.Interaction.InputBox("Enter your password:", users[Convert.ToInt32(id), 1], "", 0, 0) == users[Convert.ToInt32(id), 3])
+            {
+                frmLogin.human.username = users[Convert.ToInt32(id), 1];
+                frmLogin.human.avatar = users[Convert.ToInt32(id), 2];
                 Hide();
                 new frmDashboard().Show();
             }
@@ -127,16 +140,27 @@ namespace RiskGame
             }
         }
         
-        private static void loginActionLabel_Click(object sender, EventArgs e)
+        private void loginActionLabel_Click(object sender, EventArgs e)
         {
             string selectedUserID = ((Label)sender).Name.Split('_')[1];
-            human.username = users[Convert.ToInt32(selectedUserID), 1];
-            human.avatar = users[Convert.ToInt32(selectedUserID), 2];
+            loginUser(selectedUserID);
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void DEBUG_cbFirstLaunch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DEBUG_cbFirstLaunch.Checked)
+            {
+                frmLogin.human.firstLaunch = true;
+            }
+            else
+            {
+                frmLogin.human.firstLaunch = false;
+            }
         }
     }
 }
