@@ -1,0 +1,17 @@
+Panel Name: pnlUser_[id]
+Panel Size: 135, 180
+Panel Location (Top-Left): 12, 68
+
+Down row: +160
+Left column: +189
+
+5 can fit in a row
+3 can fit in a column
+
+Picture Box Name: pbUserAvatar_[id]
+Picture Box Size: 135, 135
+Picture Box Location: 0, 0
+
+Label Name: lbUser_[id]
+Label Size: DynamicallyDetermined
+Label Location: DynamicallyDetermined (y=142)
