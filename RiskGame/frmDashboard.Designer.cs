@@ -40,10 +40,17 @@ namespace RiskGame
             this.lbLabelGamesWon = new System.Windows.Forms.Label();
             this.lbGamesPlayed = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
+            this.lbTutorialEasy = new System.Windows.Forms.Label();
+            this.lbTutorialHard = new System.Windows.Forms.Label();
+            this.lbSkipTutorial = new System.Windows.Forms.Label();
+            this.pbTutorialEasy = new System.Windows.Forms.PictureBox();
+            this.pbTutorialHard = new System.Windows.Forms.PictureBox();
             this.pbPlay = new System.Windows.Forms.PictureBox();
             this.pbLogout = new System.Windows.Forms.PictureBox();
             this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.pnlSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialEasy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialHard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
@@ -159,15 +166,75 @@ namespace RiskGame
             this.lbUsername.TabIndex = 5;
             this.lbUsername.Text = "TestAccount";
             // 
+            // lbTutorialEasy
+            // 
+            this.lbTutorialEasy.AutoSize = true;
+            this.lbTutorialEasy.BackColor = System.Drawing.Color.Transparent;
+            this.lbTutorialEasy.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTutorialEasy.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbTutorialEasy.Location = new System.Drawing.Point(485, 471);
+            this.lbTutorialEasy.Name = "lbTutorialEasy";
+            this.lbTutorialEasy.Size = new System.Drawing.Size(88, 25);
+            this.lbTutorialEasy.TabIndex = 4;
+            this.lbTutorialEasy.Text = "Beginner";
+            // 
+            // lbTutorialHard
+            // 
+            this.lbTutorialHard.AutoSize = true;
+            this.lbTutorialHard.BackColor = System.Drawing.Color.Transparent;
+            this.lbTutorialHard.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTutorialHard.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbTutorialHard.Location = new System.Drawing.Point(654, 471);
+            this.lbTutorialHard.Name = "lbTutorialHard";
+            this.lbTutorialHard.Size = new System.Drawing.Size(123, 25);
+            this.lbTutorialHard.TabIndex = 5;
+            this.lbTutorialHard.Text = "Intermediate";
+            // 
+            // lbSkipTutorial
+            // 
+            this.lbSkipTutorial.AutoSize = true;
+            this.lbSkipTutorial.BackColor = System.Drawing.Color.Transparent;
+            this.lbSkipTutorial.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSkipTutorial.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbSkipTutorial.Location = new System.Drawing.Point(783, 420);
+            this.lbSkipTutorial.Name = "lbSkipTutorial";
+            this.lbSkipTutorial.Size = new System.Drawing.Size(244, 25);
+            this.lbSkipTutorial.TabIndex = 6;
+            this.lbSkipTutorial.Text = "I\'m an expert! Skip Tutorial";
+            this.lbSkipTutorial.Click += new System.EventHandler(this.lbSkipTutorial_Click);
+            // 
+            // pbTutorialEasy
+            // 
+            this.pbTutorialEasy.Image = global::RiskGame.Properties.Resources.book;
+            this.pbTutorialEasy.Location = new System.Drawing.Point(466, 365);
+            this.pbTutorialEasy.Name = "pbTutorialEasy";
+            this.pbTutorialEasy.Size = new System.Drawing.Size(132, 103);
+            this.pbTutorialEasy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTutorialEasy.TabIndex = 3;
+            this.pbTutorialEasy.TabStop = false;
+            this.pbTutorialEasy.Click += new System.EventHandler(this.pbTutorialEasy_Click);
+            // 
+            // pbTutorialHard
+            // 
+            this.pbTutorialHard.Image = global::RiskGame.Properties.Resources.sword;
+            this.pbTutorialHard.Location = new System.Drawing.Point(649, 365);
+            this.pbTutorialHard.Name = "pbTutorialHard";
+            this.pbTutorialHard.Size = new System.Drawing.Size(128, 103);
+            this.pbTutorialHard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTutorialHard.TabIndex = 2;
+            this.pbTutorialHard.TabStop = false;
+            this.pbTutorialHard.Click += new System.EventHandler(this.pbTutorialHard_Click);
+            // 
             // pbPlay
             // 
             this.pbPlay.Image = global::RiskGame.Properties.Resources.PlayTutorialAnimation;
-            this.pbPlay.Location = new System.Drawing.Point(436, 180);
+            this.pbPlay.Location = new System.Drawing.Point(447, 161);
             this.pbPlay.Name = "pbPlay";
             this.pbPlay.Size = new System.Drawing.Size(465, 182);
             this.pbPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPlay.TabIndex = 1;
             this.pbPlay.TabStop = false;
+            this.pbPlay.Click += new System.EventHandler(this.pbPlay_Click);
             this.pbPlay.MouseEnter += new System.EventHandler(this.pbPlay_MouseEnter);
             this.pbPlay.MouseLeave += new System.EventHandler(this.pbPlay_MouseLeave);
             // 
@@ -199,6 +266,11 @@ namespace RiskGame
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 528);
+            this.Controls.Add(this.lbSkipTutorial);
+            this.Controls.Add(this.lbTutorialHard);
+            this.Controls.Add(this.lbTutorialEasy);
+            this.Controls.Add(this.pbTutorialEasy);
+            this.Controls.Add(this.pbTutorialHard);
             this.Controls.Add(this.pbPlay);
             this.Controls.Add(this.pnlSidebar);
             this.Name = "frmDashboard";
@@ -206,10 +278,13 @@ namespace RiskGame
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialEasy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialHard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -228,5 +303,10 @@ namespace RiskGame
         private System.Windows.Forms.Button btnAccentColour;
         private System.Windows.Forms.PictureBox pbPlay;
         private System.Windows.Forms.PictureBox pbLogout;
+        private System.Windows.Forms.PictureBox pbTutorialHard;
+        private System.Windows.Forms.PictureBox pbTutorialEasy;
+        private System.Windows.Forms.Label lbTutorialEasy;
+        private System.Windows.Forms.Label lbTutorialHard;
+        private System.Windows.Forms.Label lbSkipTutorial;
     }
 }

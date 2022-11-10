@@ -12,11 +12,17 @@ namespace RiskGame
 {
     public partial class frmDashboard : Form
     {
+        bool fl = frmLogin.human.firstLaunch;
         public frmDashboard()
         {
             InitializeComponent();
             CenterToScreen();
             pbLogout.Image = Properties.Resources.LogoutButton_NOTHover2;
+            pbTutorialEasy.Visible = false;
+            pbTutorialHard.Visible = false;
+            lbTutorialEasy.Visible = false;
+            lbTutorialHard.Visible = false;
+            lbSkipTutorial.Visible = false;
         }
 
         private void pbAvatar_Click(object sender, EventArgs e)
@@ -43,6 +49,7 @@ namespace RiskGame
             else
             {
                 pbPlay.Image = Properties.Resources.PlayGameAnimation;
+                
             }
         }
 
@@ -116,6 +123,36 @@ namespace RiskGame
         private void pbLogout_MouseLeave(object sender, EventArgs e)
         {
             pbLogout.Image = Properties.Resources.LogoutButton_NOTHover2;
+        }
+
+        private void pbPlay_Click(object sender, EventArgs e)
+        {
+            if(fl)
+            {
+                //Code to run if the player clicks on "Play Tutorial"
+                pbTutorialEasy.Visible = true;
+                pbTutorialHard.Visible = true;
+                lbTutorialEasy.Visible = true;
+                lbTutorialHard.Visible = true;
+                lbSkipTutorial.Visible = true;
+            }
+        }
+
+        private void lbSkipTutorial_Click(object sender, EventArgs e)
+        {
+            frmLogin.human.firstLaunch = false;
+            Hide();
+            new frmDashboard().Show();
+        }
+
+        private void pbTutorialEasy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbTutorialHard_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
