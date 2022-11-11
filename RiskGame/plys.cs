@@ -28,6 +28,8 @@ namespace RiskGame
 
         //Relative to local game - never saves outside of the program.
         public int numberRegions { get; set; }
+        
+        public int tutorialLevel { get; set; }
 
     //Constructors
         public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, string _accentColour, List<string>_friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)
