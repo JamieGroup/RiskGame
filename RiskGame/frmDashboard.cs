@@ -147,12 +147,16 @@ namespace RiskGame
 
         private void pbTutorialEasy_Click(object sender, EventArgs e)
         {
-
+            frmLogin.human.tutorialLevel = 0;
+            Hide();
+            new frmTutorial().Show();
         }
 
         private void pbTutorialHard_Click(object sender, EventArgs e)
         {
-
+            frmLogin.human.tutorialLevel = 1;
+            Hide();
+            new frmTutorial().Show();
         }
     }
 }

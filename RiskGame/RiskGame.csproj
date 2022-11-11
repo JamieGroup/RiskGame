@@ -163,5 +163,17 @@
   <ItemGroup>
     <None Include="Resources\sword_hover.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tutorial_Animated_Screen_long.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tutorial_Checkbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tutorial_Checkbox_Checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WaitingBar_Green_Animated.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
