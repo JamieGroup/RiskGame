@@ -32,25 +32,27 @@ namespace RiskGame
             this.lbQuestion = new System.Windows.Forms.Label();
             this.pnlAns1 = new System.Windows.Forms.Panel();
             this.lbAns1 = new System.Windows.Forms.Label();
-            this.pbAns1Check = new System.Windows.Forms.PictureBox();
+            this.pbAns1 = new System.Windows.Forms.PictureBox();
             this.pnlAns2 = new System.Windows.Forms.Panel();
             this.lbAns2 = new System.Windows.Forms.Label();
-            this.pbAns2Check = new System.Windows.Forms.PictureBox();
+            this.pbAns2 = new System.Windows.Forms.PictureBox();
             this.pnlAns3 = new System.Windows.Forms.Panel();
             this.lbAns3 = new System.Windows.Forms.Label();
-            this.pbAns3Check = new System.Windows.Forms.PictureBox();
+            this.pbAns3 = new System.Windows.Forms.PictureBox();
             this.pnlAns4 = new System.Windows.Forms.Panel();
             this.lbAns4 = new System.Windows.Forms.Label();
-            this.pbAns4Check = new System.Windows.Forms.PictureBox();
+            this.pbAns4 = new System.Windows.Forms.PictureBox();
             this.pbTutorialAnimatedScreen = new System.Windows.Forms.PictureBox();
+            this.lbScore = new System.Windows.Forms.Label();
+            this.lbQNum = new System.Windows.Forms.Label();
             this.pnlAns1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAns1Check)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAns1)).BeginInit();
             this.pnlAns2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAns2Check)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAns2)).BeginInit();
             this.pnlAns3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAns3Check)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAns3)).BeginInit();
             this.pnlAns4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAns4Check)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAns4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTutorialAnimatedScreen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +70,7 @@ namespace RiskGame
             // pnlAns1
             // 
             this.pnlAns1.Controls.Add(this.lbAns1);
-            this.pnlAns1.Controls.Add(this.pbAns1Check);
+            this.pnlAns1.Controls.Add(this.pbAns1);
             this.pnlAns1.Location = new System.Drawing.Point(0, 173);
             this.pnlAns1.Name = "pnlAns1";
             this.pnlAns1.Size = new System.Drawing.Size(570, 132);
@@ -86,21 +88,21 @@ namespace RiskGame
             this.lbAns1.Text = "Answer 1";
             this.lbAns1.Click += new System.EventHandler(this.lbAns1_Click);
             // 
-            // pbAns1Check
+            // pbAns1
             // 
-            this.pbAns1Check.Image = global::RiskGame.Properties.Resources.Tutorial_Checkbox;
-            this.pbAns1Check.Location = new System.Drawing.Point(12, 27);
-            this.pbAns1Check.Name = "pbAns1Check";
-            this.pbAns1Check.Size = new System.Drawing.Size(91, 85);
-            this.pbAns1Check.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAns1Check.TabIndex = 2;
-            this.pbAns1Check.TabStop = false;
-            this.pbAns1Check.Click += new System.EventHandler(this.pbAns1Check_Click);
+            this.pbAns1.Image = global::RiskGame.Properties.Resources.Tutorial_Checkbox;
+            this.pbAns1.Location = new System.Drawing.Point(12, 27);
+            this.pbAns1.Name = "pbAns1";
+            this.pbAns1.Size = new System.Drawing.Size(91, 85);
+            this.pbAns1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAns1.TabIndex = 2;
+            this.pbAns1.TabStop = false;
+            this.pbAns1.Click += new System.EventHandler(this.pbAns1Check_Click);
             // 
             // pnlAns2
             // 
             this.pnlAns2.Controls.Add(this.lbAns2);
-            this.pnlAns2.Controls.Add(this.pbAns2Check);
+            this.pnlAns2.Controls.Add(this.pbAns2);
             this.pnlAns2.Location = new System.Drawing.Point(0, 357);
             this.pnlAns2.Name = "pnlAns2";
             this.pnlAns2.Size = new System.Drawing.Size(570, 132);
@@ -118,21 +120,21 @@ namespace RiskGame
             this.lbAns2.Text = "Answer 2";
             this.lbAns2.Click += new System.EventHandler(this.lbAns2_Click);
             // 
-            // pbAns2Check
+            // pbAns2
             // 
-            this.pbAns2Check.Image = global::RiskGame.Properties.Resources.Tutorial_Checkbox;
-            this.pbAns2Check.Location = new System.Drawing.Point(12, 28);
-            this.pbAns2Check.Name = "pbAns2Check";
-            this.pbAns2Check.Size = new System.Drawing.Size(91, 85);
-            this.pbAns2Check.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAns2Check.TabIndex = 3;
-            this.pbAns2Check.TabStop = false;
-            this.pbAns2Check.Click += new System.EventHandler(this.pbAns2Check_Click);
+            this.pbAns2.Image = global::RiskGame.Properties.Resources.Tutorial_Checkbox;
+            this.pbAns2.Location = new System.Drawing.Point(12, 28);
+            this.pbAns2.Name = "pbAns2";
+            this.pbAns2.Size = new System.Drawing.Size(91, 85);
+            this.pbAns2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAns2.TabIndex = 3;
+            this.pbAns2.TabStop = false;
+            this.pbAns2.Click += new System.EventHandler(this.pbAns2Check_Click);
             // 
             // pnlAns3
             // 
             this.pnlAns3.Controls.Add(this.lbAns3);
-            this.pnlAns3.Controls.Add(this.pbAns3Check);
+            this.pnlAns3.Controls.Add(this.pbAns3);
             this.pnlAns3.Location = new System.Drawing.Point(596, 173);
             this.pnlAns3.Name = "pnlAns3";
             this.pnlAns3.Size = new System.Drawing.Size(589, 132);
@@ -150,21 +152,21 @@ namespace RiskGame
             this.lbAns3.Text = "Answer 3";
             this.lbAns3.Click += new System.EventHandler(this.lbAns3_Click);
             // 
-            // pbAns3Check
+            // pbAns3
             // 
-            this.pbAns3Check.Image = global::RiskGame.Properties.Resources.Tutorial_Checkbox;
-            this.pbAns3Check.Location = new System.Drawing.Point(10, 27);
-            this.pbAns3Check.Name = "pbAns3Check";
-            this.pbAns3Check.Size = new System.Drawing.Size(91, 85);
-            this.pbAns3Check.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAns3Check.TabIndex = 4;
-            this.pbAns3Check.TabStop = false;
-            this.pbAns3Check.Click += new System.EventHandler(this.pbAns3Check_Click);
+            this.pbAns3.Image = global::RiskGame.Properties.Resources.Tutorial_Checkbox;
+            this.pbAns3.Location = new System.Drawing.Point(10, 27);
+            this.pbAns3.Name = "pbAns3";
+            this.pbAns3.Size = new System.Drawing.Size(91, 85);
+            this.pbAns3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAns3.TabIndex = 4;
+            this.pbAns3.TabStop = false;
+            this.pbAns3.Click += new System.EventHandler(this.pbAns3Check_Click);
             // 
             // pnlAns4
             // 
             this.pnlAns4.Controls.Add(this.lbAns4);
-            this.pnlAns4.Controls.Add(this.pbAns4Check);
+            this.pnlAns4.Controls.Add(this.pbAns4);
             this.pnlAns4.Location = new System.Drawing.Point(596, 357);
             this.pnlAns4.Name = "pnlAns4";
             this.pnlAns4.Size = new System.Drawing.Size(589, 132);
@@ -182,16 +184,16 @@ namespace RiskGame
             this.lbAns4.Text = "Answer 4";
             this.lbAns4.Click += new System.EventHandler(this.lbAns4_Click);
             // 
-            // pbAns4Check
+            // pbAns4
             // 
-            this.pbAns4Check.Image = global::RiskGame.Properties.Resources.Tutorial_Checkbox;
-            this.pbAns4Check.Location = new System.Drawing.Point(10, 31);
-            this.pbAns4Check.Name = "pbAns4Check";
-            this.pbAns4Check.Size = new System.Drawing.Size(91, 85);
-            this.pbAns4Check.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAns4Check.TabIndex = 5;
-            this.pbAns4Check.TabStop = false;
-            this.pbAns4Check.Click += new System.EventHandler(this.pbAns4Check_Click);
+            this.pbAns4.Image = global::RiskGame.Properties.Resources.Tutorial_Checkbox;
+            this.pbAns4.Location = new System.Drawing.Point(10, 31);
+            this.pbAns4.Name = "pbAns4";
+            this.pbAns4.Size = new System.Drawing.Size(91, 85);
+            this.pbAns4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAns4.TabIndex = 5;
+            this.pbAns4.TabStop = false;
+            this.pbAns4.Click += new System.EventHandler(this.pbAns4Check_Click);
             // 
             // pbTutorialAnimatedScreen
             // 
@@ -203,11 +205,33 @@ namespace RiskGame
             this.pbTutorialAnimatedScreen.TabIndex = 0;
             this.pbTutorialAnimatedScreen.TabStop = false;
             // 
+            // lbScore
+            // 
+            this.lbScore.AutoSize = true;
+            this.lbScore.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbScore.Location = new System.Drawing.Point(1089, 132);
+            this.lbScore.Name = "lbScore";
+            this.lbScore.Size = new System.Drawing.Size(83, 25);
+            this.lbScore.TabIndex = 10;
+            this.lbScore.Text = "Score: 0";
+            // 
+            // lbQNum
+            // 
+            this.lbQNum.AutoSize = true;
+            this.lbQNum.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbQNum.Location = new System.Drawing.Point(12, 132);
+            this.lbQNum.Name = "lbQNum";
+            this.lbQNum.Size = new System.Drawing.Size(113, 25);
+            this.lbQNum.TabIndex = 11;
+            this.lbQNum.Text = "Question: 1";
+            // 
             // frmTutorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 495);
+            this.ClientSize = new System.Drawing.Size(1184, 488);
+            this.Controls.Add(this.lbQNum);
+            this.Controls.Add(this.lbScore);
             this.Controls.Add(this.pnlAns4);
             this.Controls.Add(this.pnlAns3);
             this.Controls.Add(this.pnlAns2);
@@ -219,16 +243,16 @@ namespace RiskGame
             this.Load += new System.EventHandler(this.frmTutorial_Load);
             this.pnlAns1.ResumeLayout(false);
             this.pnlAns1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAns1Check)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAns1)).EndInit();
             this.pnlAns2.ResumeLayout(false);
             this.pnlAns2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAns2Check)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAns2)).EndInit();
             this.pnlAns3.ResumeLayout(false);
             this.pnlAns3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAns3Check)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAns3)).EndInit();
             this.pnlAns4.ResumeLayout(false);
             this.pnlAns4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAns4Check)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAns4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTutorialAnimatedScreen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -239,10 +263,10 @@ namespace RiskGame
 
         private System.Windows.Forms.PictureBox pbTutorialAnimatedScreen;
         private System.Windows.Forms.Label lbQuestion;
-        private System.Windows.Forms.PictureBox pbAns1Check;
-        private System.Windows.Forms.PictureBox pbAns2Check;
-        private System.Windows.Forms.PictureBox pbAns3Check;
-        private System.Windows.Forms.PictureBox pbAns4Check;
+        private System.Windows.Forms.PictureBox pbAns1;
+        private System.Windows.Forms.PictureBox pbAns2;
+        private System.Windows.Forms.PictureBox pbAns3;
+        private System.Windows.Forms.PictureBox pbAns4;
         private System.Windows.Forms.Panel pnlAns1;
         private System.Windows.Forms.Panel pnlAns2;
         private System.Windows.Forms.Panel pnlAns3;
@@ -251,5 +275,7 @@ namespace RiskGame
         private System.Windows.Forms.Label lbAns2;
         private System.Windows.Forms.Label lbAns3;
         private System.Windows.Forms.Label lbAns4;
+        private System.Windows.Forms.Label lbScore;
+        private System.Windows.Forms.Label lbQNum;
     }
 }

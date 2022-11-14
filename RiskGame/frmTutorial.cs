@@ -17,8 +17,8 @@ namespace RiskGame
         int qNum = 0;
         Questions[] Qs = new Questions[3];
         string correct;
-        int idCorrect;
         string ansGiven;
+        int idGiven;
         public frmTutorial()
         {
             InitializeComponent();
@@ -34,6 +34,8 @@ namespace RiskGame
 
             this.Text = $"Risk: {tutorialLevel} Tutorial";
 
+            SetUpQuestion();
+            displayQ();
         }
 
         private void frmTutorial_Load(object sender, EventArgs e)
@@ -47,10 +49,12 @@ namespace RiskGame
 
         private void displayQ()
         {
-            pbAns1Check.Image = Properties.Resources.Tutorial_Checkbox;
-            pbAns2Check.Image = Properties.Resources.Tutorial_Checkbox;
-            pbAns3Check.Image = Properties.Resources.Tutorial_Checkbox;
-            pbAns4Check.Image = Properties.Resources.Tutorial_Checkbox;
+            lbQNum.Text = $"Question {qNum + 1}";
+            lbScore.Text = $"Score: {frmLogin.human.tutorialScore}";
+            pbAns1.Image = Properties.Resources.Tutorial_Checkbox;
+            pbAns2.Image = Properties.Resources.Tutorial_Checkbox;
+            pbAns3.Image = Properties.Resources.Tutorial_Checkbox;
+            pbAns4.Image = Properties.Resources.Tutorial_Checkbox;
             pnlAns1.BackColor = Color.Transparent;
             pnlAns2.BackColor = Color.Transparent;
             pnlAns3.BackColor = Color.Transparent;
@@ -63,21 +67,54 @@ namespace RiskGame
             correct = Qs[qNum].correct;
         }
 
+        private void DisableAllAssets()
+        {
+            lbAns1.Enabled = false;
+            lbAns2.Enabled = false;
+            lbAns3.Enabled = false;
+            lbAns4.Enabled = false;
+            pbAns1.Enabled = false;
+            pbAns2.Enabled = false;
+            pbAns3.Enabled = false;
+            pbAns4.Enabled = false;
+            pnlAns1.Enabled = false;
+            pnlAns2.Enabled = false;
+            pnlAns3.Enabled = false;
+            pnlAns4.Enabled = false;
+        }
+
+        private void EnableAllAssets()
+        {
+            lbAns1.Enabled = true;
+            lbAns2.Enabled = true;
+            lbAns3.Enabled = true;
+            lbAns4.Enabled = true;
+            pbAns1.Enabled = true;
+            pbAns2.Enabled = true;
+            pbAns3.Enabled = true;
+            pbAns4.Enabled = true;
+            pnlAns1.Enabled = true;
+            pnlAns2.Enabled = true;
+            pnlAns3.Enabled = true;
+            pnlAns4.Enabled = true;
+        }
+
         private void correction()
         {
-            if (pbAns1Check.Image == Properties.Resources.Tutorial_Checkbox_Checked)
+            DisableAllAssets();
+            if (idGiven == 1)
             {
                 ansGiven = lbAns1.Text;
             }
-            else if (pbAns2Check.Image == Properties.Resources.Tutorial_Checkbox_Checked)
+            else if (idGiven == 2)
             {
                 ansGiven = lbAns2.Text;
             }
-            else if (pbAns3Check.Image == Properties.Resources.Tutorial_Checkbox_Checked)
+            else if (idGiven == 3)
             {
                 ansGiven = lbAns3.Text;
             }
-            else if (pbAns4Check.Image == Properties.Resources.Tutorial_Checkbox_Checked)
+            else if (idGiven == 4)
             {
                 ansGiven = lbAns4.Text;
             }
@@ -86,36 +123,21 @@ namespace RiskGame
                 MessageBox.Show("Invalid Answer!");
             }
 
-            if(lbAns1.Text == ansGiven)
-            {
-                pnlAns1.BackColor = Color.LawnGreen;
-                pnlAns2.BackColor = Color.Red;
-                pnlAns3.BackColor = Color.Red;
-                pnlAns4.BackColor = Color.Red;
-            }
-            else if (lbAns2.Text == ansGiven)
-            {
-                pnlAns2.BackColor = Color.LawnGreen;
-                pnlAns1.BackColor = Color.Red;
-                pnlAns3.BackColor = Color.Red;
-                pnlAns4.BackColor = Color.Red;
-            }
-            else if (lbAns3.Text == ansGiven)
-            {
-                pnlAns3.BackColor = Color.LawnGreen;
-                pnlAns2.BackColor = Color.Red;
-                pnlAns1.BackColor = Color.Red;
-                pnlAns4.BackColor = Color.Red;
-            }
-            else if (lbAns4.Text == ansGiven)
-            {
-                pnlAns4.BackColor = Color.LawnGreen;
-                pnlAns2.BackColor = Color.Red;
-                pnlAns3.BackColor = Color.Red;
-                pnlAns1.BackColor = Color.Red;
-            }
+            string selectedPanel = "pnlAns" + idGiven;
+            string correctPanel = "pnlAns" + correct;
 
-            if (ansGiven == correct)
+            Panel spanel = Controls[selectedPanel] as Panel;
+            Panel cpanel = Controls[correctPanel] as Panel;
+            
+
+            if (spanel == cpanel)
+                spanel.BackColor = Color.LawnGreen;
+            else
+            {
+                cpanel.BackColor = Color.LawnGreen;
+                spanel.BackColor = Color.LightCoral;
+            }
+            if (spanel == cpanel)
             {
                 frmLogin.human.tutorialScore++;
 
@@ -133,88 +155,107 @@ namespace RiskGame
             }
         }
 
-        private void answerClicked(int id)
+        private void answerClicked(object e, string senderType)
         {
-            Color paleYellow = Color.FromArgb(1, 227, 242, 148);
-            switch (id)
+            //MessageBox.Show(((Panel)e).Name);
+            //Color paleYellow = Color.FromArgb(1, 227, 242, 148);
+            
+            string searchCase = "";
+            if (senderType == "lb")
             {
-                case 1:
-                    pbAns1Check.Image = Properties.Resources.Tutorial_Checkbox_Checked;
+                searchCase = (((Label)e).Name);
+            }
+            else if (senderType == "pb")
+            {
+                searchCase = (((PictureBox)e).Name);
+            }
+            else
+            {
+                searchCase = (((Panel)e).Name);
+            }
+            searchCase = (Convert.ToString(searchCase[searchCase.Length - 1]));
+            idGiven = Convert.ToInt32(searchCase);
+            switch (searchCase)
+            {
+                case "1":
+                    pbAns1.Image = Properties.Resources.Tutorial_Checkbox_Checked;
                     pnlAns1.BackColor = Color.LightBlue;
                     break;
-                case 2:
-                    pbAns2Check.Image = Properties.Resources.Tutorial_Checkbox_Checked;
+                case "2":
+                    pbAns2.Image = Properties.Resources.Tutorial_Checkbox_Checked;
                     pnlAns2.BackColor = Color.LightBlue;
                     break;
-                case 3:
-                    pbAns3Check.Image = Properties.Resources.Tutorial_Checkbox_Checked;
+                case "3":
+                    pbAns3.Image = Properties.Resources.Tutorial_Checkbox_Checked;
                     pnlAns3.BackColor = Color.LightBlue;
                     break;
-                case 4:
-                    pbAns4Check.Image = Properties.Resources.Tutorial_Checkbox_Checked;
+                case "4":
+                    pbAns4.Image = Properties.Resources.Tutorial_Checkbox_Checked;
                     pnlAns4.BackColor = Color.LightBlue;
                     break;
             }
+
+            correction();
         }
 
         private void lbAns1_Click(object sender, EventArgs e)
         {
-            answerClicked(1);
+            answerClicked(lbAns1, "lb");
         }
 
         private void pbAns1Check_Click(object sender, EventArgs e)
         {
-            answerClicked(1);
+            answerClicked(pbAns1, "pb");
         }
 
         private void pnlAns1_Click(object sender, EventArgs e)
         {
-            answerClicked(1);
+            answerClicked(pnlAns1, "pnl");
         }
 
         private void pnlAns3_Click(object sender, EventArgs e)
         {
-            answerClicked(3);
+            answerClicked(pnlAns3, "pnl");
         }
 
         private void lbAns3_Click(object sender, EventArgs e)
         {
-            answerClicked(3);
+            answerClicked(lbAns3, "lb");
         }
 
         private void pbAns3Check_Click(object sender, EventArgs e)
         {
-            answerClicked(3);
+            answerClicked(pbAns3, "pb");
         }
 
         private void pnlAns2_Click(object sender, EventArgs e)
         {
-            answerClicked(2);
+            answerClicked(pnlAns2, "pnl");
         }
 
         private void lbAns2_Click(object sender, EventArgs e)
         {
-            answerClicked(2);
+            answerClicked(lbAns2, "lb");
         }
 
         private void pbAns2Check_Click(object sender, EventArgs e)
         {
-            answerClicked(2);
+            answerClicked(pbAns2, "pb");
         }
 
         private void pnlAns4_Click(object sender, EventArgs e)
         {
-            answerClicked(4);
+            answerClicked(pnlAns4, "pnl");
         }
 
         private void lbAns4_Click(object sender, EventArgs e)
         {
-            answerClicked(4);
+            answerClicked(lbAns4, "lb");
         }
 
         private void pbAns4Check_Click(object sender, EventArgs e)
         {
-            answerClicked(4);
+            answerClicked(pbAns4, "pb");
         }
     }
 }
