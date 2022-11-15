@@ -49,6 +49,8 @@ namespace RiskGame
 
         private void displayQ()
         {
+            EnableAllAssets();
+            prbTime.Visible = false;
             lbQNum.Text = $"Question {qNum + 1}";
             lbScore.Text = $"Score: {frmLogin.human.tutorialScore}";
             pbAns1.Image = Properties.Resources.Tutorial_Checkbox;
@@ -59,12 +61,63 @@ namespace RiskGame
             pnlAns2.BackColor = Color.Transparent;
             pnlAns3.BackColor = Color.Transparent;
             pnlAns4.BackColor = Color.Transparent;
-            lbQuestion.Text = Qs[qNum].question;
+
+            setAnswers();
+        }
+
+        private void setAnswers()
+        {
+            string qHere = Qs[qNum].question;
+            //Default (1 line) - 27, 33
+            //2 line 27, 9 (when > 32 charaters)
+            lbQuestion.MaximumSize = new Size(1142, 104);
+            lbQuestion.AutoSize = true;
+            if (qHere.Length > 32)
+            {
+                lbQuestion.Location = new Point(27, 9);
+                //lbQuestion.Text = qHere.Substring(0, 32) + Environment.NewLine + qHere.Substring(32);
+            }
+            else
+            {
+                lbQuestion.Location = new Point(27, 33);
+            }
+            lbQuestion.Text = qHere;
+
+            lbAns1.MaximumSize = new Size(440, 90);
+            lbAns2.MaximumSize = new Size(440, 90);
+            lbAns3.MaximumSize = new Size(440, 90);
+            lbAns4.MaximumSize = new Size(440, 90);
+
+            lbAns1.AutoSize = true;
+            lbAns2.AutoSize = true;
+            lbAns3.AutoSize = true;
+            lbAns4.AutoSize = true;
+
             lbAns1.Text = Qs[qNum].a1;
             lbAns2.Text = Qs[qNum].a2;
             lbAns3.Text = Qs[qNum].a3;
             lbAns4.Text = Qs[qNum].a4;
             correct = Qs[qNum].correct;
+
+            //(> 20 characters) = 109, 23
+            //1 line = 109, 51
+
+            if (lbAns1.Text.Length > 30)
+                lbAns1.Location = new Point(109, 16);
+            else
+                lbAns1.Location = new Point(109, 51);
+            if (lbAns2.Text.Length > 30)
+                lbAns2.Location = new Point(109, 16);
+            else
+                lbAns2.Location = new Point(109, 51);
+            if (lbAns3.Text.Length > 30)
+                lbAns3.Location = new Point(109, 16);
+            else
+                lbAns3.Location = new Point(109, 51);
+            if (lbAns4.Text.Length > 30)
+                lbAns4.Location = new Point(109, 16);
+            else
+                lbAns4.Location = new Point(109, 51);
         }
 
         private void DisableAllAssets()
@@ -142,6 +195,11 @@ namespace RiskGame
                 frmLogin.human.tutorialScore++;
 
             }
+
+            prbTime.Visible = true;
+            prbTime.Maximum = 100;
+            prbTime.Value = 0;
+            tmrTime.Start();
         }
 
         private void SetUpQuestion()
@@ -256,6 +314,17 @@ namespace RiskGame
         private void pbAns4Check_Click(object sender, EventArgs e)
         {
             answerClicked(pbAns4, "pb");
+        }
+
+        private void tmrTime_Tick(object sender, EventArgs e)
+        {
+            prbTime.Value++;
+            if (prbTime.Value == prbTime.Maximum)
+            {
+                tmrTime.Stop();
+                qNum++;
+                displayQ();
+            }
         }
     }
 }

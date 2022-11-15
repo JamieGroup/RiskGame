@@ -29,6 +29,7 @@ namespace RiskGame
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbQuestion = new System.Windows.Forms.Label();
             this.pnlAns1 = new System.Windows.Forms.Panel();
             this.lbAns1 = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@ namespace RiskGame
             this.pbTutorialAnimatedScreen = new System.Windows.Forms.PictureBox();
             this.lbScore = new System.Windows.Forms.Label();
             this.lbQNum = new System.Windows.Forms.Label();
+            this.prbTime = new System.Windows.Forms.ProgressBar();
+            this.tmrTime = new System.Windows.Forms.Timer(this.components);
             this.pnlAns1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAns1)).BeginInit();
             this.pnlAns2.SuspendLayout();
@@ -60,10 +63,10 @@ namespace RiskGame
             // 
             this.lbQuestion.AutoSize = true;
             this.lbQuestion.BackColor = System.Drawing.Color.Transparent;
-            this.lbQuestion.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQuestion.Location = new System.Drawing.Point(12, 25);
+            this.lbQuestion.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold);
+            this.lbQuestion.Location = new System.Drawing.Point(27, 33);
             this.lbQuestion.Name = "lbQuestion";
-            this.lbQuestion.Size = new System.Drawing.Size(481, 65);
+            this.lbQuestion.Size = new System.Drawing.Size(378, 51);
             this.lbQuestion.TabIndex = 1;
             this.lbQuestion.Text = "Question Goes Here!";
             // 
@@ -113,7 +116,7 @@ namespace RiskGame
             // 
             this.lbAns2.AutoSize = true;
             this.lbAns2.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold);
-            this.lbAns2.Location = new System.Drawing.Point(109, 54);
+            this.lbAns2.Location = new System.Drawing.Point(109, 51);
             this.lbAns2.Name = "lbAns2";
             this.lbAns2.Size = new System.Drawing.Size(154, 45);
             this.lbAns2.TabIndex = 4;
@@ -208,28 +211,42 @@ namespace RiskGame
             // lbScore
             // 
             this.lbScore.AutoSize = true;
-            this.lbScore.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbScore.Location = new System.Drawing.Point(1089, 132);
+            this.lbScore.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lbScore.Location = new System.Drawing.Point(1067, 132);
             this.lbScore.Name = "lbScore";
-            this.lbScore.Size = new System.Drawing.Size(83, 25);
+            this.lbScore.Size = new System.Drawing.Size(105, 32);
             this.lbScore.TabIndex = 10;
             this.lbScore.Text = "Score: 0";
             // 
             // lbQNum
             // 
             this.lbQNum.AutoSize = true;
-            this.lbQNum.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbQNum.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.lbQNum.Location = new System.Drawing.Point(12, 132);
             this.lbQNum.Name = "lbQNum";
-            this.lbQNum.Size = new System.Drawing.Size(113, 25);
+            this.lbQNum.Size = new System.Drawing.Size(145, 32);
             this.lbQNum.TabIndex = 11;
             this.lbQNum.Text = "Question: 1";
+            // 
+            // prbTime
+            // 
+            this.prbTime.Location = new System.Drawing.Point(431, 124);
+            this.prbTime.Name = "prbTime";
+            this.prbTime.Size = new System.Drawing.Size(313, 40);
+            this.prbTime.TabIndex = 12;
+            this.prbTime.Visible = false;
+            // 
+            // tmrTime
+            // 
+            this.tmrTime.Interval = 25;
+            this.tmrTime.Tick += new System.EventHandler(this.tmrTime_Tick);
             // 
             // frmTutorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 488);
+            this.Controls.Add(this.prbTime);
             this.Controls.Add(this.lbQNum);
             this.Controls.Add(this.lbScore);
             this.Controls.Add(this.pnlAns4);
@@ -277,5 +294,7 @@ namespace RiskGame
         private System.Windows.Forms.Label lbAns4;
         private System.Windows.Forms.Label lbScore;
         private System.Windows.Forms.Label lbQNum;
+        private System.Windows.Forms.ProgressBar prbTime;
+        private System.Windows.Forms.Timer tmrTime;
     }
 }
