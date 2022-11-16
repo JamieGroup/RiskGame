@@ -177,5 +177,8 @@
   <ItemGroup>
     <None Include="Resources\WaitingBar_Green_Animated.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\numberSelection.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
