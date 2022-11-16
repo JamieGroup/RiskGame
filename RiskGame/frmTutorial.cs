@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace RiskGame
 {
@@ -33,7 +34,7 @@ namespace RiskGame
             }
 
             this.Text = $"Risk: {tutorialLevel} Tutorial";
-
+            pnlNumberSelection.Visible = false;
             SetUpQuestion();
             displayQ();
         }
@@ -44,12 +45,27 @@ namespace RiskGame
             lbQuestion.BackColor = Color.Transparent;
             lbQuestion.ForeColor = Color.White;
             //pnlAns1.BackColor = Color.Yellow;
-        
+            pbLogo.BackColor = Color.Transparent;
+            pbLogo.Parent = pbTutorialAnimatedScreen;
         }
 
         private void displayQ()
         {
             EnableAllAssets();
+            if (qNum <= 1 && tutorialLevel == "Intermediate")
+            {
+                pnlNumberSelection.Visible = true;
+                //default location: 381, 3
+                //move to: 703, 6
+                bool correctLocation = false;
+                do
+                {
+                    pbNumberSelection.Left -= 322;
+                    if (pbNumberSelection.Location == new Point(703, 6))
+                        correctLocation = true;
+
+                } while (!correctLocation);
+            }
             prbTime.Visible = false;
             lbQNum.Text = $"Question {qNum + 1}";
             lbScore.Text = $"Score: {frmLogin.human.tutorialScore}";
@@ -193,7 +209,7 @@ namespace RiskGame
             if (spanel == cpanel)
             {
                 frmLogin.human.tutorialScore++;
-
+                lbScore.Text = $"Score: {frmLogin.human.tutorialScore}";
             }
 
             prbTime.Visible = true;
@@ -323,8 +339,44 @@ namespace RiskGame
             {
                 tmrTime.Stop();
                 qNum++;
-                displayQ();
+                if(qNum<2)
+                {
+                    displayQ();
+                }
+                else
+                {
+                    tutorialLevel = "Intermediate";
+                    frmLogin.human.tutorialLevel = 1;
+                    this.Text = $"Risk: {tutorialLevel} tutorial";
+                    SetUpQuestion();
+                    displayQ();
+                    qNum = 1;
+                }
             }
+        }
+
+        private void pbTutorialAnimatedScreen_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    public class NewProgressBar : ProgressBar
+    {
+        public NewProgressBar()
+        {
+            this.SetStyle(ControlStyles.UserPaint, true);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Rectangle rec = e.ClipRectangle;
+
+            rec.Width = (int)(rec.Width * ((double)Value / Maximum)) - 4;
+            if (ProgressBarRenderer.IsSupported)
+                ProgressBarRenderer.DrawHorizontalBar(e.Graphics, e.ClipRectangle);
+            rec.Height = rec.Height - 4;
+            e.Graphics.FillRectangle(Brushes.Red, 2, 2, rec.Width, rec.Height);
         }
     }
 }
