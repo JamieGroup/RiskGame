@@ -32,6 +32,8 @@ namespace RiskGame
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTutorialIntermediate));
             this.pnlNumberSelection = new System.Windows.Forms.Panel();
+            this.lbNumberSelectEnter = new System.Windows.Forms.Label();
+            this.lbNumberSelectDisplay = new System.Windows.Forms.Label();
             this.pbNumberSelection = new System.Windows.Forms.PictureBox();
             this.lbNumberSelectionHelp = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
@@ -41,8 +43,6 @@ namespace RiskGame
             this.lbQuestion = new System.Windows.Forms.Label();
             this.pbTutorialAnimatedScreen = new System.Windows.Forms.PictureBox();
             this.tmrTimer = new System.Windows.Forms.Timer(this.components);
-            this.lbNumberSelectDisplay = new System.Windows.Forms.Label();
-            this.lbNumberSelectEnter = new System.Windows.Forms.Label();
             this.pnlNumberSelection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNumberSelection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -60,6 +60,27 @@ namespace RiskGame
             this.pnlNumberSelection.Size = new System.Drawing.Size(1182, 319);
             this.pnlNumberSelection.TabIndex = 15;
             this.pnlNumberSelection.Scroll += new System.Windows.Forms.ScrollEventHandler(this.pnlNumberSelection_Scroll);
+            this.pnlNumberSelection.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlNumberSelection_MouseDown);
+            // 
+            // lbNumberSelectEnter
+            // 
+            this.lbNumberSelectEnter.AutoSize = true;
+            this.lbNumberSelectEnter.Font = new System.Drawing.Font("Segoe UI Semibold", 40F, System.Drawing.FontStyle.Bold);
+            this.lbNumberSelectEnter.Location = new System.Drawing.Point(800, 223);
+            this.lbNumberSelectEnter.Name = "lbNumberSelectEnter";
+            this.lbNumberSelectEnter.Size = new System.Drawing.Size(175, 72);
+            this.lbNumberSelectEnter.TabIndex = 3;
+            this.lbNumberSelectEnter.Text = "Enter!";
+            // 
+            // lbNumberSelectDisplay
+            // 
+            this.lbNumberSelectDisplay.AutoSize = true;
+            this.lbNumberSelectDisplay.Font = new System.Drawing.Font("Segoe UI Semibold", 40F, System.Drawing.FontStyle.Bold);
+            this.lbNumberSelectDisplay.Location = new System.Drawing.Point(850, 129);
+            this.lbNumberSelectDisplay.Name = "lbNumberSelectDisplay";
+            this.lbNumberSelectDisplay.Size = new System.Drawing.Size(82, 72);
+            this.lbNumberSelectDisplay.TabIndex = 2;
+            this.lbNumberSelectDisplay.Text = "10";
             // 
             // pbNumberSelection
             // 
@@ -106,7 +127,7 @@ namespace RiskGame
             this.lbQNum.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.lbQNum.Location = new System.Drawing.Point(12, 122);
             this.lbQNum.Name = "lbQNum";
-            this.lbQNum.Size = new System.Drawing.Size(146, 32);
+            this.lbQNum.Size = new System.Drawing.Size(145, 32);
             this.lbQNum.TabIndex = 19;
             this.lbQNum.Text = "Question: 1";
             // 
@@ -116,7 +137,7 @@ namespace RiskGame
             this.lbScore.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.lbScore.Location = new System.Drawing.Point(1083, 122);
             this.lbScore.Name = "lbScore";
-            this.lbScore.Size = new System.Drawing.Size(106, 32);
+            this.lbScore.Size = new System.Drawing.Size(105, 32);
             this.lbScore.TabIndex = 18;
             this.lbScore.Text = "Score: 0";
             // 
@@ -141,31 +162,11 @@ namespace RiskGame
             this.pbTutorialAnimatedScreen.TabIndex = 16;
             this.pbTutorialAnimatedScreen.TabStop = false;
             // 
-            // lbNumberSelectDisplay
-            // 
-            this.lbNumberSelectDisplay.AutoSize = true;
-            this.lbNumberSelectDisplay.Font = new System.Drawing.Font("Segoe UI Semibold", 40F, System.Drawing.FontStyle.Bold);
-            this.lbNumberSelectDisplay.Location = new System.Drawing.Point(850, 129);
-            this.lbNumberSelectDisplay.Name = "lbNumberSelectDisplay";
-            this.lbNumberSelectDisplay.Size = new System.Drawing.Size(82, 72);
-            this.lbNumberSelectDisplay.TabIndex = 2;
-            this.lbNumberSelectDisplay.Text = "10";
-            // 
-            // lbNumberSelectEnter
-            // 
-            this.lbNumberSelectEnter.AutoSize = true;
-            this.lbNumberSelectEnter.Font = new System.Drawing.Font("Segoe UI Semibold", 40F, System.Drawing.FontStyle.Bold);
-            this.lbNumberSelectEnter.Location = new System.Drawing.Point(799, 223);
-            this.lbNumberSelectEnter.Name = "lbNumberSelectEnter";
-            this.lbNumberSelectEnter.Size = new System.Drawing.Size(175, 72);
-            this.lbNumberSelectEnter.TabIndex = 3;
-            this.lbNumberSelectEnter.Text = "Enter!";
-            // 
             // frmTutorialIntermediate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 488);
+            this.ClientSize = new System.Drawing.Size(1184, 513);
             this.Controls.Add(this.lbScore);
             this.Controls.Add(this.prbTime);
             this.Controls.Add(this.lbQuestion);
@@ -175,6 +176,7 @@ namespace RiskGame
             this.Controls.Add(this.pbTutorialAnimatedScreen);
             this.Name = "frmTutorialIntermediate";
             this.Text = "Risk: Intermediate Tutorial";
+            this.Load += new System.EventHandler(this.frmTutorialIntermediate_Load);
             this.pnlNumberSelection.ResumeLayout(false);
             this.pnlNumberSelection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNumberSelection)).EndInit();
