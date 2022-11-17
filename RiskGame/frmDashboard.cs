@@ -156,7 +156,7 @@ namespace RiskGame
         {
             frmLogin.human.tutorialLevel = 1;
             Hide();
-            new frmTutorial().Show();
+            new frmTutorialIntermediate().Show();
         }
     }
 }

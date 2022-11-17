@@ -30,7 +30,6 @@ namespace RiskGame
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTutorial));
             this.lbQuestion = new System.Windows.Forms.Label();
             this.pnlAns1 = new System.Windows.Forms.Panel();
             this.lbAns1 = new System.Windows.Forms.Label();
@@ -44,27 +43,22 @@ namespace RiskGame
             this.lbQNum = new System.Windows.Forms.Label();
             this.prbTime = new System.Windows.Forms.ProgressBar();
             this.tmrTime = new System.Windows.Forms.Timer(this.components);
-            this.pnlNumberSelection = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pbAns4 = new System.Windows.Forms.PictureBox();
             this.pbAns3 = new System.Windows.Forms.PictureBox();
             this.pbAns2 = new System.Windows.Forms.PictureBox();
             this.pbAns1 = new System.Windows.Forms.PictureBox();
             this.pbTutorialAnimatedScreen = new System.Windows.Forms.PictureBox();
-            this.pbNumberSelection = new System.Windows.Forms.PictureBox();
-            this.lbNumberSelectionHelp = new System.Windows.Forms.Label();
             this.pnlAns1.SuspendLayout();
             this.pnlAns2.SuspendLayout();
             this.pnlAns3.SuspendLayout();
             this.pnlAns4.SuspendLayout();
-            this.pnlNumberSelection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAns4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAns3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAns2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAns1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTutorialAnimatedScreen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNumberSelection)).BeginInit();
             this.SuspendLayout();
             // 
             // lbQuestion
@@ -195,15 +189,6 @@ namespace RiskGame
             this.tmrTime.Interval = 25;
             this.tmrTime.Tick += new System.EventHandler(this.tmrTime_Tick);
             // 
-            // pnlNumberSelection
-            // 
-            this.pnlNumberSelection.Controls.Add(this.pbNumberSelection);
-            this.pnlNumberSelection.Controls.Add(this.lbNumberSelectionHelp);
-            this.pnlNumberSelection.Location = new System.Drawing.Point(0, 167);
-            this.pnlNumberSelection.Name = "pnlNumberSelection";
-            this.pnlNumberSelection.Size = new System.Drawing.Size(1182, 319);
-            this.pnlNumberSelection.TabIndex = 14;
-            // 
             // pbLogo
             // 
             this.pbLogo.BackColor = System.Drawing.Color.Transparent;
@@ -270,33 +255,11 @@ namespace RiskGame
             this.pbTutorialAnimatedScreen.TabStop = false;
             this.pbTutorialAnimatedScreen.Click += new System.EventHandler(this.pbTutorialAnimatedScreen_Click);
             // 
-            // pbNumberSelection
-            // 
-            this.pbNumberSelection.Image = global::RiskGame.Properties.Resources.numberSelection;
-            this.pbNumberSelection.Location = new System.Drawing.Point(393, 6);
-            this.pbNumberSelection.Name = "pbNumberSelection";
-            this.pbNumberSelection.Size = new System.Drawing.Size(412, 307);
-            this.pbNumberSelection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbNumberSelection.TabIndex = 0;
-            this.pbNumberSelection.TabStop = false;
-            // 
-            // lbNumberSelectionHelp
-            // 
-            this.lbNumberSelectionHelp.AutoSize = true;
-            this.lbNumberSelectionHelp.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberSelectionHelp.Location = new System.Drawing.Point(58, 10);
-            this.lbNumberSelectionHelp.Name = "lbNumberSelectionHelp";
-            this.lbNumberSelectionHelp.Size = new System.Drawing.Size(564, 296);
-            this.lbNumberSelectionHelp.TabIndex = 1;
-            this.lbNumberSelectionHelp.Text = resources.GetString("lbNumberSelectionHelp.Text");
-            this.lbNumberSelectionHelp.Visible = false;
-            // 
             // frmTutorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 488);
-            this.Controls.Add(this.pnlNumberSelection);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.prbTime);
             this.Controls.Add(this.lbQNum);
@@ -318,15 +281,12 @@ namespace RiskGame
             this.pnlAns3.PerformLayout();
             this.pnlAns4.ResumeLayout(false);
             this.pnlAns4.PerformLayout();
-            this.pnlNumberSelection.ResumeLayout(false);
-            this.pnlNumberSelection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAns4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAns3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAns2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAns1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTutorialAnimatedScreen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNumberSelection)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,8 +313,5 @@ namespace RiskGame
         private System.Windows.Forms.ProgressBar prbTime;
         private System.Windows.Forms.Timer tmrTime;
         private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Panel pnlNumberSelection;
-        private System.Windows.Forms.PictureBox pbNumberSelection;
-        private System.Windows.Forms.Label lbNumberSelectionHelp;
     }
 }

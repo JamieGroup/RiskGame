@@ -34,7 +34,6 @@ namespace RiskGame
             }
 
             this.Text = $"Risk: {tutorialLevel} Tutorial";
-            pnlNumberSelection.Visible = false;
             SetUpQuestion();
             displayQ();
         }
@@ -52,20 +51,6 @@ namespace RiskGame
         private void displayQ()
         {
             EnableAllAssets();
-            if (qNum <= 1 && tutorialLevel == "Intermediate")
-            {
-                pnlNumberSelection.Visible = true;
-                //default location: 381, 3
-                //move to: 703, 6
-                bool correctLocation = false;
-                do
-                {
-                    pbNumberSelection.Left -= 322;
-                    if (pbNumberSelection.Location == new Point(703, 6))
-                        correctLocation = true;
-
-                } while (!correctLocation);
-            }
             prbTime.Visible = false;
             lbQNum.Text = $"Question {qNum + 1}";
             lbScore.Text = $"Score: {frmLogin.human.tutorialScore}";
@@ -356,6 +341,11 @@ namespace RiskGame
         }
 
         private void pbTutorialAnimatedScreen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlNumberSelection_Paint(object sender, PaintEventArgs e)
         {
 
         }
