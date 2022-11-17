@@ -120,16 +120,6 @@
   <metadata name="tmrTime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>19, 14</value>
   </metadata>
-  <data name="lbNumberSelectionHelp.Text" xml:space="preserve">
-    <value>This is a number selection panel! 
-In the game, it's used to select the number of 
-troops to deploy or relocate to a given region.
-
-Usually you can use the left and right arrows,
-and the enter button to select a number, but
-they are disabled here to demonstrate the
-mouse wheel's use.</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>78</value>
   </metadata>
