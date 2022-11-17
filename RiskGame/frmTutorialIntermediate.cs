@@ -201,7 +201,24 @@ namespace RiskGame
 
         private void pnlNumberSelection_Scroll(object sender, ScrollEventArgs e)
         {
-            if(Math.Abs(e.Delta) == e.Delta)
+            //Get mouse scroll information
+            
+
+            if (Math.Abs(e.NewValue) == e.NewValue)
+            {
+                //Positive
+                int currentNum = Convert.ToInt32(lbNumberSelectDisplay.Text);
+                lbNumberSelectDisplay.Text = Convert.ToString(currentNum++);
+            }
+            else
+            {
+                //Negative
+            }
+        }
+
+        private void pnlNumberSelection_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (Math.Abs(e.Delta) == e.Delta)
             {
                 //Positive
                 int currentNum = Convert.ToInt32(lbNumberSelectDisplay.Text);
