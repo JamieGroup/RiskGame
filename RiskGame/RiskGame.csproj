@@ -65,6 +65,12 @@
     <Compile Include="frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSetupGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetupGame.Designer.cs">
+      <DependentUpon>frmSetupGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetupGame.resx">
+      <DependentUpon>frmSetupGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
@@ -188,6 +197,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\numberSelection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartMultiPlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartSinglePlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartMultiPlayerDisabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartSinglePlayerDisabled.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

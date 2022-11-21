@@ -127,6 +127,9 @@
   <data name="book_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\book_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LogoutButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogoutButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -156,6 +159,18 @@
   </data>
   <data name="riskLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\riskLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartMultiPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartMultiPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartMultiPlayerDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartMultiPlayerDisabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartSinglePlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartSinglePlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartSinglePlayerDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartSinglePlayerDisabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sword" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

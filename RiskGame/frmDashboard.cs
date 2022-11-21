@@ -136,6 +136,11 @@ namespace RiskGame
                 lbTutorialHard.Visible = true;
                 lbSkipTutorial.Visible = true;
             }
+            else
+            {
+                //Open setup game screen (keep Dashboard open)
+                new frmSetupGame().Show();
+            }
         }
 
         private void lbSkipTutorial_Click(object sender, EventArgs e)
