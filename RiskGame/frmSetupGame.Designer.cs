@@ -44,32 +44,32 @@ namespace RiskGame
             this.btnAI2Colour = new System.Windows.Forms.Button();
             this.btnPlayerColour = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlSecretMode = new System.Windows.Forms.Panel();
-            this.lbSecretMode = new System.Windows.Forms.Label();
-            this.lbSecretModeDescription = new System.Windows.Forms.Label();
-            this.pnlHuman2Controls = new System.Windows.Forms.Panel();
-            this.pbSecretMode = new System.Windows.Forms.PictureBox();
             this.pnlDice = new System.Windows.Forms.Panel();
+            this.pnlSecretMode = new System.Windows.Forms.Panel();
+            this.lbSecretModeDescription = new System.Windows.Forms.Label();
+            this.lbSecretMode = new System.Windows.Forms.Label();
+            this.pbSecretMode = new System.Windows.Forms.PictureBox();
+            this.pnlHuman2Controls = new System.Windows.Forms.Panel();
+            this.btnH2Colour = new System.Windows.Forms.Button();
+            this.lbH2Colour = new System.Windows.Forms.Label();
+            this.txtH2 = new System.Windows.Forms.TextBox();
+            this.lbH2Name = new System.Windows.Forms.Label();
+            this.lbH2Title = new System.Windows.Forms.Label();
             this.pbStartMultiplayer = new System.Windows.Forms.PictureBox();
             this.pbStartSingleplayer = new System.Windows.Forms.PictureBox();
             this.pnlHuman3Controls = new System.Windows.Forms.Panel();
-            this.lbH2Title = new System.Windows.Forms.Label();
-            this.lbH3Title = new System.Windows.Forms.Label();
-            this.lbH2Name = new System.Windows.Forms.Label();
-            this.lbH3Name = new System.Windows.Forms.Label();
-            this.txtH2 = new System.Windows.Forms.TextBox();
-            this.txtH3 = new System.Windows.Forms.TextBox();
-            this.lbH2Colour = new System.Windows.Forms.Label();
-            this.lbH3Colour = new System.Windows.Forms.Label();
-            this.btnH2Colour = new System.Windows.Forms.Button();
             this.btnH3Colour = new System.Windows.Forms.Button();
+            this.lbH3Colour = new System.Windows.Forms.Label();
+            this.txtH3 = new System.Windows.Forms.TextBox();
+            this.lbH3Name = new System.Windows.Forms.Label();
+            this.lbH3Title = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trbrAISelector)).BeginInit();
             this.pnlAI1Settings.SuspendLayout();
             this.pnlAI2Settings.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlSecretMode.SuspendLayout();
-            this.pnlHuman2Controls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSecretMode)).BeginInit();
+            this.pnlHuman2Controls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStartMultiplayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStartSingleplayer)).BeginInit();
             this.pnlHuman3Controls.SuspendLayout();
@@ -119,7 +119,7 @@ namespace RiskGame
             // 
             this.lbPlayerSelectorDescription.AutoSize = true;
             this.lbPlayerSelectorDescription.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPlayerSelectorDescription.Location = new System.Drawing.Point(3, 16);
+            this.lbPlayerSelectorDescription.Location = new System.Drawing.Point(8, 16);
             this.lbPlayerSelectorDescription.Name = "lbPlayerSelectorDescription";
             this.lbPlayerSelectorDescription.Size = new System.Drawing.Size(409, 30);
             this.lbPlayerSelectorDescription.TabIndex = 4;
@@ -221,6 +221,16 @@ namespace RiskGame
             this.panel1.Size = new System.Drawing.Size(525, 114);
             this.panel1.TabIndex = 17;
             // 
+            // pnlDice
+            // 
+            this.pnlDice.BackgroundImage = global::RiskGame.Properties.Resources.dice;
+            this.pnlDice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlDice.Location = new System.Drawing.Point(418, 3);
+            this.pnlDice.Name = "pnlDice";
+            this.pnlDice.Size = new System.Drawing.Size(86, 52);
+            this.pnlDice.TabIndex = 18;
+            this.pnlDice.Click += new System.EventHandler(this.pbDice_Click);
+            // 
             // pnlSecretMode
             // 
             this.pnlSecretMode.Controls.Add(this.lbSecretModeDescription);
@@ -230,16 +240,6 @@ namespace RiskGame
             this.pnlSecretMode.Name = "pnlSecretMode";
             this.pnlSecretMode.Size = new System.Drawing.Size(272, 92);
             this.pnlSecretMode.TabIndex = 18;
-            // 
-            // lbSecretMode
-            // 
-            this.lbSecretMode.AutoSize = true;
-            this.lbSecretMode.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSecretMode.Location = new System.Drawing.Point(96, 4);
-            this.lbSecretMode.Name = "lbSecretMode";
-            this.lbSecretMode.Size = new System.Drawing.Size(166, 37);
-            this.lbSecretMode.TabIndex = 4;
-            this.lbSecretMode.Text = "Secret Mode";
             // 
             // lbSecretModeDescription
             // 
@@ -251,17 +251,15 @@ namespace RiskGame
             this.lbSecretModeDescription.TabIndex = 19;
             this.lbSecretModeDescription.Text = "Shows you as offline \r\nto other Risk players.";
             // 
-            // pnlHuman2Controls
+            // lbSecretMode
             // 
-            this.pnlHuman2Controls.Controls.Add(this.btnH2Colour);
-            this.pnlHuman2Controls.Controls.Add(this.lbH2Colour);
-            this.pnlHuman2Controls.Controls.Add(this.txtH2);
-            this.pnlHuman2Controls.Controls.Add(this.lbH2Name);
-            this.pnlHuman2Controls.Controls.Add(this.lbH2Title);
-            this.pnlHuman2Controls.Location = new System.Drawing.Point(19, 251);
-            this.pnlHuman2Controls.Name = "pnlHuman2Controls";
-            this.pnlHuman2Controls.Size = new System.Drawing.Size(290, 134);
-            this.pnlHuman2Controls.TabIndex = 19;
+            this.lbSecretMode.AutoSize = true;
+            this.lbSecretMode.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSecretMode.Location = new System.Drawing.Point(96, 4);
+            this.lbSecretMode.Name = "lbSecretMode";
+            this.lbSecretMode.Size = new System.Drawing.Size(166, 37);
+            this.lbSecretMode.TabIndex = 4;
+            this.lbSecretMode.Text = "Secret Mode";
             // 
             // pbSecretMode
             // 
@@ -274,15 +272,64 @@ namespace RiskGame
             this.pbSecretMode.TabStop = false;
             this.pbSecretMode.Click += new System.EventHandler(this.pbSecretMode_Click);
             // 
-            // pnlDice
+            // pnlHuman2Controls
             // 
-            this.pnlDice.BackgroundImage = global::RiskGame.Properties.Resources.dice;
-            this.pnlDice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlDice.Location = new System.Drawing.Point(418, 3);
-            this.pnlDice.Name = "pnlDice";
-            this.pnlDice.Size = new System.Drawing.Size(86, 52);
-            this.pnlDice.TabIndex = 18;
-            this.pnlDice.Click += new System.EventHandler(this.pbDice_Click);
+            this.pnlHuman2Controls.Controls.Add(this.btnH2Colour);
+            this.pnlHuman2Controls.Controls.Add(this.lbH2Colour);
+            this.pnlHuman2Controls.Controls.Add(this.txtH2);
+            this.pnlHuman2Controls.Controls.Add(this.lbH2Name);
+            this.pnlHuman2Controls.Controls.Add(this.lbH2Title);
+            this.pnlHuman2Controls.Location = new System.Drawing.Point(19, 211);
+            this.pnlHuman2Controls.Name = "pnlHuman2Controls";
+            this.pnlHuman2Controls.Size = new System.Drawing.Size(290, 134);
+            this.pnlHuman2Controls.TabIndex = 19;
+            // 
+            // btnH2Colour
+            // 
+            this.btnH2Colour.Location = new System.Drawing.Point(85, 83);
+            this.btnH2Colour.Name = "btnH2Colour";
+            this.btnH2Colour.Size = new System.Drawing.Size(202, 34);
+            this.btnH2Colour.TabIndex = 4;
+            this.btnH2Colour.UseVisualStyleBackColor = true;
+            // 
+            // lbH2Colour
+            // 
+            this.lbH2Colour.AutoSize = true;
+            this.lbH2Colour.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbH2Colour.Location = new System.Drawing.Point(6, 84);
+            this.lbH2Colour.Name = "lbH2Colour";
+            this.lbH2Colour.Size = new System.Drawing.Size(75, 25);
+            this.lbH2Colour.TabIndex = 3;
+            this.lbH2Colour.Text = "Colour:";
+            // 
+            // txtH2
+            // 
+            this.txtH2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtH2.Location = new System.Drawing.Point(85, 43);
+            this.txtH2.Name = "txtH2";
+            this.txtH2.Size = new System.Drawing.Size(202, 33);
+            this.txtH2.TabIndex = 2;
+            // 
+            // lbH2Name
+            // 
+            this.lbH2Name.AutoSize = true;
+            this.lbH2Name.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbH2Name.Location = new System.Drawing.Point(6, 46);
+            this.lbH2Name.Name = "lbH2Name";
+            this.lbH2Name.Size = new System.Drawing.Size(69, 25);
+            this.lbH2Name.TabIndex = 1;
+            this.lbH2Name.Text = "Name:";
+            // 
+            // lbH2Title
+            // 
+            this.lbH2Title.AutoSize = true;
+            this.lbH2Title.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.lbH2Title.Location = new System.Drawing.Point(5, 10);
+            this.lbH2Title.Name = "lbH2Title";
+            this.lbH2Title.Size = new System.Drawing.Size(88, 25);
+            this.lbH2Title.TabIndex = 0;
+            this.lbH2Title.Text = "Human 2";
+            this.lbH2Title.Click += new System.EventHandler(this.lbH2Title_Click);
             // 
             // pbStartMultiplayer
             // 
@@ -313,78 +360,18 @@ namespace RiskGame
             this.pnlHuman3Controls.Controls.Add(this.txtH3);
             this.pnlHuman3Controls.Controls.Add(this.lbH3Name);
             this.pnlHuman3Controls.Controls.Add(this.lbH3Title);
-            this.pnlHuman3Controls.Location = new System.Drawing.Point(496, 251);
+            this.pnlHuman3Controls.Location = new System.Drawing.Point(483, 211);
             this.pnlHuman3Controls.Name = "pnlHuman3Controls";
             this.pnlHuman3Controls.Size = new System.Drawing.Size(290, 134);
             this.pnlHuman3Controls.TabIndex = 20;
             // 
-            // lbH2Title
+            // btnH3Colour
             // 
-            this.lbH2Title.AutoSize = true;
-            this.lbH2Title.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.lbH2Title.Location = new System.Drawing.Point(5, 10);
-            this.lbH2Title.Name = "lbH2Title";
-            this.lbH2Title.Size = new System.Drawing.Size(88, 25);
-            this.lbH2Title.TabIndex = 0;
-            this.lbH2Title.Text = "Human 2";
-            this.lbH2Title.Click += new System.EventHandler(this.lbH2Title_Click);
-            // 
-            // lbH3Title
-            // 
-            this.lbH3Title.AutoSize = true;
-            this.lbH3Title.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.lbH3Title.Location = new System.Drawing.Point(5, 10);
-            this.lbH3Title.Name = "lbH3Title";
-            this.lbH3Title.Size = new System.Drawing.Size(88, 25);
-            this.lbH3Title.TabIndex = 1;
-            this.lbH3Title.Text = "Human 3";
-            this.lbH3Title.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // lbH2Name
-            // 
-            this.lbH2Name.AutoSize = true;
-            this.lbH2Name.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbH2Name.Location = new System.Drawing.Point(6, 46);
-            this.lbH2Name.Name = "lbH2Name";
-            this.lbH2Name.Size = new System.Drawing.Size(69, 25);
-            this.lbH2Name.TabIndex = 1;
-            this.lbH2Name.Text = "Name:";
-            // 
-            // lbH3Name
-            // 
-            this.lbH3Name.AutoSize = true;
-            this.lbH3Name.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbH3Name.Location = new System.Drawing.Point(6, 46);
-            this.lbH3Name.Name = "lbH3Name";
-            this.lbH3Name.Size = new System.Drawing.Size(69, 25);
-            this.lbH3Name.TabIndex = 2;
-            this.lbH3Name.Text = "Name:";
-            // 
-            // txtH2
-            // 
-            this.txtH2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtH2.Location = new System.Drawing.Point(85, 43);
-            this.txtH2.Name = "txtH2";
-            this.txtH2.Size = new System.Drawing.Size(202, 33);
-            this.txtH2.TabIndex = 2;
-            // 
-            // txtH3
-            // 
-            this.txtH3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtH3.Location = new System.Drawing.Point(81, 38);
-            this.txtH3.Name = "txtH3";
-            this.txtH3.Size = new System.Drawing.Size(202, 33);
-            this.txtH3.TabIndex = 3;
-            // 
-            // lbH2Colour
-            // 
-            this.lbH2Colour.AutoSize = true;
-            this.lbH2Colour.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbH2Colour.Location = new System.Drawing.Point(6, 84);
-            this.lbH2Colour.Name = "lbH2Colour";
-            this.lbH2Colour.Size = new System.Drawing.Size(75, 25);
-            this.lbH2Colour.TabIndex = 3;
-            this.lbH2Colour.Text = "Colour:";
+            this.btnH3Colour.Location = new System.Drawing.Point(81, 82);
+            this.btnH3Colour.Name = "btnH3Colour";
+            this.btnH3Colour.Size = new System.Drawing.Size(202, 34);
+            this.btnH3Colour.TabIndex = 5;
+            this.btnH3Colour.UseVisualStyleBackColor = true;
             // 
             // lbH3Colour
             // 
@@ -396,21 +383,34 @@ namespace RiskGame
             this.lbH3Colour.TabIndex = 4;
             this.lbH3Colour.Text = "Colour:";
             // 
-            // btnH2Colour
+            // txtH3
             // 
-            this.btnH2Colour.Location = new System.Drawing.Point(85, 83);
-            this.btnH2Colour.Name = "btnH2Colour";
-            this.btnH2Colour.Size = new System.Drawing.Size(202, 34);
-            this.btnH2Colour.TabIndex = 4;
-            this.btnH2Colour.UseVisualStyleBackColor = true;
+            this.txtH3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtH3.Location = new System.Drawing.Point(81, 38);
+            this.txtH3.Name = "txtH3";
+            this.txtH3.Size = new System.Drawing.Size(202, 33);
+            this.txtH3.TabIndex = 3;
             // 
-            // btnH3Colour
+            // lbH3Name
             // 
-            this.btnH3Colour.Location = new System.Drawing.Point(81, 82);
-            this.btnH3Colour.Name = "btnH3Colour";
-            this.btnH3Colour.Size = new System.Drawing.Size(202, 34);
-            this.btnH3Colour.TabIndex = 5;
-            this.btnH3Colour.UseVisualStyleBackColor = true;
+            this.lbH3Name.AutoSize = true;
+            this.lbH3Name.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbH3Name.Location = new System.Drawing.Point(6, 46);
+            this.lbH3Name.Name = "lbH3Name";
+            this.lbH3Name.Size = new System.Drawing.Size(69, 25);
+            this.lbH3Name.TabIndex = 2;
+            this.lbH3Name.Text = "Name:";
+            // 
+            // lbH3Title
+            // 
+            this.lbH3Title.AutoSize = true;
+            this.lbH3Title.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.lbH3Title.Location = new System.Drawing.Point(5, 10);
+            this.lbH3Title.Name = "lbH3Title";
+            this.lbH3Title.Size = new System.Drawing.Size(88, 25);
+            this.lbH3Title.TabIndex = 1;
+            this.lbH3Title.Text = "Human 3";
+            this.lbH3Title.Click += new System.EventHandler(this.label2_Click);
             // 
             // frmSetupGame
             // 
@@ -440,9 +440,9 @@ namespace RiskGame
             this.panel1.PerformLayout();
             this.pnlSecretMode.ResumeLayout(false);
             this.pnlSecretMode.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSecretMode)).EndInit();
             this.pnlHuman2Controls.ResumeLayout(false);
             this.pnlHuman2Controls.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSecretMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStartMultiplayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStartSingleplayer)).EndInit();
             this.pnlHuman3Controls.ResumeLayout(false);

@@ -21,14 +21,21 @@ namespace RiskGame
 
         bool singleplayerSelected = false;
         bool multiplayerSelected = frmLogin.human.multiplayerSelected;
+        string other1Name;
+        string other2Name;
+        int AICount = 0;
         public frmSetupGame()
         {
             CenterToScreen();
             InitializeComponent();
-            pnlAI1Settings.Visible = true;
-            pnlAI2Settings.Visible = false;
+            multiplayerSelected = frmLogin.human.multiplayerSelected;
             btnPlayerColour.BackColor = Color.FromName(frmLogin.human.accentColour);
             pbSecretMode.Image = Properties.Resources.Tutorial_Checkbox;
+            multiCheck();
+        }
+
+        private void multiCheck()
+        {
             if (!multiplayerSelected)
             {
                 lbPlayerSelectorDescription.Text = $"How many AIs would you like to play with?";
@@ -41,12 +48,11 @@ namespace RiskGame
             else
             {
                 lbPlayerSelectorDescription.Text = $"How many others would you like to play with?";
-                rollOthers();
 
-                txtH2.Text = AI1Name;
-                txtH3.Text = AI2Name;
-                btnH2Colour.BackColor = btnAI1Colour.BackColor;
-                btnH3Colour.BackColor = btnAI2Colour.BackColor;
+                lbPlayerColour.Visible = false;
+                btnPlayerColour.Visible = false;
+                pnlSecretMode.Visible = false;
+                panel1.Location = new Point(12, 77);
 
                 pbStartMultiplayer.Image = Properties.Resources.StartGameButton;
                 pnlAI1Settings.Visible = false;
@@ -57,9 +63,11 @@ namespace RiskGame
                 lbSelect1.Visible = false;
                 lbSelect0.Text = "1";
                 lbSelect2.Text = "2";
-                pbStartSingleplayer.Image = null;
+                //pbStartSingleplayer.Image = null;
                 pnlDice.Visible = false;
-            }  
+                btnH2Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
+                btnH3Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
+            }
         }
 
         private void rollAIs()
@@ -89,17 +97,8 @@ namespace RiskGame
 
         private void rollOthers()
         {
-            //Randomly select 2 first names
-            string[] names = File.ReadAllLines("names.txt");
-            var ids = Enumerable.Range(1, 1100).ToArray();
-            //Repeat random selection until both the others names are different from each other and from the player's username.
-            do
-            {
-                Shuffle(ids);
-                txtH2.Text = names[ids[0]];
-                txtH3.Text = names[ids[1]];
-            } while (txtH2.Text == txtH3.Text || txtH2.Text == frmLogin.human.username || txtH3.Text == frmLogin.human.username);
-
+            //Randomly select 2 colours
+            
             //Repeat random colour selection for the AI until they are sufficiently different from each other so the user can tell them apart.
             //Also change them if they are too close to the user's colour.
             do
@@ -108,14 +107,15 @@ namespace RiskGame
                 btnH3Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
             } while (ColorsAreClose(btnAI1Colour.BackColor, btnAI2Colour.BackColor, 300) || ColorsAreClose(btnAI1Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 100) || ColorsAreClose(btnAI2Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 100));
 
-            lbAI1Colour.Text = $"[AI1] {AI1Name}'s Colour";
-            lbAI2Colour.Text = $"[AI2] {AI2Name}'s Colour";
+            txtH2.Text = other1Name;
+            txtH3.Text = other2Name;
         }
 
         private void trbrAISelector_Scroll(object sender, EventArgs e)
         {
             if(!multiplayerSelected)
             {
+                rollAIs();
                 if (trbrAISelector.Value == 0)
                 {
                     pnlAI1Settings.Visible = false;
@@ -200,30 +200,68 @@ namespace RiskGame
             }
         }
 
+        private void gameStart(int AIs, int Others)
+        {
+            if (AIs == 1)
+                Plys AI1 = new Plys();
+        }
+
         private void pbStartSingleplayer_Click(object sender, EventArgs e)
         {
             if (trbrAISelector.Value == 0)
             {
                 MessageBox.Show("You must have at least 1 AI enabled to play Singleplayer!", "AI required!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (trbrAISelector.Value == 1)
+            {
+                //Start game with 1 AI and no other real humans.
+                gameStart(1, 0);
+            }
             else
             {
-                //Start game with either 1 or 2 AIs and no other real humans.
+                //Start game with 2 AIs and no other real humans.
+                gameStart(2, 0);
             }
         }
 
         private void pbStartMultiplayer_Click(object sender, EventArgs e)
         {
-            if (trbrAISelector.Value == 2)
+            if(!multiplayerSelected)
             {
-                MessageBox.Show("You must have at most 2 AIs enabled to play Multiplayer!", "Too many players!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (trbrAISelector.Value == 2)
+                {
+                    MessageBox.Show("You must have at most 2 AIs enabled to play Multiplayer!", "Too many players!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    AICount = trbrAISelector.Value;
+                    //Start game with either 2 or 1 real humans and no AIs or 1 real human and 1 AI.
+                    frmLogin.human.multiplayerSelected = true;
+                    multiplayerSelected = true;
+                    //Hide();
+                    //new frmSetupGame().Show();
+                    multiCheck();
+                    this.Controls.Clear();
+                    multiCheck();
+                    this.InitializeComponent();
+                    multiCheck();
+                }
+            }
+
+            if (multiplayerSelected && (AICount+trbrAISelector.Value)<=3)
+            {
+                if (trbrAISelector.Value == 0)
+                {
+                    gameStart(1, 1);
+                }
+                else if (trbrAISelector.Value == 1)
+                {
+                    gameStart(0, 2);
+                }
             }
             else
             {
-                //Start game with either 2 or 1 real humans and no AIs or 1 real human and 1 AI.
-                frmLogin.human.multiplayerSelected = true;
-                Hide();
-                new frmSetupGame().Show();
+                MessageBox.Show("You have selected 2 AIs and 2 others! \r\nThis game only supports 3 total players.\r\nPlease adjust your number of others, or AIs\r\nby clicking the back button.", "Too many players!");
             }
         }
 
