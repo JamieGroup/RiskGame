@@ -31,6 +31,7 @@ namespace RiskGame
         
         public int tutorialLevel { get; set; }
         public int tutorialScore { get; set; }
+        public bool multiplayerSelected { get; set; }
 
     //Constructors
         public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, string _accentColour, List<string>_friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)
