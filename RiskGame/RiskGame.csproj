@@ -213,5 +213,8 @@
   <ItemGroup>
     <None Include="Resources\StartSinglePlayerDisabled.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartGameButton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
