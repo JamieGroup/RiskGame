@@ -200,10 +200,16 @@ namespace RiskGame
             }
         }
 
-        private void gameStart(int AIs, int Others)
+        private void gameStart(int AIs, int Others, Color Colour, string Username)
         {
-            if (AIs == 1)
-                Plys AI1 = new Plys();
+            //if (AIs == 1)
+                //Plys AI1 = new Plys();
+        }
+        private void gameStart(int AIs, int Others, Color Colour1, string Username1, Color Colour2, string Username2)
+        {
+            //if (AIs == 2)
+            //Plys AI1 = new Plys();
+            //Plys AI2 = new Plys();
         }
 
         private void pbStartSingleplayer_Click(object sender, EventArgs e)
@@ -215,12 +221,12 @@ namespace RiskGame
             else if (trbrAISelector.Value == 1)
             {
                 //Start game with 1 AI and no other real humans.
-                gameStart(1, 0);
+                gameStart(1, 0, btnAI1Colour.BackColor, AI1Name);
             }
             else
             {
                 //Start game with 2 AIs and no other real humans.
-                gameStart(2, 0);
+                gameStart(2, 0, btnAI1Colour.BackColor, AI1Name, btnAI2Colour.BackColor, AI2Name);
             }
         }
 
@@ -230,7 +236,7 @@ namespace RiskGame
             {
                 if (trbrAISelector.Value == 2)
                 {
-                    MessageBox.Show("You must have at most 2 AIs enabled to play Multiplayer!", "Too many players!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("You must have at most 1 AI enabled to play Multiplayer!", "Too many players!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -252,16 +258,16 @@ namespace RiskGame
             {
                 if (trbrAISelector.Value == 0)
                 {
-                    gameStart(1, 1);
+                    gameStart(1, 1, btnAI1Colour.BackColor, AI1Name, btnH2Colour.BackColor, txtH2.Text);
                 }
                 else if (trbrAISelector.Value == 1)
                 {
-                    gameStart(0, 2);
+                    gameStart(0, 2, btnH2Colour.BackColor, txtH2.Text, btnH3Colour.BackColor, txtH3.Text);
                 }
             }
             else
             {
-                MessageBox.Show("You have selected 2 AIs and 2 others! \r\nThis game only supports 3 total players.\r\nPlease adjust your number of others, or AIs\r\nby clicking the back button.", "Too many players!");
+                //MessageBox.Show("You have selected 2 AIs and 2 others! \r\nThis game only supports 3 total players.\r\nPlease adjust your number of others, or AIs\r\nby clicking the back button.", "Too many players!");
             }
         }
 
