@@ -95,6 +95,7 @@
     <Compile Include="frmTutorialIntermediate.Designer.cs">
       <DependentUpon>frmTutorialIntermediate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="Plys.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

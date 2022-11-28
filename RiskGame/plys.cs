@@ -26,22 +26,17 @@ namespace RiskGame
 
         public bool firstLaunch { get; set; }
 
-        
-        
-        //3 Relative to local game - never saves outside of the program.
-        public int numberRegions { get; set; }
-        public int numberTradingCards { get; set; }
-        public int numberTroops { get; set; }
-        public int AICount { get; set; }
-        public int OthersCount { get; set; }
-
 
         public int tutorialLevel { get; set; }
         public int tutorialScore { get; set; }
         public bool multiplayerSelected { get; set; }
         public bool realPerson { get; set; }
 
-    //Constructors
+        public int numberRegions { get; set; }
+        public int numberTradingCards { get; set; }
+        public int numberTroops { get; set; }
+
+        //Constructors
         public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, string _accentColour, List<string>_friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)
         {
             username = _username;
@@ -76,8 +71,6 @@ namespace RiskGame
             realPerson = _realPerson;
             username = _username;
             accentColour = _colour;
-            AICount = _AICount;
-            OthersCount = _OthersCount;
         }
         public void aquireRegion()
         {
