@@ -127,6 +127,7 @@ namespace RiskGame
             // 
             // trbrAISelector
             // 
+            this.trbrAISelector.LargeChange = 1;
             this.trbrAISelector.Location = new System.Drawing.Point(8, 52);
             this.trbrAISelector.Maximum = 2;
             this.trbrAISelector.Name = "trbrAISelector";
@@ -134,6 +135,7 @@ namespace RiskGame
             this.trbrAISelector.TabIndex = 5;
             this.trbrAISelector.Value = 1;
             this.trbrAISelector.Scroll += new System.EventHandler(this.trbrAISelector_Scroll);
+            this.trbrAISelector.ValueChanged += new System.EventHandler(this.trbrAISelector_ValueChanged);
             // 
             // lbSelect0
             // 

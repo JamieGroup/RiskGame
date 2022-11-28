@@ -19,18 +19,22 @@ namespace RiskGame
 
         private void frmGameScreen_Load(object sender, EventArgs e)
         {
-            int AICount = frmLogin.human.AICount;
-            int OthersCount = frmLogin.human.OthersCount;
+            int AICount = frmSetupGame.Game.AICount;
+            int OthersCount = frmSetupGame.Game.OthersCount;
+            int playerCount = AICount + OthersCount;
 
-            if(OthersCount>0)
-                label5.Text = frmSetupGame.Other1.username + frmSetupGame.Other1.accentColour;
-            if(OthersCount == 2)
-                label6.Text = frmSetupGame.Other2.username + frmSetupGame.Other2.accentColour;
+            label4.Text = frmLogin.human.username + frmLogin.human.accentColour;
 
-            if(OthersCount == 0 && AICount > 0)
-                label5.Text = frmSetupGame.AI1.username + frmSetupGame.AI1.accentColour;
-            if(OthersCount == 0 && AICount == 2)
-                label6.Text = frmSetupGame.AI2.username + frmSetupGame.AI2.accentColour;
+            label5.Text = frmSetupGame.Player2.username + frmSetupGame.Player2.accentColour;
+            
+            if(playerCount == 2)
+                label6.Text = frmSetupGame.Player3.username + frmSetupGame.Player3.accentColour;
+
+        }
+
+        private void lbGamePaused_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -25,10 +25,9 @@ namespace RiskGame
         string other2Name;
         int AICount = 0;
 
-        public static Plys AI1 = new Plys();
-        public static Plys AI2 = new Plys();
-        public static Plys Other1 = new Plys();
-        public static Plys Other2 = new Plys();
+        public static Plys Player2 = new Plys();
+        public static Plys Player3 = new Plys();
+        public static Game Game = new Game();
         public frmSetupGame()
         {
             CenterToScreen();
@@ -118,44 +117,7 @@ namespace RiskGame
 
         private void trbrAISelector_Scroll(object sender, EventArgs e)
         {
-            if(!multiplayerSelected)
-            {
-                rollAIs();
-                if (trbrAISelector.Value == 0)
-                {
-                    pnlAI1Settings.Visible = false;
-                    pnlAI2Settings.Visible = false;
-                    pbStartSingleplayer.Image = Properties.Resources.StartSinglePlayerDisabled;
-                    pbStartMultiplayer.Image = Properties.Resources.StartMultiPlayer;
-                }
-                else if (trbrAISelector.Value == 1)
-                {
-                    pnlAI1Settings.Visible = true;
-                    pnlAI2Settings.Visible = false;
-                    pbStartSingleplayer.Image = Properties.Resources.StartSinglePlayer;
-                    pbStartMultiplayer.Image = Properties.Resources.StartMultiPlayer;
-                }
-                else
-                {
-                    pnlAI1Settings.Visible = true;
-                    pnlAI2Settings.Visible = true;
-                    pbStartSingleplayer.Image = Properties.Resources.StartSinglePlayer;
-                    pbStartMultiplayer.Image = Properties.Resources.StartMultiPlayerDisabled;
-                }
-            }
-            else
-            {
-                if (trbrAISelector.Value == 0)
-                {
-                    pnlHuman2Controls.Visible = true;
-                    pnlHuman3Controls.Visible = false;
-                }
-                else
-                {
-                    pnlHuman2Controls.Visible = true;
-                    pnlHuman3Controls.Visible = true;
-                }
-            }
+            
         }
         public bool ColorsAreClose(Color a, Color b, int threshhold)
         {
@@ -207,37 +169,38 @@ namespace RiskGame
 
         private void gameStart(int AIs, int Others, Color Colour, string Username)
         {
-            frmLogin.human.AICount = AIs;
-            frmLogin.human.OthersCount = Others;
+            frmSetupGame.Game.AICount = AIs;
+            frmSetupGame.Game.OthersCount = Others;
             string c1 = Convert.ToString(Colour);
             if (AIs == 1)
             {
-                AI1 = new Plys(false, Username, c1, AIs, Others);
+                Player2 = new Plys(false, Username, c1, AIs, Others);
             }
         }
         private void gameStart(int AIs, int Others, Color Colour1, string Username1, Color Colour2, string Username2)
         {
             string c1 = Convert.ToString(Colour1);
             string c2 = Convert.ToString(Colour2);
+            frmSetupGame.Game.AICount = AIs;
+            frmSetupGame.Game.OthersCount = Others;
             if (AIs > 0)
             {
-                AI1 = new Plys(false, Username1, c1, AIs, Others);
+                Player2 = new Plys(false, Username1, c1, AIs, Others);
             }
             if (AIs == 2)
             {
-                AI2 = new Plys(false, Username2, c2, AIs, Others);
+                Player3 = new Plys(false, Username2, c2, AIs, Others);
             }
 
-            if(AIs == 0 && Others > 0)
+            if (AIs == 0 && Others > 0)
             {
-                Other1 = new Plys(true, Username1, c1, AIs, Others);
+                Player2 = new Plys(true, Username1, c1, AIs, Others);
             }
-            if (AIs == 0 && Others == 2)
+            else
             {
-                Other2 = new Plys(true, Username2, c2, AIs, Others);
+                Player3 = new Plys(true, Username2, c2, AIs, Others);
             }
         }
-
         private void pbStartSingleplayer_Click(object sender, EventArgs e)
         {
             if (trbrAISelector.Value == 0)
@@ -328,6 +291,48 @@ namespace RiskGame
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void trbrAISelector_ValueChanged(object sender, EventArgs e)
+        {
+            if (!multiplayerSelected)
+            {
+                rollAIs();
+                if (trbrAISelector.Value == 0)
+                {
+                    pnlAI1Settings.Visible = false;
+                    pnlAI2Settings.Visible = false;
+                    pbStartSingleplayer.Image = Properties.Resources.StartSinglePlayerDisabled;
+                    pbStartMultiplayer.Image = Properties.Resources.StartMultiPlayer;
+                }
+                else if (trbrAISelector.Value == 1)
+                {
+                    pnlAI1Settings.Visible = true;
+                    pnlAI2Settings.Visible = false;
+                    pbStartSingleplayer.Image = Properties.Resources.StartSinglePlayer;
+                    pbStartMultiplayer.Image = Properties.Resources.StartMultiPlayer;
+                }
+                else
+                {
+                    pnlAI1Settings.Visible = true;
+                    pnlAI2Settings.Visible = true;
+                    pbStartSingleplayer.Image = Properties.Resources.StartSinglePlayer;
+                    pbStartMultiplayer.Image = Properties.Resources.StartMultiPlayerDisabled;
+                }
+            }
+            else
+            {
+                if (trbrAISelector.Value == 0)
+                {
+                    pnlHuman2Controls.Visible = true;
+                    pnlHuman3Controls.Visible = false;
+                }
+                else
+                {
+                    pnlHuman2Controls.Visible = true;
+                    pnlHuman3Controls.Visible = true;
+                }
+            }
         }
     }
 }
