@@ -130,6 +130,12 @@
   <data name="dice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="InviteButtonDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InviteButtonDefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InviteButtonHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InviteButtonHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LogoutButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogoutButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,6 +151,18 @@
   <data name="numberSelection" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\numberSelection.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="OverviewButtonDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OverviewButtonDefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverviewButtonHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OverviewButtonHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayButtonDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayButtonDefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayButtonHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayButtonHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PlayGameAnimation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlayGameAnimation.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,8 +175,20 @@
   <data name="PlayTutorialAnimation_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlayTutorialAnimation_Hover.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="QuitButtonDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QuitButtonDefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="QuitButtonHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QuitButtonHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="riskLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\riskLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SettingsButtonDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SettingsButtonDefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SettingsButtonHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SettingsButtonHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StartGameButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StartGameButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

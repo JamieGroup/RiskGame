@@ -226,5 +226,35 @@
   <ItemGroup>
     <None Include="Resources\StartGameButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InviteButtonDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InviteButtonHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OverviewButtonDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OverviewButtonHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayButtonDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayButtonHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QuitButtonDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QuitButtonHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingsButtonDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingsButtonHover.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
