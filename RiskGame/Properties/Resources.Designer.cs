@@ -103,6 +103,26 @@ namespace RiskGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap InviteButtonDefault {
+            get {
+                object obj = ResourceManager.GetObject("InviteButtonDefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap InviteButtonHover {
+            get {
+                object obj = ResourceManager.GetObject("InviteButtonHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoutButton {
             get {
                 object obj = ResourceManager.GetObject("LogoutButton", resourceCulture);
@@ -153,6 +173,46 @@ namespace RiskGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OverviewButtonDefault {
+            get {
+                object obj = ResourceManager.GetObject("OverviewButtonDefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverviewButtonHover {
+            get {
+                object obj = ResourceManager.GetObject("OverviewButtonHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlayButtonDefault {
+            get {
+                object obj = ResourceManager.GetObject("PlayButtonDefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlayButtonHover {
+            get {
+                object obj = ResourceManager.GetObject("PlayButtonHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PlayGameAnimation {
             get {
                 object obj = ResourceManager.GetObject("PlayGameAnimation", resourceCulture);
@@ -193,9 +253,49 @@ namespace RiskGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap QuitButtonDefault {
+            get {
+                object obj = ResourceManager.GetObject("QuitButtonDefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuitButtonHover {
+            get {
+                object obj = ResourceManager.GetObject("QuitButtonHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap riskLogo {
             get {
                 object obj = ResourceManager.GetObject("riskLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SettingsButtonDefault {
+            get {
+                object obj = ResourceManager.GetObject("SettingsButtonDefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SettingsButtonHover {
+            get {
+                object obj = ResourceManager.GetObject("SettingsButtonHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
