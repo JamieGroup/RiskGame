@@ -13,7 +13,9 @@ namespace RiskGame
     public partial class frmGameScreen : Form
     {
         int pauseShown = 1;
-        Game Game = frmSetupGame.Game;
+        public static Game Game = frmSetupGame.Game;
+        public static Plys Pl2 = frmSetupGame.Player2;
+        public static Plys Pl3 = frmSetupGame.Player3;
         public frmGameScreen()
         {
             InitializeComponent();
@@ -29,9 +31,10 @@ namespace RiskGame
             //label4.Text = frmLogin.human.username + frmLogin.human.accentColour;
 
             //label5.Text = frmSetupGame.Player2.username + frmSetupGame.Player2.accentColour;
-            
+
             //if(playerCount == 2)
             //    label6.Text = frmSetupGame.Player3.username + frmSetupGame.Player3.accentColour;
+            new frmPlayerSwapper().Show();
 
         }
 
@@ -99,7 +102,7 @@ namespace RiskGame
 
         private void lbPauseQuit_Click(object sender, EventArgs e)
         {
-            
+            PauseAction(4);
         }
 
         private void pnlPause_Paint(object sender, PaintEventArgs e)
@@ -118,12 +121,15 @@ namespace RiskGame
                     break;
                 case 1:
                     //Invite
+                    MessageBox.Show("Invite");
                     break;
                 case 2:
                     //Overview
+                    MessageBox.Show("Overview");
                     break;
                 case 3:
                     //Settings
+                    MessageBox.Show("Settings");
                     break;
                 case 4:
                     //Quit
@@ -293,6 +299,71 @@ namespace RiskGame
         private void pbPauseQuit_MouseLeave(object sender, EventArgs e)
         {
             PauseMouseAction(pbPauseQuit, Properties.Resources.QuitButtonDefault);
+        }
+
+        private void pbPauseQuit_Click(object sender, EventArgs e)
+        {
+            PauseAction(4);
+        }
+
+        private void pnlPauseQuit_Click(object sender, EventArgs e)
+        {
+            PauseAction(4);
+        }
+
+        private void pnlPauseSettings_Click(object sender, EventArgs e)
+        {
+            PauseAction(3);
+        }
+
+        private void lbPauseSettings_Click(object sender, EventArgs e)
+        {
+            PauseAction(3);
+        }
+
+        private void pbPauseSettings_Click(object sender, EventArgs e)
+        {
+            PauseAction(3);
+        }
+
+        private void pnlPauseOverview_Click(object sender, EventArgs e)
+        {
+            PauseAction(2);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            PauseAction(2);
+        }
+
+        private void pbPauseOverview_Click(object sender, EventArgs e)
+        {
+            PauseAction(2);
+        }
+
+        private void pnlPauseInvite_Click(object sender, EventArgs e)
+        {
+            PauseAction(1);
+        }
+
+        private void bPauseInvite_Click(object sender, EventArgs e)
+        {
+            PauseAction(1);
+        }
+
+        private void pbPauseInvite_Click(object sender, EventArgs e)
+        {
+            PauseAction(1);
+        }
+
+        private void pnlPauseResume_Click(object sender, EventArgs e)
+        {
+            PauseAction(0);
+        }
+
+        private void pbPauseResume_Click(object sender, EventArgs e)
+        {
+            PauseAction(0);
         }
     }
 }
