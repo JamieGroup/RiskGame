@@ -24,7 +24,7 @@ namespace RiskGame
             int AICount = frmSetupGame.Game.AICount;
             int OthersCount = frmSetupGame.Game.OthersCount;
             int playerCount = AICount + OthersCount;
-            pnlPause.Location = new Point(-450, 0);
+            pnlPause.Location = new Point(-455, 0);
 
             //label4.Text = frmLogin.human.username + frmLogin.human.accentColour;
 
@@ -61,7 +61,7 @@ namespace RiskGame
         private void AnimatePauseScreen(int direction)
         {
             int currentState = Game.state;
-            //Default location: -450,0
+            //Default location: -455,0
             //Paused location: 0,0
 
             if (direction == 0)
@@ -71,7 +71,7 @@ namespace RiskGame
                 lbGamePaused.Visible = true;
                 int xCurrent = pnlPause.Location.X;
                 int animateSpeed = 5;
-                for(int i = 0; i < (450/animateSpeed); i++)
+                for(int i = 0; i < (455/animateSpeed); i++)
                 {
                     pnlPause.Location = new Point(xCurrent + (Convert.ToInt32(animateSpeed) * i), 0);
                     pnlPause.Refresh();
@@ -83,7 +83,7 @@ namespace RiskGame
                 Game.state = currentState;
                 int xCurrent = pnlPause.Location.X;
                 int animateSpeed = 5;
-                for (int i = 0; i < (450 / animateSpeed); i++)
+                for (int i = 0; i < (455 / animateSpeed); i++)
                 {
                     pnlPause.Location = new Point(xCurrent - (Convert.ToInt32(animateSpeed) * i), 0);
                     pnlPause.Refresh();
@@ -94,22 +94,205 @@ namespace RiskGame
 
         private void lbPauseResume_Click(object sender, EventArgs e)
         {
-            pauseShown++;
-            AnimatePauseScreen(1);
+            PauseAction(0);
         }
 
         private void lbPauseQuit_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to Quit?\r\n\r\nNone of your progress will be saved!\r\n\r\nClick Yes to confirm, click No to return to the game.", "Are you sure you want to Quit?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            
+        }
+
+        private void pnlPause_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PauseAction(int ID)
+        {
+            switch(ID)
             {
-                Hide();
-                new frmDashboard().Show();
-            } 
-            else
-            {
-                pauseShown++;
-                AnimatePauseScreen(1);
+                case 0:
+                    //Resume
+                    pauseShown++;
+                    AnimatePauseScreen(1);
+                    break;
+                case 1:
+                    //Invite
+                    break;
+                case 2:
+                    //Overview
+                    break;
+                case 3:
+                    //Settings
+                    break;
+                case 4:
+                    //Quit
+                    if (MessageBox.Show("Are you sure you want to Quit?\r\n\r\nNone of your progress will be saved!\r\n\r\nClick Yes to confirm, click No to return to the game.", "Are you sure you want to Quit?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    {
+                        Hide();
+                        new frmDashboard().Show();
+                    }
+                    else
+                    {
+                        pauseShown++;
+                        AnimatePauseScreen(1);
+                    }
+                    break;
             }
+        }
+        private void PauseMouseAction(PictureBox pb, Image i)
+        {
+            pb.Image = i;
+        }
+
+        private void pnlPauseResume_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseResume, Properties.Resources.PlayButtonHover);
+        }
+
+        private void pnlPauseResume_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseResume, Properties.Resources.PlayButtonDefault);
+        }
+
+        private void lbPauseResume_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseResume, Properties.Resources.PlayButtonHover);
+        }
+
+        private void lbPauseResume_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseResume, Properties.Resources.PlayButtonDefault);
+        }
+
+        private void pbPauseResume_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseResume, Properties.Resources.PlayButtonHover);
+        }
+
+        private void pbPauseResume_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseResume, Properties.Resources.PlayButtonDefault);
+        }
+
+        private void pnlPauseInvite_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseInvite, Properties.Resources.InviteButtonHover);
+        }
+
+        private void pnlPauseInvite_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseInvite, Properties.Resources.InviteButtonDefault);
+        }
+
+        private void bPauseInvite_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseInvite, Properties.Resources.InviteButtonHover);
+        }
+
+        private void bPauseInvite_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseInvite, Properties.Resources.InviteButtonDefault);
+        }
+
+        private void pbPauseInvite_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseInvite, Properties.Resources.InviteButtonHover);
+        }
+
+        private void pbPauseInvite_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseInvite, Properties.Resources.InviteButtonDefault);
+        }
+
+        private void pnlPauseOverview_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseOverview, Properties.Resources.OverviewButtonHover);
+        }
+
+        private void pnlPauseOverview_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseOverview, Properties.Resources.OverviewButtonDefault);
+        }
+
+        private void label1_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseOverview, Properties.Resources.OverviewButtonHover);
+        }
+
+        private void label1_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseOverview, Properties.Resources.OverviewButtonDefault);
+        }
+
+        private void pbPauseOverview_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseOverview, Properties.Resources.OverviewButtonHover);
+        }
+
+        private void pbPauseOverview_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseOverview, Properties.Resources.OverviewButtonDefault);
+        }
+
+        private void pnlPauseSettings_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseSettings, Properties.Resources.SettingsButtonHover);
+        }
+
+        private void pnlPauseSettings_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseSettings, Properties.Resources.SettingsButtonDefault);
+        }
+
+        private void lbPauseSettings_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseSettings, Properties.Resources.SettingsButtonHover);
+        }
+
+        private void lbPauseSettings_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseSettings, Properties.Resources.SettingsButtonDefault);
+        }
+
+        private void pbPauseSettings_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseSettings, Properties.Resources.SettingsButtonHover);
+        }
+
+        private void pbPauseSettings_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseSettings, Properties.Resources.SettingsButtonDefault);
+        }
+
+        private void pnlPauseQuit_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseQuit, Properties.Resources.QuitButtonHover);
+        }
+
+        private void pnlPauseQuit_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseQuit, Properties.Resources.QuitButtonDefault);
+        }
+
+        private void lbPauseQuit_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseQuit, Properties.Resources.QuitButtonHover);
+        }
+
+        private void lbPauseQuit_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseQuit, Properties.Resources.QuitButtonDefault);
+        }
+
+        private void pbPauseQuit_MouseEnter(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseQuit, Properties.Resources.QuitButtonHover);
+        }
+
+        private void pbPauseQuit_MouseLeave(object sender, EventArgs e)
+        {
+            PauseMouseAction(pbPauseQuit, Properties.Resources.QuitButtonDefault);
         }
     }
 }
