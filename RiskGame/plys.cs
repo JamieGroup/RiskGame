@@ -66,11 +66,12 @@ namespace RiskGame
             accentColour = "Yellow";
             accountLocked = false;
         }
-        public Plys(bool _realPerson, string _username, string _colour, int _AICount, int _OthersCount)
+        public Plys(bool _realPerson, string _username, string _colour, int _AICount, int _OthersCount, string _avatar)
         {
             realPerson = _realPerson;
             username = _username;
             accentColour = _colour;
+            avatar = _avatar;
         }
         public void aquireRegion()
         {
