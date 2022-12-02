@@ -163,6 +163,12 @@
   <data name="PlayButtonHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlayButtonHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="playerSwapperStripe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playerSwapperStripe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playerSwapperStripeFull" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playerSwapperStripeFull.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PlayGameAnimation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlayGameAnimation.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -210,6 +216,9 @@
   </data>
   <data name="sword_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sword_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tradeCardsAnimation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tradeCardsAnimation.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tutorial_Animated_Screen_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tutorial_Animated_Screen_long.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

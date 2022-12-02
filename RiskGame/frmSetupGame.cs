@@ -172,7 +172,7 @@ namespace RiskGame
             frmSetupGame.Game.AICount = AIs;
             frmSetupGame.Game.OthersCount = Others;
             int i1 = rnd.Next(1, 6);
-            string a1 = "/avatars/default/default" + i1 + ".jpg";
+            string a1 = "default\\default" + i1 + ".jpg";
             string c1 = Convert.ToString(Colour);
             if (AIs == 1)
             {
@@ -184,9 +184,13 @@ namespace RiskGame
             string c1 = Convert.ToString(Colour1);
             string c2 = Convert.ToString(Colour2);
             int i1 = rnd.Next(1, 6);
-            string a1 = "/avatars/default/default" + i1 + ".jpg";
-            int i2 = rnd.Next(1, 6);
-            string a2 = "/avatars/default/default" + i2 + ".jpg";
+            string a1 = "default\\default" + i1 + ".jpg";
+            int i2;
+            do
+            {
+                i2 = rnd.Next(1, 6);
+            } while (i1==i2);
+            string a2 = "default\\default" + i2 + ".jpg";
             frmSetupGame.Game.AICount = AIs;
             frmSetupGame.Game.OthersCount = Others;
             if (AIs > 0)

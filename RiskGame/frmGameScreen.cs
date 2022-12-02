@@ -23,9 +23,11 @@ namespace RiskGame
 
         private void frmGameScreen_Load(object sender, EventArgs e)
         {
-            int AICount = frmSetupGame.Game.AICount;
-            int OthersCount = frmSetupGame.Game.OthersCount;
+            Application.OpenForms["frmDashboard"].Close();
+            int AICount = Game.AICount;
+            int OthersCount = Game.OthersCount;
             int playerCount = AICount + OthersCount;
+            Game.currentPlayer = 1;
             pnlPause.Location = new Point(-455, 0);
 
             //label4.Text = frmLogin.human.username + frmLogin.human.accentColour;
@@ -34,6 +36,7 @@ namespace RiskGame
 
             //if(playerCount == 2)
             //    label6.Text = frmSetupGame.Player3.username + frmSetupGame.Player3.accentColour;
+            Game.calcPlayers();
             new frmPlayerSwapper().Show();
 
         }
