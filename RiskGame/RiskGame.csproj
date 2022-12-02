@@ -265,5 +265,14 @@
   <ItemGroup>
     <None Include="Resources\SettingsButtonHover.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerSwapperStripe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerSwapperStripeFull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tradeCardsAnimation.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

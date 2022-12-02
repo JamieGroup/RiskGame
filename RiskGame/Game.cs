@@ -12,11 +12,21 @@ namespace RiskGame
         public int AICount { get; set; }
         public int OthersCount { get; set; }
         public int state { get; set; }
+        public bool twoPlayers { get; set; }
+        public int currentPlayer { get; set; }
 
         //Constructor
         public Game()
         {
 
+        }
+
+        public void calcPlayers()
+        {
+            if (OthersCount + AICount < 2)
+                twoPlayers = true;
+            else
+                twoPlayers = false;
         }
     }
 }
