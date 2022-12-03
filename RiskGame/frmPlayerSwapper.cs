@@ -93,7 +93,7 @@ namespace RiskGame
             while sending over a temporary value in the Game object to tell game screen
             that a new player has been chosen.*/
             Hide();
-            Application.OpenForms["frmGameScreen"].WindowState = FormWindowState.Maximized;
+            Application.OpenForms["frmGameScreen"].WindowState = FormWindowState.Normal;
         }
 
         private void pbTradeCards_Click(object sender, EventArgs e)
