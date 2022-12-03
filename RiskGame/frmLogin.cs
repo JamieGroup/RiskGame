@@ -162,5 +162,11 @@ namespace RiskGame
                 frmLogin.human.firstLaunch = false;
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmRegister().Show();
+        }
     }
 }

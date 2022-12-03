@@ -158,6 +158,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Product Sans Regular.ttf" />
     <None Include="Resources\riskLogo.png" />
   </ItemGroup>
   <ItemGroup>

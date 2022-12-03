@@ -117,4 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lbUsernameDescription.Text" xml:space="preserve">
+    <value>This is a unique name that identifies you to other Risk players. 
+It should not include any personal information. When using online 
+services, your username is attached to your personal game statistics.</value>
+  </data>
 </root>

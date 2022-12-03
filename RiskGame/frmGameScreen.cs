@@ -27,7 +27,7 @@ namespace RiskGame
             int AICount = Game.AICount;
             int OthersCount = Game.OthersCount;
             int playerCount = AICount + OthersCount;
-            Game.currentPlayer = 1;
+            Game.currentPlayer = 0;
             pnlPause.Location = new Point(-455, 0);
 
             //label4.Text = frmLogin.human.username + frmLogin.human.accentColour;
@@ -124,10 +124,13 @@ namespace RiskGame
                     break;
                 case 1:
                     //Invite
+                    //Idea: Allow the user to substitute in (a) real player(s) in place of (an|both) AI(s).
                     MessageBox.Show("Invite");
                     break;
                 case 2:
                     //Overview
+                    //Idea: Maybe show the Player Swapping screen without changing who's turn it is, to show the player's current status,
+                    //e.g. how many troops they have, how many regions they control, etc., since this was going to be shown here anyway.
                     MessageBox.Show("Overview");
                     break;
                 case 3:

@@ -29,35 +29,237 @@ namespace RiskGame
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegister));
+            this.lbCreate = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lbPassword = new System.Windows.Forms.Label();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.lbConfirmPassword = new System.Windows.Forms.Label();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.lbUsernameDescription = new System.Windows.Forms.Label();
+            this.pnlUsername = new System.Windows.Forms.Panel();
+            this.pnlPassword = new System.Windows.Forms.Panel();
+            this.pnlConfirmPassword = new System.Windows.Forms.Panel();
+            this.lbPasswordDescription = new System.Windows.Forms.Label();
+            this.lbConfirmDescription = new System.Windows.Forms.Label();
+            this.cbIgnoreRequirements = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlUsername.SuspendLayout();
+            this.pnlPassword.SuspendLayout();
+            this.pnlConfirmPassword.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // lbCreate
+            // 
+            this.lbCreate.AutoSize = true;
+            this.lbCreate.Font = new System.Drawing.Font("Product Sans", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCreate.Location = new System.Drawing.Point(12, 9);
+            this.lbCreate.Name = "lbCreate";
+            this.lbCreate.Size = new System.Drawing.Size(316, 47);
+            this.lbCreate.TabIndex = 1;
+            this.lbCreate.Text = "Create an account";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::RiskGame.Properties.Resources.NewUserIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 75);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 142);
+            this.pictureBox1.Size = new System.Drawing.Size(207, 166);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Font = new System.Drawing.Font("Product Sans", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.Location = new System.Drawing.Point(-7, 0);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(148, 37);
+            this.lbUsername.TabIndex = 2;
+            this.lbUsername.Text = "Username";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(0, 40);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(465, 43);
+            this.txtUsername.TabIndex = 3;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(0, 44);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(465, 43);
+            this.txtPassword.TabIndex = 5;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            // 
+            // lbPassword
+            // 
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.Location = new System.Drawing.Point(-7, 0);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(152, 41);
+            this.lbPassword.TabIndex = 4;
+            this.lbPassword.Text = "Password";
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.Location = new System.Drawing.Point(0, 44);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Size = new System.Drawing.Size(467, 43);
+            this.txtConfirmPassword.TabIndex = 7;
+            this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
+            this.txtConfirmPassword.Enter += new System.EventHandler(this.textBox1_Enter);
+            // 
+            // lbConfirmPassword
+            // 
+            this.lbConfirmPassword.AutoSize = true;
+            this.lbConfirmPassword.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConfirmPassword.Location = new System.Drawing.Point(-7, 0);
+            this.lbConfirmPassword.Name = "lbConfirmPassword";
+            this.lbConfirmPassword.Size = new System.Drawing.Size(274, 41);
+            this.lbConfirmPassword.TabIndex = 6;
+            this.lbConfirmPassword.Text = "Confirm Password";
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.Location = new System.Drawing.Point(20, 354);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(240, 71);
+            this.btnRegister.TabIndex = 8;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // lbUsernameDescription
+            // 
+            this.lbUsernameDescription.AutoSize = true;
+            this.lbUsernameDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsernameDescription.Location = new System.Drawing.Point(295, 163);
+            this.lbUsernameDescription.Name = "lbUsernameDescription";
+            this.lbUsernameDescription.Size = new System.Drawing.Size(482, 63);
+            this.lbUsernameDescription.TabIndex = 9;
+            this.lbUsernameDescription.Text = resources.GetString("lbUsernameDescription.Text");
+            // 
+            // pnlUsername
+            // 
+            this.pnlUsername.Controls.Add(this.lbUsername);
+            this.pnlUsername.Controls.Add(this.txtUsername);
+            this.pnlUsername.Location = new System.Drawing.Point(299, 75);
+            this.pnlUsername.Name = "pnlUsername";
+            this.pnlUsername.Size = new System.Drawing.Size(478, 85);
+            this.pnlUsername.TabIndex = 10;
+            // 
+            // pnlPassword
+            // 
+            this.pnlPassword.Controls.Add(this.lbPassword);
+            this.pnlPassword.Controls.Add(this.txtPassword);
+            this.pnlPassword.Location = new System.Drawing.Point(299, 183);
+            this.pnlPassword.Name = "pnlPassword";
+            this.pnlPassword.Size = new System.Drawing.Size(478, 85);
+            this.pnlPassword.TabIndex = 11;
+            // 
+            // pnlConfirmPassword
+            // 
+            this.pnlConfirmPassword.Controls.Add(this.lbConfirmPassword);
+            this.pnlConfirmPassword.Controls.Add(this.txtConfirmPassword);
+            this.pnlConfirmPassword.Location = new System.Drawing.Point(299, 297);
+            this.pnlConfirmPassword.Name = "pnlConfirmPassword";
+            this.pnlConfirmPassword.Size = new System.Drawing.Size(478, 85);
+            this.pnlConfirmPassword.TabIndex = 12;
+            // 
+            // lbPasswordDescription
+            // 
+            this.lbPasswordDescription.AutoSize = true;
+            this.lbPasswordDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPasswordDescription.Location = new System.Drawing.Point(295, 273);
+            this.lbPasswordDescription.Name = "lbPasswordDescription";
+            this.lbPasswordDescription.Size = new System.Drawing.Size(468, 63);
+            this.lbPasswordDescription.TabIndex = 13;
+            this.lbPasswordDescription.Text = "This should be a secure password, your personal data is protected \r\nwith AES-256 " +
+    "encryption. Enter at least 1 number, 1 Uppercase \r\ncharacter, and a special symb" +
+    "ol. Must be at least 6 characters long.";
+            // 
+            // lbConfirmDescription
+            // 
+            this.lbConfirmDescription.AutoSize = true;
+            this.lbConfirmDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConfirmDescription.Location = new System.Drawing.Point(299, 391);
+            this.lbConfirmDescription.Name = "lbConfirmDescription";
+            this.lbConfirmDescription.Size = new System.Drawing.Size(347, 21);
+            this.lbConfirmDescription.TabIndex = 14;
+            this.lbConfirmDescription.Text = "This should be exactly the same as the password.";
+            // 
+            // cbIgnoreRequirements
+            // 
+            this.cbIgnoreRequirements.AutoSize = true;
+            this.cbIgnoreRequirements.Checked = true;
+            this.cbIgnoreRequirements.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbIgnoreRequirements.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIgnoreRequirements.Location = new System.Drawing.Point(563, 9);
+            this.cbIgnoreRequirements.Name = "cbIgnoreRequirements";
+            this.cbIgnoreRequirements.Size = new System.Drawing.Size(225, 34);
+            this.cbIgnoreRequirements.TabIndex = 15;
+            this.cbIgnoreRequirements.Text = "Ignore Requirements";
+            this.cbIgnoreRequirements.UseVisualStyleBackColor = true;
             // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbIgnoreRequirements);
+            this.Controls.Add(this.lbConfirmDescription);
+            this.Controls.Add(this.pnlConfirmPassword);
+            this.Controls.Add(this.pnlPassword);
+            this.Controls.Add(this.pnlUsername);
+            this.Controls.Add(this.lbUsernameDescription);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.lbCreate);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lbPasswordDescription);
             this.Name = "frmRegister";
             this.Text = "Risk: Create an account";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlUsername.ResumeLayout(false);
+            this.pnlUsername.PerformLayout();
+            this.pnlPassword.ResumeLayout(false);
+            this.pnlPassword.PerformLayout();
+            this.pnlConfirmPassword.ResumeLayout(false);
+            this.pnlConfirmPassword.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Label lbCreate;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lbPassword;
+        private System.Windows.Forms.TextBox txtConfirmPassword;
+        private System.Windows.Forms.Label lbConfirmPassword;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Label lbUsernameDescription;
+        private System.Windows.Forms.Panel pnlUsername;
+        private System.Windows.Forms.Panel pnlPassword;
+        private System.Windows.Forms.Panel pnlConfirmPassword;
+        private System.Windows.Forms.Label lbPasswordDescription;
+        private System.Windows.Forms.Label lbConfirmDescription;
+        private System.Windows.Forms.CheckBox cbIgnoreRequirements;
     }
 }
