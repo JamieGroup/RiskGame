@@ -110,6 +110,7 @@
     <Compile Include="SoundDash.cs" />
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGameScreen.resx">
       <DependentUpon>frmGameScreen.cs</DependentUpon>

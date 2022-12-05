@@ -46,17 +46,21 @@ namespace RiskGame
             this.lbPasswordDescription = new System.Windows.Forms.Label();
             this.lbConfirmDescription = new System.Windows.Forms.Label();
             this.cbIgnoreRequirements = new System.Windows.Forms.CheckBox();
+            this.lbAvatar = new System.Windows.Forms.Label();
+            this.lbAvatarDescrption = new System.Windows.Forms.Label();
+            this.pbAvatar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsername.SuspendLayout();
             this.pnlPassword.SuspendLayout();
             this.pnlConfirmPassword.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // lbCreate
             // 
             this.lbCreate.AutoSize = true;
             this.lbCreate.Font = new System.Drawing.Font("Product Sans", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCreate.Location = new System.Drawing.Point(12, 9);
+            this.lbCreate.Location = new System.Drawing.Point(100, 9);
             this.lbCreate.Name = "lbCreate";
             this.lbCreate.Size = new System.Drawing.Size(316, 47);
             this.lbCreate.TabIndex = 1;
@@ -65,9 +69,9 @@ namespace RiskGame
             // pictureBox1
             // 
             this.pictureBox1.Image = global::RiskGame.Properties.Resources.NewUserIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 75);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(207, 166);
+            this.pictureBox1.Size = new System.Drawing.Size(82, 61);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -75,10 +79,10 @@ namespace RiskGame
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Product Sans", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsername.Location = new System.Drawing.Point(-7, 0);
+            this.lbUsername.Font = new System.Drawing.Font("Product Sans", 24F);
+            this.lbUsername.Location = new System.Drawing.Point(-7, -4);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(148, 37);
+            this.lbUsername.Size = new System.Drawing.Size(160, 41);
             this.lbUsername.TabIndex = 2;
             this.lbUsername.Text = "Username";
             // 
@@ -137,7 +141,7 @@ namespace RiskGame
             this.btnRegister.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.Location = new System.Drawing.Point(20, 354);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(240, 71);
+            this.btnRegister.Size = new System.Drawing.Size(242, 71);
             this.btnRegister.TabIndex = 8;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -215,11 +219,46 @@ namespace RiskGame
             this.cbIgnoreRequirements.Text = "Ignore Requirements";
             this.cbIgnoreRequirements.UseVisualStyleBackColor = true;
             // 
+            // lbAvatar
+            // 
+            this.lbAvatar.AutoSize = true;
+            this.lbAvatar.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAvatar.Location = new System.Drawing.Point(76, 250);
+            this.lbAvatar.Name = "lbAvatar";
+            this.lbAvatar.Size = new System.Drawing.Size(108, 41);
+            this.lbAvatar.TabIndex = 16;
+            this.lbAvatar.Text = "Avatar";
+            // 
+            // lbAvatarDescrption
+            // 
+            this.lbAvatarDescrption.AutoSize = true;
+            this.lbAvatarDescrption.Font = new System.Drawing.Font("Product Sans", 12F);
+            this.lbAvatarDescrption.Location = new System.Drawing.Point(16, 291);
+            this.lbAvatarDescrption.Name = "lbAvatarDescrption";
+            this.lbAvatarDescrption.Size = new System.Drawing.Size(246, 60);
+            this.lbAvatarDescrption.TabIndex = 17;
+            this.lbAvatarDescrption.Text = "Click the above image to change.\r\nYour avatar will appear with your\r\nusername whe" +
+    "n playing.";
+            this.lbAvatarDescrption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbAvatar
+            // 
+            this.pbAvatar.Location = new System.Drawing.Point(36, 80);
+            this.pbAvatar.Name = "pbAvatar";
+            this.pbAvatar.Size = new System.Drawing.Size(180, 167);
+            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAvatar.TabIndex = 18;
+            this.pbAvatar.TabStop = false;
+            this.pbAvatar.Click += new System.EventHandler(this.pbAvatar_Click);
+            // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pbAvatar);
+            this.Controls.Add(this.lbAvatarDescrption);
+            this.Controls.Add(this.lbAvatar);
             this.Controls.Add(this.cbIgnoreRequirements);
             this.Controls.Add(this.lbConfirmDescription);
             this.Controls.Add(this.pnlConfirmPassword);
@@ -232,6 +271,7 @@ namespace RiskGame
             this.Controls.Add(this.lbPasswordDescription);
             this.Name = "frmRegister";
             this.Text = "Risk: Create an account";
+            this.Load += new System.EventHandler(this.frmRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlUsername.ResumeLayout(false);
             this.pnlUsername.PerformLayout();
@@ -239,6 +279,7 @@ namespace RiskGame
             this.pnlPassword.PerformLayout();
             this.pnlConfirmPassword.ResumeLayout(false);
             this.pnlConfirmPassword.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +302,8 @@ namespace RiskGame
         private System.Windows.Forms.Label lbPasswordDescription;
         private System.Windows.Forms.Label lbConfirmDescription;
         private System.Windows.Forms.CheckBox cbIgnoreRequirements;
+        private System.Windows.Forms.Label lbAvatar;
+        private System.Windows.Forms.Label lbAvatarDescrption;
+        private System.Windows.Forms.PictureBox pbAvatar;
     }
 }

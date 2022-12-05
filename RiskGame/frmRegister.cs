@@ -17,12 +17,15 @@ namespace RiskGame
         bool acceptPassword = false;
         bool acceptConfirmPassword = false;
 
+        Random rnd = new Random();
+
         public frmRegister()
         {
             InitializeComponent();
             disableDescriptions();
             txtPassword.PasswordChar = '*';
             txtConfirmPassword.PasswordChar = '*';
+            pbAvatar.ImageLocation = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
         }
 
         private void disableDescriptions()
@@ -161,7 +164,7 @@ namespace RiskGame
                 string username = txtUsername.Text;
                 string password = txtPassword.Text;
                 int ID = (File.ReadLines(filePath).Count()) + 1;
-                string avatar = "defaultAvatar.png";
+                string avatar = pbAvatar.ImageLocation;
 
                 sw.WriteLine($"{ID}~{username}~{avatar}~{password}");
 
@@ -177,6 +180,26 @@ namespace RiskGame
             {
                 MessageBox.Show("User failed to add.\r\nSorry for any inconvenience.\r\nError Details:\r\n" + ex.Message, "Error occurred");
             }
+        }
+
+        private void frmRegister_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbAvatar_Click(object sender, EventArgs e)
+        {
+            //Open the avatar changer
+            //Allow the user to choose a picture file
+            //Set the picture box to the chosen file
+            //Set the avatar to the chosen file
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                pbAvatar.ImageLocation = ofd.FileName;
+            }
+
         }
     }
 }
