@@ -39,7 +39,7 @@ namespace RiskGame
             string[] allRegionData = File.ReadAllLines("regions.conf");
             for(int i = 0; i<File.ReadLines("regions.conf").Count(); i++)
             {
-                regions[i] = new Region();
+                //regions[i] = new Region();
             }
             
         }
