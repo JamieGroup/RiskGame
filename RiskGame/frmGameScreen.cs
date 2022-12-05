@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RiskGame
 {
@@ -30,15 +31,17 @@ namespace RiskGame
             Game.currentPlayer = 0;
             pnlPause.Location = new Point(-455, 0);
 
-            //label4.Text = frmLogin.human.username + frmLogin.human.accentColour;
-
-            //label5.Text = frmSetupGame.Player2.username + frmSetupGame.Player2.accentColour;
-
-            //if(playerCount == 2)
-            //    label6.Text = frmSetupGame.Player3.username + frmSetupGame.Player3.accentColour;
+            
             Game.calcPlayers();
             new frmPlayerSwapper().Show();
 
+            Region[] regions = new Region[25];
+            string[] allRegionData = File.ReadAllLines("regions.conf");
+            for(int i = 0; i<File.ReadLines("regions.conf").Count(); i++)
+            {
+                regions[i] = new Region();
+            }
+            
         }
 
         private void lbGamePaused_Click(object sender, EventArgs e)
