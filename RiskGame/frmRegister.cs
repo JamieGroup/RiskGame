@@ -16,6 +16,8 @@ namespace RiskGame
         bool acceptUsername = false;
         bool acceptPassword = false;
         bool acceptConfirmPassword = false;
+        string relativeAvatar;
+        string absoluteAvatar;
 
         Random rnd = new Random();
 
@@ -151,6 +153,9 @@ namespace RiskGame
 
             try
             {
+                string avatarExtension = Path.GetExtension(absoluteAvatar);
+                File.Copy(absoluteAvatar, $"avatars\\{txtUsername.Text}.{avatarExtension}", true);
+
                 //If a user file doesn't exist, create one
                 if (!File.Exists(filePath))
                 {
@@ -166,10 +171,10 @@ namespace RiskGame
                 int ID = (File.ReadLines(filePath).Count()) + 1;
                 string avatar = pbAvatar.ImageLocation;
 
-                sw.WriteLine($"{ID}~{username}~{avatar}~{password}");
+                sw.WriteLine($"{ID}~{username}~avatars\\{txtUsername.Text}.png~{password}");
 
-                sw.Close();
-                aFile.Close();
+                sw.Dispose();
+                aFile.Dispose();
 
                 Hide();
                 new frmLogin().Show();
@@ -190,16 +195,30 @@ namespace RiskGame
         private void pbAvatar_Click(object sender, EventArgs e)
         {
             //Open the avatar changer
-            //Allow the user to choose a picture file
-            //Set the picture box to the chosen file
-            //Set the avatar to the chosen file
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                pbAvatar.ImageLocation = ofd.FileName;
-            }
 
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+            var inDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = inDir + "\\Pictures";
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    pbAvatar.Image = new Bitmap(openFileDialog.FileName);
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    relativeAvatar = openFileDialog.SafeFileName;
+                    absoluteAvatar = openFileDialog.FileName;
+                }
+            }
         }
     }
 }
