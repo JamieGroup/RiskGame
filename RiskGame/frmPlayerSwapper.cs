@@ -18,6 +18,7 @@ namespace RiskGame
         public frmPlayerSwapper()
         {
             InitializeComponent();
+            CenterToScreen();
         }
 
         private void frmPlayerSwapper_Load(object sender, EventArgs e)

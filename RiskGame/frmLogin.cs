@@ -30,7 +30,7 @@ namespace RiskGame
             if (!File.Exists("users.conf"))
             {
                 frmLogin.human.firstLaunch = true;
-                File.Create("users.conf");
+                File.Create("users.conf").Dispose();
                 Hide();
                 new frmRegister().Show();
             }
@@ -39,7 +39,6 @@ namespace RiskGame
                 currentLine = 0;
                 numberOfUsers = File.ReadAllLines("users.conf").Count();
                 users = new string[numberOfUsers, 4];
-
                 InitializeComponent();
                 CenterToScreen();
 

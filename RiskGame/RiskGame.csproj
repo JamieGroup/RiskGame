@@ -89,6 +89,12 @@
     <Compile Include="frmSplashScreen.Designer.cs">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTradeCards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTradeCards.Designer.cs">
+      <DependentUpon>frmTradeCards.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTutorial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTradeCards.resx">
+      <DependentUpon>frmTradeCards.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTutorial.resx">
       <DependentUpon>frmTutorial.cs</DependentUpon>

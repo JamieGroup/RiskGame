@@ -30,8 +30,8 @@ namespace RiskGame
         public static Game Game = new Game();
         public frmSetupGame()
         {
-            CenterToScreen();
             InitializeComponent();
+            CenterToScreen();
             multiplayerSelected = frmLogin.human.multiplayerSelected;
             btnPlayerColour.BackColor = Color.FromName(frmLogin.human.accentColour);
             pbSecretMode.Image = Properties.Resources.Tutorial_Checkbox;
@@ -83,8 +83,8 @@ namespace RiskGame
             do
             {
                 Shuffle(ids);
-                AI1Name = names[ids[0]];
-                AI2Name = names[ids[1]];
+                AI1Name = "[AI1] " + names[ids[0]];
+                AI2Name = "[AI2] " + names[ids[1]];
             } while (AI1Name==AI2Name || AI1Name==frmLogin.human.username || AI2Name==frmLogin.human.username);
 
             //Repeat random colour selection for the AI until they are sufficiently different from each other so the user can tell them apart.
@@ -95,8 +95,8 @@ namespace RiskGame
                 btnAI2Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
             } while (ColorsAreClose(btnAI1Colour.BackColor, btnAI2Colour.BackColor, 300) || ColorsAreClose(btnAI1Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 100) || ColorsAreClose(btnAI2Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 100));
 
-            lbAI1Colour.Text = $"[AI1] {AI1Name}'s Colour";
-            lbAI2Colour.Text = $"[AI2] {AI2Name}'s Colour";
+            lbAI1Colour.Text = $"{AI1Name}'s Colour";
+            lbAI2Colour.Text = $"{AI2Name}'s Colour";
         }
 
         private void rollOthers()
@@ -235,7 +235,7 @@ namespace RiskGame
 
         private void pbStartMultiplayer_Click(object sender, EventArgs e)
         {
-            if (multiplayerSelected && (AICount + trbrAISelector.Value) <= 3)
+            if (multiplayerSelected && (AICount + trbrAISelector.Value) <= 2)
             {
                 if (trbrAISelector.Value == 0)
                 {
