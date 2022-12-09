@@ -22,5 +22,10 @@ namespace RiskGame
         {
 
         }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms["frmGameScreen"].WindowState = FormWindowState.Maximized;
+        }
     }
 }

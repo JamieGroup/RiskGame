@@ -41,6 +41,8 @@ namespace RiskGame
             {
                 //regions[i] = new Region();
             }
+
+            pnlBase.BackColor = Color.FromArgb(153, 220, 243);
             
         }
 
@@ -158,6 +160,46 @@ namespace RiskGame
         private void PauseMouseAction(PictureBox pb, Image i)
         {
             pb.Image = i;
+        }
+
+        public void FloodFill(int[,] grid, int row, int col, int newColor)
+        {
+            //int oldColor = grid[row, col];
+            int oldColor = Color.White.ToArgb();
+
+            if (oldColor == newColor)
+            {
+                return;
+            }
+
+            Queue<(int, int)> cells = new Queue<(int, int)>();
+            cells.Enqueue((row, col));
+
+            while (cells.Count > 0)
+            {
+                (int r, int c) = cells.Dequeue();
+                grid[r, c] = newColor;
+
+                if (r > 0 && grid[r - 1, c] == oldColor)
+                {
+                    cells.Enqueue((r - 1, c));
+                }
+
+                if (r < grid.GetLength(0) - 1 && grid[r + 1, c] == oldColor)
+                {
+                    cells.Enqueue((r + 1, c));
+                }
+
+                if (c > 0 && grid[r, c - 1] == oldColor)
+                {
+                    cells.Enqueue((r, c - 1));
+                }
+
+                if (c < grid.GetLength(1) - 1 && grid[r, c + 1] == oldColor)
+                {
+                    cells.Enqueue((r, c + 1));
+                }
+            }
         }
 
         private void pnlPauseResume_MouseEnter(object sender, EventArgs e)
@@ -373,6 +415,23 @@ namespace RiskGame
         private void pbPauseResume_Click(object sender, EventArgs e)
         {
             PauseAction(0);
+        }
+
+        private void pnlBase_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlBase_Click(object sender, EventArgs e)
+        {
+            int[,] test = new int[10, 10];
+            Point cursorPos = Cursor.Position;
+
+            int r = cursorPos.Y / 10;
+            int c = cursorPos.X / 10;
+
+            Color change = Color.FromName(frmLogin.human.accentColour);
+            FloodFill(test, r, c, change.ToArgb());
         }
     }
 }
