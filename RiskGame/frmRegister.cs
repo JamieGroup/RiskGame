@@ -18,6 +18,7 @@ namespace RiskGame
         bool acceptConfirmPassword = false;
         string relativeAvatar;
         string absoluteAvatar;
+        int ID;
 
         Random rnd = new Random();
 
@@ -28,6 +29,8 @@ namespace RiskGame
             txtPassword.PasswordChar = '*';
             txtConfirmPassword.PasswordChar = '*';
             pbAvatar.ImageLocation = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
+            absoluteAvatar = $"avatars\\default\\default{rnd.Next(1,6)}.jpg";
+            ID = (File.ReadLines("users.conf").Count());
         }
 
         private void disableDescriptions()
@@ -154,7 +157,7 @@ namespace RiskGame
             try
             {
                 string avatarExtension = Path.GetExtension(absoluteAvatar);
-                File.Copy(absoluteAvatar, $"avatars\\{txtUsername.Text}.{avatarExtension}", true);
+                File.Copy(absoluteAvatar, $"avatars\\{txtUsername.Text}{avatarExtension}", true);
 
                 //If a user file doesn't exist, create one
                 if (!File.Exists(filePath))
@@ -168,10 +171,9 @@ namespace RiskGame
                 sw = new StreamWriter(aFile);
                 string username = txtUsername.Text;
                 string password = txtPassword.Text;
-                int ID = (File.ReadLines(filePath).Count()) + 1;
                 string avatar = pbAvatar.ImageLocation;
 
-                sw.WriteLine($"{ID}~{username}~avatars\\{txtUsername.Text}.png~{password}");
+                sw.WriteLine($"{ID}~{username}~avatars\\{txtUsername.Text}{avatarExtension}~{password}");
 
                 sw.Dispose();
                 aFile.Dispose();

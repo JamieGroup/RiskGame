@@ -29,6 +29,7 @@ namespace RiskGame
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGameScreen));
             this.pnlPause = new System.Windows.Forms.Panel();
             this.pnlPauseQuit = new System.Windows.Forms.Panel();
             this.pbPauseQuit = new System.Windows.Forms.PictureBox();
@@ -50,6 +51,7 @@ namespace RiskGame
             this.pnlPauseResume = new System.Windows.Forms.Panel();
             this.pbPauseResume = new System.Windows.Forms.PictureBox();
             this.lbPauseResume = new System.Windows.Forms.Label();
+            this.pnlBase = new System.Windows.Forms.Panel();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -324,11 +326,23 @@ namespace RiskGame
             this.lbPauseResume.MouseEnter += new System.EventHandler(this.lbPauseResume_MouseEnter);
             this.lbPauseResume.MouseLeave += new System.EventHandler(this.lbPauseResume_MouseLeave);
             // 
+            // pnlBase
+            // 
+            this.pnlBase.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlBase.BackgroundImage")));
+            this.pnlBase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlBase.Location = new System.Drawing.Point(3, 12);
+            this.pnlBase.Name = "pnlBase";
+            this.pnlBase.Size = new System.Drawing.Size(1569, 784);
+            this.pnlBase.TabIndex = 1;
+            this.pnlBase.Click += new System.EventHandler(this.pnlBase_Click);
+            this.pnlBase.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBase_Paint);
+            // 
             // frmGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 813);
+            this.Controls.Add(this.pnlBase);
             this.Controls.Add(this.pnlPause);
             this.Name = "frmGameScreen";
             this.Text = "Risk: Game Screen";
@@ -378,5 +392,6 @@ namespace RiskGame
         private System.Windows.Forms.Panel pnlPauseInvite;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlPauseResume;
+        private System.Windows.Forms.Panel pnlBase;
     }
 }

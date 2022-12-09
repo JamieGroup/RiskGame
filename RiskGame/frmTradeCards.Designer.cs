@@ -45,12 +45,13 @@ namespace RiskGame
             // 
             // btnContinue
             // 
-            this.btnContinue.Location = new System.Drawing.Point(58, 509);
+            this.btnContinue.Location = new System.Drawing.Point(114, 532);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(75, 23);
             this.btnContinue.TabIndex = 0;
             this.btnContinue.Text = "Continue";
             this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // frmTradeCards
             // 

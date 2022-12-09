@@ -39,7 +39,7 @@ namespace RiskGame
             lbPl1Username.Text = frmLogin.human.username;
             lbPl2Username.Text = frmGameScreen.Pl2.username;
             
-            pbPl1Avatar.Image = Image.FromFile("avatars\\" + frmLogin.human.avatar);
+            pbPl1Avatar.Image = Image.FromFile(@frmLogin.human.avatar);
             string pathPl2 = "avatars\\" + frmGameScreen.Pl2.avatar;
             pbPl2Avatar.Image = Image.FromFile(pathPl2);
             BringToFront();
@@ -97,9 +97,15 @@ namespace RiskGame
             Application.OpenForms["frmGameScreen"].WindowState = FormWindowState.Normal;
         }
 
+        private void Trade()
+        {
+            Hide();
+            new frmTradeCards().Show();
+        }
+
         private void pbTradeCards_Click(object sender, EventArgs e)
         {
-            PushBack();
+            Trade();
         }
 
         //    public Image SetImageOpacity(Image image, float opacity)

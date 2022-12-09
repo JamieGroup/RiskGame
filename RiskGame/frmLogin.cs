@@ -90,7 +90,7 @@ namespace RiskGame
             pb.Click += new EventHandler(loginActionPictureBox_Click);
             pb.Location = new Point(0, 0);
             pb.Size = new Size(135, 135);
-            pb.ImageLocation = "avatars\\" + avatar;
+            pb.ImageLocation = @avatar;
             pb.SizeMode = PictureBoxSizeMode.Zoom;
             pnl.Controls.Add(pb);
 
