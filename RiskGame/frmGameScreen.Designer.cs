@@ -335,7 +335,7 @@ namespace RiskGame
             this.pnlBase.Size = new System.Drawing.Size(1569, 784);
             this.pnlBase.TabIndex = 1;
             this.pnlBase.Click += new System.EventHandler(this.pnlBase_Click);
-            this.pnlBase.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBase_Paint);
+            this.pnlBase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBase_MouseDown);
             // 
             // frmGameScreen
             // 

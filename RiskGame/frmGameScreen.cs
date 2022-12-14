@@ -162,44 +162,49 @@ namespace RiskGame
             pb.Image = i;
         }
 
-        public void FloodFill(int[,] grid, int row, int col, int newColor)
+        private bool IsClose(Color trg, Color what)
         {
-            //int oldColor = grid[row, col];
-            int oldColor = Color.White.ToArgb();
+            bool valid = false;
 
-            if (oldColor == newColor)
+            var rDist = Math.Abs(trg.R - what.R);
+            var gDist = Math.Abs(trg.G - what.G);
+            var bDist = Math.Abs(trg.B - what.B);
+
+            if (rDist + gDist + bDist > 1000)
             {
-                return;
+                valid = true;
             }
 
-            Queue<(int, int)> cells = new Queue<(int, int)>();
-            cells.Enqueue((row, col));
+            return valid;
+        }
 
-            while (cells.Count > 0)
+        //Flood Fill Algorithm
+        private void FloodFill(Bitmap bmp, Point pt, Color targetColor, Color replacementColor)
+        {
+            Stack<Point> pixels = new Stack<Point>();
+            targetColor = bmp.GetPixel(pt.X, pt.Y);
+            pixels.Push(pt);
+
+            while (pixels.Count > 0)
             {
-                (int r, int c) = cells.Dequeue();
-                grid[r, c] = newColor;
-
-                if (r > 0 && grid[r - 1, c] == oldColor)
+                Point a = pixels.Pop();
+                if (a.X < bmp.Width && a.X > 0 && 
+                        a.Y < bmp.Height && a.Y > 0)//make sure we stay within bounds
                 {
-                    cells.Enqueue((r - 1, c));
-                }
 
-                if (r < grid.GetLength(0) - 1 && grid[r + 1, c] == oldColor)
-                {
-                    cells.Enqueue((r + 1, c));
-                }
-
-                if (c > 0 && grid[r, c - 1] == oldColor)
-                {
-                    cells.Enqueue((r, c - 1));
-                }
-
-                if (c < grid.GetLength(1) - 1 && grid[r, c + 1] == oldColor)
-                {
-                    cells.Enqueue((r, c + 1));
+                    if (bmp.GetPixel(a.X, a.Y) == targetColor)
+                    {
+                        bmp.SetPixel(a.X, a.Y, replacementColor);
+                        pixels.Push(new Point(a.X - 1, a.Y));
+                        pixels.Push(new Point(a.X + 1, a.Y));
+                        pixels.Push(new Point(a.X, a.Y - 1));
+                        pixels.Push(new Point(a.X, a.Y + 1));
+                        pnlBase.Refresh();
+                    }
                 }
             }
+            pnlBase.Refresh(); //refresh our main picture box
+            return;        
         }
 
         private void pnlPauseResume_MouseEnter(object sender, EventArgs e)
@@ -417,21 +422,18 @@ namespace RiskGame
             PauseAction(0);
         }
 
-        private void pnlBase_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void pnlBase_Click(object sender, EventArgs e)
         {
-            int[,] test = new int[10, 10];
-            Point cursorPos = Cursor.Position;
+            
+        }
 
-            int r = cursorPos.Y / 10;
-            int c = cursorPos.X / 10;
-
+        private void pnlBase_MouseDown(object sender, MouseEventArgs e)
+        {
+            Point cursorPos = new Point(e.X, e.Y);
+            MessageBox.Show(string.Format("X: {0} Y: {1}", cursorPos.X, cursorPos.Y));
             Color change = Color.FromName(frmLogin.human.accentColour);
-            FloodFill(test, r, c, change.ToArgb());
+            FloodFill((Bitmap)pnlBase.BackgroundImage, cursorPos, Color.White, Color.MediumPurple);
+
         }
     }
 }
