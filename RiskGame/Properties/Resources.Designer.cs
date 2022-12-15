@@ -133,6 +133,16 @@ namespace RiskGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loading_circle_loading {
+            get {
+                object obj = ResourceManager.GetObject("loading_circle_loading", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoutButton {
             get {
                 object obj = ResourceManager.GetObject("LogoutButton", resourceCulture);

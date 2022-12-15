@@ -37,10 +37,11 @@ namespace RiskGame
             pbSecretMode.Image = Properties.Resources.Tutorial_Checkbox;
             multiCheck();
 
-            if (frmLogin.human.DEBUGSkipToGame)
-            {
-                SinglePlayerClick();
-            }
+            //if (frmLogin.human.DEBUGSkipToGame)
+            //{
+            //    Hide(); 
+            //    SinglePlayerClick();
+            //}
         }
 
         private void multiCheck()
@@ -139,7 +140,11 @@ namespace RiskGame
 
         private void frmSetupGame_Load(object sender, EventArgs e)
         {
-
+            if (frmLogin.human.DEBUGSkipToGame)
+            {
+                Hide();
+                SinglePlayerClick();
+            }
         }
 
         void Shuffle(int[] arr)
