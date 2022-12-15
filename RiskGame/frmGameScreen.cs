@@ -24,6 +24,7 @@ namespace RiskGame
 
         private void frmGameScreen_Load(object sender, EventArgs e)
         {
+            CenterToScreen();
             if(!frmLogin.human.DEBUGSkipToGame)
                 Application.OpenForms["frmDashboard"].Close();
             int AICount = Game.AICount;
@@ -43,7 +44,7 @@ namespace RiskGame
                 //regions[i] = new Region();
             }
 
-            pnlBase.BackColor = Color.FromArgb(153, 220, 243);
+            pbBase.BackColor = Color.FromArgb(153, 220, 243);
             
         }
 
@@ -171,8 +172,8 @@ namespace RiskGame
             var gDist = Math.Abs(trg.G - what.G);
             var bDist = Math.Abs(trg.B - what.B);
 
-            //Lowering threshold leads to more tolerancy
-            if (rDist + gDist + bDist < 10)
+            //Lowering threshold leads to less tolerancy
+            if (rDist + gDist + bDist < 140)
             {
                 valid = true;
             }
@@ -181,10 +182,9 @@ namespace RiskGame
         }
 
         //Flood Fill Algorithm
-        private void FloodFill(Bitmap bmp, Point pt, Color targetColor, Color replacementColor)
+        private void FloodFill(Bitmap bmp, Point pt, Color replaceWith)
         {
             Queue<Point> pixels = new Queue<Point>();
-            targetColor = bmp.GetPixel(pt.X, pt.Y);
             pixels.Enqueue(pt);
 
             while (pixels.Count > 0)
@@ -193,68 +193,18 @@ namespace RiskGame
                 if (a.X < bmp.Width && a.X > 0 &&
                         a.Y < bmp.Height && a.Y > 0)//make sure we stay within bounds
                 {
-                    if (IsClose(bmp.GetPixel(a.X, a.Y), targetColor))
+                    if (IsClose(bmp.GetPixel(a.X, a.Y), Color.White))
                     {
-                        bmp.SetPixel(a.X, a.Y, replacementColor);
+                        bmp.SetPixel(a.X, a.Y, replaceWith);
                         pixels.Enqueue(new Point(a.X - 1, a.Y));
                         pixels.Enqueue(new Point(a.X + 1, a.Y));
                         pixels.Enqueue(new Point(a.X, a.Y - 1));
                         pixels.Enqueue(new Point(a.X, a.Y + 1));
-                        pbBase.Refresh();
                     }
                 }
             }
             pbBase.Refresh(); //refresh our main picture box
             return;
-        }
-
-        private void FloodFillSpeed(Bitmap bmp, Point pt, Color targetColor, Color replacementColor)
-        {
-            targetColor = Color.White;
-
-            Queue<Point> pixels = new Queue<Point>();
-
-            pixels.Enqueue(pt);
-            while (pixels.Count != 0)
-            {
-                Point temp = pixels.Dequeue();
-                int y1 = temp.Y;
-                while (y1 >= 0 && IsClose(bmp.GetPixel(temp.X, y1), targetColor))
-                {
-                    y1--;
-                }
-                y1++;
-                bool spanLeft = false;
-                bool spanRight = false;
-                while (y1 < bmp.Height && IsClose(bmp.GetPixel(temp.X, y1), targetColor))
-                {
-                    bmp.SetPixel(temp.X, y1, replacementColor);
-                    pbBase.Refresh();
-
-                    if (!spanLeft && temp.X > 0 && IsClose(bmp.GetPixel(temp.X, y1), targetColor))
-                    {
-                        pixels.Enqueue(new Point(temp.X - 1, y1));
-                        spanLeft = true;
-                    }
-                    else if (spanLeft && temp.X - 1 == 0 && IsClose(bmp.GetPixel(temp.X, y1), targetColor))
-                    {
-                        spanLeft = false;
-                    }
-                    if (!spanRight && temp.X < bmp.Width - 1 && IsClose(bmp.GetPixel(temp.X, y1), targetColor))
-                    {
-                        pixels.Enqueue(new Point(temp.X + 1, y1));
-                        spanRight = true;
-                    }
-                    else if (spanRight && temp.X < bmp.Width - 1 && IsClose(bmp.GetPixel(temp.X, y1), targetColor))
-                    {
-                        spanRight = false;
-                    }
-                    y1++;
-                }
-
-            }
-            pbBase.Refresh();
-
         }
 
         private void pnlPauseResume_MouseEnter(object sender, EventArgs e)
@@ -490,10 +440,13 @@ namespace RiskGame
 
         private void pbBase_MouseDown(object sender, MouseEventArgs e)
         {
+            Cursor current = Cursor.Current;
+            Cursor.Current = Cursors.WaitCursor;
             Point cursorPos = new Point(e.X, e.Y);
-            //MessageBox.Show(string.Format("X: {0} Y: {1}", cursorPos.X, cursorPos.Y));
-            //Color change = Color.FromName(frmLogin.human.accentColour);
-            FloodFill((Bitmap)pbBase.Image, cursorPos, Color.White, Color.MediumPurple);
+            MessageBox.Show(string.Format("X: {0} Y: {1}", cursorPos.X, cursorPos.Y));
+            Color change = Color.FromName(frmLogin.human.accentColour);
+            FloodFill((Bitmap)pbBase.Image, cursorPos, Color.Black);
+            Cursor.Current = current;
         }
     }
 }
