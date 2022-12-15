@@ -119,7 +119,12 @@ namespace RiskGame
         
         private void loginUser(string id)
         {
-            if (!DEBUG_cbRequirePassword.Checked)
+            if (frmLogin.human.DEBUGSkipToGame)
+            {
+                frmLogin.human.username = users[Convert.ToInt32(id), 1];
+                frmLogin.human.avatar = users[Convert.ToInt32(id), 2];
+            }
+            else if (!DEBUG_cbRequirePassword.Checked)
             {
                 frmLogin.human.username = users[Convert.ToInt32(id), 1];
                 frmLogin.human.avatar = users[Convert.ToInt32(id), 2];
@@ -166,6 +171,15 @@ namespace RiskGame
         {
             Hide();
             new frmRegister().Show();
+        }
+
+        private void DEBUGbtnSkipToGame_Click(object sender, EventArgs e)
+        {
+            frmLogin.human.DEBUGSkipToGame = true;
+            loginUser("0");
+            Hide();
+            new frmSetupGame().Show();
+
         }
     }
 }

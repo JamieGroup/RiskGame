@@ -36,6 +36,11 @@ namespace RiskGame
             btnPlayerColour.BackColor = Color.FromName(frmLogin.human.accentColour);
             pbSecretMode.Image = Properties.Resources.Tutorial_Checkbox;
             multiCheck();
+
+            if (frmLogin.human.DEBUGSkipToGame)
+            {
+                SinglePlayerClick();
+            }
         }
 
         private void multiCheck()
@@ -212,6 +217,11 @@ namespace RiskGame
             }
         }
         private void pbStartSingleplayer_Click(object sender, EventArgs e)
+        {
+            SinglePlayerClick();
+        }
+
+        private void SinglePlayerClick()
         {
             if (trbrAISelector.Value == 0)
             {
