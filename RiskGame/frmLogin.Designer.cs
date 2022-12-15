@@ -34,6 +34,7 @@ namespace RiskGame
             this.label2 = new System.Windows.Forms.Label();
             this.DEBUG_cbFirstLaunch = new System.Windows.Forms.CheckBox();
             this.DEBUG_cbRequirePassword = new System.Windows.Forms.CheckBox();
+            this.DEBUGbtnSkipToGame = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,11 +92,23 @@ namespace RiskGame
             this.DEBUG_cbRequirePassword.Text = "Debug Tool: Require Password?";
             this.DEBUG_cbRequirePassword.UseVisualStyleBackColor = true;
             // 
+            // DEBUGbtnSkipToGame
+            // 
+            this.DEBUGbtnSkipToGame.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DEBUGbtnSkipToGame.Location = new System.Drawing.Point(12, 51);
+            this.DEBUGbtnSkipToGame.Name = "DEBUGbtnSkipToGame";
+            this.DEBUGbtnSkipToGame.Size = new System.Drawing.Size(206, 28);
+            this.DEBUGbtnSkipToGame.TabIndex = 5;
+            this.DEBUGbtnSkipToGame.Text = "Debug: Skip to Game";
+            this.DEBUGbtnSkipToGame.UseVisualStyleBackColor = true;
+            this.DEBUGbtnSkipToGame.Click += new System.EventHandler(this.DEBUGbtnSkipToGame_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 583);
+            this.Controls.Add(this.DEBUGbtnSkipToGame);
             this.Controls.Add(this.DEBUG_cbRequirePassword);
             this.Controls.Add(this.DEBUG_cbFirstLaunch);
             this.Controls.Add(this.label2);
@@ -117,5 +130,6 @@ namespace RiskGame
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox DEBUG_cbFirstLaunch;
         private System.Windows.Forms.CheckBox DEBUG_cbRequirePassword;
+        private System.Windows.Forms.Button DEBUGbtnSkipToGame;
     }
 }

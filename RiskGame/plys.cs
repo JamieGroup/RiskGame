@@ -16,6 +16,8 @@ namespace RiskGame
         public int gamesLost { get; set; }
         public string accentColour { get; set; }
         public int numberFriends { get; set; }
+
+        public bool DEBUGSkipToGame { get; set; }
         
         private List<string> friendsList = new List<string>(0);
 

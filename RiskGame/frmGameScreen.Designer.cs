@@ -52,6 +52,7 @@ namespace RiskGame
             this.pbPauseResume = new System.Windows.Forms.PictureBox();
             this.lbPauseResume = new System.Windows.Forms.Label();
             this.pnlBase = new System.Windows.Forms.Panel();
+            this.pbBase = new System.Windows.Forms.PictureBox();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -63,6 +64,7 @@ namespace RiskGame
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseInvite)).BeginInit();
             this.pnlPauseResume.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseResume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBase)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPause
@@ -330,18 +332,30 @@ namespace RiskGame
             // 
             this.pnlBase.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlBase.BackgroundImage")));
             this.pnlBase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlBase.Location = new System.Drawing.Point(3, 12);
+            this.pnlBase.Location = new System.Drawing.Point(290, 1000);
             this.pnlBase.Name = "pnlBase";
             this.pnlBase.Size = new System.Drawing.Size(1569, 784);
             this.pnlBase.TabIndex = 1;
             this.pnlBase.Click += new System.EventHandler(this.pnlBase_Click);
             this.pnlBase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBase_MouseDown);
             // 
+            // pbBase
+            // 
+            this.pbBase.Image = ((System.Drawing.Image)(resources.GetObject("pbBase.Image")));
+            this.pbBase.Location = new System.Drawing.Point(1, 12);
+            this.pbBase.Name = "pbBase";
+            this.pbBase.Size = new System.Drawing.Size(1569, 784);
+            this.pbBase.TabIndex = 2;
+            this.pbBase.TabStop = false;
+            this.pbBase.Click += new System.EventHandler(this.pbBase_Click);
+            this.pbBase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBase_MouseDown);
+            // 
             // frmGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 813);
+            this.Controls.Add(this.pbBase);
             this.Controls.Add(this.pnlBase);
             this.Controls.Add(this.pnlPause);
             this.Name = "frmGameScreen";
@@ -365,6 +379,7 @@ namespace RiskGame
             this.pnlPauseResume.ResumeLayout(false);
             this.pnlPauseResume.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseResume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBase)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -393,5 +408,6 @@ namespace RiskGame
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlPauseResume;
         private System.Windows.Forms.Panel pnlBase;
+        private System.Windows.Forms.PictureBox pbBase;
     }
 }
