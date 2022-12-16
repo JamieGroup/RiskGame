@@ -183,7 +183,8 @@ namespace RiskGame
             frmSetupGame.Game.OthersCount = Others;
             int i1 = rnd.Next(1, 6);
             string a1 = "default\\default" + i1 + ".jpg";
-            string c1 = Convert.ToString(Colour);
+            //string c1 = ColorTranslator.ToHtml(Color.FromArgb(Colour.ToArgb()));
+            string c1 = "#" + Colour.Name;
             if (AIs == 1)
             {
                 Player2 = new Plys(false, Username, c1, AIs, Others, a1);
@@ -191,8 +192,8 @@ namespace RiskGame
         }
         private void gameStart(int AIs, int Others, Color Colour1, string Username1, Color Colour2, string Username2)
         {
-            string c1 = Convert.ToString(Colour1);
-            string c2 = Convert.ToString(Colour2);
+            string c1 = "#" + Colour1.Name;
+            string c2 = "#" + Colour2.Name;
             int i1 = rnd.Next(1, 6);
             string a1 = "default\\default" + i1 + ".jpg";
             int i2;

@@ -37,7 +37,7 @@ namespace RiskGame
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
-            btnAccentColour.BackColor = Color.FromName(frmLogin.human.accentColour);
+            btnAccentColour.BackColor = System.Drawing.ColorTranslator.FromHtml(frmLogin.human.accentColour);
             lbUsername.Text = frmLogin.human.username;
             pbAvatar.ImageLocation = @frmLogin.human.avatar;
 
