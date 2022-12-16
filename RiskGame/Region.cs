@@ -11,12 +11,18 @@ namespace RiskGame
         public int owner { get; set; }
         public string territory { get; set; }
         public string name { get; set; }
+        public int CentralX { get; set; }
+        public int CentralY { get; set; }
 
         public Region(string _name)
         {
             name = _name;
         }
         
+        public void SetController(int _owner)
+        {
+            owner = _owner;
+        }
         public void SetTerritory()
         {
             territory = name.Split('_')[0];
@@ -24,6 +30,11 @@ namespace RiskGame
         public string GetOwner()
         {
             return $"Player {owner}";
+        }
+        public void SetPoint(int x, int y)
+        {
+            CentralX = x;
+            CentralY = y;
         }
     }
 }

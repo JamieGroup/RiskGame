@@ -119,6 +119,11 @@ namespace RiskGame
         
         private void loginUser(string id)
         {
+            frmLogin.human.DEBUGIgnoreAssigned = false;
+            if (DEBUGcbIgnoreAssigned.Checked)
+            {
+                frmLogin.human.DEBUGIgnoreAssigned = true;
+            }
             if (frmLogin.human.DEBUGSkipToGame)
             {
                 frmLogin.human.username = users[Convert.ToInt32(id), 1];
@@ -179,6 +184,11 @@ namespace RiskGame
             loginUser("0");
             Hide();
             new frmSetupGame().Show();
+
+        }
+
+        private void DEBUGcbIgnoreAssigned_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

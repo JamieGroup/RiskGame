@@ -17,6 +17,9 @@ namespace RiskGame
         public static Game Game = frmSetupGame.Game;
         public static Plys Pl2 = frmSetupGame.Player2;
         public static Plys Pl3 = frmSetupGame.Player3;
+        string[] allExtras = File.ReadAllLines("regions_extras.conf");
+        bool ignoreCloseness = false;
+        Random rnd = new Random();
         public frmGameScreen()
         {
             InitializeComponent();
@@ -25,6 +28,7 @@ namespace RiskGame
         private void frmGameScreen_Load(object sender, EventArgs e)
         {
             CenterToScreen();
+            pnlPause.BringToFront();
             if(!frmLogin.human.DEBUGSkipToGame)
                 Application.OpenForms["frmDashboard"].Close();
             int AICount = Game.AICount;
@@ -37,15 +41,36 @@ namespace RiskGame
             Game.calcPlayers();
             new frmPlayerSwapper().Show();
 
-            Region[] regions = new Region[25];
-            string[] allRegionData = File.ReadAllLines("regions.conf");
-            for(int i = 0; i<File.ReadLines("regions.conf").Count(); i++)
-            {
-                //regions[i] = new Region();
-            }
+            
 
             pbBase.BackColor = Color.FromArgb(153, 220, 243);
-            
+            if(!frmLogin.human.DEBUGIgnoreAssigned)
+            {
+                AssignRegions(playerCount + 1);
+            }
+        }
+
+        private void AssignRegions(int a)
+        {
+            string[] allRegionData = File.ReadAllLines("regions.conf");
+            Region[] regions = new Region[File.ReadLines("regions.conf").Count()];
+            for (int i = 0; i < File.ReadLines("regions.conf").Count(); i++)
+            {
+                regions[i] = new Region(allRegionData[i].Split('~')[0]);
+                int b = rnd.Next(1, a + 1);
+                regions[i].SetController(b);
+                regions[i].SetTerritory();
+                regions[i].SetPoint(Convert.ToInt32(allRegionData[i].Split('~')[1].Split(',')[0]), Convert.ToInt32(allRegionData[i].Split('~')[1].Split(',')[1]));
+                Color colour = Color.White;
+                if(b==1)
+                    colour = System.Drawing.ColorTranslator.FromHtml(frmLogin.human.accentColour);
+                else if(b==2)
+                    colour = System.Drawing.ColorTranslator.FromHtml(Pl2.accentColour);
+                else if(b == 3)
+                    colour = System.Drawing.ColorTranslator.FromHtml(Pl3.accentColour);
+                FloodFill((Bitmap)pbBase.Image, new Point(regions[i].CentralX, regions[i].CentralY), colour);
+            }
+            rnd.Next(1, a);
         }
 
         private void lbGamePaused_Click(object sender, EventArgs e)
@@ -174,6 +199,22 @@ namespace RiskGame
 
             //Lowering threshold leads to less tolerancy
             if (rDist + gDist + bDist < 140)
+            {
+                valid = true;
+            }
+
+            return valid;
+        }
+        private bool IsClose(Color trg, Color what, int threshold)
+        {
+            bool valid = false;
+
+            var rDist = Math.Abs(trg.R - what.R);
+            var gDist = Math.Abs(trg.G - what.G);
+            var bDist = Math.Abs(trg.B - what.B);
+
+            //Lowering threshold leads to less tolerancy
+            if (rDist + gDist + bDist < threshold)
             {
                 valid = true;
             }
@@ -443,9 +484,39 @@ namespace RiskGame
             Cursor current = Cursor.Current;
             Cursor.Current = Cursors.WaitCursor;
             Point cursorPos = new Point(e.X, e.Y);
-            MessageBox.Show(string.Format("X: {0} Y: {1}", cursorPos.X, cursorPos.Y));
-            Color change = Color.FromName(frmLogin.human.accentColour);
-            FloodFill((Bitmap)pbBase.Image, cursorPos, Color.Black);
+            Clipboard.SetText(string.Format("~" + cursorPos.X + "," + cursorPos.Y));
+            Color change = ColorTranslator.FromHtml(frmLogin.human.accentColour);
+            Bitmap bmp = new Bitmap(pbBase.Image);
+            FloodFill((Bitmap)pbBase.Image, cursorPos, change);
+
+            bool extraChecked = false;
+            bool aaa = false;
+
+            for(int i=0;i<allExtras.Length;i++)
+            {
+                aaa = false;
+                ignoreCloseness = false;
+                for (int g=0; g < allExtras[i].Split('~').Length; g++)
+                {
+                    string p = allExtras[i].Split('~')[g];
+                    string[] xy = p.Split(',');
+                    int x = Convert.ToInt32(xy[0]);
+                    int y = Convert.ToInt32(xy[1]);
+                    Point a = new Point(x, y);
+                    Color test = bmp.GetPixel(a.X, a.Y);
+                    if (!aaa && IsClose(test, change, 400))
+                    {
+                        aaa = true;
+                        ignoreCloseness = true;
+                        g = 0;
+                    }
+                    if(aaa)
+                    {
+                        FloodFill(bmp, a, change);
+                    }
+                }
+            }
+            
             Cursor.Current = current;
         }
     }

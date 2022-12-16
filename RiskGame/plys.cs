@@ -18,6 +18,7 @@ namespace RiskGame
         public int numberFriends { get; set; }
 
         public bool DEBUGSkipToGame { get; set; }
+        public bool DEBUGIgnoreAssigned { get; set; }
         
         private List<string> friendsList = new List<string>(0);
 
@@ -65,7 +66,7 @@ namespace RiskGame
             gamesPlayed = 0;
             gamesWon = 0;
             gamesLost = 0;
-            accentColour = "Yellow";
+            accentColour = "#FFFF00";
             accountLocked = false;
         }
         public Plys(bool _realPerson, string _username, string _colour, int _AICount, int _OthersCount, string _avatar)
