@@ -19,6 +19,7 @@ namespace RiskGame
         public static Plys Pl3 = frmSetupGame.Player3;
         string[] allExtras = File.ReadAllLines("regions_extras.conf");
         bool ignoreCloseness = false;
+        bool pauseCooldown = false;
         Random rnd = new Random();
         public frmGameScreen()
         {
@@ -69,6 +70,18 @@ namespace RiskGame
                 else if(b == 3)
                     colour = System.Drawing.ColorTranslator.FromHtml(Pl3.accentColour);
                 FloodFill((Bitmap)pbBase.Image, new Point(regions[i].CentralX, regions[i].CentralY), colour);
+
+                //Display Troops Count!
+                Panel pnl = new Panel();
+                pnl.BackgroundImage = Properties.Resources.troopBase;
+                pnl.Size = new Size(170, 170);
+                pnl.Location = new Point(regions[i].CentralX, regions[i].CentralY);
+                FloodFill((Bitmap)pnl.BackgroundImage, new Point(regions[i].CentralX, regions[i].CentralY), colour);
+                pnl.Refresh();
+
+                Label lb = new Label();
+                lb.Text = Convert.ToString(rnd.Next(1,3));
+                lb.ForeColor = colour;
             }
             rnd.Next(1, a);
         }
@@ -77,11 +90,13 @@ namespace RiskGame
         {
 
         }
-
         private void frmGameScreen_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+            if (e.KeyCode == Keys.Escape && !pauseCooldown)
             {
+                tmrPauseCooldown.Interval = 1000;
+                tmrPauseCooldown.Start();
+                pauseCooldown = true;
                 pauseShown++;
                 if (pauseShown % 2 == 0)
                 {
@@ -94,11 +109,13 @@ namespace RiskGame
                     AnimatePauseScreen(1);
                 }
             }
+            
         }
 
         private void AnimatePauseScreen(int direction)
         {
             int currentState = Game.state;
+            int animateSpeed = 10;
             //Default location: -455,0
             //Paused location: 0,0
 
@@ -108,7 +125,6 @@ namespace RiskGame
                 Game.state = 4;
                 lbGamePaused.Visible = true;
                 int xCurrent = pnlPause.Location.X;
-                int animateSpeed = 5;
                 for(int i = 0; i < (455/animateSpeed); i++)
                 {
                     pnlPause.Location = new Point(xCurrent + (Convert.ToInt32(animateSpeed) * i), 0);
@@ -120,7 +136,6 @@ namespace RiskGame
                 //Unpause
                 Game.state = currentState;
                 int xCurrent = pnlPause.Location.X;
-                int animateSpeed = 5;
                 for (int i = 0; i < (455 / animateSpeed); i++)
                 {
                     pnlPause.Location = new Point(xCurrent - (Convert.ToInt32(animateSpeed) * i), 0);
@@ -518,6 +533,12 @@ namespace RiskGame
             }
             
             Cursor.Current = current;
+        }
+
+        private void tmrPauseCooldown_Tick(object sender, EventArgs e)
+        {
+            pauseCooldown = false;
+            tmrPauseCooldown.Stop();
         }
     }
 }
