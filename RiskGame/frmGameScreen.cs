@@ -72,16 +72,25 @@ namespace RiskGame
                 FloodFill((Bitmap)pbBase.Image, new Point(regions[i].CentralX, regions[i].CentralY), colour);
 
                 //Display Troops Count!
-                Panel pnl = new Panel();
-                pnl.BackgroundImage = Properties.Resources.troopBase;
-                pnl.Size = new Size(170, 170);
-                pnl.Location = new Point(regions[i].CentralX, regions[i].CentralY);
-                FloodFill((Bitmap)pnl.BackgroundImage, new Point(regions[i].CentralX, regions[i].CentralY), colour);
+                PictureBox pnl = new PictureBox();
+                pnl.Image = Properties.Resources.troopBase;
+                pnl.Size = new Size(50, 50);
+                FloodFill((Bitmap)pnl.Image, new Point(regions[i].CentralX, regions[i].CentralY+25), colour);
                 pnl.Refresh();
+                pnl.SizeMode = PictureBoxSizeMode.Zoom;
+                pbBase.Controls.Add(pnl);
+                pnl.Location = new Point(regions[i].CentralX - 25, regions[i].CentralY - 25);
+                pnl.BackColor = Color.Transparent;
+                pnl.BringToFront();
 
                 Label lb = new Label();
                 lb.Text = Convert.ToString(rnd.Next(1,3));
                 lb.ForeColor = colour;
+                pnl.Controls.Add(lb);
+                lb.Location = new Point(/*regions[i].CentralX, regions[i].CentralY*/15,5);
+                lb.BackColor = Color.Transparent;
+                lb.Font = new Font("Segoe UI", 18);
+                lb.BringToFront();
             }
             rnd.Next(1, a);
         }

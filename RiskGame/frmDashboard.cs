@@ -77,7 +77,7 @@ namespace RiskGame
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 btnAccentColour.BackColor = colorDialog.Color;
-                frmLogin.human.accentColour = colorDialog.Color.Name;
+                frmLogin.human.accentColour = ColorTranslator.ToHtml(colorDialog.Color);
             }
         }
 
@@ -162,6 +162,11 @@ namespace RiskGame
             frmLogin.human.tutorialLevel = 1;
             Hide();
             new frmTutorialIntermediate().Show();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            new frmFriendList().Show();
         }
     }
 }
