@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FloodFill.cs" />
+    <Compile Include="frmFriendList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFriendList.Designer.cs">
+      <DependentUpon>frmFriendList.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     <Compile Include="Questions.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="SoundDash.cs" />
+    <EmbeddedResource Include="frmFriendList.resx">
+      <DependentUpon>frmFriendList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -295,6 +304,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\troopBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\troopBase1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
