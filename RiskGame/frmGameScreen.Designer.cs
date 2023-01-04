@@ -54,6 +54,12 @@ namespace RiskGame
             this.lbPauseResume = new System.Windows.Forms.Label();
             this.tmrPauseCooldown = new System.Windows.Forms.Timer(this.components);
             this.pbBase = new System.Windows.Forms.PictureBox();
+            this.INDICATORpnlDeploy = new System.Windows.Forms.Panel();
+            this.INDICATORpnlAttack = new System.Windows.Forms.Panel();
+            this.INDICATORpnlReEnforce = new System.Windows.Forms.Panel();
+            this.INDICATORlbDeploy = new System.Windows.Forms.Label();
+            this.INDICATORlbAttack = new System.Windows.Forms.Label();
+            this.INDICATORlbReEnfoce = new System.Windows.Forms.Label();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -66,6 +72,9 @@ namespace RiskGame
             this.pnlPauseResume.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseResume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBase)).BeginInit();
+            this.INDICATORpnlDeploy.SuspendLayout();
+            this.INDICATORpnlAttack.SuspendLayout();
+            this.INDICATORpnlReEnforce.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPause
@@ -81,9 +90,9 @@ namespace RiskGame
             this.pnlPause.Controls.Add(this.lbPauseCopyright);
             this.pnlPause.Controls.Add(this.lbGamePaused);
             this.pnlPause.Controls.Add(this.pnlPauseResume);
-            this.pnlPause.Location = new System.Drawing.Point(-455, 0);
+            this.pnlPause.Location = new System.Drawing.Point(-455, 3);
             this.pnlPause.Name = "pnlPause";
-            this.pnlPause.Size = new System.Drawing.Size(455, 813);
+            this.pnlPause.Size = new System.Drawing.Size(455, 729);
             this.pnlPause.TabIndex = 0;
             this.pnlPause.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPause_Paint);
             // 
@@ -91,7 +100,7 @@ namespace RiskGame
             // 
             this.pnlPauseQuit.Controls.Add(this.pbPauseQuit);
             this.pnlPauseQuit.Controls.Add(this.lbPauseQuit);
-            this.pnlPauseQuit.Location = new System.Drawing.Point(0, 596);
+            this.pnlPauseQuit.Location = new System.Drawing.Point(3, 550);
             this.pnlPauseQuit.Name = "pnlPauseQuit";
             this.pnlPauseQuit.Size = new System.Drawing.Size(455, 103);
             this.pnlPauseQuit.TabIndex = 19;
@@ -130,7 +139,7 @@ namespace RiskGame
             // 
             this.pnlPauseSettings.Controls.Add(this.pbPauseSettings);
             this.pnlPauseSettings.Controls.Add(this.lbPauseSettings);
-            this.pnlPauseSettings.Location = new System.Drawing.Point(0, 477);
+            this.pnlPauseSettings.Location = new System.Drawing.Point(3, 430);
             this.pnlPauseSettings.Name = "pnlPauseSettings";
             this.pnlPauseSettings.Size = new System.Drawing.Size(455, 103);
             this.pnlPauseSettings.TabIndex = 18;
@@ -169,7 +178,7 @@ namespace RiskGame
             // 
             this.pnlPauseOverview.Controls.Add(this.pbPauseOverview);
             this.pnlPauseOverview.Controls.Add(this.lbPauseOverview);
-            this.pnlPauseOverview.Location = new System.Drawing.Point(0, 358);
+            this.pnlPauseOverview.Location = new System.Drawing.Point(3, 310);
             this.pnlPauseOverview.Name = "pnlPauseOverview";
             this.pnlPauseOverview.Size = new System.Drawing.Size(455, 103);
             this.pnlPauseOverview.TabIndex = 17;
@@ -208,7 +217,7 @@ namespace RiskGame
             // 
             this.pnlPauseInvite.Controls.Add(this.pbPauseInvite);
             this.pnlPauseInvite.Controls.Add(this.bPauseInvite);
-            this.pnlPauseInvite.Location = new System.Drawing.Point(0, 239);
+            this.pnlPauseInvite.Location = new System.Drawing.Point(3, 190);
             this.pnlPauseInvite.Name = "pnlPauseInvite";
             this.pnlPauseInvite.Size = new System.Drawing.Size(455, 103);
             this.pnlPauseInvite.TabIndex = 16;
@@ -246,7 +255,7 @@ namespace RiskGame
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(41, 730);
+            this.label2.Location = new System.Drawing.Point(41, 660);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(393, 2);
             this.label2.TabIndex = 14;
@@ -254,7 +263,7 @@ namespace RiskGame
             // div1
             // 
             this.div1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.div1.Location = new System.Drawing.Point(31, 80);
+            this.div1.Location = new System.Drawing.Point(41, 56);
             this.div1.Name = "div1";
             this.div1.Size = new System.Drawing.Size(393, 2);
             this.div1.TabIndex = 13;
@@ -263,7 +272,7 @@ namespace RiskGame
             // 
             this.lbPauseDebugVersion.AutoSize = true;
             this.lbPauseDebugVersion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPauseDebugVersion.Location = new System.Drawing.Point(135, 745);
+            this.lbPauseDebugVersion.Location = new System.Drawing.Point(154, 671);
             this.lbPauseDebugVersion.Name = "lbPauseDebugVersion";
             this.lbPauseDebugVersion.Size = new System.Drawing.Size(139, 21);
             this.lbPauseDebugVersion.TabIndex = 3;
@@ -273,7 +282,7 @@ namespace RiskGame
             // 
             this.lbPauseCopyright.AutoSize = true;
             this.lbPauseCopyright.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPauseCopyright.Location = new System.Drawing.Point(51, 766);
+            this.lbPauseCopyright.Location = new System.Drawing.Point(53, 693);
             this.lbPauseCopyright.Name = "lbPauseCopyright";
             this.lbPauseCopyright.Size = new System.Drawing.Size(311, 30);
             this.lbPauseCopyright.TabIndex = 2;
@@ -283,7 +292,7 @@ namespace RiskGame
             // 
             this.lbGamePaused.AutoSize = true;
             this.lbGamePaused.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGamePaused.Location = new System.Drawing.Point(94, 20);
+            this.lbGamePaused.Location = new System.Drawing.Point(103, 6);
             this.lbGamePaused.Name = "lbGamePaused";
             this.lbGamePaused.Size = new System.Drawing.Size(244, 50);
             this.lbGamePaused.TabIndex = 0;
@@ -294,7 +303,7 @@ namespace RiskGame
             // 
             this.pnlPauseResume.Controls.Add(this.pbPauseResume);
             this.pnlPauseResume.Controls.Add(this.lbPauseResume);
-            this.pnlPauseResume.Location = new System.Drawing.Point(0, 120);
+            this.pnlPauseResume.Location = new System.Drawing.Point(3, 70);
             this.pnlPauseResume.Name = "pnlPauseResume";
             this.pnlPauseResume.Size = new System.Drawing.Size(455, 103);
             this.pnlPauseResume.TabIndex = 15;
@@ -336,7 +345,7 @@ namespace RiskGame
             // pbBase
             // 
             this.pbBase.Image = ((System.Drawing.Image)(resources.GetObject("pbBase.Image")));
-            this.pbBase.Location = new System.Drawing.Point(3, 3);
+            this.pbBase.Location = new System.Drawing.Point(3, 42);
             this.pbBase.Name = "pbBase";
             this.pbBase.Size = new System.Drawing.Size(1532, 729);
             this.pbBase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -345,13 +354,70 @@ namespace RiskGame
             this.pbBase.Click += new System.EventHandler(this.pbBase_Click);
             this.pbBase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBase_MouseDown);
             // 
+            // INDICATORpnlDeploy
+            // 
+            this.INDICATORpnlDeploy.Controls.Add(this.INDICATORlbDeploy);
+            this.INDICATORpnlDeploy.Location = new System.Drawing.Point(3, 3);
+            this.INDICATORpnlDeploy.Name = "INDICATORpnlDeploy";
+            this.INDICATORpnlDeploy.Size = new System.Drawing.Size(511, 42);
+            this.INDICATORpnlDeploy.TabIndex = 3;
+            // 
+            // INDICATORpnlAttack
+            // 
+            this.INDICATORpnlAttack.Controls.Add(this.INDICATORlbAttack);
+            this.INDICATORpnlAttack.Location = new System.Drawing.Point(512, 3);
+            this.INDICATORpnlAttack.Name = "INDICATORpnlAttack";
+            this.INDICATORpnlAttack.Size = new System.Drawing.Size(511, 42);
+            this.INDICATORpnlAttack.TabIndex = 4;
+            // 
+            // INDICATORpnlReEnforce
+            // 
+            this.INDICATORpnlReEnforce.Controls.Add(this.INDICATORlbReEnfoce);
+            this.INDICATORpnlReEnforce.Location = new System.Drawing.Point(1022, 3);
+            this.INDICATORpnlReEnforce.Name = "INDICATORpnlReEnforce";
+            this.INDICATORpnlReEnforce.Size = new System.Drawing.Size(513, 42);
+            this.INDICATORpnlReEnforce.TabIndex = 5;
+            // 
+            // INDICATORlbDeploy
+            // 
+            this.INDICATORlbDeploy.AutoSize = true;
+            this.INDICATORlbDeploy.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.INDICATORlbDeploy.Location = new System.Drawing.Point(192, 3);
+            this.INDICATORlbDeploy.Name = "INDICATORlbDeploy";
+            this.INDICATORlbDeploy.Size = new System.Drawing.Size(116, 37);
+            this.INDICATORlbDeploy.TabIndex = 0;
+            this.INDICATORlbDeploy.Text = "DEPLOY";
+            // 
+            // INDICATORlbAttack
+            // 
+            this.INDICATORlbAttack.AutoSize = true;
+            this.INDICATORlbAttack.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.INDICATORlbAttack.Location = new System.Drawing.Point(196, 3);
+            this.INDICATORlbAttack.Name = "INDICATORlbAttack";
+            this.INDICATORlbAttack.Size = new System.Drawing.Size(119, 37);
+            this.INDICATORlbAttack.TabIndex = 1;
+            this.INDICATORlbAttack.Text = "ATTACK";
+            // 
+            // INDICATORlbReEnfoce
+            // 
+            this.INDICATORlbReEnfoce.AutoSize = true;
+            this.INDICATORlbReEnfoce.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.INDICATORlbReEnfoce.Location = new System.Drawing.Point(197, 3);
+            this.INDICATORlbReEnfoce.Name = "INDICATORlbReEnfoce";
+            this.INDICATORlbReEnfoce.Size = new System.Drawing.Size(156, 37);
+            this.INDICATORlbReEnfoce.TabIndex = 2;
+            this.INDICATORlbReEnfoce.Text = "Re-Enforce";
+            // 
             // frmGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1538, 735);
-            this.Controls.Add(this.pbBase);
+            this.ClientSize = new System.Drawing.Size(1538, 774);
+            this.Controls.Add(this.INDICATORpnlReEnforce);
+            this.Controls.Add(this.INDICATORpnlAttack);
+            this.Controls.Add(this.INDICATORpnlDeploy);
             this.Controls.Add(this.pnlPause);
+            this.Controls.Add(this.pbBase);
             this.Name = "frmGameScreen";
             this.Text = "Risk: Game Screen";
             this.Load += new System.EventHandler(this.frmGameScreen_Load);
@@ -374,6 +440,12 @@ namespace RiskGame
             this.pnlPauseResume.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseResume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBase)).EndInit();
+            this.INDICATORpnlDeploy.ResumeLayout(false);
+            this.INDICATORpnlDeploy.PerformLayout();
+            this.INDICATORpnlAttack.ResumeLayout(false);
+            this.INDICATORpnlAttack.PerformLayout();
+            this.INDICATORpnlReEnforce.ResumeLayout(false);
+            this.INDICATORpnlReEnforce.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,5 +476,11 @@ namespace RiskGame
         private System.Windows.Forms.Panel pnlPauseResume;
         private System.Windows.Forms.PictureBox pbBase;
         private System.Windows.Forms.Timer tmrPauseCooldown;
+        private System.Windows.Forms.Panel INDICATORpnlDeploy;
+        private System.Windows.Forms.Label INDICATORlbDeploy;
+        private System.Windows.Forms.Panel INDICATORpnlAttack;
+        private System.Windows.Forms.Label INDICATORlbAttack;
+        private System.Windows.Forms.Panel INDICATORpnlReEnforce;
+        private System.Windows.Forms.Label INDICATORlbReEnfoce;
     }
 }

@@ -43,18 +43,6 @@ namespace RiskGame
             string pathPl2 = "avatars\\" + frmGameScreen.Pl2.avatar;
             pbPl2Avatar.Image = Image.FromFile(pathPl2);
             BringToFront();
-            //pnlStripe.BackColor = Color.Transparent;
-            //pnlStripe.BackgroundImage = SetImageOpacity(Properties.Resources.playerSwapperStripeFull, 0.25F);
-
-            //Panel panel1 = new TransparentPanel();
-            //panel1.BackColor = System.Drawing.Color.Transparent;
-            //panel1.Location = new System.Drawing.Point(0, 100);
-            //panel1.Name = "pnlStripe2";
-            //panel1.Size = new System.Drawing.Size(1032, 152);
-            //panel1.TabIndex = 0;
-            //panel1.BackgroundImage = Properties.Resources.playerSwapperStripeFull;
-            //this.Controls.Add(panel1);
-            //panel1.BringToFront();
             DecidePlayer();
         }
 
@@ -95,6 +83,7 @@ namespace RiskGame
             that a new player has been chosen.*/
             Hide();
             Application.OpenForms["frmGameScreen"].WindowState = FormWindowState.Normal;
+            frmGameScreen.ReturnToGameScreen();
         }
 
         private void Trade()
@@ -107,39 +96,5 @@ namespace RiskGame
         {
             Trade();
         }
-
-        //    public Image SetImageOpacity(Image image, float opacity)
-        //    {
-        //        Bitmap bmp = new Bitmap(image.Width, image.Height);
-        //        using (Graphics g = Graphics.FromImage(bmp))
-        //        {
-        //            ColorMatrix matrix = new ColorMatrix();
-        //            matrix.Matrix33 = opacity;
-        //            ImageAttributes attributes = new ImageAttributes();
-        //            attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default,
-        //                                              ColorAdjustType.Bitmap);
-        //            g.DrawImage(image, new Rectangle(0, 0, bmp.Width, bmp.Height),
-        //                               0, 0, image.Width, image.Height,
-        //                               GraphicsUnit.Pixel, attributes);
-        //        }
-        //        return bmp;
-        //    }
-
-        //    public class TransparentPanel : Panel
-        //    {
-        //        protected override CreateParams CreateParams
-        //        {
-        //            get
-        //            {
-        //                var cp = base.CreateParams;
-        //                cp.ExStyle |= 0x00000020; // WS_EX_TRANSPARENT
-
-        //                return cp;
-        //            }
-        //        }
-
-        //        protected override void OnPaint(PaintEventArgs e) =>
-        //            e.Graphics.FillRectangle(new SolidBrush(this.BackColor), this.ClientRectangle);
-        //    }
     }
 }
