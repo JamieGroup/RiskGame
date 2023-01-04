@@ -38,6 +38,7 @@ namespace RiskGame
         public int numberRegions { get; set; }
         public int numberTradingCards { get; set; }
         public int numberTroops { get; set; }
+        public int troopPocket { get; set; }
 
         //Constructors
         public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, string _accentColour, List<string>_friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)

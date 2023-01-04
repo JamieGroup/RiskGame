@@ -53,17 +53,18 @@ namespace RiskGame
 
         public void ReturnToGameScreen()
         {
+            Plys current;
             if (Game.currentPlayer == 0)
             {
-                Plys current = frmLogin.human;
+                current = frmLogin.human;
             }
             else if (Game.currentPlayer == 1)
             {
-                Plys current = Pl2;
+                current = Pl2;
             }
             else
             {
-                Plys current = Pl3;
+                current = Pl3;
             }
 
             switch(Game.state)
@@ -90,6 +91,8 @@ namespace RiskGame
                     //Prevents crashing - Game should never be in a state other than 0,1,2, or 3.
                     break;
             }
+
+            changeTR(current.troopPocket);
         }
 
         private void AssignRegions(int a)
@@ -112,11 +115,42 @@ namespace RiskGame
                     colour = System.Drawing.ColorTranslator.FromHtml(Pl3.accentColour);
                 FloodFill((Bitmap)pbBase.Image, new Point(regions[i].CentralX, regions[i].CentralY), colour);
 
+                //Extras (Parts of a region that aren't connected by whitespace - e.g. Pacific Islands)
+                bool extraChecked = false;
+                bool aaa = false;
+
+                for (int g = 0; g < allExtras.Length; g++)
+                {
+                    aaa = false;
+                    ignoreCloseness = false;
+
+                    for (int h = 0; h < allExtras[g].Split('~').Length; h++)
+                    {
+                        string p = allExtras[g].Split('~')[h];
+                        string[] xy = p.Split(',');
+                        int x = Convert.ToInt32(xy[0]);
+                        int y = Convert.ToInt32(xy[1]);
+                        Point pt = new Point(x, y);
+                        Bitmap bmp = (Bitmap)pbBase.Image;
+                        Color test = bmp.GetPixel(pt.X, pt.Y);
+                        if (!aaa && IsClose(test, colour, 400))
+                        {
+                            aaa = true;
+                            ignoreCloseness = true;
+                            h = 0;
+                        }
+                        if (aaa)
+                        {
+                            FloodFill((Bitmap)pbBase.Image, pt, colour);
+                        }
+                    }
+                }
+
                 //Display Troops Count!
                 PictureBox pnl = new PictureBox();
                 pnl.Image = Properties.Resources.troopBase;
                 pnl.Size = new Size(50, 50);
-                FloodFill((Bitmap)pnl.Image, new Point(regions[i].CentralX, regions[i].CentralY+25), colour);
+                //FloodFill((Bitmap)pnl.Image, new Point(regions[i].CentralX, regions[i].CentralY+25), colour);
                 pnl.Refresh();
                 pnl.SizeMode = PictureBoxSizeMode.Zoom;
                 pbBase.Controls.Add(pnl);
@@ -125,12 +159,12 @@ namespace RiskGame
                 pnl.BringToFront();
 
                 Label lb = new Label();
-                lb.Text = Convert.ToString(rnd.Next(1,3));
+                lb.Text = Convert.ToString(rnd.Next(1,4));
                 lb.ForeColor = colour;
                 pnl.Controls.Add(lb);
                 lb.Location = new Point(/*regions[i].CentralX, regions[i].CentralY*/15,5);
                 lb.BackColor = Color.Transparent;
-                lb.Font = new Font("Segoe UI", 18);
+                lb.Font = new Font("Segoe UI", 18, FontStyle.Bold);
                 lb.BringToFront();
             }
             rnd.Next(1, a);
@@ -311,6 +345,67 @@ namespace RiskGame
             }
             pbBase.Refresh(); //refresh our main picture box
             return;
+        }
+
+        
+
+        private void pbBase_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(frmLogin.human.DEBUGIgnoreAssigned)
+            {
+                Cursor current = Cursor.Current;
+                Cursor.Current = Cursors.WaitCursor;
+                Point cursorPos = new Point(e.X, e.Y);
+                Clipboard.SetText(string.Format("~" + cursorPos.X + "," + cursorPos.Y));
+                Color change = ColorTranslator.FromHtml(frmLogin.human.accentColour);
+                Bitmap bmp = new Bitmap(pbBase.Image);
+                FloodFill((Bitmap)pbBase.Image, cursorPos, change);
+
+                bool extraChecked = false;
+                bool aaa = false;
+
+                for (int i = 0; i < allExtras.Length; i++)
+                {
+                    aaa = false;
+                    ignoreCloseness = false;
+                    for (int g = 0; g < allExtras[i].Split('~').Length; g++)
+                    {
+                        string p = allExtras[i].Split('~')[g];
+                        string[] xy = p.Split(',');
+                        int x = Convert.ToInt32(xy[0]);
+                        int y = Convert.ToInt32(xy[1]);
+                        Point a = new Point(x, y);
+                        Color test = bmp.GetPixel(a.X, a.Y);
+                        if (!aaa && IsClose(test, change, 400))
+                        {
+                            aaa = true;
+                            ignoreCloseness = true;
+                            g = 0;
+                        }
+                        if (aaa)
+                        {
+                            FloodFill(bmp, a, change);
+                        }
+                    }
+                }
+
+                Cursor.Current = current;
+            }
+        }
+
+        private void tmrPauseCooldown_Tick(object sender, EventArgs e)
+        {
+            pauseCooldown = false;
+            tmrPauseCooldown.Stop();
+        }
+
+        private void frmGameScreen_Resize(object sender, EventArgs e)
+        {
+            if (Game.newPlayer)
+            {
+                Game.newPlayer = false;
+                ReturnToGameScreen();
+            }
         }
 
         private void pnlPauseResume_MouseEnter(object sender, EventArgs e)
@@ -530,12 +625,12 @@ namespace RiskGame
 
         private void pnlBase_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pnlBase_MouseDown(object sender, MouseEventArgs e)
         {
-            
+
 
         }
 
@@ -544,51 +639,17 @@ namespace RiskGame
 
         }
 
-        private void pbBase_MouseDown(object sender, MouseEventArgs e)
+        private void changeTR(int a)
         {
-            Cursor current = Cursor.Current;
-            Cursor.Current = Cursors.WaitCursor;
-            Point cursorPos = new Point(e.X, e.Y);
-            Clipboard.SetText(string.Format("~" + cursorPos.X + "," + cursorPos.Y));
-            Color change = ColorTranslator.FromHtml(frmLogin.human.accentColour);
-            Bitmap bmp = new Bitmap(pbBase.Image);
-            FloodFill((Bitmap)pbBase.Image, cursorPos, change);
-
-            bool extraChecked = false;
-            bool aaa = false;
-
-            for(int i=0;i<allExtras.Length;i++)
+            if(pnlTroopsRemaining.Visible)
             {
-                aaa = false;
-                ignoreCloseness = false;
-                for (int g=0; g < allExtras[i].Split('~').Length; g++)
-                {
-                    string p = allExtras[i].Split('~')[g];
-                    string[] xy = p.Split(',');
-                    int x = Convert.ToInt32(xy[0]);
-                    int y = Convert.ToInt32(xy[1]);
-                    Point a = new Point(x, y);
-                    Color test = bmp.GetPixel(a.X, a.Y);
-                    if (!aaa && IsClose(test, change, 400))
-                    {
-                        aaa = true;
-                        ignoreCloseness = true;
-                        g = 0;
-                    }
-                    if(aaa)
-                    {
-                        FloodFill(bmp, a, change);
-                    }
-                }
+                pnlTroopsRemaining.Visible = false;
             }
-            
-            Cursor.Current = current;
-        }
-
-        private void tmrPauseCooldown_Tick(object sender, EventArgs e)
-        {
-            pauseCooldown = false;
-            tmrPauseCooldown.Stop();
+            else
+            {
+                pnlTroopsRemaining.Visible = true;
+                lbTroopsRemainingNumber.Text = Convert.ToString(a);
+            }
         }
     }
 }

@@ -74,7 +74,7 @@ namespace RiskGame
 
         private void setAnswers()
         {
-            string qHere = Qs[qNum].question;
+            string qHere = Qs[qNum]._question;
             //Default (1 line) - 27, 33
             //2 line 27, 9 (when > 32 charaters)
             lbQuestion.MaximumSize = new Size(1142, 104);

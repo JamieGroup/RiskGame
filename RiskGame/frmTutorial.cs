@@ -68,7 +68,7 @@ namespace RiskGame
 
         private void setAnswers()
         {
-            string qHere = Qs[qNum].question;
+            string qHere = Qs[qNum]._question;
             //Default (1 line) - 27, 33
             //2 line 27, 9 (when > 32 charaters)
             lbQuestion.MaximumSize = new Size(1142, 104);
@@ -94,11 +94,11 @@ namespace RiskGame
             lbAns3.AutoSize = true;
             lbAns4.AutoSize = true;
 
-            lbAns1.Text = Qs[qNum].a1;
-            lbAns2.Text = Qs[qNum].a2;
-            lbAns3.Text = Qs[qNum].a3;
-            lbAns4.Text = Qs[qNum].a4;
-            correct = Qs[qNum].correct;
+            lbAns1.Text = Qs[qNum].A1;
+            lbAns2.Text = Qs[qNum].A2;
+            lbAns3.Text = Qs[qNum].A3;
+            lbAns4.Text = Qs[qNum].A4;
+            correct = Qs[qNum].CAns;
 
             //(> 20 characters) = 109, 23
             //1 line = 109, 51
