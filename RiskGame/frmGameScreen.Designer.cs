@@ -55,11 +55,14 @@ namespace RiskGame
             this.tmrPauseCooldown = new System.Windows.Forms.Timer(this.components);
             this.pbBase = new System.Windows.Forms.PictureBox();
             this.INDICATORpnlDeploy = new System.Windows.Forms.Panel();
-            this.INDICATORpnlAttack = new System.Windows.Forms.Panel();
-            this.INDICATORpnlReEnforce = new System.Windows.Forms.Panel();
             this.INDICATORlbDeploy = new System.Windows.Forms.Label();
+            this.INDICATORpnlAttack = new System.Windows.Forms.Panel();
             this.INDICATORlbAttack = new System.Windows.Forms.Label();
+            this.INDICATORpnlReEnforce = new System.Windows.Forms.Panel();
             this.INDICATORlbReEnfoce = new System.Windows.Forms.Label();
+            this.pnlTroopsRemaining = new System.Windows.Forms.Panel();
+            this.lbTroopsRemainingName = new System.Windows.Forms.Label();
+            this.lbTroopsRemainingNumber = new System.Windows.Forms.Label();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -75,6 +78,7 @@ namespace RiskGame
             this.INDICATORpnlDeploy.SuspendLayout();
             this.INDICATORpnlAttack.SuspendLayout();
             this.INDICATORpnlReEnforce.SuspendLayout();
+            this.pnlTroopsRemaining.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPause
@@ -362,22 +366,6 @@ namespace RiskGame
             this.INDICATORpnlDeploy.Size = new System.Drawing.Size(511, 42);
             this.INDICATORpnlDeploy.TabIndex = 3;
             // 
-            // INDICATORpnlAttack
-            // 
-            this.INDICATORpnlAttack.Controls.Add(this.INDICATORlbAttack);
-            this.INDICATORpnlAttack.Location = new System.Drawing.Point(512, 3);
-            this.INDICATORpnlAttack.Name = "INDICATORpnlAttack";
-            this.INDICATORpnlAttack.Size = new System.Drawing.Size(511, 42);
-            this.INDICATORpnlAttack.TabIndex = 4;
-            // 
-            // INDICATORpnlReEnforce
-            // 
-            this.INDICATORpnlReEnforce.Controls.Add(this.INDICATORlbReEnfoce);
-            this.INDICATORpnlReEnforce.Location = new System.Drawing.Point(1022, 3);
-            this.INDICATORpnlReEnforce.Name = "INDICATORpnlReEnforce";
-            this.INDICATORpnlReEnforce.Size = new System.Drawing.Size(513, 42);
-            this.INDICATORpnlReEnforce.TabIndex = 5;
-            // 
             // INDICATORlbDeploy
             // 
             this.INDICATORlbDeploy.AutoSize = true;
@@ -387,6 +375,14 @@ namespace RiskGame
             this.INDICATORlbDeploy.Size = new System.Drawing.Size(116, 37);
             this.INDICATORlbDeploy.TabIndex = 0;
             this.INDICATORlbDeploy.Text = "DEPLOY";
+            // 
+            // INDICATORpnlAttack
+            // 
+            this.INDICATORpnlAttack.Controls.Add(this.INDICATORlbAttack);
+            this.INDICATORpnlAttack.Location = new System.Drawing.Point(512, 3);
+            this.INDICATORpnlAttack.Name = "INDICATORpnlAttack";
+            this.INDICATORpnlAttack.Size = new System.Drawing.Size(511, 42);
+            this.INDICATORpnlAttack.TabIndex = 4;
             // 
             // INDICATORlbAttack
             // 
@@ -398,6 +394,14 @@ namespace RiskGame
             this.INDICATORlbAttack.TabIndex = 1;
             this.INDICATORlbAttack.Text = "ATTACK";
             // 
+            // INDICATORpnlReEnforce
+            // 
+            this.INDICATORpnlReEnforce.Controls.Add(this.INDICATORlbReEnfoce);
+            this.INDICATORpnlReEnforce.Location = new System.Drawing.Point(1022, 3);
+            this.INDICATORpnlReEnforce.Name = "INDICATORpnlReEnforce";
+            this.INDICATORpnlReEnforce.Size = new System.Drawing.Size(513, 42);
+            this.INDICATORpnlReEnforce.TabIndex = 5;
+            // 
             // INDICATORlbReEnfoce
             // 
             this.INDICATORlbReEnfoce.AutoSize = true;
@@ -408,11 +412,43 @@ namespace RiskGame
             this.INDICATORlbReEnfoce.TabIndex = 2;
             this.INDICATORlbReEnfoce.Text = "Re-Enforce";
             // 
+            // pnlTroopsRemaining
+            // 
+            this.pnlTroopsRemaining.Controls.Add(this.lbTroopsRemainingNumber);
+            this.pnlTroopsRemaining.Controls.Add(this.lbTroopsRemainingName);
+            this.pnlTroopsRemaining.Location = new System.Drawing.Point(1380, 300);
+            this.pnlTroopsRemaining.Name = "pnlTroopsRemaining";
+            this.pnlTroopsRemaining.Size = new System.Drawing.Size(156, 69);
+            this.pnlTroopsRemaining.TabIndex = 6;
+            this.pnlTroopsRemaining.Visible = false;
+            // 
+            // lbTroopsRemainingName
+            // 
+            this.lbTroopsRemainingName.AutoSize = true;
+            this.lbTroopsRemainingName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTroopsRemainingName.Location = new System.Drawing.Point(3, 3);
+            this.lbTroopsRemainingName.Name = "lbTroopsRemainingName";
+            this.lbTroopsRemainingName.Size = new System.Drawing.Size(111, 60);
+            this.lbTroopsRemainingName.TabIndex = 0;
+            this.lbTroopsRemainingName.Text = "Troops \r\nRemaining";
+            this.lbTroopsRemainingName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbTroopsRemainingNumber
+            // 
+            this.lbTroopsRemainingNumber.AutoSize = true;
+            this.lbTroopsRemainingNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold);
+            this.lbTroopsRemainingNumber.Location = new System.Drawing.Point(105, 8);
+            this.lbTroopsRemainingNumber.Name = "lbTroopsRemainingNumber";
+            this.lbTroopsRemainingNumber.Size = new System.Drawing.Size(44, 51);
+            this.lbTroopsRemainingNumber.TabIndex = 1;
+            this.lbTroopsRemainingNumber.Text = "4";
+            // 
             // frmGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1538, 774);
+            this.Controls.Add(this.pnlTroopsRemaining);
             this.Controls.Add(this.INDICATORpnlReEnforce);
             this.Controls.Add(this.INDICATORpnlAttack);
             this.Controls.Add(this.INDICATORpnlDeploy);
@@ -422,6 +458,7 @@ namespace RiskGame
             this.Text = "Risk: Game Screen";
             this.Load += new System.EventHandler(this.frmGameScreen_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGameScreen_KeyDown);
+            this.Resize += new System.EventHandler(this.frmGameScreen_Resize);
             this.pnlPause.ResumeLayout(false);
             this.pnlPause.PerformLayout();
             this.pnlPauseQuit.ResumeLayout(false);
@@ -446,6 +483,8 @@ namespace RiskGame
             this.INDICATORpnlAttack.PerformLayout();
             this.INDICATORpnlReEnforce.ResumeLayout(false);
             this.INDICATORpnlReEnforce.PerformLayout();
+            this.pnlTroopsRemaining.ResumeLayout(false);
+            this.pnlTroopsRemaining.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,5 +521,8 @@ namespace RiskGame
         private System.Windows.Forms.Label INDICATORlbAttack;
         private System.Windows.Forms.Panel INDICATORpnlReEnforce;
         private System.Windows.Forms.Label INDICATORlbReEnfoce;
+        private System.Windows.Forms.Panel pnlTroopsRemaining;
+        private System.Windows.Forms.Label lbTroopsRemainingNumber;
+        private System.Windows.Forms.Label lbTroopsRemainingName;
     }
 }

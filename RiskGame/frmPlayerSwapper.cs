@@ -24,6 +24,7 @@ namespace RiskGame
         private void frmPlayerSwapper_Load(object sender, EventArgs e)
         {
             Application.OpenForms["frmGameScreen"].WindowState = FormWindowState.Minimized;
+            Application.OpenForms["frmGameScreen"].Size = new Size(1554, 812);
             pnlStripe.Visible = false;
             twoPlayers = frmGameScreen.Game.twoPlayers;
             pnlPlayer3.Visible = !twoPlayers;
@@ -42,6 +43,9 @@ namespace RiskGame
             pbPl1Avatar.Image = Image.FromFile(@frmLogin.human.avatar);
             string pathPl2 = "avatars\\" + frmGameScreen.Pl2.avatar;
             pbPl2Avatar.Image = Image.FromFile(pathPl2);
+            frmLogin.human.troopPocket = 4;
+            frmGameScreen.Pl2.troopPocket = 4;
+            frmGameScreen.Pl3.troopPocket = 4;
             BringToFront();
             DecidePlayer();
         }
@@ -62,7 +66,7 @@ namespace RiskGame
                     currentPlayer = 1;
             }
             frmGameScreen.Game.currentPlayer = currentPlayer;
-            frmGameScreen.Game.state = 1;
+            frmGameScreen.Game.state = 0;
 
             lbPl1Username.ForeColor = Color.Black;
             lbPl2Username.ForeColor = Color.Black;
@@ -81,9 +85,11 @@ namespace RiskGame
             /*Push back means closing player swapper and maximising the game screen again;
             while sending over a temporary value in the Game object to tell game screen
             that a new player has been chosen.*/
+            frmGameScreen.Game.newPlayer = true;
             Hide();
             Application.OpenForms["frmGameScreen"].WindowState = FormWindowState.Normal;
-            frmGameScreen.ReturnToGameScreen();
+            Application.OpenForms["frmGameScreen"].Size = new Size(1554, 813);
+
         }
 
         private void Trade()

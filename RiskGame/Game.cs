@@ -14,6 +14,7 @@ namespace RiskGame
         public int state { get; set; }
         public bool twoPlayers { get; set; }
         public int currentPlayer { get; set; }
+        public bool newPlayer { get; set; }
 
         //Constructor
         public Game()

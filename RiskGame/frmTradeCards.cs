@@ -25,6 +25,7 @@ namespace RiskGame
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
+            frmGameScreen.Game.newPlayer = true;
             Hide();
             Application.OpenForms["frmGameScreen"].WindowState = FormWindowState.Normal;
         }
