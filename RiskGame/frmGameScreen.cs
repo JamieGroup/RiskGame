@@ -51,6 +51,47 @@ namespace RiskGame
             }
         }
 
+        public void ReturnToGameScreen()
+        {
+            if (Game.currentPlayer == 0)
+            {
+                Plys current = frmLogin.human;
+            }
+            else if (Game.currentPlayer == 1)
+            {
+                Plys current = Pl2;
+            }
+            else
+            {
+                Plys current = Pl3;
+            }
+
+            switch(Game.state)
+            {
+                case 0:
+                    //Deploy
+                    INDICATORpnlDeploy.BackColor = ColorTranslator.FromHtml(current.accentColour);
+                    break;
+                case 1:
+                    //Attack
+                    INDICATORpnlDeploy.BackColor = Color.LightGray;
+                    INDICATORpnlAttack.BackColor = ColorTranslator.FromHtml(current.accentColour);
+                    break;
+                case 2:
+                    //ReEnforce
+                    INDICATORpnlDeploy.BackColor = Color.Gray;
+                    INDICATORpnlAttack.BackColor = Color.Gray;
+                    INDICATORpnlReEnforce.BackColor = ColorTranslator.FromHtml(current.accentColour);
+                    break;
+                case 3:
+                    //Game is paused
+                    break;
+                default:
+                    //Prevents crashing - Game should never be in a state other than 0,1,2, or 3.
+                    break;
+            }
+        }
+
         private void AssignRegions(int a)
         {
             string[] allRegionData = File.ReadAllLines("regions.conf");
@@ -131,10 +172,10 @@ namespace RiskGame
             if (direction == 0)
             {
                 //Pause
-                Game.state = 4;
+                Game.state = 3;
                 lbGamePaused.Visible = true;
                 int xCurrent = pnlPause.Location.X;
-                for(int i = 0; i < (455/animateSpeed); i++)
+                for(int i = 0; i < (460/animateSpeed); i++)
                 {
                     pnlPause.Location = new Point(xCurrent + (Convert.ToInt32(animateSpeed) * i), 0);
                     pnlPause.Refresh();
@@ -145,7 +186,7 @@ namespace RiskGame
                 //Unpause
                 Game.state = currentState;
                 int xCurrent = pnlPause.Location.X;
-                for (int i = 0; i < (455 / animateSpeed); i++)
+                for (int i = 0; i < (460 / animateSpeed); i++)
                 {
                     pnlPause.Location = new Point(xCurrent - (Convert.ToInt32(animateSpeed) * i), 0);
                     pnlPause.Refresh();
