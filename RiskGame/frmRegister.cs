@@ -59,7 +59,7 @@ namespace RiskGame
         private void textBox1_Enter(object sender, EventArgs e)
         {
             disableDescriptions();
-            animate(pnlPassword, 1, 183, true);
+            animate(pnlPassword, 1, 183, false);
             animate(pnlConfirmPassword, 1, 297, false);
             lbConfirmDescription.Visible = true;
         }
@@ -92,6 +92,7 @@ namespace RiskGame
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
+            //lbAvatar.Text = txtUsername.Text + " (Avatar)";
             if (txtUsername.Text.Length < 2 || txtUsername.Text.Length > 25)
             {
                 acceptUsername = false;
