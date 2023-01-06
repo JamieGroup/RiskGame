@@ -21,6 +21,12 @@ namespace RiskGame
         bool ignoreCloseness = false;
         bool pauseCooldown = false;
         Random rnd = new Random();
+
+        bool sourceSelected = false;
+        bool targetSelected = false;
+        string source;
+        string target;
+
         public frmGameScreen()
         {
             InitializeComponent();
@@ -106,12 +112,12 @@ namespace RiskGame
                 regions[i].SetController(b);
                 regions[i].SetTerritory();
                 regions[i].SetPoint(Convert.ToInt32(allRegionData[i].Split('~')[1].Split(',')[0]), Convert.ToInt32(allRegionData[i].Split('~')[1].Split(',')[1]));
-                Color colour = Color.White;
+                Color colour;
                 if(b==1)
                     colour = System.Drawing.ColorTranslator.FromHtml(frmLogin.human.accentColour);
                 else if(b==2)
                     colour = System.Drawing.ColorTranslator.FromHtml(Pl2.accentColour);
-                else if(b == 3)
+                else
                     colour = System.Drawing.ColorTranslator.FromHtml(Pl3.accentColour);
                 FloodFill((Bitmap)pbBase.Image, new Point(regions[i].CentralX, regions[i].CentralY), colour);
 
@@ -156,6 +162,7 @@ namespace RiskGame
                 pbBase.Controls.Add(pnl);
                 pnl.Location = new Point(regions[i].CentralX - 25, regions[i].CentralY - 25);
                 pnl.BackColor = Color.Transparent;
+                pnl.Click += new EventHandler(troopDisplay_Click);
                 pnl.BringToFront();
 
                 Label lb = new Label();
@@ -165,9 +172,15 @@ namespace RiskGame
                 lb.Location = new Point(/*regions[i].CentralX, regions[i].CentralY*/15,5);
                 lb.BackColor = Color.Transparent;
                 lb.Font = new Font("Segoe UI", 18, FontStyle.Bold);
+                lb.Click += new EventHandler(troopDisplay_Click);
                 lb.BringToFront();
             }
             rnd.Next(1, a);
+        }
+
+        private void troopDisplay_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You've clicked a troop display!\r\nDon't do that yet please!\r\nTry clicking on the region itself!", "TEMPORARY!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void lbGamePaused_Click(object sender, EventArgs e)
@@ -211,7 +224,7 @@ namespace RiskGame
                 int xCurrent = pnlPause.Location.X;
                 for(int i = 0; i < (460/animateSpeed); i++)
                 {
-                    pnlPause.Location = new Point(xCurrent + (Convert.ToInt32(animateSpeed) * i), 0);
+                    pnlPause.Location = new Point(xCurrent + (Convert.ToInt32(animateSpeed) * i), 42);
                     pnlPause.Refresh();
                 }
             }
@@ -222,7 +235,7 @@ namespace RiskGame
                 int xCurrent = pnlPause.Location.X;
                 for (int i = 0; i < (460 / animateSpeed); i++)
                 {
-                    pnlPause.Location = new Point(xCurrent - (Convert.ToInt32(animateSpeed) * i), 0);
+                    pnlPause.Location = new Point(xCurrent - (Convert.ToInt32(animateSpeed) * i), 42);
                     pnlPause.Refresh();
                 }
                 lbGamePaused.Visible = false;
@@ -351,45 +364,102 @@ namespace RiskGame
 
         private void pbBase_MouseDown(object sender, MouseEventArgs e)
         {
+            Point mousePosition = new Point(e.X, e.Y);
+            string tempSource;
+            string tempTarget;
+
+            //Attack Mode Active
+            if (Game.state == 0)
+            {
+                if(!sourceSelected)
+                {
+                    tempSource = RegionID(mousePosition);
+                }
+            }    
+
+            //DEBUG MODE
             if(frmLogin.human.DEBUGIgnoreAssigned)
             {
-                Cursor current = Cursor.Current;
-                Cursor.Current = Cursors.WaitCursor;
-                Point cursorPos = new Point(e.X, e.Y);
-                Clipboard.SetText(string.Format("~" + cursorPos.X + "," + cursorPos.Y));
-                Color change = ColorTranslator.FromHtml(frmLogin.human.accentColour);
-                Bitmap bmp = new Bitmap(pbBase.Image);
-                FloodFill((Bitmap)pbBase.Image, cursorPos, change);
+                DEBUGClickMode(new Point(e.X, e.Y));
+            }
+        }
 
-                bool extraChecked = false;
-                bool aaa = false;
+        private string RegionID(Point test)
+        {
+            string sourceSuggestion = "";
+            
+            //Step 1: Save the colour of the clicked pixel.
+            //Step 2: Save this colour again, but slightly changed.
+            //Step 3: Compare the points in regions.conf to see which one matches this SLIGHTLY CHANGED colour.
+            //Step 4: If there are no matches, user did not click on a region, sourceSuggestion is "invalid", checked by tempSource.
+            //Step 5: If there is a match, save the region's name and ID, change the colour back to the originally saved colour, then return this region information.
+            
+            return sourceSuggestion;
+        }
 
-                for (int i = 0; i < allExtras.Length; i++)
+        private void DEBUGClickMode(Point cursorPos)
+        {
+            Cursor current = Cursor.Current;
+            Cursor.Current = Cursors.WaitCursor;
+            Clipboard.SetText(string.Format("~" + cursorPos.X + "," + cursorPos.Y));
+            Color change = ColorTranslator.FromHtml(frmLogin.human.accentColour);
+            Bitmap bmp = new Bitmap(pbBase.Image);
+            FloodFill((Bitmap)pbBase.Image, cursorPos, change);
+
+            bool extraChecked = false;
+            bool aaa = false;
+
+            for (int i = 0; i < allExtras.Length; i++)
+            {
+                aaa = false;
+                ignoreCloseness = false;
+                for (int g = 0; g < allExtras[i].Split('~').Length; g++)
                 {
-                    aaa = false;
-                    ignoreCloseness = false;
-                    for (int g = 0; g < allExtras[i].Split('~').Length; g++)
+                    string p = allExtras[i].Split('~')[g];
+                    string[] xy = p.Split(',');
+                    int x = Convert.ToInt32(xy[0]);
+                    int y = Convert.ToInt32(xy[1]);
+                    Point a = new Point(x, y);
+                    Color test = bmp.GetPixel(a.X, a.Y);
+                    if (!aaa && IsClose(test, change, 400))
                     {
-                        string p = allExtras[i].Split('~')[g];
-                        string[] xy = p.Split(',');
-                        int x = Convert.ToInt32(xy[0]);
-                        int y = Convert.ToInt32(xy[1]);
-                        Point a = new Point(x, y);
-                        Color test = bmp.GetPixel(a.X, a.Y);
-                        if (!aaa && IsClose(test, change, 400))
-                        {
-                            aaa = true;
-                            ignoreCloseness = true;
-                            g = 0;
-                        }
-                        if (aaa)
-                        {
-                            FloodFill(bmp, a, change);
-                        }
+                        aaa = true;
+                        ignoreCloseness = true;
+                        g = 0;
+                    }
+                    if (aaa)
+                    {
+                        FloodFill(bmp, a, change);
                     }
                 }
+            }
 
-                Cursor.Current = current;
+            Cursor.Current = current;
+        }
+
+        private void frmGameScreen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Game.state == 3)
+            {
+                //If game is paused
+                switch (e.KeyChar)
+                {
+                    case (char)Keys.Space:
+                        PauseAction(0);
+                        break;
+                    case (char)Keys.Enter:
+                        PauseAction(4);
+                        break;
+                    case (char)Keys.I:
+                        PauseAction(1);
+                        break;
+                    case (char)Keys.O:
+                        PauseAction(2);
+                        break;
+                    case (char)Keys.S:
+                        PauseAction(3);
+                        break;
+                }
             }
         }
 
