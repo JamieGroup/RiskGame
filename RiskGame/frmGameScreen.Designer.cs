@@ -61,8 +61,8 @@ namespace RiskGame
             this.INDICATORpnlReEnforce = new System.Windows.Forms.Panel();
             this.INDICATORlbReEnfoce = new System.Windows.Forms.Label();
             this.pnlTroopsRemaining = new System.Windows.Forms.Panel();
-            this.lbTroopsRemainingName = new System.Windows.Forms.Label();
             this.lbTroopsRemainingNumber = new System.Windows.Forms.Label();
+            this.lbTroopsRemainingName = new System.Windows.Forms.Label();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -94,7 +94,7 @@ namespace RiskGame
             this.pnlPause.Controls.Add(this.lbPauseCopyright);
             this.pnlPause.Controls.Add(this.lbGamePaused);
             this.pnlPause.Controls.Add(this.pnlPauseResume);
-            this.pnlPause.Location = new System.Drawing.Point(-455, 3);
+            this.pnlPause.Location = new System.Drawing.Point(-455, 42);
             this.pnlPause.Name = "pnlPause";
             this.pnlPause.Size = new System.Drawing.Size(455, 729);
             this.pnlPause.TabIndex = 0;
@@ -422,6 +422,16 @@ namespace RiskGame
             this.pnlTroopsRemaining.TabIndex = 6;
             this.pnlTroopsRemaining.Visible = false;
             // 
+            // lbTroopsRemainingNumber
+            // 
+            this.lbTroopsRemainingNumber.AutoSize = true;
+            this.lbTroopsRemainingNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold);
+            this.lbTroopsRemainingNumber.Location = new System.Drawing.Point(105, 8);
+            this.lbTroopsRemainingNumber.Name = "lbTroopsRemainingNumber";
+            this.lbTroopsRemainingNumber.Size = new System.Drawing.Size(44, 51);
+            this.lbTroopsRemainingNumber.TabIndex = 1;
+            this.lbTroopsRemainingNumber.Text = "4";
+            // 
             // lbTroopsRemainingName
             // 
             this.lbTroopsRemainingName.AutoSize = true;
@@ -432,16 +442,6 @@ namespace RiskGame
             this.lbTroopsRemainingName.TabIndex = 0;
             this.lbTroopsRemainingName.Text = "Troops \r\nRemaining";
             this.lbTroopsRemainingName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lbTroopsRemainingNumber
-            // 
-            this.lbTroopsRemainingNumber.AutoSize = true;
-            this.lbTroopsRemainingNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold);
-            this.lbTroopsRemainingNumber.Location = new System.Drawing.Point(105, 8);
-            this.lbTroopsRemainingNumber.Name = "lbTroopsRemainingNumber";
-            this.lbTroopsRemainingNumber.Size = new System.Drawing.Size(44, 51);
-            this.lbTroopsRemainingNumber.TabIndex = 1;
-            this.lbTroopsRemainingNumber.Text = "4";
             // 
             // frmGameScreen
             // 
@@ -458,6 +458,7 @@ namespace RiskGame
             this.Text = "Risk: Game Screen";
             this.Load += new System.EventHandler(this.frmGameScreen_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGameScreen_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmGameScreen_KeyPress);
             this.Resize += new System.EventHandler(this.frmGameScreen_Resize);
             this.pnlPause.ResumeLayout(false);
             this.pnlPause.PerformLayout();

@@ -23,6 +23,12 @@ namespace RiskGame
 
         private void frmPlayerSwapper_Load(object sender, EventArgs e)
         {
+            lbPl1Username.Text = frmLogin.human.username;
+            lbPl2Username.Text = frmGameScreen.Pl2.username;
+            pbPl1Avatar.Image = Image.FromFile(@frmLogin.human.avatar);
+            string pathPl2 = "avatars\\" + frmGameScreen.Pl2.avatar;
+            pbPl2Avatar.Image = Image.FromFile(pathPl2);
+
             Application.OpenForms["frmGameScreen"].WindowState = FormWindowState.Minimized;
             Application.OpenForms["frmGameScreen"].Size = new Size(1554, 812);
             pnlStripe.Visible = false;
@@ -37,12 +43,7 @@ namespace RiskGame
                 pbPl3Avatar.Image = Image.FromFile(pathPl3);
             }
 
-            lbPl1Username.Text = frmLogin.human.username;
-            lbPl2Username.Text = frmGameScreen.Pl2.username;
             
-            pbPl1Avatar.Image = Image.FromFile(@frmLogin.human.avatar);
-            string pathPl2 = "avatars\\" + frmGameScreen.Pl2.avatar;
-            pbPl2Avatar.Image = Image.FromFile(pathPl2);
             frmLogin.human.troopPocket = 4;
             frmGameScreen.Pl2.troopPocket = 4;
             frmGameScreen.Pl3.troopPocket = 4;
@@ -53,17 +54,24 @@ namespace RiskGame
         private void DecidePlayer()
         {
             int currentPlayer = frmGameScreen.Game.currentPlayer;
-            if(twoPlayers)
+            if(frmGameScreen.Game.turnsChanged==0)
             {
-                currentPlayer++;
-                if (currentPlayer > 2)
-                    currentPlayer = 1;
+                
             }
             else
             {
-                currentPlayer++;
-                if (currentPlayer > 3)
-                    currentPlayer = 1;
+                if (twoPlayers)
+                {
+                    currentPlayer++;
+                    if (currentPlayer > 1)
+                        currentPlayer = 0;
+                }
+                else
+                {
+                    currentPlayer++;
+                    if (currentPlayer > 2)
+                        currentPlayer = 0;
+                }
             }
             frmGameScreen.Game.currentPlayer = currentPlayer;
             frmGameScreen.Game.state = 0;
@@ -72,9 +80,9 @@ namespace RiskGame
             lbPl2Username.ForeColor = Color.Black;
             lbPl3Username.ForeColor = Color.Black;
 
-            if (currentPlayer == 1)
+            if (currentPlayer == 0)
                 lbPl1Username.ForeColor = Color.LawnGreen;
-            else if (currentPlayer == 2)
+            else if (currentPlayer == 1)
                 lbPl2Username.ForeColor = Color.LawnGreen;
             else
                 lbPl3Username.ForeColor = Color.LawnGreen;
