@@ -48,7 +48,7 @@ namespace RiskGame
             Game.calcPlayers();
             new frmPlayerSwapper().Show();
 
-            
+            pnlSource.Location = new Point(3, 775);
 
             pbBase.BackColor = Color.FromArgb(153, 220, 243);
             if(!frmLogin.human.DEBUGIgnoreAssigned)
@@ -167,7 +167,7 @@ namespace RiskGame
 
                 Label lb = new Label();
                 lb.Text = Convert.ToString(rnd.Next(1,4));
-                lb.ForeColor = colour;
+                lb.ForeColor = Color.Black;
                 pnl.Controls.Add(lb);
                 lb.Location = new Point(/*regions[i].CentralX, regions[i].CentralY*/15,5);
                 lb.BackColor = Color.Transparent;
@@ -359,8 +359,33 @@ namespace RiskGame
             pbBase.Refresh(); //refresh our main picture box
             return;
         }
+        //Flood Fill Algorithm CUSTOM
+        private void FloodFill(Bitmap bmp, Point pt, Color replaceWith, Color original, int threshold)
+        {
+            Queue<Point> pixels = new Queue<Point>();
+            pixels.Enqueue(pt);
 
-        
+            while (pixels.Count > 0)
+            {
+                Point a = pixels.Dequeue();
+                if (a.X < bmp.Width && a.X > 0 &&
+                        a.Y < bmp.Height && a.Y > 0)//make sure we stay within bounds
+                {
+                    if (IsClose(bmp.GetPixel(a.X, a.Y), original, threshold))
+                    {
+                        bmp.SetPixel(a.X, a.Y, replaceWith);
+                        pixels.Enqueue(new Point(a.X - 1, a.Y));
+                        pixels.Enqueue(new Point(a.X + 1, a.Y));
+                        pixels.Enqueue(new Point(a.X, a.Y - 1));
+                        pixels.Enqueue(new Point(a.X, a.Y + 1));
+                    }
+                }
+            }
+            pbBase.Refresh(); //refresh our main picture box
+            return;
+        }
+
+
 
         private void pbBase_MouseDown(object sender, MouseEventArgs e)
         {
@@ -373,7 +398,45 @@ namespace RiskGame
             {
                 if(!sourceSelected)
                 {
+                    //Select Source
+                    source = "";
                     tempSource = RegionID(mousePosition);
+                    if(tempSource == "")
+                    {
+                        //Do nothing
+                    }
+                    else
+                    {
+                        sourceSelected = true;
+                        source = tempSource;
+                        MessageBox.Show("Source: " + source + "\r\ntempSource: " + tempSource);
+                        //Animate source viewer
+                        //Required location: 3, 701
+                        //Default location: 3, 775
+                        int animateSpeed = 2;
+                        int yCurrent = pnlSource.Location.Y;
+                        for (int i = 0; i < (74 / animateSpeed); i++)
+                        {
+                            pnlSource.Location = new Point(3, yCurrent - (Convert.ToInt32(animateSpeed) * i));
+                            pnlSource.Refresh();
+                        }
+                    }
+                }
+                else
+                {
+                    //Select Target
+                    target = "";
+                    tempTarget = RegionID(mousePosition);
+                    if (tempTarget == "")
+                    {
+                        //Do nothing
+                    }
+                    else
+                    {
+                        targetSelected = true;
+                        target = tempTarget;
+                        MessageBox.Show("Target: " + target + "\r\ntempTarget: " + tempTarget);
+                    }
                 }
             }    
 
@@ -386,15 +449,38 @@ namespace RiskGame
 
         private string RegionID(Point test)
         {
-            string sourceSuggestion = "";
-            
+            string regionSuggestion = "";
+
             //Step 1: Save the colour of the clicked pixel.
             //Step 2: Save this colour again, but slightly changed.
-            //Step 3: Compare the points in regions.conf to see which one matches this SLIGHTLY CHANGED colour.
-            //Step 4: If there are no matches, user did not click on a region, sourceSuggestion is "invalid", checked by tempSource.
-            //Step 5: If there is a match, save the region's name and ID, change the colour back to the originally saved colour, then return this region information.
-            
-            return sourceSuggestion;
+            //Step 3: Flood fill using this slightly changed colour.
+            //Step 4: Compare the points in regions.conf to see which one matches this SLIGHTLY CHANGED colour.
+            //Step 5: If there are no matches, user did not click on a region, sourceSuggestion is "invalid", checked by tempSource.
+            //Step 6: If there is a match, save the region's name and ID, change the colour back to the originally saved colour, then return this region information.
+
+            Bitmap bmp = (Bitmap)pbBase.Image;
+            Color pixelColour = bmp.GetPixel(test.X, test.Y);
+
+            Color lighterPixelColour = ControlPaint.Light(pixelColour);
+
+            FloodFill(bmp, test, lighterPixelColour, pixelColour, 10);
+
+            string[] regionData = File.ReadAllLines("regions.conf");
+            for(int i = 0; i<regionData.Length; i++)
+            {
+                string tempName = regionData[i].Split('~')[0];
+                Point tempPoint = new Point(Convert.ToInt32(regionData[i].Split('~')[1].Split(',')[0]), Convert.ToInt32(regionData[i].Split('~')[1].Split(',')[1]));
+
+                if (bmp.GetPixel(tempPoint.X, tempPoint.Y) == lighterPixelColour)
+                {
+                    //YES THIS IS A REGION!
+                    regionSuggestion = tempName;
+                }
+            }
+
+            FloodFill(bmp, test, pixelColour, lighterPixelColour, 10);
+
+            return regionSuggestion;
         }
 
         private void DEBUGClickMode(Point cursorPos)
