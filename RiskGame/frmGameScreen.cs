@@ -18,14 +18,15 @@ namespace RiskGame
         public static Plys Pl2 = frmSetupGame.Player2;
         public static Plys Pl3 = frmSetupGame.Player3;
         string[] allExtras = File.ReadAllLines("regions_extras.conf");
+        Region[] regions = new Region[File.ReadLines("regions.conf").Count()];
         bool ignoreCloseness = false;
         bool pauseCooldown = false;
         Random rnd = new Random();
 
         bool sourceSelected = false;
         bool targetSelected = false;
-        string source;
-        string target;
+        Region source = new Region();
+        Region target = new Region();
 
         public frmGameScreen()
         {
@@ -104,21 +105,21 @@ namespace RiskGame
         private void AssignRegions(int a)
         {
             string[] allRegionData = File.ReadAllLines("regions.conf");
-            Region[] regions = new Region[File.ReadLines("regions.conf").Count()];
             for (int i = 0; i < File.ReadLines("regions.conf").Count(); i++)
             {
                 regions[i] = new Region(allRegionData[i].Split('~')[0]);
-                int b = rnd.Next(1, a + 1);
+                int b = rnd.Next(0, a);
                 regions[i].SetController(b);
                 regions[i].SetTerritory();
                 regions[i].SetPoint(Convert.ToInt32(allRegionData[i].Split('~')[1].Split(',')[0]), Convert.ToInt32(allRegionData[i].Split('~')[1].Split(',')[1]));
                 Color colour;
-                if(b==1)
+                if(b==0)
                     colour = System.Drawing.ColorTranslator.FromHtml(frmLogin.human.accentColour);
-                else if(b==2)
+                else if(b==1)
                     colour = System.Drawing.ColorTranslator.FromHtml(Pl2.accentColour);
                 else
                     colour = System.Drawing.ColorTranslator.FromHtml(Pl3.accentColour);
+                regions[i].colour = ColorTranslator.ToHtml(colour);
                 FloodFill((Bitmap)pbBase.Image, new Point(regions[i].CentralX, regions[i].CentralY), colour);
 
                 //Extras (Parts of a region that aren't connected by whitespace - e.g. Pacific Islands)
@@ -390,26 +391,24 @@ namespace RiskGame
         private void pbBase_MouseDown(object sender, MouseEventArgs e)
         {
             Point mousePosition = new Point(e.X, e.Y);
-            string tempSource;
-            string tempTarget;
+            Region tempSelection;
 
             //Attack Mode Active
             if (Game.state == 0)
             {
-                if(!sourceSelected)
+                tempSelection = RegionID(mousePosition);
+                if (!sourceSelected && tempSelection.owner == Game.currentPlayer)
                 {
                     //Select Source
-                    source = "";
-                    tempSource = RegionID(mousePosition);
-                    if(tempSource == "")
+                    source.name = "";
+                    if(tempSelection.name == "")
                     {
                         //Do nothing
                     }
                     else
                     {
                         sourceSelected = true;
-                        source = tempSource;
-                        MessageBox.Show("Source: " + source + "\r\ntempSource: " + tempSource);
+                        source = tempSelection;
                         //Animate source viewer
                         //Required location: 3, 701
                         //Default location: 3, 775
@@ -420,23 +419,33 @@ namespace RiskGame
                             pnlSource.Location = new Point(3, yCurrent - (Convert.ToInt32(animateSpeed) * i));
                             pnlSource.Refresh();
                         }
+
+                        lbSourceName.Text = source.name;
                     }
                 }
-                else
+                else if(!sourceSelected)
+                {
+                    MessageBox.Show("You have clicked on a region that is not yours.", "Please select a region that is yours.");
+                }
+                else if (sourceSelected && tempSelection.owner != Game.currentPlayer)
                 {
                     //Select Target
-                    target = "";
-                    tempTarget = RegionID(mousePosition);
-                    if (tempTarget == "")
+                    target.name = "";
+                    if (tempSelection.name == "")
                     {
                         //Do nothing
                     }
                     else
                     {
                         targetSelected = true;
-                        target = tempTarget;
-                        MessageBox.Show("Target: " + target + "\r\ntempTarget: " + tempTarget);
+                        target = tempSelection;
+                        lbSourceName.Text = source.name + " -> " + target.name;
+                        pbSource.Image = Properties.Resources.target;
                     }
+                }
+                else
+                {
+                    MessageBox.Show("You can't invade your own region!", "Please select a region that is not yours.");
                 }
             }    
 
@@ -447,9 +456,9 @@ namespace RiskGame
             }
         }
 
-        private string RegionID(Point test)
+        private Region RegionID(Point test)
         {
-            string regionSuggestion = "";
+            Region regionSuggestion = new Region();
 
             //Step 1: Save the colour of the clicked pixel.
             //Step 2: Save this colour again, but slightly changed.
@@ -474,7 +483,14 @@ namespace RiskGame
                 if (bmp.GetPixel(tempPoint.X, tempPoint.Y) == lighterPixelColour)
                 {
                     //YES THIS IS A REGION!
-                    regionSuggestion = tempName;
+                    //Search regions for one with name tempName
+                    for (int j = 0; j < regions.Length; j++)
+                    {
+                        if (regions[j].name == tempName)
+                        {
+                            regionSuggestion = regions[j];
+                        }
+                    }
                 }
             }
 
@@ -561,6 +577,36 @@ namespace RiskGame
             {
                 Game.newPlayer = false;
                 ReturnToGameScreen();
+            }
+        }
+
+        private void pnlSelectionBack_Click(object sender, EventArgs e)
+        {
+            if(!targetSelected)
+            {
+                sourceSelected = false;
+                source.name = "";
+
+                //Animate source viewer
+                //Required location: 3, 775
+                //Default location: 3, 701
+                int animateSpeed = 2;
+                int yCurrent = pnlSource.Location.Y;
+                for (int i = 0; i < (74 / animateSpeed); i++)
+                {
+                    pnlSource.Location = new Point(3, yCurrent + (Convert.ToInt32(animateSpeed) * i));
+                    pnlSource.Refresh();
+                }
+
+                pbSource.Image = Properties.Resources.source;
+            }
+            else
+            {
+                targetSelected = false;
+                target.name = "";
+
+                lbSourceName.Text = source.name;
+                pbSource.Image = Properties.Resources.source;
             }
         }
 
@@ -787,11 +833,6 @@ namespace RiskGame
         private void pnlBase_MouseDown(object sender, MouseEventArgs e)
         {
 
-
-        }
-
-        private void pbBase_Click(object sender, EventArgs e)
-        {
 
         }
 

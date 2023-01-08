@@ -363,6 +363,16 @@ namespace RiskGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sourceSelectionBack {
+            get {
+                object obj = ResourceManager.GetObject("sourceSelectionBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap StartGameButton {
             get {
                 object obj = ResourceManager.GetObject("StartGameButton", resourceCulture);
@@ -426,6 +436,16 @@ namespace RiskGame.Properties {
         internal static System.Drawing.Bitmap sword_hover {
             get {
                 object obj = ResourceManager.GetObject("sword_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap target {
+            get {
+                object obj = ResourceManager.GetObject("target", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

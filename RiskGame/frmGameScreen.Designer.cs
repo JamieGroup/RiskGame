@@ -33,12 +33,16 @@ namespace RiskGame
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGameScreen));
             this.pnlPause = new System.Windows.Forms.Panel();
             this.pnlPauseQuit = new System.Windows.Forms.Panel();
+            this.pbPauseQuit = new System.Windows.Forms.PictureBox();
             this.lbPauseQuit = new System.Windows.Forms.Label();
             this.pnlPauseSettings = new System.Windows.Forms.Panel();
+            this.pbPauseSettings = new System.Windows.Forms.PictureBox();
             this.lbPauseSettings = new System.Windows.Forms.Label();
             this.pnlPauseOverview = new System.Windows.Forms.Panel();
+            this.pbPauseOverview = new System.Windows.Forms.PictureBox();
             this.lbPauseOverview = new System.Windows.Forms.Label();
             this.pnlPauseInvite = new System.Windows.Forms.Panel();
+            this.pbPauseInvite = new System.Windows.Forms.PictureBox();
             this.bPauseInvite = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.div1 = new System.Windows.Forms.Label();
@@ -46,6 +50,7 @@ namespace RiskGame
             this.lbPauseCopyright = new System.Windows.Forms.Label();
             this.lbGamePaused = new System.Windows.Forms.Label();
             this.pnlPauseResume = new System.Windows.Forms.Panel();
+            this.pbPauseResume = new System.Windows.Forms.PictureBox();
             this.lbPauseResume = new System.Windows.Forms.Label();
             this.tmrPauseCooldown = new System.Windows.Forms.Timer(this.components);
             this.INDICATORpnlDeploy = new System.Windows.Forms.Panel();
@@ -57,33 +62,29 @@ namespace RiskGame
             this.pnlTroopsRemaining = new System.Windows.Forms.Panel();
             this.lbTroopsRemainingNumber = new System.Windows.Forms.Label();
             this.lbTroopsRemainingName = new System.Windows.Forms.Label();
-            this.pbPauseQuit = new System.Windows.Forms.PictureBox();
-            this.pbPauseSettings = new System.Windows.Forms.PictureBox();
-            this.pbPauseOverview = new System.Windows.Forms.PictureBox();
-            this.pbPauseInvite = new System.Windows.Forms.PictureBox();
-            this.pbPauseResume = new System.Windows.Forms.PictureBox();
-            this.pbBase = new System.Windows.Forms.PictureBox();
-            this.pbSource = new System.Windows.Forms.PictureBox();
             this.lbSourceName = new System.Windows.Forms.Label();
             this.pnlSource = new System.Windows.Forms.Panel();
+            this.pnlSelectionBack = new System.Windows.Forms.Panel();
+            this.pbSource = new System.Windows.Forms.PictureBox();
+            this.pbBase = new System.Windows.Forms.PictureBox();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
             this.pnlPauseSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPauseSettings)).BeginInit();
             this.pnlPauseOverview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPauseOverview)).BeginInit();
             this.pnlPauseInvite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPauseInvite)).BeginInit();
             this.pnlPauseResume.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPauseResume)).BeginInit();
             this.INDICATORpnlDeploy.SuspendLayout();
             this.INDICATORpnlAttack.SuspendLayout();
             this.INDICATORpnlReEnforce.SuspendLayout();
             this.pnlTroopsRemaining.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPauseSettings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPauseOverview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPauseInvite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPauseResume)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBase)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSource)).BeginInit();
             this.pnlSource.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBase)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPause
@@ -117,6 +118,20 @@ namespace RiskGame
             this.pnlPauseQuit.MouseEnter += new System.EventHandler(this.pnlPauseQuit_MouseEnter);
             this.pnlPauseQuit.MouseLeave += new System.EventHandler(this.pnlPauseQuit_MouseLeave);
             // 
+            // pbPauseQuit
+            // 
+            this.pbPauseQuit.BackColor = System.Drawing.Color.Transparent;
+            this.pbPauseQuit.Image = global::RiskGame.Properties.Resources.QuitButtonDefault;
+            this.pbPauseQuit.Location = new System.Drawing.Point(9, 15);
+            this.pbPauseQuit.Name = "pbPauseQuit";
+            this.pbPauseQuit.Size = new System.Drawing.Size(77, 71);
+            this.pbPauseQuit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPauseQuit.TabIndex = 6;
+            this.pbPauseQuit.TabStop = false;
+            this.pbPauseQuit.Click += new System.EventHandler(this.pbPauseQuit_Click);
+            this.pbPauseQuit.MouseEnter += new System.EventHandler(this.pbPauseQuit_MouseEnter);
+            this.pbPauseQuit.MouseLeave += new System.EventHandler(this.pbPauseQuit_MouseLeave);
+            // 
             // lbPauseQuit
             // 
             this.lbPauseQuit.AutoSize = true;
@@ -141,6 +156,20 @@ namespace RiskGame
             this.pnlPauseSettings.Click += new System.EventHandler(this.pnlPauseSettings_Click);
             this.pnlPauseSettings.MouseEnter += new System.EventHandler(this.pnlPauseSettings_MouseEnter);
             this.pnlPauseSettings.MouseLeave += new System.EventHandler(this.pnlPauseSettings_MouseLeave);
+            // 
+            // pbPauseSettings
+            // 
+            this.pbPauseSettings.BackColor = System.Drawing.Color.Transparent;
+            this.pbPauseSettings.Image = global::RiskGame.Properties.Resources.SettingsButtonDefault;
+            this.pbPauseSettings.Location = new System.Drawing.Point(12, 15);
+            this.pbPauseSettings.Name = "pbPauseSettings";
+            this.pbPauseSettings.Size = new System.Drawing.Size(77, 71);
+            this.pbPauseSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPauseSettings.TabIndex = 10;
+            this.pbPauseSettings.TabStop = false;
+            this.pbPauseSettings.Click += new System.EventHandler(this.pbPauseSettings_Click);
+            this.pbPauseSettings.MouseEnter += new System.EventHandler(this.pbPauseSettings_MouseEnter);
+            this.pbPauseSettings.MouseLeave += new System.EventHandler(this.pbPauseSettings_MouseLeave);
             // 
             // lbPauseSettings
             // 
@@ -167,6 +196,20 @@ namespace RiskGame
             this.pnlPauseOverview.MouseEnter += new System.EventHandler(this.pnlPauseOverview_MouseEnter);
             this.pnlPauseOverview.MouseLeave += new System.EventHandler(this.pnlPauseOverview_MouseLeave);
             // 
+            // pbPauseOverview
+            // 
+            this.pbPauseOverview.BackColor = System.Drawing.Color.Transparent;
+            this.pbPauseOverview.Image = global::RiskGame.Properties.Resources.OverviewButtonDefault;
+            this.pbPauseOverview.Location = new System.Drawing.Point(12, 15);
+            this.pbPauseOverview.Name = "pbPauseOverview";
+            this.pbPauseOverview.Size = new System.Drawing.Size(77, 71);
+            this.pbPauseOverview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPauseOverview.TabIndex = 12;
+            this.pbPauseOverview.TabStop = false;
+            this.pbPauseOverview.Click += new System.EventHandler(this.pbPauseOverview_Click);
+            this.pbPauseOverview.MouseEnter += new System.EventHandler(this.pbPauseOverview_MouseEnter);
+            this.pbPauseOverview.MouseLeave += new System.EventHandler(this.pbPauseOverview_MouseLeave);
+            // 
             // lbPauseOverview
             // 
             this.lbPauseOverview.AutoSize = true;
@@ -191,6 +234,20 @@ namespace RiskGame
             this.pnlPauseInvite.Click += new System.EventHandler(this.pnlPauseInvite_Click);
             this.pnlPauseInvite.MouseEnter += new System.EventHandler(this.pnlPauseInvite_MouseEnter);
             this.pnlPauseInvite.MouseLeave += new System.EventHandler(this.pnlPauseInvite_MouseLeave);
+            // 
+            // pbPauseInvite
+            // 
+            this.pbPauseInvite.BackColor = System.Drawing.Color.Transparent;
+            this.pbPauseInvite.Image = global::RiskGame.Properties.Resources.InviteButtonDefault;
+            this.pbPauseInvite.Location = new System.Drawing.Point(12, 15);
+            this.pbPauseInvite.Name = "pbPauseInvite";
+            this.pbPauseInvite.Size = new System.Drawing.Size(77, 71);
+            this.pbPauseInvite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPauseInvite.TabIndex = 8;
+            this.pbPauseInvite.TabStop = false;
+            this.pbPauseInvite.Click += new System.EventHandler(this.pbPauseInvite_Click);
+            this.pbPauseInvite.MouseEnter += new System.EventHandler(this.pbPauseInvite_MouseEnter);
+            this.pbPauseInvite.MouseLeave += new System.EventHandler(this.pbPauseInvite_MouseLeave);
             // 
             // bPauseInvite
             // 
@@ -263,6 +320,20 @@ namespace RiskGame
             this.pnlPauseResume.Click += new System.EventHandler(this.pnlPauseResume_Click);
             this.pnlPauseResume.MouseEnter += new System.EventHandler(this.pnlPauseResume_MouseEnter);
             this.pnlPauseResume.MouseLeave += new System.EventHandler(this.pnlPauseResume_MouseLeave);
+            // 
+            // pbPauseResume
+            // 
+            this.pbPauseResume.BackColor = System.Drawing.Color.Transparent;
+            this.pbPauseResume.Image = global::RiskGame.Properties.Resources.PlayButtonDefault;
+            this.pbPauseResume.Location = new System.Drawing.Point(9, 17);
+            this.pbPauseResume.Name = "pbPauseResume";
+            this.pbPauseResume.Size = new System.Drawing.Size(77, 71);
+            this.pbPauseResume.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPauseResume.TabIndex = 5;
+            this.pbPauseResume.TabStop = false;
+            this.pbPauseResume.Click += new System.EventHandler(this.pbPauseResume_Click);
+            this.pbPauseResume.MouseEnter += new System.EventHandler(this.pbPauseResume_MouseEnter);
+            this.pbPauseResume.MouseLeave += new System.EventHandler(this.pbPauseResume_MouseLeave);
             // 
             // lbPauseResume
             // 
@@ -366,87 +437,38 @@ namespace RiskGame
             this.lbTroopsRemainingName.Text = "Troops \r\nRemaining";
             this.lbTroopsRemainingName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // pbPauseQuit
+            // lbSourceName
             // 
-            this.pbPauseQuit.BackColor = System.Drawing.Color.Transparent;
-            this.pbPauseQuit.Image = global::RiskGame.Properties.Resources.QuitButtonDefault;
-            this.pbPauseQuit.Location = new System.Drawing.Point(9, 15);
-            this.pbPauseQuit.Name = "pbPauseQuit";
-            this.pbPauseQuit.Size = new System.Drawing.Size(77, 71);
-            this.pbPauseQuit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPauseQuit.TabIndex = 6;
-            this.pbPauseQuit.TabStop = false;
-            this.pbPauseQuit.Click += new System.EventHandler(this.pbPauseQuit_Click);
-            this.pbPauseQuit.MouseEnter += new System.EventHandler(this.pbPauseQuit_MouseEnter);
-            this.pbPauseQuit.MouseLeave += new System.EventHandler(this.pbPauseQuit_MouseLeave);
+            this.lbSourceName.AutoSize = true;
+            this.lbSourceName.BackColor = System.Drawing.Color.Transparent;
+            this.lbSourceName.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSourceName.ForeColor = System.Drawing.Color.Black;
+            this.lbSourceName.Location = new System.Drawing.Point(601, 20);
+            this.lbSourceName.Name = "lbSourceName";
+            this.lbSourceName.Size = new System.Drawing.Size(194, 45);
+            this.lbSourceName.TabIndex = 8;
+            this.lbSourceName.Text = "SourceHere";
+            this.lbSourceName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pbPauseSettings
+            // pnlSource
             // 
-            this.pbPauseSettings.BackColor = System.Drawing.Color.Transparent;
-            this.pbPauseSettings.Image = global::RiskGame.Properties.Resources.SettingsButtonDefault;
-            this.pbPauseSettings.Location = new System.Drawing.Point(12, 15);
-            this.pbPauseSettings.Name = "pbPauseSettings";
-            this.pbPauseSettings.Size = new System.Drawing.Size(77, 71);
-            this.pbPauseSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPauseSettings.TabIndex = 10;
-            this.pbPauseSettings.TabStop = false;
-            this.pbPauseSettings.Click += new System.EventHandler(this.pbPauseSettings_Click);
-            this.pbPauseSettings.MouseEnter += new System.EventHandler(this.pbPauseSettings_MouseEnter);
-            this.pbPauseSettings.MouseLeave += new System.EventHandler(this.pbPauseSettings_MouseLeave);
+            this.pnlSource.Controls.Add(this.pnlSelectionBack);
+            this.pnlSource.Controls.Add(this.lbSourceName);
+            this.pnlSource.Controls.Add(this.pbSource);
+            this.pnlSource.Location = new System.Drawing.Point(3, 700);
+            this.pnlSource.Name = "pnlSource";
+            this.pnlSource.Size = new System.Drawing.Size(1533, 71);
+            this.pnlSource.TabIndex = 9;
             // 
-            // pbPauseOverview
+            // pnlSelectionBack
             // 
-            this.pbPauseOverview.BackColor = System.Drawing.Color.Transparent;
-            this.pbPauseOverview.Image = global::RiskGame.Properties.Resources.OverviewButtonDefault;
-            this.pbPauseOverview.Location = new System.Drawing.Point(12, 15);
-            this.pbPauseOverview.Name = "pbPauseOverview";
-            this.pbPauseOverview.Size = new System.Drawing.Size(77, 71);
-            this.pbPauseOverview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPauseOverview.TabIndex = 12;
-            this.pbPauseOverview.TabStop = false;
-            this.pbPauseOverview.Click += new System.EventHandler(this.pbPauseOverview_Click);
-            this.pbPauseOverview.MouseEnter += new System.EventHandler(this.pbPauseOverview_MouseEnter);
-            this.pbPauseOverview.MouseLeave += new System.EventHandler(this.pbPauseOverview_MouseLeave);
-            // 
-            // pbPauseInvite
-            // 
-            this.pbPauseInvite.BackColor = System.Drawing.Color.Transparent;
-            this.pbPauseInvite.Image = global::RiskGame.Properties.Resources.InviteButtonDefault;
-            this.pbPauseInvite.Location = new System.Drawing.Point(12, 15);
-            this.pbPauseInvite.Name = "pbPauseInvite";
-            this.pbPauseInvite.Size = new System.Drawing.Size(77, 71);
-            this.pbPauseInvite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPauseInvite.TabIndex = 8;
-            this.pbPauseInvite.TabStop = false;
-            this.pbPauseInvite.Click += new System.EventHandler(this.pbPauseInvite_Click);
-            this.pbPauseInvite.MouseEnter += new System.EventHandler(this.pbPauseInvite_MouseEnter);
-            this.pbPauseInvite.MouseLeave += new System.EventHandler(this.pbPauseInvite_MouseLeave);
-            // 
-            // pbPauseResume
-            // 
-            this.pbPauseResume.BackColor = System.Drawing.Color.Transparent;
-            this.pbPauseResume.Image = global::RiskGame.Properties.Resources.PlayButtonDefault;
-            this.pbPauseResume.Location = new System.Drawing.Point(9, 17);
-            this.pbPauseResume.Name = "pbPauseResume";
-            this.pbPauseResume.Size = new System.Drawing.Size(77, 71);
-            this.pbPauseResume.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPauseResume.TabIndex = 5;
-            this.pbPauseResume.TabStop = false;
-            this.pbPauseResume.Click += new System.EventHandler(this.pbPauseResume_Click);
-            this.pbPauseResume.MouseEnter += new System.EventHandler(this.pbPauseResume_MouseEnter);
-            this.pbPauseResume.MouseLeave += new System.EventHandler(this.pbPauseResume_MouseLeave);
-            // 
-            // pbBase
-            // 
-            this.pbBase.Image = ((System.Drawing.Image)(resources.GetObject("pbBase.Image")));
-            this.pbBase.Location = new System.Drawing.Point(3, 42);
-            this.pbBase.Name = "pbBase";
-            this.pbBase.Size = new System.Drawing.Size(1532, 729);
-            this.pbBase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbBase.TabIndex = 2;
-            this.pbBase.TabStop = false;
-            this.pbBase.Click += new System.EventHandler(this.pbBase_Click);
-            this.pbBase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBase_MouseDown);
+            this.pnlSelectionBack.BackgroundImage = global::RiskGame.Properties.Resources.sourceSelectionBack;
+            this.pnlSelectionBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlSelectionBack.Location = new System.Drawing.Point(9, 2);
+            this.pnlSelectionBack.Name = "pnlSelectionBack";
+            this.pnlSelectionBack.Size = new System.Drawing.Size(200, 66);
+            this.pnlSelectionBack.TabIndex = 9;
+            this.pnlSelectionBack.Click += new System.EventHandler(this.pnlSelectionBack_Click);
             // 
             // pbSource
             // 
@@ -457,27 +479,16 @@ namespace RiskGame
             this.pbSource.TabIndex = 7;
             this.pbSource.TabStop = false;
             // 
-            // lbSourceName
+            // pbBase
             // 
-            this.lbSourceName.AutoSize = true;
-            this.lbSourceName.BackColor = System.Drawing.Color.Transparent;
-            this.lbSourceName.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSourceName.ForeColor = System.Drawing.Color.White;
-            this.lbSourceName.Location = new System.Drawing.Point(601, 20);
-            this.lbSourceName.Name = "lbSourceName";
-            this.lbSourceName.Size = new System.Drawing.Size(194, 45);
-            this.lbSourceName.TabIndex = 8;
-            this.lbSourceName.Text = "SourceHere";
-            this.lbSourceName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlSource
-            // 
-            this.pnlSource.Controls.Add(this.lbSourceName);
-            this.pnlSource.Controls.Add(this.pbSource);
-            this.pnlSource.Location = new System.Drawing.Point(3, 700);
-            this.pnlSource.Name = "pnlSource";
-            this.pnlSource.Size = new System.Drawing.Size(1533, 71);
-            this.pnlSource.TabIndex = 9;
+            this.pbBase.Image = ((System.Drawing.Image)(resources.GetObject("pbBase.Image")));
+            this.pbBase.Location = new System.Drawing.Point(3, 42);
+            this.pbBase.Name = "pbBase";
+            this.pbBase.Size = new System.Drawing.Size(1532, 729);
+            this.pbBase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbBase.TabIndex = 2;
+            this.pbBase.TabStop = false;
+            this.pbBase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBase_MouseDown);
             // 
             // frmGameScreen
             // 
@@ -501,14 +512,19 @@ namespace RiskGame
             this.pnlPause.PerformLayout();
             this.pnlPauseQuit.ResumeLayout(false);
             this.pnlPauseQuit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).EndInit();
             this.pnlPauseSettings.ResumeLayout(false);
             this.pnlPauseSettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPauseSettings)).EndInit();
             this.pnlPauseOverview.ResumeLayout(false);
             this.pnlPauseOverview.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPauseOverview)).EndInit();
             this.pnlPauseInvite.ResumeLayout(false);
             this.pnlPauseInvite.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPauseInvite)).EndInit();
             this.pnlPauseResume.ResumeLayout(false);
             this.pnlPauseResume.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPauseResume)).EndInit();
             this.INDICATORpnlDeploy.ResumeLayout(false);
             this.INDICATORpnlDeploy.PerformLayout();
             this.INDICATORpnlAttack.ResumeLayout(false);
@@ -517,15 +533,10 @@ namespace RiskGame
             this.INDICATORpnlReEnforce.PerformLayout();
             this.pnlTroopsRemaining.ResumeLayout(false);
             this.pnlTroopsRemaining.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPauseSettings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPauseOverview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPauseInvite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPauseResume)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBase)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSource)).EndInit();
             this.pnlSource.ResumeLayout(false);
             this.pnlSource.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBase)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,5 +579,6 @@ namespace RiskGame
         private System.Windows.Forms.PictureBox pbSource;
         private System.Windows.Forms.Label lbSourceName;
         private System.Windows.Forms.Panel pnlSource;
+        private System.Windows.Forms.Panel pnlSelectionBack;
     }
 }
