@@ -13,6 +13,16 @@ namespace RiskGame
         public string name { get; set; }
         public int CentralX { get; set; }
         public int CentralY { get; set; }
+        public string colour { get; set; }
+
+        public Region()
+        {
+            owner = -1;
+            territory = "none";
+            name = "none";
+            CentralX = 0;
+            CentralY = 0;
+        }
 
         public Region(string _name)
         {
@@ -29,7 +39,7 @@ namespace RiskGame
         }
         public string GetOwner()
         {
-            return $"Player {owner}";
+            return $"{owner}";
         }
         public void SetPoint(int x, int y)
         {
