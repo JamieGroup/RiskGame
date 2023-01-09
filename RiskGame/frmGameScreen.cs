@@ -400,11 +400,12 @@ namespace RiskGame
                 if (Game.state == 0)
                 {
                     tempSelection = RegionID(mousePosition);
+                    
                     if (!sourceSelected && tempSelection.owner == Game.currentPlayer)
                     {
                         //Select Source
                         source.name = "";
-                        if (tempSelection.name == "")
+                        if (tempSelection.name == "" || tempSelection.name == "none")
                         {
                             //Do nothing
                         }
@@ -430,11 +431,11 @@ namespace RiskGame
                     {
                         MessageBox.Show("You have clicked on a region that is not yours.", "Please select a region that is yours.");
                     }
-                    else if (sourceSelected && tempSelection.owner != Game.currentPlayer)
+                    else if (!targetSelected && tempSelection.owner != Game.currentPlayer)
                     {
                         //Select Target
                         target.name = "";
-                        if (tempSelection.name == "")
+                        if (tempSelection.name == "" || tempSelection.name == "none")
                         {
                             //Do nothing
                         }
@@ -444,11 +445,21 @@ namespace RiskGame
                             target = tempSelection;
                             lbSourceName.Text = source.name + " -> " + target.name;
                             pbSource.Image = Properties.Resources.target;
+
+                            //Draw arrow
+                            Graphics g = pbBase.CreateGraphics();
+                            Pen p = new Pen(Brushes.Black, 8);
+                            p.StartCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+                            g.DrawLine(p, source.CentralX, source.CentralY, target.CentralX, target.CentralY);
                         }
+                    }
+                    else if (!targetSelected)
+                    {
+                        MessageBox.Show("You can't invade your own region!", "Please select a region that is not yours.");
                     }
                     else
                     {
-                        MessageBox.Show("You can't invade your own region!", "Please select a region that is not yours.");
+                        MessageBox.Show("Invalid Click!");
                     }
                 }
 
