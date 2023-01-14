@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace RiskGame
 {
@@ -45,6 +46,30 @@ namespace RiskGame
         {
             CentralX = x;
             CentralY = y;
+        }
+
+        public bool Closeness(Region test)
+        {
+            bool close = false;
+
+            string[] relations = File.ReadAllLines("relations.conf");
+            for(int i = 0; i<relations.Length; i++)
+            {
+                string[] relationList = relations[i].Split('~');
+                if (relationList[0] == name)
+                {
+                    
+                    for (int g = 0; g < relationList.Length; g++)
+                    {
+                        if (relationList[g] == test.name)
+                        {
+                            close = true;
+                        }
+                    }
+                }
+            }
+
+            return close;
         }
     }
 }

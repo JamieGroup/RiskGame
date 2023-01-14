@@ -25,6 +25,8 @@ namespace RiskGame
 
         bool sourceSelected = false;
         bool targetSelected = false;
+        Region tempSourceSelection;
+        Region tempTargetSelection;
         Region source = new Region();
         Region target = new Region();
 
@@ -391,7 +393,6 @@ namespace RiskGame
         private void pbBase_MouseDown(object sender, MouseEventArgs e)
         {
             Point mousePosition = new Point(e.X, e.Y);
-            Region tempSelection;
 
             Bitmap bmp = (Bitmap)pbBase.Image;
             if (bmp.GetPixel(mousePosition.X, mousePosition.Y) != Color.FromArgb(153, 220, 243))
@@ -399,64 +400,78 @@ namespace RiskGame
                 //Attack Mode Active
                 if (Game.state == 0)
                 {
-                    tempSelection = RegionID(mousePosition);
-                    
-                    if (!sourceSelected && tempSelection.owner == Game.currentPlayer)
+                    if(!sourceSelected)
                     {
-                        //Select Source
-                        source.name = "";
-                        if (tempSelection.name == "" || tempSelection.name == "none")
+                        tempSourceSelection = RegionID(mousePosition);
+
+                        if (tempSourceSelection.owner == Game.currentPlayer)
                         {
-                            //Do nothing
-                        }
-                        else
-                        {
-                            sourceSelected = true;
-                            source = tempSelection;
-                            //Animate source viewer
-                            //Required location: 3, 701
-                            //Default location: 3, 775
-                            int animateSpeed = 2;
-                            int yCurrent = pnlSource.Location.Y;
-                            for (int i = 0; i < (74 / animateSpeed); i++)
+                            //Select Source
+                            source.name = "";
+                            if (tempSourceSelection.name == "" || tempSourceSelection.name == "none")
                             {
-                                pnlSource.Location = new Point(3, yCurrent - (Convert.ToInt32(animateSpeed) * i));
-                                pnlSource.Refresh();
+                                //Do nothing
                             }
+                            else
+                            {
+                                sourceSelected = true;
+                                source = tempSourceSelection;
+                                //Animate source viewer
+                                //Required location: 3, 701
+                                //Default location: 3, 775
+                                int animateSpeed = 2;
+                                int yCurrent = pnlSource.Location.Y;
+                                for (int i = 0; i < (74 / animateSpeed); i++)
+                                {
+                                    pnlSource.Location = new Point(3, yCurrent - (Convert.ToInt32(animateSpeed) * i));
+                                    pnlSource.Refresh();
+                                }
 
-                            lbSourceName.Text = source.name;
-                        }
-                    }
-                    else if (!sourceSelected)
-                    {
-                        MessageBox.Show("You have clicked on a region that is not yours.", "Please select a region that is yours.");
-                    }
-                    else if (!targetSelected && tempSelection.owner != Game.currentPlayer)
-                    {
-                        //Select Target
-                        target.name = "";
-                        if (tempSelection.name == "" || tempSelection.name == "none")
-                        {
-                            //Do nothing
+                                lbSourceName.Text = source.name;
+                            }
                         }
                         else
                         {
-                            targetSelected = true;
-                            target = tempSelection;
-                            lbSourceName.Text = source.name + " -> " + target.name;
-                            pbSource.Image = Properties.Resources.target;
-
-                            //Draw arrow
-                            Graphics g = pbBase.CreateGraphics();
-                            Pen p = new Pen(Brushes.Black, 8);
-                            p.StartCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-                            g.DrawLine(p, source.CentralX, source.CentralY, target.CentralX, target.CentralY);
+                            MessageBox.Show("You have clicked on a region that is not yours.", "Please select a region that is yours.");
                         }
                     }
-                    else if (!targetSelected)
+                    
+                    if(!targetSelected)
                     {
-                        MessageBox.Show("You can't invade your own region!", "Please select a region that is not yours.");
+                        tempTargetSelection = RegionID(mousePosition);
+
+                        if (tempTargetSelection.owner != Game.currentPlayer && tempTargetSelection.Closeness(source))
+                        {
+                            //Select Target
+                            target.name = "";
+                            if (tempTargetSelection.name == "" || tempTargetSelection.name == "none")
+                            {
+                                //Do nothing
+                            }
+                            else
+                            {
+                                targetSelected = true;
+                                target = tempTargetSelection;
+                                lbSourceName.Text = source.name + " -> " + target.name;
+                                pbSource.Image = Properties.Resources.target;
+
+                                //Draw arrow
+                                Graphics g = pbBase.CreateGraphics();
+                                Pen p = new Pen(Brushes.Black, 8);
+                                p.StartCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+                                g.DrawLine(p, source.CentralX, source.CentralY, target.CentralX, target.CentralY);
+                            }
+                        }
+                        else if(tempTargetSelection.owner != Game.currentPlayer)
+                        {
+                            MessageBox.Show("That region is not close!", "Please select a region that is close.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("You can't invade your own region!", "Please select a region that is not yours.");
+                        }
                     }
+
                     else
                     {
                         MessageBox.Show("Invalid Click!");
