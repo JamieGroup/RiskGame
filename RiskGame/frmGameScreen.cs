@@ -46,6 +46,7 @@ namespace RiskGame
             int playerCount = AICount + OthersCount;
             Game.currentPlayer = 0;
             pnlPause.Location = new Point(-455, 0);
+            MSGpnlMessageGroup.Location = new Point(1541, 48);
 
             
             Game.calcPlayers();
@@ -183,7 +184,7 @@ namespace RiskGame
 
         private void troopDisplay_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You've clicked a troop display!\r\nDon't do that yet please!\r\nTry clicking on the region itself!", "TEMPORARY!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Game.Message("You've clicked a troop display!\r\nDon't do that yet please!\r\nTry clicking on the region itself!", MSGpnlMessageGroup, MSGlbMessage);
         }
 
         private void lbGamePaused_Click(object sender, EventArgs e)
@@ -388,8 +389,6 @@ namespace RiskGame
             return;
         }
 
-
-
         private void pbBase_MouseDown(object sender, MouseEventArgs e)
         {
             Point mousePosition = new Point(e.X, e.Y);
@@ -432,11 +431,10 @@ namespace RiskGame
                         }
                         else
                         {
-                            MessageBox.Show("You have clicked on a region that is not yours.", "Please select a region that is yours.");
+                            Game.Message("You have clicked on a region that is not yours.\r\nPlease select a region that is yours.", MSGpnlMessageGroup, MSGlbMessage);
                         }
                     }
-                    
-                    if(!targetSelected)
+                    else if(!targetSelected)
                     {
                         tempTargetSelection = RegionID(mousePosition);
 
@@ -464,11 +462,11 @@ namespace RiskGame
                         }
                         else if(tempTargetSelection.owner != Game.currentPlayer)
                         {
-                            MessageBox.Show("That region is not close!", "Please select a region that is close.");
+                            Game.Message("That region is not close!\r\nPlease select a region that is close.", MSGpnlMessageGroup, MSGlbMessage);
                         }
                         else
                         {
-                            MessageBox.Show("You can't invade your own region!", "Please select a region that is not yours.");
+                            Game.Message("You can't invade your own region!\r\nPlease select a region that is not yours.", MSGpnlMessageGroup, MSGlbMessage);
                         }
                     }
 
@@ -493,27 +491,26 @@ namespace RiskGame
         private Region RegionID(Point test)
         {
             Region regionSuggestion = new Region();
-
+            
             //Step 1: Save the colour of the clicked pixel.
-            //Step 2: Save this colour again, but slightly changed.
-            //Step 3: Flood fill using this slightly changed colour.
-            //Step 4: Compare the points in regions.conf to see which one matches this SLIGHTLY CHANGED colour.
-            //Step 5: If there are no matches, user did not click on a region, sourceSuggestion is "invalid", checked by tempSource.
-            //Step 6: If there is a match, save the region's name and ID, change the colour back to the originally saved colour, then return this region information.
-
             Bitmap bmp = (Bitmap)pbBase.Image;
             Color pixelColour = bmp.GetPixel(test.X, test.Y);
 
+            //Step 2: Save this colour again, but slightly changed.
             Color lighterPixelColour = ControlPaint.Dark(pixelColour);
 
+            //Step 3: Flood fill using this slightly changed colour.
             FloodFill(bmp, test, lighterPixelColour, pixelColour, 10);
 
+            //Step 4: Compare the points in regions.conf to see which one matches this SLIGHTLY CHANGED colour.
             string[] regionData = File.ReadAllLines("regions.conf");
             for(int i = 0; i<regionData.Length; i++)
             {
                 string tempName = regionData[i].Split('~')[0];
                 Point tempPoint = new Point(Convert.ToInt32(regionData[i].Split('~')[1].Split(',')[0]), Convert.ToInt32(regionData[i].Split('~')[1].Split(',')[1]));
 
+                //Step 5: If there are no matches, user did not click on a region, sourceSuggestion is "invalid", checked by tempSource.
+                //Step 6: If there is a match, save the region's name and ID, change the colour back to the originally saved colour, then return this region information.
                 if (bmp.GetPixel(tempPoint.X, tempPoint.Y) == lighterPixelColour)
                 {
                     //YES THIS IS A REGION!
@@ -616,6 +613,7 @@ namespace RiskGame
 
         private void pnlSelectionBack_Click(object sender, EventArgs e)
         {
+            pbBase.Refresh();
             if(!targetSelected)
             {
                 sourceSelected = false;
