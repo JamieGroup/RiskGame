@@ -67,6 +67,9 @@ namespace RiskGame
             this.pnlSelectionBack = new System.Windows.Forms.Panel();
             this.pbSource = new System.Windows.Forms.PictureBox();
             this.pbBase = new System.Windows.Forms.PictureBox();
+            this.MSGpnlMessageGroup = new System.Windows.Forms.Panel();
+            this.MSGlbExclaim = new System.Windows.Forms.Label();
+            this.MSGlbMessage = new System.Windows.Forms.Label();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -85,6 +88,7 @@ namespace RiskGame
             this.pnlSource.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBase)).BeginInit();
+            this.MSGpnlMessageGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPause
@@ -490,11 +494,44 @@ namespace RiskGame
             this.pbBase.TabStop = false;
             this.pbBase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBase_MouseDown);
             // 
+            // MSGpnlMessageGroup
+            // 
+            this.MSGpnlMessageGroup.BackColor = System.Drawing.Color.Yellow;
+            this.MSGpnlMessageGroup.Controls.Add(this.MSGlbMessage);
+            this.MSGpnlMessageGroup.Controls.Add(this.MSGlbExclaim);
+            this.MSGpnlMessageGroup.Location = new System.Drawing.Point(1263, 51);
+            this.MSGpnlMessageGroup.Name = "MSGpnlMessageGroup";
+            this.MSGpnlMessageGroup.Size = new System.Drawing.Size(266, 114);
+            this.MSGpnlMessageGroup.TabIndex = 10;
+            // 
+            // MSGlbExclaim
+            // 
+            this.MSGlbExclaim.AutoSize = true;
+            this.MSGlbExclaim.Font = new System.Drawing.Font("Segoe UI Black", 36F, System.Drawing.FontStyle.Bold);
+            this.MSGlbExclaim.ForeColor = System.Drawing.Color.Black;
+            this.MSGlbExclaim.Location = new System.Drawing.Point(3, 4);
+            this.MSGlbExclaim.Name = "MSGlbExclaim";
+            this.MSGlbExclaim.Size = new System.Drawing.Size(46, 65);
+            this.MSGlbExclaim.TabIndex = 0;
+            this.MSGlbExclaim.Text = "!";
+            // 
+            // MSGlbMessage
+            // 
+            this.MSGlbMessage.AutoSize = true;
+            this.MSGlbMessage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MSGlbMessage.ForeColor = System.Drawing.Color.Black;
+            this.MSGlbMessage.Location = new System.Drawing.Point(36, 19);
+            this.MSGlbMessage.Name = "MSGlbMessage";
+            this.MSGlbMessage.Size = new System.Drawing.Size(170, 21);
+            this.MSGlbMessage.TabIndex = 1;
+            this.MSGlbMessage.Text = "A message will go here";
+            // 
             // frmGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1538, 774);
+            this.Controls.Add(this.MSGpnlMessageGroup);
             this.Controls.Add(this.pnlSource);
             this.Controls.Add(this.pnlTroopsRemaining);
             this.Controls.Add(this.INDICATORpnlReEnforce);
@@ -537,6 +574,8 @@ namespace RiskGame
             this.pnlSource.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBase)).EndInit();
+            this.MSGpnlMessageGroup.ResumeLayout(false);
+            this.MSGpnlMessageGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,5 +619,8 @@ namespace RiskGame
         private System.Windows.Forms.Label lbSourceName;
         private System.Windows.Forms.Panel pnlSource;
         private System.Windows.Forms.Panel pnlSelectionBack;
+        private System.Windows.Forms.Panel MSGpnlMessageGroup;
+        private System.Windows.Forms.Label MSGlbMessage;
+        private System.Windows.Forms.Label MSGlbExclaim;
     }
 }
