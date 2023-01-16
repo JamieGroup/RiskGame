@@ -99,7 +99,7 @@ namespace RiskGame
             {
                 btnAI1Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
                 btnAI2Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
-            } while (ColorsAreClose(btnAI1Colour.BackColor, btnAI2Colour.BackColor, 300) || ColorsAreClose(btnAI1Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 100) || ColorsAreClose(btnAI2Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 100));
+            } while (ColorsAreClose(btnAI1Colour.BackColor, btnAI2Colour.BackColor, 300) && ColorsAreClose(btnAI1Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 300) && ColorsAreClose(btnAI2Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 300));
 
             lbAI1Colour.Text = $"{AI1Name}'s Colour";
             lbAI2Colour.Text = $"{AI2Name}'s Colour";

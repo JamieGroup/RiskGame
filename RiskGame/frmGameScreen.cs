@@ -30,6 +30,9 @@ namespace RiskGame
         Region source = new Region();
         Region target = new Region();
 
+        Bitmap actualImage;
+        Plys current;
+
         public frmGameScreen()
         {
             InitializeComponent();
@@ -63,7 +66,6 @@ namespace RiskGame
 
         public void ReturnToGameScreen()
         {
-            Plys current;
             if (Game.currentPlayer == 0)
             {
                 current = frmLogin.human;
@@ -110,7 +112,8 @@ namespace RiskGame
             string[] allRegionData = File.ReadAllLines("regions.conf");
             for (int i = 0; i < File.ReadLines("regions.conf").Count(); i++)
             {
-                regions[i] = new Region(allRegionData[i].Split('~')[0]);
+                regions[i] = new Region();
+                regions[i].name = allRegionData[i].Split('~')[0];
                 int b = rnd.Next(0, a);
                 regions[i].SetController(b);
                 regions[i].SetTerritory();
@@ -202,12 +205,15 @@ namespace RiskGame
                 if (pauseShown % 2 == 0)
                 {
                     //Pause
+                    actualImage = (Bitmap)pbBase.Image;
                     AnimatePauseScreen(0);
+                    //pbBase.Image = Game.MakeGrayscale((Bitmap)pbBase.Image);
                 }
                 else
                 {
                     //Unpause
                     AnimatePauseScreen(1);
+                    pbBase.Image = actualImage;
                 }
             }
             
@@ -396,10 +402,16 @@ namespace RiskGame
             Bitmap bmp = (Bitmap)pbBase.Image;
             if (bmp.GetPixel(mousePosition.X, mousePosition.Y) != Color.FromArgb(153, 220, 243))
             {
-                //Attack Mode Active
-                if (Game.state == 0)
+                if(Game.state == 0)
                 {
-                    if(!sourceSelected)
+                    //Deploy Mode Active
+                    Region activeR = RegionID(mousePosition);
+                    troopCountDisplay(mousePosition,current.troopPocket,activeR.name);
+                }
+                else if (Game.state == 1)
+                {
+                    //Attack Mode Active
+                    if (!sourceSelected)
                     {
                         tempSourceSelection = RegionID(mousePosition);
 
@@ -431,17 +443,17 @@ namespace RiskGame
                         }
                         else
                         {
-                            Game.Message("You have clicked on a region that is not yours.\r\nPlease select a region that is yours.", MSGpnlMessageGroup, MSGlbMessage);
+                            Game.Message("You have clicked on a region that\r\n is not yours. Please select a \r\nregion that is yours.", MSGpnlMessageGroup, MSGlbMessage);
                         }
                     }
                     else if(!targetSelected)
                     {
                         tempTargetSelection = RegionID(mousePosition);
 
-                        if (tempTargetSelection.owner != Game.currentPlayer && tempTargetSelection.Closeness(source))
+                        if (tempTargetSelection.owner != Game.currentPlayer && tempTargetSelection.Closeness(source, tempTargetSelection))
                         {
                             //Select Target
-                            target.name = "";
+                            //target.name = "";
                             if (tempTargetSelection.name == "" || tempTargetSelection.name == "none")
                             {
                                 //Do nothing
@@ -466,7 +478,7 @@ namespace RiskGame
                         }
                         else
                         {
-                            Game.Message("You can't invade your own region!\r\nPlease select a region that is not yours.", MSGpnlMessageGroup, MSGlbMessage);
+                            Game.Message("You can't invade your own region!\r\nPlease select a region that \r\nis not yours.", MSGpnlMessageGroup, MSGlbMessage);
                         }
                     }
 
@@ -635,11 +647,19 @@ namespace RiskGame
             else
             {
                 targetSelected = false;
-                target.name = "";
+                //target.name = "";
 
                 lbSourceName.Text = source.name;
                 pbSource.Image = Properties.Resources.source;
             }
+        }
+
+        private void troopCountDisplay(Point where, int num, string name)
+        {
+            pnlTroopCounter.Location = where;
+            pnlTroopCounter.Visible = true;
+            lbTroopCountInfo.Text = $"How many of your {num} troops would \r\nyou like to deploy to {name}?";
+            btnTroopCountDisplay.Text = Convert.ToString(num);
         }
 
         private void pnlPauseResume_MouseEnter(object sender, EventArgs e)
@@ -879,6 +899,16 @@ namespace RiskGame
                 pnlTroopsRemaining.Visible = true;
                 lbTroopsRemainingNumber.Text = Convert.ToString(a);
             }
+        }
+
+        private void btnTroopCountUp_Click(object sender, EventArgs e)
+        {
+            btnTroopCountDisplay.Text = Convert.ToString(Convert.ToInt32(btnTroopCountDisplay.Text) + 1);
+        }
+
+        private void btnTroopCountDown_Click(object sender, EventArgs e)
+        {
+            btnTroopCountDisplay.Text = Convert.ToString(Convert.ToInt32(btnTroopCountDisplay.Text) - 1);
         }
     }
 }
