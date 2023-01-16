@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,6 +59,27 @@ namespace RiskGame
         {
             //Call method
             //if(tmr.)
+        }
+
+        public Bitmap MakeGrayscale(Bitmap original)
+        {
+            int height = original.Height;
+            int width = original.Width;
+            Color p;
+
+            for(int y = 0; y<height; y++)
+            {
+                for(int x = 0; x<height; x++)
+                {
+                    //Get pixel value
+                    p = original.GetPixel(x, y);
+                    int avg = (p.R + p.G + p.B) / 3;
+
+                    original.SetPixel(x, y, Color.FromArgb(p.A, avg, avg, avg));
+                }
+            }
+
+            return original;
         }
     }
 }

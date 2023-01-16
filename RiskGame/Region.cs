@@ -48,7 +48,7 @@ namespace RiskGame
             CentralY = y;
         }
 
-        public bool Closeness(Region test)
+        public bool Closeness(Region source, Region potentialTarget)
         {
             bool close = false;
 
@@ -56,12 +56,12 @@ namespace RiskGame
             for(int i = 0; i<relations.Length; i++)
             {
                 string[] relationList = relations[i].Split('~');
-                if (relationList[0] == name)
+                if (relationList[0] == source.name)
                 {
                     
                     for (int g = 0; g < relationList.Length; g++)
                     {
-                        if (relationList[g] == test.name)
+                        if (relationList[g] == potentialTarget.name)
                         {
                             close = true;
                         }
