@@ -317,5 +317,20 @@
   <ItemGroup>
     <None Include="Resources\target.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginNewUserPrompt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curvedArrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curvedArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CurvedArrowTRPNT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CurvedArrowFixed.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

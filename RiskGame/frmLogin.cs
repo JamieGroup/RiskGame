@@ -27,12 +27,11 @@ namespace RiskGame
 
         public frmLogin()
         {
+
             if (!File.Exists("users.conf"))
             {
                 frmLogin.human.firstLaunch = true;
                 File.Create("users.conf").Dispose();
-                Hide();
-                new frmRegister().Show();
             }
             else 
             {

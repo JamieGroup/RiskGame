@@ -103,6 +103,16 @@ namespace RiskGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CurvedArrowFixed {
+            get {
+                object obj = ResourceManager.GetObject("CurvedArrowFixed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dice {
             get {
                 object obj = ResourceManager.GetObject("dice", resourceCulture);
@@ -136,6 +146,16 @@ namespace RiskGame.Properties {
         internal static System.Drawing.Bitmap loading_circle_loading {
             get {
                 object obj = ResourceManager.GetObject("loading_circle_loading", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loginNewUserPrompt {
+            get {
+                object obj = ResourceManager.GetObject("loginNewUserPrompt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -19,6 +19,7 @@ namespace RiskGame
         string relativeAvatar;
         string absoluteAvatar;
         int ID;
+        bool sameAvatar = true;
 
         Random rnd = new Random();
 
@@ -134,17 +135,24 @@ namespace RiskGame
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (acceptUsername && acceptPassword && acceptConfirmPassword)
+            if(!sameAvatar)
             {
-                PublishUser();
-            }
-            else if (cbIgnoreRequirements.Checked)
-            {
-                PublishUser();
+                if (acceptUsername && acceptPassword && acceptConfirmPassword)
+                {
+                    PublishUser();
+                }
+                else if (cbIgnoreRequirements.Checked)
+                {
+                    PublishUser();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Details!");
+                }
             }
             else
             {
-                MessageBox.Show("Invalid Details!");
+                MessageBox.Show("Please select an avatar!");
             }
         }
         
@@ -197,6 +205,7 @@ namespace RiskGame
 
         private void pbAvatar_Click(object sender, EventArgs e)
         {
+            sameAvatar = false;
             //Open the avatar changer
 
             var fileContent = string.Empty;
