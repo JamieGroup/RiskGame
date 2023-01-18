@@ -29,6 +29,7 @@ namespace RiskGame
         Region tempTargetSelection;
         Region source = new Region();
         Region target = new Region();
+        Region activeR = new Region();
 
         Bitmap actualImage;
         Plys current;
@@ -170,16 +171,19 @@ namespace RiskGame
                 pnl.Location = new Point(regions[i].CentralX - 25, regions[i].CentralY - 25);
                 pnl.BackColor = Color.Transparent;
                 pnl.Click += new EventHandler(troopDisplay_Click);
+                pnl.Name = "pnlREGION_" + regions[i].name;
                 pnl.BringToFront();
 
                 Label lb = new Label();
                 lb.Text = Convert.ToString(rnd.Next(1,4));
+                regions[i].troopCount = Convert.ToInt32(lb.Text);
                 lb.ForeColor = Color.Black;
                 pnl.Controls.Add(lb);
                 lb.Location = new Point(/*regions[i].CentralX, regions[i].CentralY*/15,5);
                 lb.BackColor = Color.Transparent;
                 lb.Font = new Font("Segoe UI", 18, FontStyle.Bold);
                 lb.Click += new EventHandler(troopDisplay_Click);
+                lb.Name = "lbREGION_" + regions[i].name;
                 lb.BringToFront();
             }
             rnd.Next(1, a);
@@ -405,7 +409,7 @@ namespace RiskGame
                 if(Game.state == 0)
                 {
                     //Deploy Mode Active
-                    Region activeR = RegionID(mousePosition);
+                    activeR = RegionID(mousePosition);
                     troopCountDisplay(mousePosition,current.troopPocket,activeR.name);
                 }
                 else if (Game.state == 1)
@@ -580,6 +584,33 @@ namespace RiskGame
             }
 
             Cursor.Current = current;
+        }
+        private Color getRealColour(string htmlCode)
+        {
+            Color real;
+            real = ColorTranslator.FromHtml(htmlCode);
+            return real;
+        }
+
+        
+        private void GameStateChanger(int changeTo)
+        {
+            Game.state = changeTo;
+            if(Game.state == 0)
+            {
+                INDICATORpnlDeploy.BackColor = getRealColour(current.accentColour);
+            }
+            else if(Game.state == 1)
+            {
+                INDICATORpnlDeploy.BackColor = Color.LightGray;
+                INDICATORpnlAttack.BackColor = getRealColour(current.accentColour);
+            }
+            else if(Game.state == 2)
+            {
+                INDICATORpnlDeploy.BackColor = Color.LightGray;
+                INDICATORpnlAttack.BackColor = Color.LightGray;
+                INDICATORpnlReEnforce.BackColor = getRealColour(current.accentColour);
+            }
         }
 
         private void frmGameScreen_KeyPress(object sender, KeyPressEventArgs e)
@@ -903,12 +934,51 @@ namespace RiskGame
 
         private void btnTroopCountUp_Click(object sender, EventArgs e)
         {
-            btnTroopCountDisplay.Text = Convert.ToString(Convert.ToInt32(btnTroopCountDisplay.Text) + 1);
+            if(Convert.ToInt32(btnTroopCountDisplay.Text) < current.troopPocket)
+            {
+                btnTroopCountDisplay.Text = Convert.ToString(Convert.ToInt32(btnTroopCountDisplay.Text) + 1);
+            }
+
         }
 
         private void btnTroopCountDown_Click(object sender, EventArgs e)
         {
-            btnTroopCountDisplay.Text = Convert.ToString(Convert.ToInt32(btnTroopCountDisplay.Text) - 1);
+            if(Convert.ToInt32(btnTroopCountDisplay.Text) > 0)
+            {
+                btnTroopCountDisplay.Text = Convert.ToString(Convert.ToInt32(btnTroopCountDisplay.Text) - 1);
+            }
+        }
+
+        private void DEBUGbtnSwitchAttack_Click(object sender, EventArgs e)
+        {
+            GameStateChanger(1);
+            pnlTroopCounter.Visible = false;
+        }
+
+        private void updateTroopDisplays()
+        {
+            for(int i = 0; i<regions.Length; i++)
+            {
+                string labelName = $"lbREGION_{regions[i].name}";
+                Label lbRegion = this.Controls.Find(labelName, true).FirstOrDefault() as Label;
+                lbRegion.Text = Convert.ToString(regions[i].troopCount);
+            }
+        }
+
+        private void btnTroopDeploy_Click(object sender, EventArgs e)
+        {
+            pnlTroopCounter.Visible = false;
+            pnlTroopsRemaining.Visible = false;
+            string deployTo = activeR.name;
+            int deployCount = Convert.ToInt32(btnTroopCountDisplay.Text);
+            for(int i = 0; i<regions.Length; i++)
+            {
+                if (regions[i].name == deployTo)
+                {
+                    regions[i].addTroops(deployCount);
+                    updateTroopDisplays();
+                }
+            }
         }
     }
 }

@@ -71,11 +71,13 @@ namespace RiskGame
             this.MSGlbMessage = new System.Windows.Forms.Label();
             this.MSGlbExclaim = new System.Windows.Forms.Label();
             this.pnlTroopCounter = new System.Windows.Forms.Panel();
-            this.lbTroopCountInfo = new System.Windows.Forms.Label();
-            this.btnTroopCountDown = new System.Windows.Forms.Button();
-            this.btnTroopCountUp = new System.Windows.Forms.Button();
-            this.btnTroopCountDisplay = new System.Windows.Forms.Button();
             this.lbTroopCountInstructions = new System.Windows.Forms.Label();
+            this.btnTroopCountDisplay = new System.Windows.Forms.Button();
+            this.btnTroopCountUp = new System.Windows.Forms.Button();
+            this.btnTroopCountDown = new System.Windows.Forms.Button();
+            this.lbTroopCountInfo = new System.Windows.Forms.Label();
+            this.DEBUGbtnSwitchAttack = new System.Windows.Forms.Button();
+            this.btnTroopDeploy = new System.Windows.Forms.Button();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -383,6 +385,7 @@ namespace RiskGame
             // 
             // INDICATORpnlAttack
             // 
+            this.INDICATORpnlAttack.Controls.Add(this.DEBUGbtnSwitchAttack);
             this.INDICATORpnlAttack.Controls.Add(this.INDICATORlbAttack);
             this.INDICATORpnlAttack.Location = new System.Drawing.Point(512, 3);
             this.INDICATORpnlAttack.Name = "INDICATORpnlAttack";
@@ -535,6 +538,7 @@ namespace RiskGame
             // 
             // pnlTroopCounter
             // 
+            this.pnlTroopCounter.Controls.Add(this.btnTroopDeploy);
             this.pnlTroopCounter.Controls.Add(this.lbTroopCountInstructions);
             this.pnlTroopCounter.Controls.Add(this.btnTroopCountDisplay);
             this.pnlTroopCounter.Controls.Add(this.btnTroopCountUp);
@@ -542,9 +546,55 @@ namespace RiskGame
             this.pnlTroopCounter.Controls.Add(this.lbTroopCountInfo);
             this.pnlTroopCounter.Location = new System.Drawing.Point(389, 192);
             this.pnlTroopCounter.Name = "pnlTroopCounter";
-            this.pnlTroopCounter.Size = new System.Drawing.Size(276, 167);
+            this.pnlTroopCounter.Size = new System.Drawing.Size(276, 191);
             this.pnlTroopCounter.TabIndex = 11;
             this.pnlTroopCounter.Visible = false;
+            // 
+            // lbTroopCountInstructions
+            // 
+            this.lbTroopCountInstructions.AutoSize = true;
+            this.lbTroopCountInstructions.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTroopCountInstructions.Location = new System.Drawing.Point(19, 146);
+            this.lbTroopCountInstructions.Name = "lbTroopCountInstructions";
+            this.lbTroopCountInstructions.Size = new System.Drawing.Size(254, 34);
+            this.lbTroopCountInstructions.TabIndex = 4;
+            this.lbTroopCountInstructions.Text = "Use the buttons, your arrow keys, or your \r\nscroll wheel to change";
+            this.lbTroopCountInstructions.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnTroopCountDisplay
+            // 
+            this.btnTroopCountDisplay.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroopCountDisplay.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTroopCountDisplay.Location = new System.Drawing.Point(108, 45);
+            this.btnTroopCountDisplay.Name = "btnTroopCountDisplay";
+            this.btnTroopCountDisplay.Size = new System.Drawing.Size(60, 57);
+            this.btnTroopCountDisplay.TabIndex = 3;
+            this.btnTroopCountDisplay.Text = "-1";
+            this.btnTroopCountDisplay.UseVisualStyleBackColor = true;
+            // 
+            // btnTroopCountUp
+            // 
+            this.btnTroopCountUp.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroopCountUp.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTroopCountUp.Location = new System.Drawing.Point(174, 45);
+            this.btnTroopCountUp.Name = "btnTroopCountUp";
+            this.btnTroopCountUp.Size = new System.Drawing.Size(60, 57);
+            this.btnTroopCountUp.TabIndex = 2;
+            this.btnTroopCountUp.Text = ">";
+            this.btnTroopCountUp.UseVisualStyleBackColor = true;
+            this.btnTroopCountUp.Click += new System.EventHandler(this.btnTroopCountUp_Click);
+            // 
+            // btnTroopCountDown
+            // 
+            this.btnTroopCountDown.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroopCountDown.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTroopCountDown.Location = new System.Drawing.Point(42, 45);
+            this.btnTroopCountDown.Name = "btnTroopCountDown";
+            this.btnTroopCountDown.Size = new System.Drawing.Size(60, 57);
+            this.btnTroopCountDown.TabIndex = 1;
+            this.btnTroopCountDown.Text = "<";
+            this.btnTroopCountDown.UseVisualStyleBackColor = true;
+            this.btnTroopCountDown.Click += new System.EventHandler(this.btnTroopCountDown_Click);
             // 
             // lbTroopCountInfo
             // 
@@ -557,52 +607,26 @@ namespace RiskGame
             this.lbTroopCountInfo.Text = "How many of your (-1) troops would \r\nyou like to deploy to (region)?";
             this.lbTroopCountInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnTroopCountDown
+            // DEBUGbtnSwitchAttack
             // 
-            this.btnTroopCountDown.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTroopCountDown.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnTroopCountDown.Location = new System.Drawing.Point(42, 54);
-            this.btnTroopCountDown.Name = "btnTroopCountDown";
-            this.btnTroopCountDown.Size = new System.Drawing.Size(60, 57);
-            this.btnTroopCountDown.TabIndex = 1;
-            this.btnTroopCountDown.Text = "<";
-            this.btnTroopCountDown.UseVisualStyleBackColor = true;
-            this.btnTroopCountDown.Click += new System.EventHandler(this.btnTroopCountDown_Click);
+            this.DEBUGbtnSwitchAttack.Location = new System.Drawing.Point(8, 10);
+            this.DEBUGbtnSwitchAttack.Name = "DEBUGbtnSwitchAttack";
+            this.DEBUGbtnSwitchAttack.Size = new System.Drawing.Size(148, 23);
+            this.DEBUGbtnSwitchAttack.TabIndex = 12;
+            this.DEBUGbtnSwitchAttack.Text = "DEBUG: Switch to Attack";
+            this.DEBUGbtnSwitchAttack.UseVisualStyleBackColor = true;
+            this.DEBUGbtnSwitchAttack.Click += new System.EventHandler(this.DEBUGbtnSwitchAttack_Click);
             // 
-            // btnTroopCountUp
+            // btnTroopDeploy
             // 
-            this.btnTroopCountUp.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTroopCountUp.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnTroopCountUp.Location = new System.Drawing.Point(174, 54);
-            this.btnTroopCountUp.Name = "btnTroopCountUp";
-            this.btnTroopCountUp.Size = new System.Drawing.Size(60, 57);
-            this.btnTroopCountUp.TabIndex = 2;
-            this.btnTroopCountUp.Text = ">";
-            this.btnTroopCountUp.UseVisualStyleBackColor = true;
-            this.btnTroopCountUp.Click += new System.EventHandler(this.btnTroopCountUp_Click);
-            // 
-            // btnTroopCountDisplay
-            // 
-            this.btnTroopCountDisplay.Enabled = false;
-            this.btnTroopCountDisplay.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTroopCountDisplay.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnTroopCountDisplay.Location = new System.Drawing.Point(108, 54);
-            this.btnTroopCountDisplay.Name = "btnTroopCountDisplay";
-            this.btnTroopCountDisplay.Size = new System.Drawing.Size(60, 57);
-            this.btnTroopCountDisplay.TabIndex = 3;
-            this.btnTroopCountDisplay.Text = "-1";
-            this.btnTroopCountDisplay.UseVisualStyleBackColor = true;
-            // 
-            // lbTroopCountInstructions
-            // 
-            this.lbTroopCountInstructions.AutoSize = true;
-            this.lbTroopCountInstructions.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTroopCountInstructions.Location = new System.Drawing.Point(12, 121);
-            this.lbTroopCountInstructions.Name = "lbTroopCountInstructions";
-            this.lbTroopCountInstructions.Size = new System.Drawing.Size(254, 34);
-            this.lbTroopCountInstructions.TabIndex = 4;
-            this.lbTroopCountInstructions.Text = "Use the buttons, your arrow keys, or your \r\nscroll wheel to change";
-            this.lbTroopCountInstructions.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTroopDeploy.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroopDeploy.Location = new System.Drawing.Point(42, 99);
+            this.btnTroopDeploy.Name = "btnTroopDeploy";
+            this.btnTroopDeploy.Size = new System.Drawing.Size(192, 44);
+            this.btnTroopDeploy.TabIndex = 5;
+            this.btnTroopDeploy.Text = "Deploy!";
+            this.btnTroopDeploy.UseVisualStyleBackColor = true;
+            this.btnTroopDeploy.Click += new System.EventHandler(this.btnTroopDeploy_Click);
             // 
             // frmGameScreen
             // 
@@ -709,5 +733,7 @@ namespace RiskGame
         private System.Windows.Forms.Button btnTroopCountUp;
         private System.Windows.Forms.Button btnTroopCountDown;
         private System.Windows.Forms.Label lbTroopCountInfo;
+        private System.Windows.Forms.Button DEBUGbtnSwitchAttack;
+        private System.Windows.Forms.Button btnTroopDeploy;
     }
 }

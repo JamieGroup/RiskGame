@@ -15,6 +15,7 @@ namespace RiskGame
         public int CentralX { get; set; }
         public int CentralY { get; set; }
         public string colour { get; set; }
+        public int troopCount;
 
         public Region()
         {
@@ -30,6 +31,11 @@ namespace RiskGame
             name = _name;
         }
         
+        public void addTroops(int _addTroops)
+        {
+            troopCount += _addTroops;
+        }
+
         public void SetController(int _owner)
         {
             owner = _owner;
