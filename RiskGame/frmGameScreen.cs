@@ -971,6 +971,7 @@ namespace RiskGame
             pnlTroopsRemaining.Visible = false;
             string deployTo = activeR.name;
             int deployCount = Convert.ToInt32(btnTroopCountDisplay.Text);
+            current.troopPocket -= deployCount;
             for(int i = 0; i<regions.Length; i++)
             {
                 if (regions[i].name == deployTo)
@@ -978,6 +979,33 @@ namespace RiskGame
                     regions[i].addTroops(deployCount);
                     updateTroopDisplays();
                 }
+            }
+            if(current.troopPocket <= 0)
+            {
+                GameStateChanger(1);
+            }
+        }
+
+        private void pnlTroopCounter_Scroll(object sender, ScrollEventArgs e)
+        {
+            
+        }
+
+        private void btnAttack_Click(object sender, EventArgs e)
+        {
+            int sourceCount = source.troopCount;
+            int targetCount = target.troopCount;
+
+            if(sourceCount/targetCount == 1)
+            {
+
+            }
+
+            //First 3 dice belong to source, next 3 belong to target
+            int[] dice = new int[6];
+            for(int i = 0; i< dice.Length; i++)
+            {
+                dice[i] = rnd.Next(0, 7);
             }
         }
     }
