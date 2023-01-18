@@ -78,6 +78,7 @@ namespace RiskGame
             this.lbTroopCountInfo = new System.Windows.Forms.Label();
             this.DEBUGbtnSwitchAttack = new System.Windows.Forms.Button();
             this.btnTroopDeploy = new System.Windows.Forms.Button();
+            this.btnAttack = new System.Windows.Forms.Button();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -466,6 +467,7 @@ namespace RiskGame
             // 
             // pnlSource
             // 
+            this.pnlSource.Controls.Add(this.btnAttack);
             this.pnlSource.Controls.Add(this.pnlSelectionBack);
             this.pnlSource.Controls.Add(this.lbSourceName);
             this.pnlSource.Controls.Add(this.pbSource);
@@ -549,6 +551,7 @@ namespace RiskGame
             this.pnlTroopCounter.Size = new System.Drawing.Size(276, 191);
             this.pnlTroopCounter.TabIndex = 11;
             this.pnlTroopCounter.Visible = false;
+            this.pnlTroopCounter.Scroll += new System.Windows.Forms.ScrollEventHandler(this.pnlTroopCounter_Scroll);
             // 
             // lbTroopCountInstructions
             // 
@@ -627,6 +630,16 @@ namespace RiskGame
             this.btnTroopDeploy.Text = "Deploy!";
             this.btnTroopDeploy.UseVisualStyleBackColor = true;
             this.btnTroopDeploy.Click += new System.EventHandler(this.btnTroopDeploy_Click);
+            // 
+            // btnAttack
+            // 
+            this.btnAttack.Location = new System.Drawing.Point(1296, 35);
+            this.btnAttack.Name = "btnAttack";
+            this.btnAttack.Size = new System.Drawing.Size(75, 23);
+            this.btnAttack.TabIndex = 10;
+            this.btnAttack.Text = "Launch Attack";
+            this.btnAttack.UseVisualStyleBackColor = true;
+            this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
             // 
             // frmGameScreen
             // 
@@ -735,5 +748,6 @@ namespace RiskGame
         private System.Windows.Forms.Label lbTroopCountInfo;
         private System.Windows.Forms.Button DEBUGbtnSwitchAttack;
         private System.Windows.Forms.Button btnTroopDeploy;
+        private System.Windows.Forms.Button btnAttack;
     }
 }
