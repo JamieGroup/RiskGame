@@ -993,19 +993,81 @@ namespace RiskGame
 
         private void btnAttack_Click(object sender, EventArgs e)
         {
+            //Has to take into account dice rolls (and more importantly) troop count.
             int sourceCount = source.troopCount;
             int targetCount = target.troopCount;
+            int countDifference = sourceCount - targetCount; //Minus here means target has more troops.
 
-            if(sourceCount/targetCount == 1)
+            int[] dice = new int[6];
+            for (int i = 0; i < dice.Length; i++)
             {
+                dice[i] = rnd.Next(0, 7);
+            }
 
+            int sourceAVGTC = (dice[0] + dice[1] + dice[2]) / 3;
+            int targetAVGTC = (dice[3] + dice[4] + dice[5]) / 3;
+            int AVGTCdiff = Math.Abs(sourceAVGTC - targetAVGTC);
+
+            if (sourceCount/targetCount == 1)
+            {
+                //Equal troop count - only dice rolls matter
+                
+                if(AVGTCdiff<0)
+                {
+                    //Target won
+                    AVGTCdiff = Math.Abs(AVGTCdiff);
+                    DiminishTroop(source, AVGTCdiff);
+                    DiminishTroop(target, 1);
+                }
+                else if (AVGTCdiff>0)
+                {
+                    //Source won
+                    DiminishTroop(target, AVGTCdiff);
+                    DiminishTroop(source, 1);
+                }
+                else
+                {
+                    //Nobody wins
+                }
+            }
+            else if (sourceCount>targetCount)
+            {
+                //Tilt in favour of source
+                DiminishTroop(target, countDifference);
+                if(targetCount>1)
+                {
+                    DiminishTroop(source, countDifference);
+                }
+            }
+            else
+            {
+                //Tilt in favour of target
+                DiminishTroop(source, countDifference);
+                if(sourceCount>1)
+                {
+                    DiminishTroop(target, countDifference);
+                }
             }
 
             //First 3 dice belong to source, next 3 belong to target
-            int[] dice = new int[6];
-            for(int i = 0; i< dice.Length; i++)
+            
+        }
+
+        private void DiminishTroop(Region whereFrom, int howMany)
+        {
+            for(int i = 0; i<howMany; i++)
             {
-                dice[i] = rnd.Next(0, 7);
+                whereFrom.troopCount -= 1;
+                updateTroopDisplays();
+                //Destroy animation
+                //here
+                if (whereFrom.troopCount <= 0)
+                    return;
+            }
+            if(whereFrom.troopCount<=0)
+            {
+                //Region taken over
+                whereFrom.SetController(current.gamePlayerID);
             }
         }
     }
