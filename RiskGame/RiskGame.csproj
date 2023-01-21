@@ -332,5 +332,11 @@
   <ItemGroup>
     <None Include="Resources\CurvedArrowFixed.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sourceAttackTarget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explosion.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
