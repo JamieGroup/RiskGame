@@ -136,6 +136,9 @@
   <data name="dice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="explosion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\explosion.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="InviteButtonDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\InviteButtonDefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -213,6 +216,9 @@
   </data>
   <data name="source" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\source.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sourceAttackTarget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sourceAttackTarget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sourceSelectionBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sourceSelectionBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
