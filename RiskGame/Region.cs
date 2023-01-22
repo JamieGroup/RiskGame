@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Drawing;
 
 namespace RiskGame
 {
@@ -34,6 +35,11 @@ namespace RiskGame
         public void addTroops(int _addTroops)
         {
             troopCount += _addTroops;
+        }
+
+        public void changeColour(Bitmap bmp, Color newColour)
+        {
+            FloodFill(bmp, new Point(CentralX, CentralY), newColour);
         }
 
         public void SetController(int _owner)
@@ -76,6 +82,46 @@ namespace RiskGame
             }
 
             return close;
+        }
+
+        private void FloodFill(Bitmap bmp, Point pt, Color replaceWith)
+        {
+            Queue<Point> pixels = new Queue<Point>();
+            pixels.Enqueue(pt);
+
+            while (pixels.Count > 0)
+            {
+                Point a = pixels.Dequeue();
+                if (a.X < bmp.Width && a.X > 0 &&
+                        a.Y < bmp.Height && a.Y > 0)//make sure we stay within bounds
+                {
+                    if (IsClose(bmp.GetPixel(a.X, a.Y), Color.White))
+                    {
+                        bmp.SetPixel(a.X, a.Y, replaceWith);
+                        pixels.Enqueue(new Point(a.X - 1, a.Y));
+                        pixels.Enqueue(new Point(a.X + 1, a.Y));
+                        pixels.Enqueue(new Point(a.X, a.Y - 1));
+                        pixels.Enqueue(new Point(a.X, a.Y + 1));
+                    }
+                }
+            }
+            return;
+        }
+        private bool IsClose(Color trg, Color what)
+        {
+            bool valid = false;
+
+            var rDist = Math.Abs(trg.R - what.R);
+            var gDist = Math.Abs(trg.G - what.G);
+            var bDist = Math.Abs(trg.B - what.B);
+
+            //Lowering threshold leads to less tolerancy
+            if (rDist + gDist + bDist < 140)
+            {
+                valid = true;
+            }
+
+            return valid;
         }
     }
 }

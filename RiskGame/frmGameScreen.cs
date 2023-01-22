@@ -969,17 +969,30 @@ namespace RiskGame
         {
             pnlTroopCounter.Visible = false;
             pnlTroopsRemaining.Visible = false;
-            string deployTo = activeR.name;
+            Region deployTo = new Region();
+
             int deployCount = Convert.ToInt32(btnTroopCountDisplay.Text);
             current.troopPocket -= deployCount;
-            for(int i = 0; i<regions.Length; i++)
+
+            switch (Game.state)
             {
-                if (regions[i].name == deployTo)
-                {
-                    regions[i].addTroops(deployCount);
-                    updateTroopDisplays();
-                }
+                case 0:
+                    deployTo = activeR;
+                    deployTo.addTroops(deployCount);
+                    break;
+                case 1:
+                    source.troopCount -= deployCount;
+                    target.troopCount += deployCount;
+                    target.changeColour((Bitmap)pbBase.Image, getRealColour(current.accentColour));
+                    pbBase.Refresh();
+                    break;
+                case 2:
+                    break;
             }
+            
+            updateTroopDisplays();
+
+            
             if(current.troopPocket <= 0)
             {
                 GameStateChanger(1);
@@ -1016,11 +1029,15 @@ namespace RiskGame
 
         private void pnlAttackButton_Click(object sender, EventArgs e)
         {
+            pnlAttackButton.Visible = false;
+            pnlAttackButton.Enabled = false;
+            
             //Has to take into account dice rolls (and more importantly) troop count.
             int sourceCount = source.troopCount;
             int targetCount = target.troopCount;
             int countDifference = sourceCount - targetCount; //Minus here means target has more troops.
 
+            //First 3 dice belong to source, next 3 belong to target
             int[] dice = new int[6];
             for (int i = 0; i < dice.Length; i++)
             {
@@ -1072,8 +1089,24 @@ namespace RiskGame
                 }
             }
 
-            //First 3 dice belong to source, next 3 belong to target
+            if (target.troopCount <= 0)
+            {
+                //Target region taken over
+                target.SetController(current.gamePlayerID);
+                occupyRegion(source, target);
+            }
+        }
 
+        private void occupyRegion(Region source, Region target)
+        {
+            target.SetController(source.owner);
+            target.colour = source.colour;
+
+            current.troopPocket = source.troopCount - 1;
+            pnlTroopCounter.Visible = true;
+            lbTroopCountInfo.Text = $"How many of your {current.troopPocket} troops would \r\nyou like to deploy to {target.name}?";
+            
+            updateTroopDisplays();
         }
     }
 }
