@@ -639,6 +639,7 @@ namespace RiskGame
             this.pbBase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbBase.TabIndex = 2;
             this.pbBase.TabStop = false;
+            this.pbBase.Click += new System.EventHandler(this.pbBase_Click);
             this.pbBase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBase_MouseDown);
             // 
             // frmGameScreen
