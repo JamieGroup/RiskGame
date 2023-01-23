@@ -505,6 +505,7 @@ namespace RiskGame
             this.pnlSelectionBack.Size = new System.Drawing.Size(200, 66);
             this.pnlSelectionBack.TabIndex = 9;
             this.pnlSelectionBack.Click += new System.EventHandler(this.pnlSelectionBack_Click);
+            this.pnlSelectionBack.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSelectionBack_Paint);
             // 
             // pbSource
             // 
