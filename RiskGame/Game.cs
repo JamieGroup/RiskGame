@@ -42,7 +42,6 @@ namespace RiskGame
         {
             tmr.Start();
             tmr.Interval = 1000;
-            tmr.Tick += new EventHandler(tmr_Tick);
 
             //1263, 51
             //1541, 51
@@ -53,12 +52,6 @@ namespace RiskGame
                 pnl.Location = new Point(1541 - i, 51);
             }
             lb.Text = msgText;
-        }
-        
-        void tmr_Tick(object sender, EventArgs e)
-        {
-            //Call method
-            //if(tmr.)
         }
 
         public Bitmap MakeGrayscale(Bitmap original)

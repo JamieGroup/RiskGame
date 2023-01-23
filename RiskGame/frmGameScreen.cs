@@ -427,7 +427,7 @@ namespace RiskGame
                             {
                                 //Do nothing
                             }
-                            else
+                            else if(tempSourceSelection.troopCount > 1)
                             {
                                 sourceSelected = true;
                                 source = tempSourceSelection;
@@ -443,6 +443,10 @@ namespace RiskGame
                                 }
 
                                 lbSourceName.Text = source.name;
+                            }
+                            else
+                            {
+                                Game.Message("You need to have a source\r\nof greater than 1 troops.", MSGpnlMessageGroup, MSGlbMessage);
                             }
                         }
                         else
@@ -1105,8 +1109,14 @@ namespace RiskGame
             current.troopPocket = source.troopCount - 1;
             pnlTroopCounter.Visible = true;
             lbTroopCountInfo.Text = $"How many of your {current.troopPocket} troops would \r\nyou like to deploy to {target.name}?";
-            
+            btnTroopCountDisplay.Text = Convert.ToString(current.troopPocket);
+
             updateTroopDisplays();
+        }
+
+        private void pbBase_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
