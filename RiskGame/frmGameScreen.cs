@@ -987,8 +987,10 @@ namespace RiskGame
                 case 1:
                     source.troopCount -= deployCount;
                     target.troopCount += deployCount;
-                    target.changeColour((Bitmap)pbBase.Image, getRealColour(current.accentColour));
-                    pbBase.Refresh();
+                    Bitmap bmp = (Bitmap)pbBase.Image;
+                    Point central = new Point(target.CentralX, target.CentralY);
+                    FloodFill(bmp, central, getRealColour(current.accentColour), bmp.GetPixel(central.X,central.Y), 200);
+                    
                     break;
                 case 2:
                     break;
