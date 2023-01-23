@@ -408,9 +408,17 @@ namespace RiskGame
             {
                 if(Game.state == 0)
                 {
+                    Region deployCandidate = RegionID(mousePosition);
                     //Deploy Mode Active
-                    activeR = RegionID(mousePosition);
-                    troopCountDisplay(mousePosition,current.troopPocket,activeR.name);
+                    if (deployCandidate.owner == Game.currentPlayer)
+                    {
+                        activeR = RegionID(mousePosition);
+                        troopCountDisplay(mousePosition, current.troopPocket, activeR.name);
+                    }
+                    else
+                    {
+                        Game.Message("You have clicked on a region that\r\n is not yours. Please select a \r\nregion that is yours.", MSGpnlMessageGroup, MSGlbMessage);
+                    }
                 }
                 else if (Game.state == 1)
                 {
@@ -443,6 +451,8 @@ namespace RiskGame
                                 }
 
                                 lbSourceName.Text = source.name;
+                                pnlAttackButton.Visible = true;
+                                pnlAttackButton.Enabled = true;
                             }
                             else
                             {
@@ -990,7 +1000,20 @@ namespace RiskGame
                     Bitmap bmp = (Bitmap)pbBase.Image;
                     Point central = new Point(target.CentralX, target.CentralY);
                     FloodFill(bmp, central, getRealColour(current.accentColour), bmp.GetPixel(central.X,central.Y), 200);
-                    
+
+                    source = new Region();
+                    sourceSelected = false;
+                    target = new Region();
+                    targetSelected = false;
+
+                    int animateSpeed = 2;
+                    int yCurrent = pnlSource.Location.Y;
+                    for (int i = 0; i < (74 / animateSpeed); i++)
+                    {
+                        pnlSource.Location = new Point(3, yCurrent + (Convert.ToInt32(animateSpeed) * i));
+                        pnlSource.Refresh();
+                    }
+
                     break;
                 case 2:
                     break;
@@ -1101,6 +1124,21 @@ namespace RiskGame
                 target.SetController(current.gamePlayerID);
                 occupyRegion(source, target);
             }
+            if (source.troopCount <= 0)
+            {
+                //Source region lost
+                int animateSpeed = 2;
+                int yCurrent = pnlSource.Location.Y;
+                for (int i = 0; i < (74 / animateSpeed); i++)
+                {
+                    pnlSource.Location = new Point(3, yCurrent + (Convert.ToInt32(animateSpeed) * i));
+                    pnlSource.Refresh();
+                }
+                target = new Region();
+                source = new Region();
+                sourceSelected = false;
+                targetSelected = false;
+            }
         }
 
         private void occupyRegion(Region source, Region target)
@@ -1117,6 +1155,11 @@ namespace RiskGame
         }
 
         private void pbBase_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlSelectionBack_Paint(object sender, PaintEventArgs e)
         {
 
         }

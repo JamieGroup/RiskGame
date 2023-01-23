@@ -38,7 +38,7 @@ namespace RiskGame
         }
 
         Timer tmr = new Timer();
-        public void Message(string msgText, Panel pnl, Label lb)
+        public async void Message(string msgText, Panel pnl, Label lb)
         {
             tmr.Start();
             tmr.Interval = 1000;
@@ -52,6 +52,11 @@ namespace RiskGame
                 pnl.Location = new Point(1541 - i, 51);
             }
             lb.Text = msgText;
+            await Task.Delay(5000);
+            for (int i = 0; i < 278; i++)
+            {
+                pnl.Location = new Point(1263 + i, 51);
+            }
         }
 
         public Bitmap MakeGrayscale(Bitmap original)
