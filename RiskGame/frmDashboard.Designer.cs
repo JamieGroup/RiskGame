@@ -277,6 +277,7 @@ namespace RiskGame
             this.Name = "frmDashboard";
             this.Text = "Risk: Dashboard";
             this.Load += new System.EventHandler(this.frmDashboard_Load);
+            this.Enter += new System.EventHandler(this.frmDashboard_Enter);
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();

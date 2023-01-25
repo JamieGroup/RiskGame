@@ -84,18 +84,18 @@ namespace RiskGame
             {
                 case 0:
                     //Deploy
-                    INDICATORpnlDeploy.BackColor = ColorTranslator.FromHtml(current.accentColour);
+                    INDICATORpnlDeploy.BackColor = current.accentColour;
                     break;
                 case 1:
                     //Attack
                     INDICATORpnlDeploy.BackColor = Color.LightGray;
-                    INDICATORpnlAttack.BackColor = ColorTranslator.FromHtml(current.accentColour);
+                    INDICATORpnlAttack.BackColor = current.accentColour;
                     break;
                 case 2:
                     //ReEnforce
                     INDICATORpnlDeploy.BackColor = Color.Gray;
                     INDICATORpnlAttack.BackColor = Color.Gray;
-                    INDICATORpnlReEnforce.BackColor = ColorTranslator.FromHtml(current.accentColour);
+                    INDICATORpnlReEnforce.BackColor = current.accentColour;
                     break;
                 case 3:
                     //Game is paused
@@ -121,11 +121,11 @@ namespace RiskGame
                 regions[i].SetPoint(Convert.ToInt32(allRegionData[i].Split('~')[1].Split(',')[0]), Convert.ToInt32(allRegionData[i].Split('~')[1].Split(',')[1]));
                 Color colour;
                 if(b==0)
-                    colour = System.Drawing.ColorTranslator.FromHtml(frmLogin.human.accentColour);
+                    colour = (frmLogin.human.accentColour);
                 else if(b==1)
-                    colour = System.Drawing.ColorTranslator.FromHtml(Pl2.accentColour);
+                    colour = (Pl2.accentColour);
                 else
-                    colour = System.Drawing.ColorTranslator.FromHtml(Pl3.accentColour);
+                    colour = (Pl3.accentColour);
                 regions[i].colour = ColorTranslator.ToHtml(colour);
                 FloodFill((Bitmap)pbBase.Image, new Point(regions[i].CentralX, regions[i].CentralY), colour);
 
@@ -360,7 +360,7 @@ namespace RiskGame
                 if (a.X < bmp.Width && a.X > 0 &&
                         a.Y < bmp.Height && a.Y > 0)//make sure we stay within bounds
                 {
-                    if (IsClose(bmp.GetPixel(a.X, a.Y), Color.White))
+                    if (IsClose(bmp.GetPixel(a.X, a.Y), Color.White) && bmp.GetPixel(a.X,a.Y) != Color.Black)
                     {
                         bmp.SetPixel(a.X, a.Y, replaceWith);
                         pixels.Enqueue(new Point(a.X - 1, a.Y));
@@ -385,7 +385,7 @@ namespace RiskGame
                 if (a.X < bmp.Width && a.X > 0 &&
                         a.Y < bmp.Height && a.Y > 0)//make sure we stay within bounds
                 {
-                    if (IsClose(bmp.GetPixel(a.X, a.Y), original, threshold))
+                    if (IsClose(bmp.GetPixel(a.X, a.Y), original, threshold) && bmp.GetPixel(a.X, a.Y) != Color.Black)
                     {
                         bmp.SetPixel(a.X, a.Y, replaceWith);
                         pixels.Enqueue(new Point(a.X - 1, a.Y));
@@ -565,7 +565,7 @@ namespace RiskGame
             Cursor current = Cursor.Current;
             Cursor.Current = Cursors.WaitCursor;
             Clipboard.SetText(string.Format("~" + cursorPos.X + "," + cursorPos.Y));
-            Color change = ColorTranslator.FromHtml(frmLogin.human.accentColour);
+            Color change = (frmLogin.human.accentColour);
             Bitmap bmp = new Bitmap(pbBase.Image);
             FloodFill((Bitmap)pbBase.Image, cursorPos, change);
 
@@ -612,18 +612,18 @@ namespace RiskGame
             Game.state = changeTo;
             if(Game.state == 0)
             {
-                INDICATORpnlDeploy.BackColor = getRealColour(current.accentColour);
+                INDICATORpnlDeploy.BackColor = (current.accentColour);
             }
             else if(Game.state == 1)
             {
                 INDICATORpnlDeploy.BackColor = Color.LightGray;
-                INDICATORpnlAttack.BackColor = getRealColour(current.accentColour);
+                INDICATORpnlAttack.BackColor = (current.accentColour);
             }
             else if(Game.state == 2)
             {
                 INDICATORpnlDeploy.BackColor = Color.LightGray;
                 INDICATORpnlAttack.BackColor = Color.LightGray;
-                INDICATORpnlReEnforce.BackColor = getRealColour(current.accentColour);
+                INDICATORpnlReEnforce.BackColor = (current.accentColour);
             }
         }
 
@@ -971,11 +971,18 @@ namespace RiskGame
 
         private void updateTroopDisplays()
         {
-            for(int i = 0; i<regions.Length; i++)
+            try
             {
-                string labelName = $"lbREGION_{regions[i].name}";
-                Label lbRegion = this.Controls.Find(labelName, true).FirstOrDefault() as Label;
-                lbRegion.Text = Convert.ToString(regions[i].troopCount);
+                for (int i = 0; i < regions.Length; i++)
+                {
+                    string labelName = $"lbREGION_{regions[i].name}";
+                    Label lbRegion = this.Controls.Find(labelName, true).FirstOrDefault() as Label;
+                    lbRegion.Text = Convert.ToString(regions[i].troopCount);
+                }
+            }
+            catch
+            {
+                Game.Message("This region could not be selected\r\ndue to a technical error.", MSGpnlMessageGroup, MSGlbMessage);
             }
         }
 
@@ -999,7 +1006,7 @@ namespace RiskGame
                     target.troopCount += deployCount;
                     Bitmap bmp = (Bitmap)pbBase.Image;
                     Point central = new Point(target.CentralX, target.CentralY);
-                    FloodFill(bmp, central, getRealColour(current.accentColour), bmp.GetPixel(central.X,central.Y), 200);
+                    FloodFill(bmp, central, (current.accentColour), bmp.GetPixel(central.X,central.Y), 200);
 
                     source = new Region();
                     sourceSelected = false;
@@ -1162,6 +1169,11 @@ namespace RiskGame
         private void pnlSelectionBack_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnEndAttackMode_Click(object sender, EventArgs e)
+        {
+            GameStateChanger(2);
         }
     }
 }

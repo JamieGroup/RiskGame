@@ -33,7 +33,7 @@ namespace RiskGame
             InitializeComponent();
             CenterToScreen();
             multiplayerSelected = frmLogin.human.multiplayerSelected;
-            btnPlayerColour.BackColor = Color.FromName(frmLogin.human.accentColour);
+            btnPlayerColour.BackColor = frmLogin.human.accentColour;
             pbSecretMode.Image = Properties.Resources.Tutorial_Checkbox;
             multiCheck();
 
@@ -99,7 +99,7 @@ namespace RiskGame
             {
                 btnAI1Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
                 btnAI2Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
-            } while (ColorsAreClose(btnAI1Colour.BackColor, btnAI2Colour.BackColor, 300) && ColorsAreClose(btnAI1Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 300) && ColorsAreClose(btnAI2Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 300));
+            } while (ColorsAreClose(btnAI1Colour.BackColor, btnAI2Colour.BackColor, 300) && ColorsAreClose(btnAI1Colour.BackColor, frmLogin.human.accentColour, 300) && ColorsAreClose(btnAI2Colour.BackColor, frmLogin.human.accentColour, 300));
 
             lbAI1Colour.Text = $"{AI1Name}'s Colour";
             lbAI2Colour.Text = $"{AI2Name}'s Colour";
@@ -115,7 +115,7 @@ namespace RiskGame
             {
                 btnH2Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
                 btnH3Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
-            } while (ColorsAreClose(btnAI1Colour.BackColor, btnAI2Colour.BackColor, 300) || ColorsAreClose(btnAI1Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 100) || ColorsAreClose(btnAI2Colour.BackColor, Color.FromName(frmLogin.human.accentColour), 100));
+            } while (ColorsAreClose(btnAI1Colour.BackColor, btnAI2Colour.BackColor, 300) || ColorsAreClose(btnAI1Colour.BackColor, frmLogin.human.accentColour, 100) || ColorsAreClose(btnAI2Colour.BackColor, frmLogin.human.accentColour, 100));
 
             txtH2.Text = other1Name;
             txtH3.Text = other2Name;
@@ -173,7 +173,7 @@ namespace RiskGame
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 btnPlayerColour.BackColor = colorDialog.Color;
-                frmLogin.human.accentColour = colorDialog.Color.Name;
+                frmLogin.human.accentColour = colorDialog.Color;
             }
         }
 
@@ -184,7 +184,7 @@ namespace RiskGame
             int i1 = rnd.Next(1, 6);
             string a1 = "default\\default" + i1 + ".jpg";
             //string c1 = ColorTranslator.ToHtml(Color.FromArgb(Colour.ToArgb()));
-            string c1 = "#" + Colour.Name;
+            Color c1 = Colour;
             if (AIs == 1)
             {
                 Player2 = new Plys(false, Username, c1, AIs, Others, a1);
@@ -192,8 +192,6 @@ namespace RiskGame
         }
         private void gameStart(int AIs, int Others, Color Colour1, string Username1, Color Colour2, string Username2)
         {
-            string c1 = "#" + Colour1.Name;
-            string c2 = "#" + Colour2.Name;
             int i1 = rnd.Next(1, 6);
             string a1 = "default\\default" + i1 + ".jpg";
             int i2;
@@ -206,20 +204,20 @@ namespace RiskGame
             frmSetupGame.Game.OthersCount = Others;
             if (AIs > 0)
             {
-                Player2 = new Plys(false, Username1, c1, AIs, Others, a1);
+                Player2 = new Plys(false, Username1, Colour1, AIs, Others, a1);
             }
             if (AIs == 2)
             {
-                Player3 = new Plys(false, Username2, c2, AIs, Others, a2);
+                Player3 = new Plys(false, Username2, Colour2, AIs, Others, a2);
             }
 
             if (AIs == 0 && Others > 0)
             {
-                Player2 = new Plys(true, Username1, c1, AIs, Others, a1);
+                Player2 = new Plys(true, Username1, Colour1, AIs, Others, a1);
             }
             else
             {
-                Player3 = new Plys(true, Username2, c2, AIs, Others, a2);
+                Player3 = new Plys(true, Username2, Colour2, AIs, Others, a2);
             }
         }
         private void pbStartSingleplayer_Click(object sender, EventArgs e)

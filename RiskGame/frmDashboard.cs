@@ -37,7 +37,7 @@ namespace RiskGame
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
-            btnAccentColour.BackColor = System.Drawing.ColorTranslator.FromHtml(frmLogin.human.accentColour);
+            btnAccentColour.BackColor = frmLogin.human.accentColour;
             lbUsername.Text = frmLogin.human.username;
             pbAvatar.ImageLocation = @frmLogin.human.avatar;
 
@@ -71,14 +71,15 @@ namespace RiskGame
         private void btnAccentColour_Click(object sender, EventArgs e)
         {
             //Open the colour changer
-            ColorDialog colorDialog = new ColorDialog();
-            colorDialog.Color = btnAccentColour.BackColor;
+            //ColorDialog colorDialog = new ColorDialog();
+            //colorDialog.Color = btnAccentColour.BackColor;
 
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                btnAccentColour.BackColor = colorDialog.Color;
-                frmLogin.human.accentColour = ColorTranslator.ToHtml(colorDialog.Color);
-            }
+            //if (colorDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    btnAccentColour.BackColor = colorDialog.Color;
+            //    frmLogin.human.accentColour = ColorTranslator.ToHtml(colorDialog.Color);
+            //}
+            new frmColourSwitcher().Show();
         }
 
         //These methods change the animated play button's image from the closed book to the open book depending on
@@ -167,6 +168,11 @@ namespace RiskGame
         private void label4_Click(object sender, EventArgs e)
         {
             new frmFriendList().Show();
+        }
+
+        private void frmDashboard_Enter(object sender, EventArgs e)
+        {
+            btnAccentColour.BackColor = frmLogin.human.accentColour;
         }
     }
 }

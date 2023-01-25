@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FloodFill.cs" />
+    <Compile Include="frmColourSwitcher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmColourSwitcher.Designer.cs">
+      <DependentUpon>frmColourSwitcher.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFriendList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <Compile Include="Questions.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="SoundDash.cs" />
+    <EmbeddedResource Include="frmColourSwitcher.resx">
+      <DependentUpon>frmColourSwitcher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFriendList.resx">
       <DependentUpon>frmFriendList.cs</DependentUpon>
     </EmbeddedResource>

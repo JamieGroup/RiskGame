@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace RiskGame
 {
@@ -14,7 +15,7 @@ namespace RiskGame
         public int gamesPlayed { get; set; }
         public int gamesWon { get; set; }
         public int gamesLost { get; set; }
-        public string accentColour { get; set; }
+        public Color accentColour { get; set; }
         public int numberFriends { get; set; }
 
         public bool DEBUGSkipToGame { get; set; }
@@ -42,7 +43,7 @@ namespace RiskGame
         public int gamePlayerID { get; set; }
 
         //Constructors
-        public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, string _accentColour, List<string>_friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)
+        public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, Color _accentColour, List<string>_friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)
         {
             username = _username;
             avatar = _avatar;
@@ -68,10 +69,10 @@ namespace RiskGame
             gamesPlayed = 0;
             gamesWon = 0;
             gamesLost = 0;
-            accentColour = "#FFFF00";
+            accentColour = Color.Yellow;
             accountLocked = false;
         }
-        public Plys(bool _realPerson, string _username, string _colour, int _AICount, int _OthersCount, string _avatar)
+        public Plys(bool _realPerson, string _username, Color _colour, int _AICount, int _OthersCount, string _avatar)
         {
             realPerson = _realPerson;
             username = _username;
