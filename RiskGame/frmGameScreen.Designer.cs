@@ -79,6 +79,7 @@ namespace RiskGame
             this.btnTroopCountDown = new System.Windows.Forms.Button();
             this.lbTroopCountInfo = new System.Windows.Forms.Label();
             this.pbBase = new System.Windows.Forms.PictureBox();
+            this.btnEndAttackMode = new System.Windows.Forms.Button();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -643,6 +644,17 @@ namespace RiskGame
             this.pbBase.Click += new System.EventHandler(this.pbBase_Click);
             this.pbBase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBase_MouseDown);
             // 
+            // btnEndAttackMode
+            // 
+            this.btnEndAttackMode.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEndAttackMode.Location = new System.Drawing.Point(1372, 730);
+            this.btnEndAttackMode.Name = "btnEndAttackMode";
+            this.btnEndAttackMode.Size = new System.Drawing.Size(164, 40);
+            this.btnEndAttackMode.TabIndex = 13;
+            this.btnEndAttackMode.Text = "End Attack";
+            this.btnEndAttackMode.UseVisualStyleBackColor = true;
+            this.btnEndAttackMode.Click += new System.EventHandler(this.btnEndAttackMode_Click);
+            // 
             // frmGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -656,6 +668,7 @@ namespace RiskGame
             this.Controls.Add(this.INDICATORpnlAttack);
             this.Controls.Add(this.INDICATORpnlDeploy);
             this.Controls.Add(this.pnlPause);
+            this.Controls.Add(this.btnEndAttackMode);
             this.Controls.Add(this.pbBase);
             this.Name = "frmGameScreen";
             this.Text = "Risk: Game Screen";
@@ -751,5 +764,6 @@ namespace RiskGame
         private System.Windows.Forms.Button DEBUGbtnSwitchAttack;
         private System.Windows.Forms.Button btnTroopDeploy;
         private System.Windows.Forms.Panel pnlAttackButton;
+        private System.Windows.Forms.Button btnEndAttackMode;
     }
 }

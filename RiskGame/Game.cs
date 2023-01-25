@@ -52,7 +52,7 @@ namespace RiskGame
                 pnl.Location = new Point(1541 - i, 51);
             }
             lb.Text = msgText;
-            await Task.Delay(5000);
+            await Task.Delay(10000);
             for (int i = 0; i < 278; i++)
             {
                 pnl.Location = new Point(1263 + i, 51);
