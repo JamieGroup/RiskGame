@@ -80,6 +80,7 @@ namespace RiskGame
             this.lbTroopCountInfo = new System.Windows.Forms.Label();
             this.pbBase = new System.Windows.Forms.PictureBox();
             this.btnEndAttackMode = new System.Windows.Forms.Button();
+            this.btnMoveTroops = new System.Windows.Forms.Button();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -428,9 +429,9 @@ namespace RiskGame
             this.INDICATORlbReEnfoce.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.INDICATORlbReEnfoce.Location = new System.Drawing.Point(197, 3);
             this.INDICATORlbReEnfoce.Name = "INDICATORlbReEnfoce";
-            this.INDICATORlbReEnfoce.Size = new System.Drawing.Size(156, 37);
+            this.INDICATORlbReEnfoce.Size = new System.Drawing.Size(139, 37);
             this.INDICATORlbReEnfoce.TabIndex = 2;
-            this.INDICATORlbReEnfoce.Text = "Re-Enforce";
+            this.INDICATORlbReEnfoce.Text = "Reinforce";
             // 
             // pnlTroopsRemaining
             // 
@@ -478,6 +479,7 @@ namespace RiskGame
             // 
             // pnlSource
             // 
+            this.pnlSource.Controls.Add(this.btnMoveTroops);
             this.pnlSource.Controls.Add(this.pnlAttackButton);
             this.pnlSource.Controls.Add(this.pnlSelectionBack);
             this.pnlSource.Controls.Add(this.lbSourceName);
@@ -655,6 +657,17 @@ namespace RiskGame
             this.btnEndAttackMode.UseVisualStyleBackColor = true;
             this.btnEndAttackMode.Click += new System.EventHandler(this.btnEndAttackMode_Click);
             // 
+            // btnMoveTroops
+            // 
+            this.btnMoveTroops.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMoveTroops.Location = new System.Drawing.Point(1323, 4);
+            this.btnMoveTroops.Name = "btnMoveTroops";
+            this.btnMoveTroops.Size = new System.Drawing.Size(200, 67);
+            this.btnMoveTroops.TabIndex = 11;
+            this.btnMoveTroops.Text = "Move Troops!";
+            this.btnMoveTroops.UseVisualStyleBackColor = true;
+            this.btnMoveTroops.Click += new System.EventHandler(this.btnMoveTroops_Click);
+            // 
             // frmGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -765,5 +778,6 @@ namespace RiskGame
         private System.Windows.Forms.Button btnTroopDeploy;
         private System.Windows.Forms.Panel pnlAttackButton;
         private System.Windows.Forms.Button btnEndAttackMode;
+        private System.Windows.Forms.Button btnMoveTroops;
     }
 }

@@ -29,6 +29,7 @@ namespace RiskGame
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.pbLogout = new System.Windows.Forms.PictureBox();
@@ -48,6 +49,7 @@ namespace RiskGame
             this.pbTutorialEasy = new System.Windows.Forms.PictureBox();
             this.pbTutorialHard = new System.Windows.Forms.PictureBox();
             this.pbPlay = new System.Windows.Forms.PictureBox();
+            this.tmrTick = new System.Windows.Forms.Timer(this.components);
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
@@ -262,6 +264,10 @@ namespace RiskGame
             this.pbPlay.MouseEnter += new System.EventHandler(this.pbPlay_MouseEnter);
             this.pbPlay.MouseLeave += new System.EventHandler(this.pbPlay_MouseLeave);
             // 
+            // tmrTick
+            // 
+            this.tmrTick.Tick += new System.EventHandler(this.tmrTick_Tick);
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,5 +316,6 @@ namespace RiskGame
         private System.Windows.Forms.Label lbTutorialEasy;
         private System.Windows.Forms.Label lbTutorialHard;
         private System.Windows.Forms.Label lbSkipTutorial;
+        private System.Windows.Forms.Timer tmrTick;
     }
 }

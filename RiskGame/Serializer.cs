@@ -20,6 +20,11 @@ namespace RiskGame
                 stream.Close();
                 return true;
             }
+            catch
+            {
+
+            }
+            return false;
             
         }
     }

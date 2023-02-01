@@ -23,6 +23,7 @@ namespace RiskGame
             lbTutorialEasy.Visible = false;
             lbTutorialHard.Visible = false;
             lbSkipTutorial.Visible = false;
+            tmrTick.Start();
         }
 
         private void pbAvatar_Click(object sender, EventArgs e)
@@ -79,6 +80,7 @@ namespace RiskGame
             //    btnAccentColour.BackColor = colorDialog.Color;
             //    frmLogin.human.accentColour = ColorTranslator.ToHtml(colorDialog.Color);
             //}
+            frmLogin.human.sentFrom = "frmDashboard";
             new frmColourSwitcher().Show();
         }
 
@@ -171,6 +173,11 @@ namespace RiskGame
         }
 
         private void frmDashboard_Enter(object sender, EventArgs e)
+        {
+            btnAccentColour.BackColor = frmLogin.human.accentColour;
+        }
+
+        private void tmrTick_Tick(object sender, EventArgs e)
         {
             btnAccentColour.BackColor = frmLogin.human.accentColour;
         }

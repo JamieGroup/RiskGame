@@ -38,7 +38,7 @@ namespace RiskGame
                     case 5: loc = new Point(320, 90); col = Color.LightBlue; break;
                     case 6: loc = new Point(0, 180); col = Color.Cyan; break;
                     case 7: loc = new Point(160, 180); col = Color.Magenta; break;
-                    case 8: loc = new Point(320, 180); col = Color.Purple; break
+                    case 8: loc = new Point(320, 180); col = Color.Purple; break;
                     default: MessageBox.Show("Error displaying colours. Going to Dashboard."); 
                         Hide(); new frmDashboard().Show(); break;
                 }

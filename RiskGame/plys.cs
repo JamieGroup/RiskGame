@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace RiskGame
 {
@@ -41,6 +42,7 @@ namespace RiskGame
         public int numberTroops { get; set; }
         public int troopPocket { get; set; }
         public int gamePlayerID { get; set; }
+        public string sentFrom { get; set; }
 
         //Constructors
         public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, Color _accentColour, List<string>_friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)

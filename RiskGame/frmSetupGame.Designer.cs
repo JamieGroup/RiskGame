@@ -29,6 +29,7 @@ namespace RiskGame
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbPlayerColour = new System.Windows.Forms.Label();
             this.lbAI1Colour = new System.Windows.Forms.Label();
             this.lbAI2Colour = new System.Windows.Forms.Label();
@@ -63,6 +64,8 @@ namespace RiskGame
             this.txtH3 = new System.Windows.Forms.TextBox();
             this.lbH3Name = new System.Windows.Forms.Label();
             this.lbH3Title = new System.Windows.Forms.Label();
+            this.tmrTick = new System.Windows.Forms.Timer(this.components);
+            this.tmrRND = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trbrAISelector)).BeginInit();
             this.pnlAI1Settings.SuspendLayout();
             this.pnlAI2Settings.SuspendLayout();
@@ -232,6 +235,7 @@ namespace RiskGame
             this.pnlDice.Size = new System.Drawing.Size(86, 52);
             this.pnlDice.TabIndex = 18;
             this.pnlDice.Click += new System.EventHandler(this.pbDice_Click);
+            this.pnlDice.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDice_Paint);
             // 
             // pnlSecretMode
             // 
@@ -414,6 +418,15 @@ namespace RiskGame
             this.lbH3Title.Text = "Human 3";
             this.lbH3Title.Click += new System.EventHandler(this.label2_Click);
             // 
+            // tmrTick
+            // 
+            this.tmrTick.Tick += new System.EventHandler(this.tmrTick_Tick);
+            // 
+            // tmrRND
+            // 
+            this.tmrRND.Interval = 1000;
+            this.tmrRND.Tick += new System.EventHandler(this.tmrRND_Tick);
+            // 
             // frmSetupGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,5 +503,7 @@ namespace RiskGame
         private System.Windows.Forms.Label lbH2Colour;
         private System.Windows.Forms.Button btnH3Colour;
         private System.Windows.Forms.Label lbH3Colour;
+        private System.Windows.Forms.Timer tmrTick;
+        private System.Windows.Forms.Timer tmrRND;
     }
 }
