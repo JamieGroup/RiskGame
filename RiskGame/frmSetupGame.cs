@@ -24,6 +24,7 @@ namespace RiskGame
         string other1Name;
         string other2Name;
         int AICount = 0;
+        int rndTime = 3;
 
         public static Plys Player2 = new Plys();
         public static Plys Player3 = new Plys();
@@ -42,6 +43,9 @@ namespace RiskGame
             //    Hide(); 
             //    SinglePlayerClick();
             //}
+
+            tmrTick.Start();
+            pbStartMultiplayer.Visible = false;
         }
 
         private void multiCheck()
@@ -95,11 +99,33 @@ namespace RiskGame
 
             //Repeat random colour selection for the AI until they are sufficiently different from each other so the user can tell them apart.
             //Also change them if they are too close to the user's colour.
+            Color col = new Color();
             do
             {
-                btnAI1Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
-                btnAI2Colour.BackColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
-            } while (ColorsAreClose(btnAI1Colour.BackColor, btnAI2Colour.BackColor, 300) && ColorsAreClose(btnAI1Colour.BackColor, frmLogin.human.accentColour, 300) && ColorsAreClose(btnAI2Colour.BackColor, frmLogin.human.accentColour, 300));
+                for(int h = 0; h<2; h++)
+                {
+                    int i = rnd.Next(0, 9);
+                    switch (i)
+                    {
+                        case 0: col = Color.Red; break;
+                        case 1: col = Color.Orange; break;
+                        case 2: col = Color.Yellow; break;
+                        case 3: col = Color.LightGreen; break;
+                        case 4: col = Color.Green; break;
+                        case 5: col = Color.LightBlue; break;
+                        case 6: col = Color.Cyan; break;
+                        case 7: col = Color.Magenta; break;
+                        case 8: col = Color.Purple; break;
+                        default:
+                            MessageBox.Show("Error displaying colours. Going to Dashboard.");
+                            Hide(); new frmDashboard().Show(); break;
+                    }
+                    if (h == 0)
+                        btnAI1Colour.BackColor = col;
+                    else
+                        btnAI2Colour.BackColor = col;
+                }
+            } while (btnAI1Colour.BackColor == btnPlayerColour.BackColor || btnAI2Colour.BackColor == btnPlayerColour.BackColor || btnAI1Colour.BackColor == btnAI2Colour.BackColor);
 
             lbAI1Colour.Text = $"{AI1Name}'s Colour";
             lbAI2Colour.Text = $"{AI2Name}'s Colour";
@@ -161,20 +187,24 @@ namespace RiskGame
 
         private void pbDice_Click(object sender, EventArgs e)
         {
-            rollAIs();
+            tmrRND.Start();
         }
 
         private void btnPlayerColour_Click(object sender, EventArgs e)
         {
             //Open the colour changer
-            ColorDialog colorDialog = new ColorDialog();
-            colorDialog.Color = btnPlayerColour.BackColor;
 
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                btnPlayerColour.BackColor = colorDialog.Color;
-                frmLogin.human.accentColour = colorDialog.Color;
-            }
+            //ColorDialog colorDialog = new ColorDialog();
+            //colorDialog.Color = btnPlayerColour.BackColor;
+
+            //if (colorDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    btnPlayerColour.BackColor = colorDialog.Color;
+            //    frmLogin.human.accentColour = colorDialog.Color;
+            //}
+
+            frmLogin.human.sentFrom = "frmSetupGame";
+            new frmColourSwitcher().Show();
         }
 
         private void gameStart(int AIs, int Others, Color Colour, string Username)
@@ -357,6 +387,30 @@ namespace RiskGame
                     pnlHuman3Controls.Visible = true;
                 }
             }
+        }
+
+        private void tmrTick_Tick(object sender, EventArgs e)
+        {
+            btnPlayerColour.BackColor = frmLogin.human.accentColour;
+            if(rndTime>0 && tmrRND.Enabled)
+            {
+                rollAIs();
+            }
+            if (rndTime == 0)
+            {
+                tmrRND.Stop();
+                rndTime = 5;
+            }
+        }
+
+        private void tmrRND_Tick(object sender, EventArgs e)
+        {
+            rndTime--;
+        }
+
+        private void pnlDice_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

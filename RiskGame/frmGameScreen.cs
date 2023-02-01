@@ -453,6 +453,7 @@ namespace RiskGame
                                 lbSourceName.Text = source.name;
                                 pnlAttackButton.Visible = true;
                                 pnlAttackButton.Enabled = true;
+                                btnMoveTroops.Visible = false;
                             }
                             else
                             {
@@ -497,6 +498,88 @@ namespace RiskGame
                         else
                         {
                             Game.Message("You can't invade your own region!\r\nPlease select a region that \r\nis not yours.", MSGpnlMessageGroup, MSGlbMessage);
+                        }
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Invalid Click!");
+                    }
+                }
+                else if (Game.state == 2)
+                {
+                    // Reinforce Mode
+                    btnMoveTroops.Visible = true;
+                    if (!sourceSelected)
+                    {
+                        tempSourceSelection = RegionID(mousePosition);
+
+                        if (tempSourceSelection.owner == Game.currentPlayer)
+                        {
+                            //Select Source
+                            source.name = "";
+                            if (tempSourceSelection.name == "" || tempSourceSelection.name == "none")
+                            {
+                                //Do nothing
+                            }
+                            else if (tempSourceSelection.troopCount > 1)
+                            {
+                                sourceSelected = true;
+                                source = tempSourceSelection;
+                                //Animate source viewer
+                                //Required location: 3, 701
+                                //Default location: 3, 775
+                                int animateSpeed = 2;
+                                int yCurrent = pnlSource.Location.Y;
+                                for (int i = 0; i < (74 / animateSpeed); i++)
+                                {
+                                    pnlSource.Location = new Point(3, yCurrent - (Convert.ToInt32(animateSpeed) * i));
+                                    pnlSource.Refresh();
+                                }
+
+                                lbSourceName.Text = source.name;
+                                pnlAttackButton.Visible = false;
+                                pnlAttackButton.Enabled = false;
+                            }
+                            else
+                            {
+                                Game.Message("You need to have a source\r\nof greater than 1 troops.", MSGpnlMessageGroup, MSGlbMessage);
+                            }
+                        }
+                        else
+                        {
+                            Game.Message("You have clicked on a region that\r\n is not yours. Please select a \r\nregion that is yours.", MSGpnlMessageGroup, MSGlbMessage);
+                        }
+                    }
+                    else if (!targetSelected)
+                    {
+                        tempTargetSelection = RegionID(mousePosition);
+
+                        if (tempTargetSelection.owner == Game.currentPlayer)
+                        {
+                            //Select Target
+                            //target.name = "";
+                            if (tempTargetSelection.name == "" || tempTargetSelection.name == "none")
+                            {
+                                //Do nothing
+                            }
+                            else
+                            {
+                                targetSelected = true;
+                                target = tempTargetSelection;
+                                lbSourceName.Text = source.name + " -> " + target.name + "\r\nWarning: 1-3 troops could be lost in transit.";
+                                pbSource.Image = Properties.Resources.target;
+
+                                //Draw arrow
+                                Graphics g = pbBase.CreateGraphics();
+                                Pen p = new Pen(Brushes.Black, 8);
+                                p.StartCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+                                g.DrawLine(p, source.CentralX, source.CentralY, target.CentralX, target.CentralY);
+                            }
+                        }
+                        else
+                        {
+                            Game.Message("You can't travel to their region!\r\nPlease select a region that \r\nis yours.", MSGpnlMessageGroup, MSGlbMessage);
                         }
                     }
 
@@ -704,6 +787,13 @@ namespace RiskGame
             pnlTroopCounter.Location = where;
             pnlTroopCounter.Visible = true;
             lbTroopCountInfo.Text = $"How many of your {num} troops would \r\nyou like to deploy to {name}?";
+            btnTroopCountDisplay.Text = Convert.ToString(num);
+        }
+        private void troopCountDisplay(Point where, int num, string name, string info)
+        {
+            pnlTroopCounter.Location = where;
+            pnlTroopCounter.Visible = true;
+            lbTroopCountInfo.Text = info;
             btnTroopCountDisplay.Text = Convert.ToString(num);
         }
 
@@ -1023,6 +1113,26 @@ namespace RiskGame
 
                     break;
                 case 2:
+                    source.troopCount -= deployCount;
+                    int a = rnd.Next(0,deployCount);
+                    target.troopCount += (deployCount - a);
+                    MessageBox.Show($"You lost {a} troops in transit.");
+
+                    source = new Region();
+                    sourceSelected = false;
+                    target = new Region();
+                    targetSelected = false;
+
+                    animateSpeed = 2;
+                    yCurrent = pnlSource.Location.Y;
+                    for (int i = 0; i < (74 / animateSpeed); i++)
+                    {
+                        pnlSource.Location = new Point(3, yCurrent + (Convert.ToInt32(animateSpeed) * i));
+                        pnlSource.Refresh();
+                    }
+
+                    this.WindowState = FormWindowState.Minimized;
+
                     break;
             }
             
@@ -1174,6 +1284,15 @@ namespace RiskGame
         private void btnEndAttackMode_Click(object sender, EventArgs e)
         {
             GameStateChanger(2);
+        }
+
+        private void btnMoveTroops_Click(object sender, EventArgs e)
+        {
+            pnlAttackButton.Visible = false;
+            pnlAttackButton.Enabled = false;
+
+            Point a = new Point(source.CentralX,source.CentralY);
+            troopCountDisplay(a, source.troopCount - 1, source.name, $"How many of your {source.troopCount - 1} troops would \r\nyou like to move?");
         }
     }
 }
