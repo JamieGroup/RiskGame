@@ -47,7 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include=".Designer.cs" />
     <Compile Include="FloodFill.cs" />
+    <Compile Include="frmAvatarChanger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAvatarChanger.Designer.cs">
+      <DependentUpon>frmAvatarChanger.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmColourSwitcher.cs">
       <SubType>Form</SubType>
     </Compile>
