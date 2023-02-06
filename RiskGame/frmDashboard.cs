@@ -22,6 +22,7 @@ namespace RiskGame
         private void pbAvatar_Click(object sender, EventArgs e)
         {
             //Open the avatar changer
+            new frmAvatarChanger().Show();
         }
 
         private void label3_Click(object sender, EventArgs e)
