@@ -134,6 +134,9 @@
     <Compile Include="Region.cs" />
     <Compile Include="Serializer.cs" />
     <Compile Include="SoundDash.cs" />
+    <EmbeddedResource Include="frmAvatarChanger.resx">
+      <DependentUpon>frmAvatarChanger.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmColourSwitcher.resx">
       <DependentUpon>frmColourSwitcher.cs</DependentUpon>
     </EmbeddedResource>
