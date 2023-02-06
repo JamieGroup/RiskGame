@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace RiskGame
 {
@@ -95,14 +90,14 @@ namespace RiskGame
                 Shuffle(ids);
                 AI1Name = "[AI1] " + names[ids[0]];
                 AI2Name = "[AI2] " + names[ids[1]];
-            } while (AI1Name==AI2Name || AI1Name==frmLogin.human.username || AI2Name==frmLogin.human.username);
+            } while (AI1Name == AI2Name || AI1Name == frmLogin.human.username || AI2Name == frmLogin.human.username);
 
             //Repeat random colour selection for the AI until they are sufficiently different from each other so the user can tell them apart.
             //Also change them if they are too close to the user's colour.
             Color col = new Color();
             do
             {
-                for(int h = 0; h<2; h++)
+                for (int h = 0; h < 2; h++)
                 {
                     int i = rnd.Next(0, 9);
                     switch (i)
@@ -134,7 +129,7 @@ namespace RiskGame
         private void rollOthers()
         {
             //Randomly select 2 colours
-            
+
             //Repeat random colour selection for the AI until they are sufficiently different from each other so the user can tell them apart.
             //Also change them if they are too close to the user's colour.
             do
@@ -149,7 +144,7 @@ namespace RiskGame
 
         private void trbrAISelector_Scroll(object sender, EventArgs e)
         {
-            
+
         }
         public bool ColorsAreClose(Color a, Color b, int threshhold)
         {
@@ -228,7 +223,7 @@ namespace RiskGame
             do
             {
                 i2 = rnd.Next(1, 6);
-            } while (i1==i2);
+            } while (i1 == i2);
             string a2 = "default\\default" + i2 + ".jpg";
             frmSetupGame.Game.AICount = AIs;
             frmSetupGame.Game.OthersCount = Others;
@@ -321,13 +316,13 @@ namespace RiskGame
                 }
             }
 
-            
+
         }
 
         private void pbSecretMode_Click(object sender, EventArgs e)
         {
             secretMode++;
-            if(secretMode%2 == 0)
+            if (secretMode % 2 == 0)
             {
                 pbSecretMode.Image = Properties.Resources.Tutorial_Checkbox;
             }
@@ -392,7 +387,7 @@ namespace RiskGame
         private void tmrTick_Tick(object sender, EventArgs e)
         {
             btnPlayerColour.BackColor = frmLogin.human.accentColour;
-            if(rndTime>0 && tmrRND.Enabled)
+            if (rndTime > 0 && tmrRND.Enabled)
             {
                 rollAIs();
             }

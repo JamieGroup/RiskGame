@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace RiskGame
 {
@@ -21,7 +17,7 @@ namespace RiskGame
 
         public bool DEBUGSkipToGame { get; set; }
         public bool DEBUGIgnoreAssigned { get; set; }
-        
+
         private List<string> friendsList = new List<string>(0);
 
         public int globalUserID { get; set; }
@@ -45,7 +41,7 @@ namespace RiskGame
         public string sentFrom { get; set; }
 
         //Constructors
-        public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, Color _accentColour, List<string>_friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)
+        public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, Color _accentColour, List<string> _friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)
         {
             username = _username;
             avatar = _avatar;

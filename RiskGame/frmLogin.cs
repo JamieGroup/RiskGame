@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace RiskGame
 {
@@ -33,7 +28,7 @@ namespace RiskGame
                 frmLogin.human.firstLaunch = true;
                 File.Create("users.conf").Dispose();
             }
-            else 
+            else
             {
                 currentLine = 0;
                 numberOfUsers = File.ReadAllLines("users.conf").Count();
@@ -65,12 +60,12 @@ namespace RiskGame
             pnl.Click += new EventHandler(loginActionPanel_Click);
             int x = 0;
             int y = 0;
-            if (currentLine<=4)
+            if (currentLine <= 4)
             {
                 y = 68;
                 x = 12 + (currentLine * 189);
             }
-            else if (currentLine<=9)
+            else if (currentLine <= 9)
             {
                 y = 68 + 175;
                 x = 12 + ((currentLine - 5) * 189);
@@ -115,7 +110,7 @@ namespace RiskGame
             string selectedUserID = ((PictureBox)sender).Name.Split('_')[1];
             loginUser(selectedUserID);
         }
-        
+
         private void loginUser(string id)
         {
             frmLogin.human.DEBUGIgnoreAssigned = false;
@@ -147,7 +142,7 @@ namespace RiskGame
                 MessageBox.Show("Invalid Password!");
             }
         }
-        
+
         private void loginActionLabel_Click(object sender, EventArgs e)
         {
             string selectedUserID = ((Label)sender).Name.Split('_')[1];

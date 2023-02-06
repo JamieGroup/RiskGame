@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include=".Designer.cs" />
     <Compile Include="FloodFill.cs" />
     <Compile Include="frmAvatarChanger.cs">
       <SubType>Form</SubType>

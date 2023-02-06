@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RiskGame
@@ -24,13 +18,13 @@ namespace RiskGame
 
         private void LoadColours()
         {
-            for(int i = 0; i<9;i++)
+            for (int i = 0; i < 9; i++)
             {
                 Point loc = new Point();
                 Color col = new Color();
                 switch (i)
                 {
-                    case 0: loc = new Point(0,0); col = Color.Red; break;
+                    case 0: loc = new Point(0, 0); col = Color.Red; break;
                     case 1: loc = new Point(160, 0); col = Color.Orange; break;
                     case 2: loc = new Point(320, 0); col = Color.Yellow; break;
                     case 3: loc = new Point(0, 90); col = Color.LightGreen; break;
@@ -39,7 +33,8 @@ namespace RiskGame
                     case 6: loc = new Point(0, 180); col = Color.Aqua; break;
                     case 7: loc = new Point(160, 180); col = Color.Magenta; break;
                     case 8: loc = new Point(320, 180); col = Color.Purple; break;
-                    default: MessageBox.Show("Error displaying colours. Going to Dashboard."); 
+                    default:
+                        MessageBox.Show("Error displaying colours. Going to Dashboard.");
                         Hide(); new frmDashboard().Show(); break;
                 }
 
@@ -48,7 +43,7 @@ namespace RiskGame
                 pnl.Location = loc;
                 pnl.BackColor = col;
                 pnl.Click += new EventHandler(Pnl_Click);
-                pnl.Size = new Size(100,50);
+                pnl.Size = new Size(100, 50);
                 pnlHolder.Controls.Add(pnl);
 
                 Label lb = new Label();

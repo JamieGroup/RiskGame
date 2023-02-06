@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Imaging;
 
 namespace RiskGame
 {
@@ -43,7 +36,7 @@ namespace RiskGame
                 pbPl3Avatar.Image = Image.FromFile(pathPl3);
             }
 
-            
+
             frmLogin.human.troopPocket = 4;
             frmGameScreen.Pl2.troopPocket = 4;
             frmGameScreen.Pl3.troopPocket = 4;
@@ -54,9 +47,9 @@ namespace RiskGame
         private void DecidePlayer()
         {
             int currentPlayer = frmGameScreen.Game.currentPlayer;
-            if(frmGameScreen.Game.turnsChanged==0)
+            if (frmGameScreen.Game.turnsChanged == 0)
             {
-                
+
             }
             else
             {

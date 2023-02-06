@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RiskGame
@@ -50,7 +43,7 @@ namespace RiskGame
             else
             {
                 pbPlay.Image = Properties.Resources.PlayGameAnimation;
-                
+
             }
         }
 
@@ -61,7 +54,7 @@ namespace RiskGame
 
         private void textBox1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pnlSidebar2_Paint(object sender, PaintEventArgs e)
@@ -130,7 +123,7 @@ namespace RiskGame
 
         private void pbPlay_Click(object sender, EventArgs e)
         {
-            if(fl)
+            if (fl)
             {
                 //Code to run if the player clicks on "Play Tutorial"
                 pbTutorialEasy.Visible = true;
