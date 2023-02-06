@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.Drawing;
+using System.IO;
 
 namespace RiskGame
 {
@@ -31,7 +28,7 @@ namespace RiskGame
         {
             name = _name;
         }
-        
+
         public void addTroops(int _addTroops)
         {
             troopCount += _addTroops;
@@ -65,12 +62,12 @@ namespace RiskGame
             bool close = false;
 
             string[] relations = File.ReadAllLines("relations.conf");
-            for(int i = 0; i<relations.Length; i++)
+            for (int i = 0; i < relations.Length; i++)
             {
                 string[] relationList = relations[i].Split('~');
                 if (relationList[0] == source.name)
                 {
-                    
+
                     for (int g = 0; g < relationList.Length; g++)
                     {
                         if (relationList[g] == potentialTarget.name)

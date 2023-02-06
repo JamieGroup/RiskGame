@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace RiskGame
 {
@@ -182,7 +175,7 @@ namespace RiskGame
 
             Panel spanel = Controls[selectedPanel] as Panel;
             Panel cpanel = Controls[correctPanel] as Panel;
-            
+
 
             if (spanel == cpanel)
                 spanel.BackColor = Color.LawnGreen;
@@ -207,7 +200,7 @@ namespace RiskGame
         {
             string[] questions = File.ReadAllLines($"Tutorial_{tutorialLevel}.txt");
             //Add to array of classes
-            for (int i=0; i<questions.Length; i++)
+            for (int i = 0; i < questions.Length; i++)
             {
                 string[] qParts = questions[i].Split('~');
                 Qs[i] = new Questions(qParts[0], qParts[1], qParts[2], qParts[3], qParts[4], qParts[5]);
@@ -218,7 +211,7 @@ namespace RiskGame
         {
             //MessageBox.Show(((Panel)e).Name);
             //Color paleYellow = Color.FromArgb(1, 227, 242, 148);
-            
+
             string searchCase = "";
             if (senderType == "lb")
             {
@@ -324,7 +317,7 @@ namespace RiskGame
             {
                 tmrTime.Stop();
                 qNum++;
-                if(qNum<2)
+                if (qNum < 2)
                 {
                     displayQ();
                 }

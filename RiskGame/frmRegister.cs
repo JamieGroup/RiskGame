@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace RiskGame
 {
@@ -30,7 +25,7 @@ namespace RiskGame
             txtPassword.PasswordChar = '*';
             txtConfirmPassword.PasswordChar = '*';
             pbAvatar.ImageLocation = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
-            absoluteAvatar = $"avatars\\default\\default{rnd.Next(1,6)}.jpg";
+            absoluteAvatar = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
             ID = (File.ReadLines("users.conf").Count());
         }
 
@@ -68,7 +63,7 @@ namespace RiskGame
         private void animate(Panel pnl, int speed, int destY, bool down)
         {
             //Down = +, Up = -
-            if(down)
+            if (down)
             {
                 int xCurrent = pnl.Location.X;
                 int yCurrent = pnl.Location.Y;
@@ -118,7 +113,7 @@ namespace RiskGame
 
         private void txtConfirmPassword_TextChanged(object sender, EventArgs e)
         {
-            if(txtPassword.Text == txtConfirmPassword.Text)
+            if (txtPassword.Text == txtConfirmPassword.Text)
             {
                 acceptConfirmPassword = true;
             }
@@ -135,7 +130,7 @@ namespace RiskGame
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if(!sameAvatar)
+            if (!sameAvatar)
             {
                 if (acceptUsername && acceptPassword && acceptConfirmPassword)
                 {
@@ -155,7 +150,7 @@ namespace RiskGame
                 MessageBox.Show("Please select an avatar!");
             }
         }
-        
+
         private void PublishUser()
         {
             //Create a path to the user details

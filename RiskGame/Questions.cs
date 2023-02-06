@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RiskGame
+﻿namespace RiskGame
 {
     class Questions
     {
@@ -16,7 +10,7 @@ namespace RiskGame
         private string a4;
         private string correct;
 
-        
+
 
         //Constructor to set up the initial values
         public Questions(string _question, string A1, string A2, string A3, string A4, string CAns)

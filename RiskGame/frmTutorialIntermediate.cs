@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using System.Runtime.InteropServices;
-using System.Threading;
+using System.Windows.Forms;
 
 namespace RiskGame
 {
@@ -93,12 +85,12 @@ namespace RiskGame
 
         private void DisableAllAssets()
         {
-            
+
         }
 
         private void EnableAllAssets()
         {
-            
+
         }
 
         private void correction()
@@ -202,7 +194,7 @@ namespace RiskGame
         private void pnlNumberSelection_Scroll(object sender, ScrollEventArgs e)
         {
             //Get mouse scroll information
-            
+
 
             if (Math.Abs(e.NewValue) == e.NewValue)
             {

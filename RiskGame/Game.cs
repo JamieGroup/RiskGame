@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
+﻿using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace RiskGame
 {
@@ -47,7 +39,7 @@ namespace RiskGame
             //1541, 51
             //-278
 
-            for (int i = 0; i<278; i++)
+            for (int i = 0; i < 278; i++)
             {
                 pnl.Location = new Point(1541 - i, 51);
             }
@@ -65,9 +57,9 @@ namespace RiskGame
             int width = original.Width;
             Color p;
 
-            for(int y = 0; y<height; y++)
+            for (int y = 0; y < height; y++)
             {
-                for(int x = 0; x<height; x++)
+                for (int x = 0; x < height; x++)
                 {
                     //Get pixel value
                     p = original.GetPixel(x, y);

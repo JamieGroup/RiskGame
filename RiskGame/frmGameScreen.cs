@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace RiskGame
 {
@@ -43,7 +39,7 @@ namespace RiskGame
         {
             CenterToScreen();
             pnlPause.BringToFront();
-            if(!frmLogin.human.DEBUGSkipToGame)
+            if (!frmLogin.human.DEBUGSkipToGame)
                 Application.OpenForms["frmDashboard"].Close();
             int AICount = Game.AICount;
             int OthersCount = Game.OthersCount;
@@ -52,14 +48,14 @@ namespace RiskGame
             pnlPause.Location = new Point(-455, 0);
             MSGpnlMessageGroup.Location = new Point(1541, 48);
 
-            
+
             Game.calcPlayers();
             new frmPlayerSwapper().Show();
 
             pnlSource.Location = new Point(3, 775);
 
             pbBase.BackColor = Color.FromArgb(153, 220, 243);
-            if(!frmLogin.human.DEBUGIgnoreAssigned)
+            if (!frmLogin.human.DEBUGIgnoreAssigned)
             {
                 AssignRegions(playerCount + 1);
             }
@@ -80,7 +76,7 @@ namespace RiskGame
                 current = Pl3;
             }
 
-            switch(Game.state)
+            switch (Game.state)
             {
                 case 0:
                     //Deploy
@@ -120,9 +116,9 @@ namespace RiskGame
                 regions[i].SetTerritory();
                 regions[i].SetPoint(Convert.ToInt32(allRegionData[i].Split('~')[1].Split(',')[0]), Convert.ToInt32(allRegionData[i].Split('~')[1].Split(',')[1]));
                 Color colour;
-                if(b==0)
+                if (b == 0)
                     colour = (frmLogin.human.accentColour);
-                else if(b==1)
+                else if (b == 1)
                     colour = (Pl2.accentColour);
                 else
                     colour = (Pl3.accentColour);
@@ -175,11 +171,11 @@ namespace RiskGame
                 pnl.BringToFront();
 
                 Label lb = new Label();
-                lb.Text = Convert.ToString(rnd.Next(1,4));
+                lb.Text = Convert.ToString(rnd.Next(1, 4));
                 regions[i].troopCount = Convert.ToInt32(lb.Text);
                 lb.ForeColor = Color.Black;
                 pnl.Controls.Add(lb);
-                lb.Location = new Point(/*regions[i].CentralX, regions[i].CentralY*/15,5);
+                lb.Location = new Point(/*regions[i].CentralX, regions[i].CentralY*/15, 5);
                 lb.BackColor = Color.Transparent;
                 lb.Font = new Font("Segoe UI", 18, FontStyle.Bold);
                 lb.Click += new EventHandler(troopDisplay_Click);
@@ -220,7 +216,7 @@ namespace RiskGame
                     pbBase.Image = actualImage;
                 }
             }
-            
+
         }
 
         private void AnimatePauseScreen(int direction)
@@ -236,7 +232,7 @@ namespace RiskGame
                 Game.state = 3;
                 lbGamePaused.Visible = true;
                 int xCurrent = pnlPause.Location.X;
-                for(int i = 0; i < (460/animateSpeed); i++)
+                for (int i = 0; i < (460 / animateSpeed); i++)
                 {
                     pnlPause.Location = new Point(xCurrent + (Convert.ToInt32(animateSpeed) * i), 42);
                     pnlPause.Refresh();
@@ -273,7 +269,7 @@ namespace RiskGame
 
         private void PauseAction(int ID)
         {
-            switch(ID)
+            switch (ID)
             {
                 case 0:
                     //Resume
@@ -360,7 +356,7 @@ namespace RiskGame
                 if (a.X < bmp.Width && a.X > 0 &&
                         a.Y < bmp.Height && a.Y > 0)//make sure we stay within bounds
                 {
-                    if (IsClose(bmp.GetPixel(a.X, a.Y), Color.White) && bmp.GetPixel(a.X,a.Y) != Color.Black)
+                    if (IsClose(bmp.GetPixel(a.X, a.Y), Color.White) && bmp.GetPixel(a.X, a.Y) != Color.Black)
                     {
                         bmp.SetPixel(a.X, a.Y, replaceWith);
                         pixels.Enqueue(new Point(a.X - 1, a.Y));
@@ -406,7 +402,7 @@ namespace RiskGame
             Bitmap bmp = (Bitmap)pbBase.Image;
             if (bmp.GetPixel(mousePosition.X, mousePosition.Y) != Color.FromArgb(153, 220, 243))
             {
-                if(Game.state == 0)
+                if (Game.state == 0)
                 {
                     Region deployCandidate = RegionID(mousePosition);
                     //Deploy Mode Active
@@ -435,7 +431,7 @@ namespace RiskGame
                             {
                                 //Do nothing
                             }
-                            else if(tempSourceSelection.troopCount > 1)
+                            else if (tempSourceSelection.troopCount > 1)
                             {
                                 sourceSelected = true;
                                 source = tempSourceSelection;
@@ -465,7 +461,7 @@ namespace RiskGame
                             Game.Message("You have clicked on a region that\r\n is not yours. Please select a \r\nregion that is yours.", MSGpnlMessageGroup, MSGlbMessage);
                         }
                     }
-                    else if(!targetSelected)
+                    else if (!targetSelected)
                     {
                         tempTargetSelection = RegionID(mousePosition);
 
@@ -491,7 +487,7 @@ namespace RiskGame
                                 g.DrawLine(p, source.CentralX, source.CentralY, target.CentralX, target.CentralY);
                             }
                         }
-                        else if(tempTargetSelection.owner != Game.currentPlayer)
+                        else if (tempTargetSelection.owner != Game.currentPlayer)
                         {
                             Game.Message("That region is not close!\r\nPlease select a region that is close.", MSGpnlMessageGroup, MSGlbMessage);
                         }
@@ -604,7 +600,7 @@ namespace RiskGame
         private Region RegionID(Point test)
         {
             Region regionSuggestion = new Region();
-            
+
             //Step 1: Save the colour of the clicked pixel.
             Bitmap bmp = (Bitmap)pbBase.Image;
             Color pixelColour = bmp.GetPixel(test.X, test.Y);
@@ -617,7 +613,7 @@ namespace RiskGame
 
             //Step 4: Compare the points in regions.conf to see which one matches this SLIGHTLY CHANGED colour.
             string[] regionData = File.ReadAllLines("regions.conf");
-            for(int i = 0; i<regionData.Length; i++)
+            for (int i = 0; i < regionData.Length; i++)
             {
                 string tempName = regionData[i].Split('~')[0];
                 Point tempPoint = new Point(Convert.ToInt32(regionData[i].Split('~')[1].Split(',')[0]), Convert.ToInt32(regionData[i].Split('~')[1].Split(',')[1]));
@@ -689,20 +685,20 @@ namespace RiskGame
             return real;
         }
 
-        
+
         private void GameStateChanger(int changeTo)
         {
             Game.state = changeTo;
-            if(Game.state == 0)
+            if (Game.state == 0)
             {
                 INDICATORpnlDeploy.BackColor = (current.accentColour);
             }
-            else if(Game.state == 1)
+            else if (Game.state == 1)
             {
                 INDICATORpnlDeploy.BackColor = Color.LightGray;
                 INDICATORpnlAttack.BackColor = (current.accentColour);
             }
-            else if(Game.state == 2)
+            else if (Game.state == 2)
             {
                 INDICATORpnlDeploy.BackColor = Color.LightGray;
                 INDICATORpnlAttack.BackColor = Color.LightGray;
@@ -754,7 +750,7 @@ namespace RiskGame
         private void pnlSelectionBack_Click(object sender, EventArgs e)
         {
             pbBase.Refresh();
-            if(!targetSelected)
+            if (!targetSelected)
             {
                 sourceSelected = false;
                 source.name = "";
@@ -1025,7 +1021,7 @@ namespace RiskGame
 
         private void changeTR(int a)
         {
-            if(pnlTroopsRemaining.Visible)
+            if (pnlTroopsRemaining.Visible)
             {
                 pnlTroopsRemaining.Visible = false;
             }
@@ -1038,7 +1034,7 @@ namespace RiskGame
 
         private void btnTroopCountUp_Click(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(btnTroopCountDisplay.Text) < current.troopPocket)
+            if (Convert.ToInt32(btnTroopCountDisplay.Text) < current.troopPocket)
             {
                 btnTroopCountDisplay.Text = Convert.ToString(Convert.ToInt32(btnTroopCountDisplay.Text) + 1);
             }
@@ -1047,7 +1043,7 @@ namespace RiskGame
 
         private void btnTroopCountDown_Click(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(btnTroopCountDisplay.Text) > 0)
+            if (Convert.ToInt32(btnTroopCountDisplay.Text) > 0)
             {
                 btnTroopCountDisplay.Text = Convert.ToString(Convert.ToInt32(btnTroopCountDisplay.Text) - 1);
             }
@@ -1096,7 +1092,7 @@ namespace RiskGame
                     target.troopCount += deployCount;
                     Bitmap bmp = (Bitmap)pbBase.Image;
                     Point central = new Point(target.CentralX, target.CentralY);
-                    FloodFill(bmp, central, (current.accentColour), bmp.GetPixel(central.X,central.Y), 200);
+                    FloodFill(bmp, central, (current.accentColour), bmp.GetPixel(central.X, central.Y), 200);
 
                     source = new Region();
                     sourceSelected = false;
@@ -1114,7 +1110,7 @@ namespace RiskGame
                     break;
                 case 2:
                     source.troopCount -= deployCount;
-                    int a = rnd.Next(0,deployCount);
+                    int a = rnd.Next(0, deployCount);
                     target.troopCount += (deployCount - a);
                     MessageBox.Show($"You lost {a} troops in transit.");
 
@@ -1135,11 +1131,11 @@ namespace RiskGame
 
                     break;
             }
-            
+
             updateTroopDisplays();
 
-            
-            if(current.troopPocket <= 0)
+
+            if (current.troopPocket <= 0)
             {
                 GameStateChanger(1);
             }
@@ -1147,17 +1143,17 @@ namespace RiskGame
 
         private void pnlTroopCounter_Scroll(object sender, ScrollEventArgs e)
         {
-            
+
         }
 
         private void btnAttack_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void DiminishTroop(Region whereFrom, int howMany)
         {
-            for(int i = 0; i<howMany; i++)
+            for (int i = 0; i < howMany; i++)
             {
                 whereFrom.troopCount -= 1;
                 updateTroopDisplays();
@@ -1166,7 +1162,7 @@ namespace RiskGame
                 if (whereFrom.troopCount <= 0)
                     return;
             }
-            if(whereFrom.troopCount<=0)
+            if (whereFrom.troopCount <= 0)
             {
                 //Region taken over
                 whereFrom.SetController(current.gamePlayerID);
@@ -1177,7 +1173,7 @@ namespace RiskGame
         {
             pnlAttackButton.Visible = false;
             pnlAttackButton.Enabled = false;
-            
+
             //Has to take into account dice rolls (and more importantly) troop count.
             int sourceCount = source.troopCount;
             int targetCount = target.troopCount;
@@ -1291,7 +1287,7 @@ namespace RiskGame
             pnlAttackButton.Visible = false;
             pnlAttackButton.Enabled = false;
 
-            Point a = new Point(source.CentralX,source.CentralY);
+            Point a = new Point(source.CentralX, source.CentralY);
             troopCountDisplay(a, source.troopCount - 1, source.name, $"How many of your {source.troopCount - 1} troops would \r\nyou like to move?");
         }
     }
