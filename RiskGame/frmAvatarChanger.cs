@@ -6,12 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RiskGame
 {
     public partial class frmAvatarChanger : Form
     {
-        
+        string absoluteAvatar;
+        string avatarExtension;
+
         public frmAvatarChanger()
         {
             InitializeComponent();
@@ -79,6 +82,8 @@ namespace RiskGame
                     }
 
                     pnl.Location = new System.Drawing.Point(xValue, yValue);
+                    pnl.Click += new EventHandler(PanelAction_Click);
+                    pnl.Name = ($"pnlMini_{i}_{q}");
 
                     Color col = new Color();
                     int h = rnd.Next(0, 5);
@@ -101,15 +106,63 @@ namespace RiskGame
             }
         }
 
+        private void PanelAction_Click(object sender, EventArgs e)
+        {
+            int selectedPanel = Convert.ToInt32(((Panel)sender).Name.Split('_')[2]);
+            int width = 240;
+            int height = 240;
+            Bitmap bmp = new Bitmap(width, height);
+
+            switch (selectedPanel)
+            {
+                case 0:
+                    pnlRnd1.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                    break;
+                case 1:
+                    pnlRnd2.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                    break;
+                case 2:
+                    pnlRnd3.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                    break;
+            }
+
+            bmp.Save($"avatars\\{frmLogin.human.username}.png");
+            pbPreview.Image = bmp;
+        }
+
         private void pnlRnd1_Click(object sender, EventArgs e)
         {
-            int width = pnlRnd1.Size.Width;
-            int height = pnlRnd1.Size.Height;
+            
+        }
+        
+        private void btnOpenImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog of = new OpenFileDialog();
+            //For any other formats
+            of.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            if (of.ShowDialog() == DialogResult.OK)
+            {
+                pbPreview.ImageLocation = of.FileName;
+                absoluteAvatar = of.FileName;
+                avatarExtension = Path.GetExtension(absoluteAvatar);
+                File.Copy(absoluteAvatar, $"avatars\\{frmLogin.human.username}{avatarExtension}", true);
+            }
+        }
 
-            Bitmap bmp = new Bitmap(width, height);
-            pnlRnd1.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
-            bmp.Save($"\\avatars\\test.png");
+        }
+
+        private void frmAvatarChanger_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            frmLogin.human.avatar = $"avatars\\{frmLogin.human.username}{avatarExtension}";
+            Hide();
         }
     }
 }

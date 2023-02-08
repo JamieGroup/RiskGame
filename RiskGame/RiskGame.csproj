@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FloodFill.cs" />
+    <Compile Include="frmAdminScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminScreen.Designer.cs">
+      <DependentUpon>frmAdminScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAvatarChanger.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     <Compile Include="Region.cs" />
     <Compile Include="Serializer.cs" />
     <Compile Include="SoundDash.cs" />
+    <EmbeddedResource Include="frmAdminScreen.resx">
+      <DependentUpon>frmAdminScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAvatarChanger.resx">
       <DependentUpon>frmAvatarChanger.cs</DependentUpon>
     </EmbeddedResource>
