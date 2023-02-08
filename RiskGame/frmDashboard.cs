@@ -174,6 +174,7 @@ namespace RiskGame
         private void tmrTick_Tick(object sender, EventArgs e)
         {
             btnAccentColour.BackColor = frmLogin.human.accentColour;
+            pbAvatar.ImageLocation = @frmLogin.human.avatar;
         }
     }
 }
