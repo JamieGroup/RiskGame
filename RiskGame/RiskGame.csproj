@@ -366,5 +366,38 @@
   <ItemGroup>
     <None Include="Resources\explosion.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AccountsAndsecurity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Attributes&amp;Legal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataAndOnlinePrivacy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GameInformation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InGame AI.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteAccount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Encryption.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LockedAccounts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ResetAccount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GlobalLeaderboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrivacyPolicy.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

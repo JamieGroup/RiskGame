@@ -118,8 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AccountsAndsecurity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AccountsAndsecurity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AddNewUser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddNewUser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Attributes_Legal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Attributes&amp;Legal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="baseplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baseplate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,11 +139,29 @@
   <data name="CurvedArrowFixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CurvedArrowFixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DataAndOnlinePrivacy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataAndOnlinePrivacy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeleteAccount" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteAccount.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Encryption" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Encryption.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="explosion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\explosion.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GameInformation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GameInformation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GlobalLeaderboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GlobalLeaderboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InGame_AI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InGame AI.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InviteButtonDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\InviteButtonDefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -147,6 +171,9 @@
   </data>
   <data name="loading_circle_loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loading-circle-loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LockedAccounts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LockedAccounts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="loginNewUserPrompt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loginNewUserPrompt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,6 +223,9 @@
   <data name="PlayTutorialAnimation_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlayTutorialAnimation_Hover.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PrivacyPolicy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PrivacyPolicy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Product_Sans_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Product Sans Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -204,6 +234,9 @@
   </data>
   <data name="QuitButtonHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\QuitButtonHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ResetAccount" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ResetAccount.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="riskLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\riskLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
