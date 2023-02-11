@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AES.cs" />
     <Compile Include="FloodFill.cs" />
     <Compile Include="frmAdminScreen.cs">
       <SubType>Form</SubType>
