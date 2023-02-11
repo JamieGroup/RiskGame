@@ -177,5 +177,10 @@ namespace RiskGame
             btnAccentColour.BackColor = frmLogin.human.accentColour;
             pbAvatar.ImageLocation = @frmLogin.human.avatar;
         }
+
+        private void frmDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.IO.Directory.Delete("tmp", true);
+        }
     }
 }

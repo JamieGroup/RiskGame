@@ -283,6 +283,7 @@ namespace RiskGame
             this.Controls.Add(this.pnlSidebar);
             this.Name = "frmDashboard";
             this.Text = "Risk: Dashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDashboard_FormClosing);
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.Enter += new System.EventHandler(this.frmDashboard_Enter);
             this.pnlSidebar.ResumeLayout(false);
