@@ -35,6 +35,7 @@ namespace RiskGame
             btnAccentColour.BackColor = frmLogin.human.accentColour;
             lbUsername.Text = frmLogin.human.username;
             pbAvatar.ImageLocation = @frmLogin.human.avatar;
+            pbAvatar.ImageLocation = @frmLogin.human.avatar;
 
             if (frmLogin.human.firstLaunch)
             {

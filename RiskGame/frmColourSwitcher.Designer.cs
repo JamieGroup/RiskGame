@@ -58,7 +58,7 @@ namespace RiskGame
             this.Controls.Add(this.pnlHolder);
             this.Controls.Add(this.label1);
             this.Name = "frmColourSwitcher";
-            this.Text = "Colour Switcher";
+            this.Text = "  ";
             this.Load += new System.EventHandler(this.frmColourSwitcher_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

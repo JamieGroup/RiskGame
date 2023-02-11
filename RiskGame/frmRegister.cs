@@ -17,6 +17,7 @@ namespace RiskGame
         bool sameAvatar = true;
 
         Random rnd = new Random();
+        Plys tmpPlayer = new Plys();
 
         public frmRegister()
         {
@@ -26,7 +27,7 @@ namespace RiskGame
             txtConfirmPassword.PasswordChar = '*';
             pbAvatar.ImageLocation = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
             absoluteAvatar = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
-            ID = (File.ReadLines("users.conf").Count());
+            ID = (File.ReadLines("cachedUsers.conf").Count());
         }
 
         private void disableDescriptions()
@@ -154,14 +155,13 @@ namespace RiskGame
         private void PublishUser()
         {
             //Create a path to the user details
-            string filePath = @"users.conf";
+            string filePath = @"cachedUsers.conf";
             FileStream aFile;
             StreamWriter sw;
 
             try
             {
-                string avatarExtension = Path.GetExtension(absoluteAvatar);
-                File.Copy(absoluteAvatar, $"avatars\\{txtUsername.Text}{avatarExtension}", true);
+                File.Copy(absoluteAvatar, $"avatars\\{txtUsername.Text}.png", true);
 
                 //If a user file doesn't exist, create one
                 if (!File.Exists(filePath))
@@ -177,10 +177,14 @@ namespace RiskGame
                 string password = txtPassword.Text;
                 string avatar = pbAvatar.ImageLocation;
 
-                sw.WriteLine($"{ID}~{username}~avatars\\{txtUsername.Text}{avatarExtension}~{password}");
+                sw.WriteLine($"{username}~avatars\\{txtUsername.Text}.png~{password}");
 
                 sw.Dispose();
                 aFile.Dispose();
+
+                tmpPlayer.username = username;
+                tmpPlayer.avatar = $"avatars\\{txtUsername.Text}.png";
+                Serializer.SerializePlayer(tmpPlayer);
 
                 Hide();
                 new frmLogin().Show();
@@ -210,7 +214,7 @@ namespace RiskGame
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = inDir + "\\Pictures";
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.tif;...";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
 

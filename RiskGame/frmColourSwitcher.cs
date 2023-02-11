@@ -61,6 +61,7 @@ namespace RiskGame
             string selectedPanel = ((Panel)sender).Name.Split('_')[1];
             Color selectedColour = Color.FromName(selectedPanel);
             frmLogin.human.accentColour = selectedColour;
+            Serializer.SerializePlayer(frmLogin.human);
             Hide();
         }
         private void Lb_Click(object sender, EventArgs e)
