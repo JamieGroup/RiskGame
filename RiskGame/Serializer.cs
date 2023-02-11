@@ -5,6 +5,8 @@ namespace RiskGame
 {
     public class Serializer
     {
+        public static AES a = new AES();
+
         public static bool SerializePlayer(Plys obj)
         {
             try
@@ -13,6 +15,9 @@ namespace RiskGame
                 BinaryFormatter bFormatter = new BinaryFormatter();
                 bFormatter.Serialize(stream, obj);
                 stream.Close();
+
+                a.FileEncrypt($"tmp\\{obj.username}.bin", "a", obj.username);
+
                 return true;
             }
             catch
