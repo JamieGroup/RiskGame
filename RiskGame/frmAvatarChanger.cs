@@ -13,7 +13,6 @@ namespace RiskGame
     public partial class frmAvatarChanger : Form
     {
         string absoluteAvatar;
-        string avatarExtension;
 
         public frmAvatarChanger()
         {
@@ -144,8 +143,7 @@ namespace RiskGame
             {
                 pbPreview.ImageLocation = of.FileName;
                 absoluteAvatar = of.FileName;
-                avatarExtension = Path.GetExtension(absoluteAvatar);
-                File.Copy(absoluteAvatar, $"avatars\\{frmLogin.human.username}{avatarExtension}", true);
+                File.Copy(absoluteAvatar, $"avatars\\{frmLogin.human.username}.png", true);
             }
         }
 
@@ -161,7 +159,8 @@ namespace RiskGame
 
         private void btnDone_Click(object sender, EventArgs e)
         {
-            frmLogin.human.avatar = $"avatars\\{frmLogin.human.username}{avatarExtension}";
+            frmLogin.human.avatar = $"avatars\\{frmLogin.human.username}.png";
+            Serializer.SerializePlayer(frmLogin.human);
             Hide();
         }
     }

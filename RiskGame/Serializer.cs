@@ -9,7 +9,7 @@ namespace RiskGame
         {
             try
             {
-                Stream stream = File.Open("SerializedPlayer.bin", FileMode.Create);
+                Stream stream = File.Open($"tmp\\{obj.username}.bin", FileMode.Create);
                 BinaryFormatter bFormatter = new BinaryFormatter();
                 bFormatter.Serialize(stream, obj);
                 stream.Close();
@@ -17,10 +17,24 @@ namespace RiskGame
             }
             catch
             {
-
+                return false;
             }
-            return false;
+        }
 
+        public static Plys DeserializePlayer(string username)
+        {
+            try
+            {
+                Stream stream = File.Open($"tmp\\{username}.bin", FileMode.Open);
+                BinaryFormatter bformatter = new BinaryFormatter();
+                Plys objectDeSerialized = (Plys)bformatter.Deserialize(stream);
+                stream.Close();
+                return objectDeSerialized;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }
