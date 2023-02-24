@@ -19,6 +19,7 @@ namespace RiskGame
         static string[,] users;
 
         static string passwordA = "";
+        string passwordHash = "";
 
         public frmLogin()
         {
@@ -113,28 +114,38 @@ namespace RiskGame
             loginUser(selectedUserID);
         }
 
+        private string getPasswordHash(string username)
+        {
+            //Search through the cachedUsers.conf file for the username, and read across the line to get the password hash
+            string[] userDetails = File.ReadAllLines("cachedUsers.conf");
+            foreach (string user in userDetails)
+            {
+                var splitDetails = user.Split('~');
+                if (splitDetails[0] == username)
+                {
+                    return splitDetails[2];
+                }
+            }
+            return null;
+        }
+
         private void loginUser(string usr)
         {
-            human = Serializer.DeserializePlayer(usr);
-            human.DEBUGIgnoreAssigned = false;
             
-            if (DEBUGcbIgnoreAssigned.Checked)
+
+            string inputPassword = Microsoft.VisualBasic.Interaction.InputBox("Enter your password:", usr, "");
+            string inputHashed = AES.GetHashString(inputPassword);
+            if(inputHashed == getPasswordHash(usr))
             {
-                human.DEBUGIgnoreAssigned = true;
-            }
-            else if (!DEBUG_cbRequirePassword.Checked)
-            {
+                //Login!
+                human = Serializer.DeserializePlayer(usr, inputPassword);
+
                 Hide();
                 new frmDashboard().Show();
             }
-            //else if (Microsoft.VisualBasic.Interaction.InputBox("Enter your password:", usr, "", 0, 0) == /*Check if password is right*/)
-            //{
-            //    Hide();
-            //    new frmDashboard().Show();
-            //}
             else
             {
-                MessageBox.Show("Invalid Password!");
+                MessageBox.Show("Incorrect Password! 3 attempts left.");
             }
         }
 
@@ -177,6 +188,11 @@ namespace RiskGame
         }
 
         private void DEBUGcbIgnoreAssigned_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newProgressBar1_Click(object sender, EventArgs e)
         {
 
         }

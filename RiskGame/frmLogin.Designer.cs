@@ -31,11 +31,9 @@ namespace RiskGame
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.DEBUG_cbRequirePassword = new System.Windows.Forms.CheckBox();
             this.DEBUGbtnSkipToGame = new System.Windows.Forms.Button();
             this.DEBUG_cbFirstLaunch = new System.Windows.Forms.CheckBox();
             this.DEBUGcbIgnoreAssigned = new System.Windows.Forms.CheckBox();
-            this.newProgressBar1 = new RiskGame.NewProgressBar();
             this.pbNewArrow = new System.Windows.Forms.PictureBox();
             this.pbNewUser = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -64,17 +62,6 @@ namespace RiskGame
             this.label2.TabIndex = 2;
             this.label2.Text = "Please select your account.";
             // 
-            // DEBUG_cbRequirePassword
-            // 
-            this.DEBUG_cbRequirePassword.AutoSize = true;
-            this.DEBUG_cbRequirePassword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DEBUG_cbRequirePassword.Location = new System.Drawing.Point(225, 55);
-            this.DEBUG_cbRequirePassword.Name = "DEBUG_cbRequirePassword";
-            this.DEBUG_cbRequirePassword.Size = new System.Drawing.Size(289, 23);
-            this.DEBUG_cbRequirePassword.TabIndex = 4;
-            this.DEBUG_cbRequirePassword.Text = "Debug Tool: Require Password?";
-            this.DEBUG_cbRequirePassword.UseVisualStyleBackColor = true;
-            // 
             // DEBUGbtnSkipToGame
             // 
             this.DEBUGbtnSkipToGame.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,7 +77,7 @@ namespace RiskGame
             // 
             this.DEBUG_cbFirstLaunch.AutoSize = true;
             this.DEBUG_cbFirstLaunch.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DEBUG_cbFirstLaunch.Location = new System.Drawing.Point(541, 55);
+            this.DEBUG_cbFirstLaunch.Location = new System.Drawing.Point(237, 55);
             this.DEBUG_cbFirstLaunch.Name = "DEBUG_cbFirstLaunch";
             this.DEBUG_cbFirstLaunch.Size = new System.Drawing.Size(253, 23);
             this.DEBUG_cbFirstLaunch.TabIndex = 3;
@@ -102,20 +89,13 @@ namespace RiskGame
             // 
             this.DEBUGcbIgnoreAssigned.AutoSize = true;
             this.DEBUGcbIgnoreAssigned.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DEBUGcbIgnoreAssigned.Location = new System.Drawing.Point(541, 84);
+            this.DEBUGcbIgnoreAssigned.Location = new System.Drawing.Point(496, 55);
             this.DEBUGcbIgnoreAssigned.Name = "DEBUGcbIgnoreAssigned";
             this.DEBUGcbIgnoreAssigned.Size = new System.Drawing.Size(280, 23);
             this.DEBUGcbIgnoreAssigned.TabIndex = 6;
             this.DEBUGcbIgnoreAssigned.Text = "Debug Tool: Ignore Assigned?";
             this.DEBUGcbIgnoreAssigned.UseVisualStyleBackColor = true;
             this.DEBUGcbIgnoreAssigned.CheckedChanged += new System.EventHandler(this.DEBUGcbIgnoreAssigned_CheckedChanged);
-            // 
-            // newProgressBar1
-            // 
-            this.newProgressBar1.Location = new System.Drawing.Point(282, 430);
-            this.newProgressBar1.Name = "newProgressBar1";
-            this.newProgressBar1.Size = new System.Drawing.Size(100, 23);
-            this.newProgressBar1.TabIndex = 8;
             // 
             // pbNewArrow
             // 
@@ -158,10 +138,8 @@ namespace RiskGame
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 583);
             this.Controls.Add(this.pbNewArrow);
-            this.Controls.Add(this.newProgressBar1);
             this.Controls.Add(this.DEBUGcbIgnoreAssigned);
             this.Controls.Add(this.DEBUGbtnSkipToGame);
-            this.Controls.Add(this.DEBUG_cbRequirePassword);
             this.Controls.Add(this.DEBUG_cbFirstLaunch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
@@ -183,12 +161,10 @@ namespace RiskGame
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox DEBUG_cbRequirePassword;
         private System.Windows.Forms.Button DEBUGbtnSkipToGame;
         private System.Windows.Forms.CheckBox DEBUG_cbFirstLaunch;
         private System.Windows.Forms.CheckBox DEBUGcbIgnoreAssigned;
         private System.Windows.Forms.PictureBox pbNewUser;
-        private NewProgressBar newProgressBar1;
         private System.Windows.Forms.PictureBox pbNewArrow;
     }
 }

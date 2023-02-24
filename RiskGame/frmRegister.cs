@@ -90,36 +90,30 @@ namespace RiskGame
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             //lbAvatar.Text = txtUsername.Text + " (Avatar)";
-            if (txtUsername.Text.Length < 2 || txtUsername.Text.Length > 25)
-            {
+            if (txtUsername.Text.Length < 2 || txtUsername.Text.Length > 25){
                 acceptUsername = false;
             }
-            else
-            {
+            else{
                 acceptUsername = true;
             }
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            if (txtPassword.Text.Length >= 6 && HasSpecialChars(txtPassword.Text) && txtPassword.Text.Any(char.IsDigit) && txtPassword.Text.Any(char.IsUpper))
-            {
+            if (txtPassword.Text.Length >= 6 && txtPassword.Text.Any(char.IsDigit) && txtPassword.Text.Any(char.IsUpper)){
                 acceptPassword = true;
             }
-            else
-            {
+            else{
                 acceptPassword = false;
             }
         }
 
         private void txtConfirmPassword_TextChanged(object sender, EventArgs e)
         {
-            if (txtPassword.Text == txtConfirmPassword.Text)
-            {
+            if (txtPassword.Text == txtConfirmPassword.Text){
                 acceptConfirmPassword = true;
             }
-            else
-            {
+            else{
                 acceptConfirmPassword = false;
             }
         }
@@ -131,24 +125,32 @@ namespace RiskGame
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (!sameAvatar)
+            if(!cbIgnoreRequirements.Checked)
             {
-                if (acceptUsername && acceptPassword && acceptConfirmPassword)
+                if (sameAvatar)
                 {
-                    PublishUser();
+                    MessageBox.Show("Please select an avatar!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (cbIgnoreRequirements.Checked)
+                else if (!acceptUsername)
                 {
-                    PublishUser();
+                    MessageBox.Show("Username must be 2-25 characters in length!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (!acceptPassword)
+                {
+                    MessageBox.Show("Password must be at least 6 characters in length, and contain at least 1 number and 1 uppercase letter!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (!acceptConfirmPassword)
+                {
+                    MessageBox.Show("Passwords must match!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Details!");
+                    PublishUser();
                 }
             }
             else
             {
-                MessageBox.Show("Please select an avatar!");
+                PublishUser();
             }
         }
 
@@ -174,10 +176,11 @@ namespace RiskGame
                 }
                 sw = new StreamWriter(aFile);
                 string username = txtUsername.Text;
-                string password = txtPassword.Text;
+                string passwordHash = AES.GetHashString(txtPassword.Text);
                 string avatar = pbAvatar.ImageLocation;
+                tmpPlayer.passwordHash = passwordHash;
 
-                sw.WriteLine($"{username}~avatars\\{txtUsername.Text}.png~{password}");
+                sw.WriteLine($"{username}~avatars\\{txtUsername.Text}.png~{passwordHash}");
 
                 sw.Dispose();
                 aFile.Dispose();

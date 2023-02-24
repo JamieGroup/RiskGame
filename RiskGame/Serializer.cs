@@ -11,12 +11,17 @@ namespace RiskGame
         {
             try
             {
+                if(!Directory.Exists("tmp"))
+                {
+                    Directory.CreateDirectory("tmp");
+                }
+                
                 Stream stream = File.Open($"tmp\\{obj.username}.bin", FileMode.Create);
                 BinaryFormatter bFormatter = new BinaryFormatter();
                 bFormatter.Serialize(stream, obj);
                 stream.Close();
 
-                a.FileEncrypt($"tmp\\{obj.username}.bin", "a", obj.username);
+                a.FileEncrypt($"tmp\\{obj.username}.bin", obj.passwordHash, obj.username);
 
                 return true;
             }
@@ -26,10 +31,15 @@ namespace RiskGame
             }
         }
 
-        public static Plys DeserializePlayer(string username)
+        public static Plys DeserializePlayer(string username, string passwordHash)
         {
             try
             {
+                if(!File.Exists($"tmp\\{username}.bin"))
+                {
+                    a.FileDecrypt($"usr\\{username}.aes", $"tmp\\{username}.bin", passwordHash);
+                }
+
                 Stream stream = File.Open($"tmp\\{username}.bin", FileMode.Open);
                 BinaryFormatter bformatter = new BinaryFormatter();
                 Plys objectDeSerialized = (Plys)bformatter.Deserialize(stream);
