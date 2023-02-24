@@ -19,44 +19,47 @@ namespace RiskGame
         static string[,] users;
 
         static string passwordA = "";
+        string passwordHash = "";
 
         public frmLogin()
         {
 
-            if (!File.Exists("users.conf"))
+            if (!File.Exists("cachedUsers.conf"))
             {
                 frmLogin.human.firstLaunch = true;
-                File.Create("users.conf").Dispose();
+                File.Create("cachedUsers.conf").Dispose();
+                Hide();
+                new frmRegister().Show();
             }
             else
             {
                 currentLine = 0;
-                numberOfUsers = File.ReadAllLines("users.conf").Count();
+                numberOfUsers = File.ReadAllLines("cachedUsers.conf").Count();
                 users = new string[numberOfUsers, 4];
                 InitializeComponent();
                 CenterToScreen();
 
                 // Read in the details from the users.txt file
-                string[] userDetails = System.IO.File.ReadAllLines("users.conf");
+                string[] userDetails = File.ReadAllLines("cachedUsers.conf");
                 foreach (string user in userDetails)
                 {
                     var splitDetails = user.Split('~');
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 0; i < 3; i++)
                     {
                         users[currentLine, i] = splitDetails[i];
                     }
-                    AddToScreen(splitDetails[0], splitDetails[1], splitDetails[2], splitDetails[3]);
+                    AddToScreen(splitDetails[0], splitDetails[1], splitDetails[2]);
                     currentLine++;
                 }
             }
         }
 
-        private void AddToScreen(string id, string username, string avatar, string password)
+        private void AddToScreen(string username, string avatar, string password)
         {
             passwordA = password;
             // Add the user to the screen
             Panel pnl = new Panel();
-            pnl.Name = "pnl_" + id;
+            pnl.Name = "pnl_" + username;
             pnl.Click += new EventHandler(loginActionPanel_Click);
             int x = 0;
             int y = 0;
@@ -80,7 +83,7 @@ namespace RiskGame
             this.Controls.Add(pnl);
 
             PictureBox pb = new PictureBox();
-            pb.Name = "pb_" + id;
+            pb.Name = "pb_" + username;
             pb.Click += new EventHandler(loginActionPictureBox_Click);
             pb.Location = new Point(0, 0);
             pb.Size = new Size(135, 135);
@@ -89,7 +92,7 @@ namespace RiskGame
             pnl.Controls.Add(pb);
 
             Label lb = new Label();
-            lb.Name = "lb_" + lb;
+            lb.Name = "lb_" + username;
             lb.Click += new EventHandler(loginActionLabel_Click);
             lb.Text = username;
             lb.Font = new Font("Segoe UI", 14);
@@ -111,35 +114,38 @@ namespace RiskGame
             loginUser(selectedUserID);
         }
 
-        private void loginUser(string id)
+        private string getPasswordHash(string username)
         {
-            frmLogin.human.DEBUGIgnoreAssigned = false;
-            if (DEBUGcbIgnoreAssigned.Checked)
+            //Search through the cachedUsers.conf file for the username, and read across the line to get the password hash
+            string[] userDetails = File.ReadAllLines("cachedUsers.conf");
+            foreach (string user in userDetails)
             {
-                frmLogin.human.DEBUGIgnoreAssigned = true;
+                var splitDetails = user.Split('~');
+                if (splitDetails[0] == username)
+                {
+                    return splitDetails[2];
+                }
             }
-            if (frmLogin.human.DEBUGSkipToGame)
+            return null;
+        }
+
+        private void loginUser(string usr)
+        {
+            
+
+            string inputPassword = Microsoft.VisualBasic.Interaction.InputBox("Enter your password:", usr, "");
+            string inputHashed = AES.GetHashString(inputPassword);
+            if(inputHashed == getPasswordHash(usr))
             {
-                frmLogin.human.username = users[Convert.ToInt32(id), 1];
-                frmLogin.human.avatar = users[Convert.ToInt32(id), 2];
-            }
-            else if (!DEBUG_cbRequirePassword.Checked)
-            {
-                frmLogin.human.username = users[Convert.ToInt32(id), 1];
-                frmLogin.human.avatar = users[Convert.ToInt32(id), 2];
-                Hide();
-                new frmDashboard().Show();
-            }
-            else if (Microsoft.VisualBasic.Interaction.InputBox("Enter your password:", users[Convert.ToInt32(id), 1], "", 0, 0) == users[Convert.ToInt32(id), 3])
-            {
-                frmLogin.human.username = users[Convert.ToInt32(id), 1];
-                frmLogin.human.avatar = users[Convert.ToInt32(id), 2];
+                //Login!
+                human = Serializer.DeserializePlayer(usr, inputPassword);
+
                 Hide();
                 new frmDashboard().Show();
             }
             else
             {
-                MessageBox.Show("Invalid Password!");
+                MessageBox.Show("Incorrect Password! 3 attempts left.");
             }
         }
 
@@ -182,6 +188,11 @@ namespace RiskGame
         }
 
         private void DEBUGcbIgnoreAssigned_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newProgressBar1_Click(object sender, EventArgs e)
         {
 
         }

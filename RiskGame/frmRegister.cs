@@ -17,6 +17,7 @@ namespace RiskGame
         bool sameAvatar = true;
 
         Random rnd = new Random();
+        Plys tmpPlayer = new Plys();
 
         public frmRegister()
         {
@@ -26,7 +27,7 @@ namespace RiskGame
             txtConfirmPassword.PasswordChar = '*';
             pbAvatar.ImageLocation = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
             absoluteAvatar = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
-            ID = (File.ReadLines("users.conf").Count());
+            ID = (File.ReadLines("cachedUsers.conf").Count());
         }
 
         private void disableDescriptions()
@@ -89,36 +90,30 @@ namespace RiskGame
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             //lbAvatar.Text = txtUsername.Text + " (Avatar)";
-            if (txtUsername.Text.Length < 2 || txtUsername.Text.Length > 25)
-            {
+            if (txtUsername.Text.Length < 2 || txtUsername.Text.Length > 25){
                 acceptUsername = false;
             }
-            else
-            {
+            else{
                 acceptUsername = true;
             }
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            if (txtPassword.Text.Length >= 6 && HasSpecialChars(txtPassword.Text) && txtPassword.Text.Any(char.IsDigit) && txtPassword.Text.Any(char.IsUpper))
-            {
+            if (txtPassword.Text.Length >= 6 && txtPassword.Text.Any(char.IsDigit) && txtPassword.Text.Any(char.IsUpper)){
                 acceptPassword = true;
             }
-            else
-            {
+            else{
                 acceptPassword = false;
             }
         }
 
         private void txtConfirmPassword_TextChanged(object sender, EventArgs e)
         {
-            if (txtPassword.Text == txtConfirmPassword.Text)
-            {
+            if (txtPassword.Text == txtConfirmPassword.Text){
                 acceptConfirmPassword = true;
             }
-            else
-            {
+            else{
                 acceptConfirmPassword = false;
             }
         }
@@ -130,38 +125,45 @@ namespace RiskGame
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (!sameAvatar)
+            if(!cbIgnoreRequirements.Checked)
             {
-                if (acceptUsername && acceptPassword && acceptConfirmPassword)
+                if (sameAvatar)
                 {
-                    PublishUser();
+                    MessageBox.Show("Please select an avatar!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (cbIgnoreRequirements.Checked)
+                else if (!acceptUsername)
                 {
-                    PublishUser();
+                    MessageBox.Show("Username must be 2-25 characters in length!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (!acceptPassword)
+                {
+                    MessageBox.Show("Password must be at least 6 characters in length, and contain at least 1 number and 1 uppercase letter!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (!acceptConfirmPassword)
+                {
+                    MessageBox.Show("Passwords must match!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Details!");
+                    PublishUser();
                 }
             }
             else
             {
-                MessageBox.Show("Please select an avatar!");
+                PublishUser();
             }
         }
 
         private void PublishUser()
         {
             //Create a path to the user details
-            string filePath = @"users.conf";
+            string filePath = @"cachedUsers.conf";
             FileStream aFile;
             StreamWriter sw;
 
             try
             {
-                string avatarExtension = Path.GetExtension(absoluteAvatar);
-                File.Copy(absoluteAvatar, $"avatars\\{txtUsername.Text}{avatarExtension}", true);
+                File.Copy(absoluteAvatar, $"avatars\\{txtUsername.Text}.png", true);
 
                 //If a user file doesn't exist, create one
                 if (!File.Exists(filePath))
@@ -174,13 +176,18 @@ namespace RiskGame
                 }
                 sw = new StreamWriter(aFile);
                 string username = txtUsername.Text;
-                string password = txtPassword.Text;
+                string passwordHash = AES.GetHashString(txtPassword.Text);
                 string avatar = pbAvatar.ImageLocation;
+                tmpPlayer.passwordHash = passwordHash;
 
-                sw.WriteLine($"{ID}~{username}~avatars\\{txtUsername.Text}{avatarExtension}~{password}");
+                sw.WriteLine($"{username}~avatars\\{txtUsername.Text}.png~{passwordHash}");
 
                 sw.Dispose();
                 aFile.Dispose();
+
+                tmpPlayer.username = username;
+                tmpPlayer.avatar = $"avatars\\{txtUsername.Text}.png";
+                Serializer.SerializePlayer(tmpPlayer);
 
                 Hide();
                 new frmLogin().Show();
@@ -210,7 +217,7 @@ namespace RiskGame
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = inDir + "\\Pictures";
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.tif;...";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
 
