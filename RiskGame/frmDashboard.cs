@@ -180,7 +180,7 @@ namespace RiskGame
 
         private void frmDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
-            System.IO.Directory.Delete("tmp", true);
+            //System.IO./("tmp", true);
         }
     }
 }

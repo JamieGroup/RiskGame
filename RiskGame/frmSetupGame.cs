@@ -19,7 +19,7 @@ namespace RiskGame
         string other1Name;
         string other2Name;
         int AICount = 0;
-        int rndTime = 3;
+        int rndTime = 1;
 
         public static Plys Player2 = new Plys();
         public static Plys Player3 = new Plys();
@@ -394,7 +394,7 @@ namespace RiskGame
             if (rndTime == 0)
             {
                 tmrRND.Stop();
-                rndTime = 5;
+                rndTime = 1;
             }
         }
 
