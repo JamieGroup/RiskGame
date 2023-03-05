@@ -59,6 +59,7 @@ namespace RiskGame
             {
                 AssignRegions(playerCount + 1);
             }
+            GameStateChanger(3);
         }
 
         public void ReturnToGameScreen()
@@ -689,20 +690,35 @@ namespace RiskGame
         private void GameStateChanger(int changeTo)
         {
             Game.state = changeTo;
-            if (Game.state == 0)
+            if (Game.state == 0) //Deploy
             {
                 INDICATORpnlDeploy.BackColor = (current.accentColour);
             }
-            else if (Game.state == 1)
+            else if (Game.state == 1) //Attack
             {
                 INDICATORpnlDeploy.BackColor = Color.LightGray;
                 INDICATORpnlAttack.BackColor = (current.accentColour);
             }
-            else if (Game.state == 2)
+            else if (Game.state == 2) //Reinforce
             {
                 INDICATORpnlDeploy.BackColor = Color.LightGray;
                 INDICATORpnlAttack.BackColor = Color.LightGray;
                 INDICATORpnlReEnforce.BackColor = (current.accentColour);
+            }
+            else if (Game.state == 3) //Change turns & prompts
+            {
+                //Push to the turn swapper, and play the animation associated with a computer player's turn.
+                //Youtube link: https://youtu.be/dkXek5V-920
+                string html = "html head";
+                html += " meta content='IE=Edge' http-equiv='X-UA-Compatible'/ ";
+                html += " iframe id='video' src= 'https://youtube.com/embed/{0}' width='600' height='300' frameborder='0' allowfullscreen  /iframe ";  
+                html += " /body  /html ";
+                //wbVideo.Link = string.Format(html, "dkXek5V-920");
+
+                //Play youtube video in wbVideo web browser
+                wbVideo.Navigate("https://youtu.be/dkXek5V-920");
+                //wbVideo.Document.Write(html);
+                wbVideo.Refresh();
             }
         }
 
@@ -1279,7 +1295,15 @@ namespace RiskGame
 
         private void btnEndAttackMode_Click(object sender, EventArgs e)
         {
-            GameStateChanger(2);
+            if(Game.state == 1)
+            {
+                GameStateChanger(2);
+                this.Text = "End Reinforcement";
+            }
+            else
+            {
+                GameStateChanger(3);
+            }
         }
 
         private void btnMoveTroops_Click(object sender, EventArgs e)

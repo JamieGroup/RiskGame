@@ -65,6 +65,7 @@ namespace RiskGame
             this.lbTroopsRemainingName = new System.Windows.Forms.Label();
             this.lbSourceName = new System.Windows.Forms.Label();
             this.pnlSource = new System.Windows.Forms.Panel();
+            this.btnMoveTroops = new System.Windows.Forms.Button();
             this.pnlAttackButton = new System.Windows.Forms.Panel();
             this.pnlSelectionBack = new System.Windows.Forms.Panel();
             this.pbSource = new System.Windows.Forms.PictureBox();
@@ -80,7 +81,8 @@ namespace RiskGame
             this.lbTroopCountInfo = new System.Windows.Forms.Label();
             this.pbBase = new System.Windows.Forms.PictureBox();
             this.btnEndAttackMode = new System.Windows.Forms.Button();
-            this.btnMoveTroops = new System.Windows.Forms.Button();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.wbVideo = new System.Windows.Forms.WebBrowser();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -241,6 +243,7 @@ namespace RiskGame
             // 
             // pnlPauseInvite
             // 
+            this.pnlPauseInvite.Controls.Add(this.webBrowser1);
             this.pnlPauseInvite.Controls.Add(this.pbPauseInvite);
             this.pnlPauseInvite.Controls.Add(this.bPauseInvite);
             this.pnlPauseInvite.Location = new System.Drawing.Point(3, 190);
@@ -489,6 +492,17 @@ namespace RiskGame
             this.pnlSource.Size = new System.Drawing.Size(1533, 71);
             this.pnlSource.TabIndex = 9;
             // 
+            // btnMoveTroops
+            // 
+            this.btnMoveTroops.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMoveTroops.Location = new System.Drawing.Point(1323, 4);
+            this.btnMoveTroops.Name = "btnMoveTroops";
+            this.btnMoveTroops.Size = new System.Drawing.Size(200, 67);
+            this.btnMoveTroops.TabIndex = 11;
+            this.btnMoveTroops.Text = "Move Troops!";
+            this.btnMoveTroops.UseVisualStyleBackColor = true;
+            this.btnMoveTroops.Click += new System.EventHandler(this.btnMoveTroops_Click);
+            // 
             // pnlAttackButton
             // 
             this.pnlAttackButton.BackgroundImage = global::RiskGame.Properties.Resources.sourceAttackTarget;
@@ -657,22 +671,27 @@ namespace RiskGame
             this.btnEndAttackMode.UseVisualStyleBackColor = true;
             this.btnEndAttackMode.Click += new System.EventHandler(this.btnEndAttackMode_Click);
             // 
-            // btnMoveTroops
+            // webBrowser1
             // 
-            this.btnMoveTroops.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveTroops.Location = new System.Drawing.Point(1323, 4);
-            this.btnMoveTroops.Name = "btnMoveTroops";
-            this.btnMoveTroops.Size = new System.Drawing.Size(200, 67);
-            this.btnMoveTroops.TabIndex = 11;
-            this.btnMoveTroops.Text = "Move Troops!";
-            this.btnMoveTroops.UseVisualStyleBackColor = true;
-            this.btnMoveTroops.Click += new System.EventHandler(this.btnMoveTroops_Click);
+            this.webBrowser1.Location = new System.Drawing.Point(204, 34);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
+            this.webBrowser1.TabIndex = 0;
+            // 
+            // wbVideo
+            // 
+            this.wbVideo.Location = new System.Drawing.Point(204, 70);
+            this.wbVideo.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbVideo.Name = "wbVideo";
+            this.wbVideo.Size = new System.Drawing.Size(1108, 573);
+            this.wbVideo.TabIndex = 14;
             // 
             // frmGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1538, 774);
+            this.Controls.Add(this.wbVideo);
             this.Controls.Add(this.pnlTroopCounter);
             this.Controls.Add(this.MSGpnlMessageGroup);
             this.Controls.Add(this.pnlSource);
@@ -779,5 +798,7 @@ namespace RiskGame
         private System.Windows.Forms.Panel pnlAttackButton;
         private System.Windows.Forms.Button btnEndAttackMode;
         private System.Windows.Forms.Button btnMoveTroops;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.WebBrowser wbVideo;
     }
 }
