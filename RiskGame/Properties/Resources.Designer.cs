@@ -143,6 +143,16 @@ namespace RiskGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap defaultAvatar {
+            get {
+                object obj = ResourceManager.GetObject("defaultAvatar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DeleteAccount {
             get {
                 object obj = ResourceManager.GetObject("DeleteAccount", resourceCulture);
@@ -325,6 +335,26 @@ namespace RiskGame.Properties {
         internal static System.Drawing.Bitmap OverviewButtonHover {
             get {
                 object obj = ResourceManager.GetObject("OverviewButtonHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap passwordHide {
+            get {
+                object obj = ResourceManager.GetObject("passwordHide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap passwordShow {
+            get {
+                object obj = ResourceManager.GetObject("passwordShow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

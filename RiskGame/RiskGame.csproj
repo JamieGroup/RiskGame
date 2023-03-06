@@ -400,5 +400,14 @@
   <ItemGroup>
     <None Include="Resources\PrivacyPolicy.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\avatars\defaultAvatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passwordHide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passwordShow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

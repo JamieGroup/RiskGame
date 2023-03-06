@@ -716,9 +716,9 @@ namespace RiskGame
                 //wbVideo.Link = string.Format(html, "dkXek5V-920");
 
                 //Play youtube video in wbVideo web browser
-                wbVideo.Navigate("https://youtu.be/dkXek5V-920");
+                //wbVideo.Navigate("https://youtu.be/dkXek5V-920");
                 //wbVideo.Document.Write(html);
-                wbVideo.Refresh();
+                //wbVideo.Refresh();
             }
         }
 

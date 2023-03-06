@@ -42,6 +42,7 @@ namespace RiskGame
             this.pbPauseOverview = new System.Windows.Forms.PictureBox();
             this.lbPauseOverview = new System.Windows.Forms.Label();
             this.pnlPauseInvite = new System.Windows.Forms.Panel();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.pbPauseInvite = new System.Windows.Forms.PictureBox();
             this.bPauseInvite = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,8 +82,6 @@ namespace RiskGame
             this.lbTroopCountInfo = new System.Windows.Forms.Label();
             this.pbBase = new System.Windows.Forms.PictureBox();
             this.btnEndAttackMode = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.wbVideo = new System.Windows.Forms.WebBrowser();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -253,6 +252,13 @@ namespace RiskGame
             this.pnlPauseInvite.Click += new System.EventHandler(this.pnlPauseInvite_Click);
             this.pnlPauseInvite.MouseEnter += new System.EventHandler(this.pnlPauseInvite_MouseEnter);
             this.pnlPauseInvite.MouseLeave += new System.EventHandler(this.pnlPauseInvite_MouseLeave);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(204, 34);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
+            this.webBrowser1.TabIndex = 0;
             // 
             // pbPauseInvite
             // 
@@ -671,27 +677,11 @@ namespace RiskGame
             this.btnEndAttackMode.UseVisualStyleBackColor = true;
             this.btnEndAttackMode.Click += new System.EventHandler(this.btnEndAttackMode_Click);
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(204, 34);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
-            this.webBrowser1.TabIndex = 0;
-            // 
-            // wbVideo
-            // 
-            this.wbVideo.Location = new System.Drawing.Point(204, 70);
-            this.wbVideo.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbVideo.Name = "wbVideo";
-            this.wbVideo.Size = new System.Drawing.Size(1108, 573);
-            this.wbVideo.TabIndex = 14;
-            // 
             // frmGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1538, 774);
-            this.Controls.Add(this.wbVideo);
             this.Controls.Add(this.pnlTroopCounter);
             this.Controls.Add(this.MSGpnlMessageGroup);
             this.Controls.Add(this.pnlSource);
@@ -799,6 +789,5 @@ namespace RiskGame
         private System.Windows.Forms.Button btnEndAttackMode;
         private System.Windows.Forms.Button btnMoveTroops;
         private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.WebBrowser wbVideo;
     }
 }

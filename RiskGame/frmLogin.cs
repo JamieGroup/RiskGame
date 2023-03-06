@@ -129,9 +129,24 @@ namespace RiskGame
             return null;
         }
 
+        private void animateTo(Control ctl, Point destination)
+        {
+
+        }
+
         private void loginUser(string usr)
         {
-            
+            //Move user assets (username&avatar) to the centre, and create a password box, password
+            //hide/show button, and a login button.
+            PictureBox pb = Controls["pb_"+usr] as PictureBox;
+            Label lb = Controls["lb_" + usr] as Label;
+
+            //Dest locations: 
+                //Avatar: 416,99
+                //Username: 443,322
+            AnimateTo
+
+            //Next, slide in the other accounts one by one in on the left.
 
             string inputPassword = Microsoft.VisualBasic.Interaction.InputBox("Enter your password:", usr, "");
             string inputHashed = AES.GetHashString(inputPassword);
