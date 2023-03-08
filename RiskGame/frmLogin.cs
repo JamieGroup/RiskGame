@@ -21,6 +21,10 @@ namespace RiskGame
         static string passwordA = "";
         string passwordHash = "";
 
+        bool moveAssets = false;
+        char moveX;
+        char moveY;
+
         public frmLogin()
         {
 
@@ -131,7 +135,45 @@ namespace RiskGame
 
         private void animateTo(Control ctl, Point destination)
         {
+            int xDiff = destination.X - ctl.Location.X;
+            int yDiff = destination.Y - ctl.Location.Y;
+            //Diffs being >0 means that control has to move right or up
+            //Otherwise move left or down
 
+            moveAssets = true;
+            if(xDiff>0)
+            {
+                moveX = 'R';
+                moveY = 'U';
+            }
+            else
+            {
+                moveX = 'L';
+                moveY = 'D';
+            }
+
+            for(int i = 0; i<Math.Abs(xDiff); i++)
+            {
+                if (xDiff > 0)
+                {
+                    ctl.Location = new Point(ctl.Location.X + 1, ctl.Location.Y);
+                }
+                else
+                {
+                    ctl.Location = new Point(ctl.Location.X - 1, ctl.Location.Y);
+                }
+                if(yDiff>0)
+                {
+                    ctl.Location = new Point(ctl.Location.X, ctl.Location.Y-1);
+                }
+                else
+                {
+                    ctl.Location = new Point(ctl.Location.X, ctl.Location.Y + 1);
+                }
+                xDiff = destination.X - ctl.Location.X;
+                yDiff = destination.Y - ctl.Location.Y;
+            }
+            
         }
 
         private void loginUser(string usr)
@@ -142,9 +184,10 @@ namespace RiskGame
             Label lb = Controls["lb_" + usr] as Label;
 
             //Dest locations: 
-                //Avatar: 416,99
-                //Username: 443,322
-            AnimateTo
+            //Avatar: 416,99
+            //Username: 443,322
+            animateTo(lb,new Point(443, 322));
+            animateTo(pb, new Point(416, 99));
 
             //Next, slide in the other accounts one by one in on the left.
 
