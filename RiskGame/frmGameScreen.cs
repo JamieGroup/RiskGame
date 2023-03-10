@@ -48,7 +48,6 @@ namespace RiskGame
             pnlPause.Location = new Point(-455, 0);
             MSGpnlMessageGroup.Location = new Point(1541, 48);
 
-
             Game.calcPlayers();
             new frmPlayerSwapper().Show();
 

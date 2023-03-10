@@ -36,7 +36,6 @@ namespace RiskGame
                 pbPl3Avatar.Image = Image.FromFile(pathPl3);
             }
 
-
             frmLogin.human.troopPocket = 4;
             frmGameScreen.Pl2.troopPocket = 4;
             frmGameScreen.Pl3.troopPocket = 4;
@@ -102,6 +101,21 @@ namespace RiskGame
         private void pbTradeCards_Click(object sender, EventArgs e)
         {
             Trade();
+        }
+
+        private void wmpVideoAI_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if ((WMPLib.WMPPlayState)e.newState == WMPLib.WMPPlayState.wmppsMediaEnded || (WMPLib.WMPPlayState)e.newState == WMPLib.WMPPlayState.wmppsStopped)
+            {
+                wmpVideoAI.Visible = false;
+            }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            wmpVideoAI.Visible = true;
+            wmpVideoAI.URL = "https://drive.google.com/uc?export=download&id=1NCDCZHX6m9sSV6z2E71ASZx923Ai2spI";
+            wmpVideoAI.BringToFront();
         }
     }
 }

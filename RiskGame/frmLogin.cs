@@ -186,8 +186,8 @@ namespace RiskGame
             //Dest locations: 
             //Avatar: 416,99
             //Username: 443,322
-            animateTo(lb,new Point(443, 322));
-            animateTo(pb, new Point(416, 99));
+            //animateTo(lb,new Point(443, 322));
+            //animateTo(pb, new Point(416, 99));
 
             //Next, slide in the other accounts one by one in on the left.
 
