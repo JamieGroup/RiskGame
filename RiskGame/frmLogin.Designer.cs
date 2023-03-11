@@ -34,25 +34,37 @@ namespace RiskGame
             this.DEBUGbtnSkipToGame = new System.Windows.Forms.Button();
             this.DEBUG_cbFirstLaunch = new System.Windows.Forms.CheckBox();
             this.DEBUGcbIgnoreAssigned = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pbNewUser = new System.Windows.Forms.PictureBox();
+            this.lbBigUsername = new System.Windows.Forms.Label();
+            this.txtBigPassword = new System.Windows.Forms.TextBox();
+            this.btnBigLogin = new System.Windows.Forms.Button();
+            this.pnlBigUsernameHolder = new System.Windows.Forms.Panel();
+            this.pnlBigCredentialsHolder = new System.Windows.Forms.Panel();
+            this.pnl_Sidebar_0 = new System.Windows.Forms.Panel();
+            this.pbBigAvatar = new System.Windows.Forms.PictureBox();
+            this.pbBigShow = new System.Windows.Forms.PictureBox();
             this.pbNewArrow = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbNewUser = new System.Windows.Forms.PictureBox();
+            this.btnDifferentAccount = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pnlBigUsernameHolder.SuspendLayout();
+            this.pnlBigCredentialsHolder.SuspendLayout();
+            this.pnl_Sidebar_0.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBigAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBigShow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNewUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNewArrow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(395, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(272, 45);
@@ -62,10 +74,12 @@ namespace RiskGame
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(376, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(308, 32);
+            this.label2.Size = new System.Drawing.Size(307, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Please select your account.";
             // 
@@ -104,75 +118,90 @@ namespace RiskGame
             this.DEBUGcbIgnoreAssigned.UseVisualStyleBackColor = true;
             this.DEBUGcbIgnoreAssigned.CheckedChanged += new System.EventHandler(this.DEBUGcbIgnoreAssigned_CheckedChanged);
             // 
-            // label3
+            // lbBigUsername
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(443, 322);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 45);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Username";
+            this.lbBigUsername.AutoSize = true;
+            this.lbBigUsername.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBigUsername.ForeColor = System.Drawing.Color.White;
+            this.lbBigUsername.Location = new System.Drawing.Point(161, 0);
+            this.lbBigUsername.Name = "lbBigUsername";
+            this.lbBigUsername.Size = new System.Drawing.Size(163, 45);
+            this.lbBigUsername.TabIndex = 11;
+            this.lbBigUsername.Text = "Username";
             // 
-            // textBox1
+            // txtBigPassword
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(416, 370);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 29);
-            this.textBox1.TabIndex = 12;
+            this.txtBigPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBigPassword.Location = new System.Drawing.Point(139, 272);
+            this.txtBigPassword.Name = "txtBigPassword";
+            this.txtBigPassword.Size = new System.Drawing.Size(220, 29);
+            this.txtBigPassword.TabIndex = 12;
             // 
-            // pictureBox3
+            // btnBigLogin
             // 
-            this.pictureBox3.Image = global::RiskGame.Properties.Resources.passwordShow;
-            this.pictureBox3.Location = new System.Drawing.Point(640, 364);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 44);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
+            this.btnBigLogin.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBigLogin.Location = new System.Drawing.Point(139, 323);
+            this.btnBigLogin.Name = "btnBigLogin";
+            this.btnBigLogin.Size = new System.Drawing.Size(220, 40);
+            this.btnBigLogin.TabIndex = 14;
+            this.btnBigLogin.Text = "Login";
+            this.btnBigLogin.UseVisualStyleBackColor = true;
+            this.btnBigLogin.Click += new System.EventHandler(this.btnBigLogin_Click);
             // 
-            // pictureBox2
+            // pnlBigUsernameHolder
             // 
-            this.pictureBox2.Image = global::RiskGame.Properties.Resources.defaultAvatar;
-            this.pictureBox2.Location = new System.Drawing.Point(416, 99);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(220, 220);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
+            this.pnlBigUsernameHolder.Controls.Add(this.lbBigUsername);
+            this.pnlBigUsernameHolder.Location = new System.Drawing.Point(4, 222);
+            this.pnlBigUsernameHolder.Name = "pnlBigUsernameHolder";
+            this.pnlBigUsernameHolder.Size = new System.Drawing.Size(509, 50);
+            this.pnlBigUsernameHolder.TabIndex = 15;
             // 
-            // pictureBox1
+            // pnlBigCredentialsHolder
             // 
-            this.pictureBox1.Image = global::RiskGame.Properties.Resources.AddNewUser;
-            this.pictureBox1.Location = new System.Drawing.Point(800, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(221, 85);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pnlBigCredentialsHolder.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBigCredentialsHolder.Controls.Add(this.btnDifferentAccount);
+            this.pnlBigCredentialsHolder.Controls.Add(this.pbBigAvatar);
+            this.pnlBigCredentialsHolder.Controls.Add(this.txtBigPassword);
+            this.pnlBigCredentialsHolder.Controls.Add(this.pbBigShow);
+            this.pnlBigCredentialsHolder.Controls.Add(this.pnlBigUsernameHolder);
+            this.pnlBigCredentialsHolder.Controls.Add(this.btnBigLogin);
+            this.pnlBigCredentialsHolder.Location = new System.Drawing.Point(272, 114);
+            this.pnlBigCredentialsHolder.Name = "pnlBigCredentialsHolder";
+            this.pnlBigCredentialsHolder.Size = new System.Drawing.Size(516, 429);
+            this.pnlBigCredentialsHolder.TabIndex = 16;
+            this.pnlBigCredentialsHolder.Visible = false;
             // 
-            // button1
+            // pnl_Sidebar_0
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(416, 421);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 40);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.pnl_Sidebar_0.BackColor = System.Drawing.SystemColors.Control;
+            this.pnl_Sidebar_0.Controls.Add(this.label3);
+            this.pnl_Sidebar_0.Controls.Add(this.pictureBox2);
+            this.pnl_Sidebar_0.Location = new System.Drawing.Point(-250, 0);
+            this.pnl_Sidebar_0.Name = "pnl_Sidebar_0";
+            this.pnl_Sidebar_0.Size = new System.Drawing.Size(250, 100);
+            this.pnl_Sidebar_0.TabIndex = 17;
             // 
-            // pbNewUser
+            // pbBigAvatar
             // 
-            this.pbNewUser.BackColor = System.Drawing.Color.Transparent;
-            this.pbNewUser.Image = global::RiskGame.Properties.Resources.loginNewUserPrompt;
-            this.pbNewUser.Location = new System.Drawing.Point(810, 566);
-            this.pbNewUser.Name = "pbNewUser";
-            this.pbNewUser.Size = new System.Drawing.Size(344, 110);
-            this.pbNewUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbNewUser.TabIndex = 7;
-            this.pbNewUser.TabStop = false;
+            this.pbBigAvatar.Image = global::RiskGame.Properties.Resources.defaultAvatar;
+            this.pbBigAvatar.Location = new System.Drawing.Point(139, 1);
+            this.pbBigAvatar.Name = "pbBigAvatar";
+            this.pbBigAvatar.Size = new System.Drawing.Size(220, 220);
+            this.pbBigAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBigAvatar.TabIndex = 10;
+            this.pbBigAvatar.TabStop = false;
+            // 
+            // pbBigShow
+            // 
+            this.pbBigShow.Image = global::RiskGame.Properties.Resources.passwordShow;
+            this.pbBigShow.Location = new System.Drawing.Point(363, 266);
+            this.pbBigShow.Name = "pbBigShow";
+            this.pbBigShow.Size = new System.Drawing.Size(40, 44);
+            this.pbBigShow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBigShow.TabIndex = 13;
+            this.pbBigShow.TabStop = false;
+            this.pbBigShow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBigShow_MouseDown);
+            this.pbBigShow.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbBigShow_MouseUp);
             // 
             // pbNewArrow
             // 
@@ -186,16 +215,68 @@ namespace RiskGame
             this.pbNewArrow.TabStop = false;
             this.pbNewArrow.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::RiskGame.Properties.Resources.AddNewUser;
+            this.pictureBox1.Location = new System.Drawing.Point(800, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(221, 85);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pbNewUser
+            // 
+            this.pbNewUser.BackColor = System.Drawing.Color.Transparent;
+            this.pbNewUser.Image = global::RiskGame.Properties.Resources.loginNewUserPrompt;
+            this.pbNewUser.Location = new System.Drawing.Point(814, 574);
+            this.pbNewUser.Name = "pbNewUser";
+            this.pbNewUser.Size = new System.Drawing.Size(344, 110);
+            this.pbNewUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbNewUser.TabIndex = 7;
+            this.pbNewUser.TabStop = false;
+            this.pbNewUser.Visible = false;
+            // 
+            // btnDifferentAccount
+            // 
+            this.btnDifferentAccount.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.btnDifferentAccount.Location = new System.Drawing.Point(139, 369);
+            this.btnDifferentAccount.Name = "btnDifferentAccount";
+            this.btnDifferentAccount.Size = new System.Drawing.Size(220, 37);
+            this.btnDifferentAccount.TabIndex = 16;
+            this.btnDifferentAccount.Text = "That\'s not me!";
+            this.btnDifferentAccount.UseVisualStyleBackColor = true;
+            this.btnDifferentAccount.Click += new System.EventHandler(this.btnDifferentAccount_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(90, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(175, 30);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "NAMEGOESHERE";
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::RiskGame.Properties.Resources.loginBackground2;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1033, 583);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pnl_Sidebar_0);
+            this.Controls.Add(this.pnlBigCredentialsHolder);
             this.Controls.Add(this.pbNewArrow);
             this.Controls.Add(this.DEBUGcbIgnoreAssigned);
             this.Controls.Add(this.DEBUGbtnSkipToGame);
@@ -204,14 +285,22 @@ namespace RiskGame
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbNewUser);
+            this.DoubleBuffered = true;
             this.Name = "frmLogin";
             this.Text = "Risk: Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnlBigUsernameHolder.ResumeLayout(false);
+            this.pnlBigUsernameHolder.PerformLayout();
+            this.pnlBigCredentialsHolder.ResumeLayout(false);
+            this.pnlBigCredentialsHolder.PerformLayout();
+            this.pnl_Sidebar_0.ResumeLayout(false);
+            this.pnl_Sidebar_0.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBigAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBigShow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNewUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNewArrow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,12 +314,18 @@ namespace RiskGame
         private System.Windows.Forms.Button DEBUGbtnSkipToGame;
         private System.Windows.Forms.CheckBox DEBUG_cbFirstLaunch;
         private System.Windows.Forms.CheckBox DEBUGcbIgnoreAssigned;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pbBigAvatar;
+        private System.Windows.Forms.Label lbBigUsername;
+        private System.Windows.Forms.TextBox txtBigPassword;
+        private System.Windows.Forms.PictureBox pbBigShow;
+        private System.Windows.Forms.Button btnBigLogin;
         private System.Windows.Forms.PictureBox pbNewUser;
         private System.Windows.Forms.PictureBox pbNewArrow;
+        private System.Windows.Forms.Panel pnlBigUsernameHolder;
+        private System.Windows.Forms.Panel pnlBigCredentialsHolder;
+        private System.Windows.Forms.Panel pnl_Sidebar_0;
+        private System.Windows.Forms.Button btnDifferentAccount;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label3;
     }
 }

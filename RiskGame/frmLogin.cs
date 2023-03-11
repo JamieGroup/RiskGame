@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace RiskGame
 {
@@ -56,6 +57,8 @@ namespace RiskGame
                     currentLine++;
                 }
             }
+
+            txtBigPassword.PasswordChar = '*';
         }
 
         private void AddToScreen(string username, string avatar, string password)
@@ -84,6 +87,7 @@ namespace RiskGame
             }
             pnl.Location = new Point(x, y);
             pnl.Size = new Size(135, 180);
+            pnl.BackColor = Color.Transparent;
             this.Controls.Add(pnl);
 
             PictureBox pb = new PictureBox();
@@ -93,6 +97,7 @@ namespace RiskGame
             pb.Size = new Size(135, 135);
             pb.ImageLocation = @avatar;
             pb.SizeMode = PictureBoxSizeMode.Zoom;
+            pb.BackColor = Color.Transparent;
             pnl.Controls.Add(pb);
 
             Label lb = new Label();
@@ -103,6 +108,8 @@ namespace RiskGame
             lb.TextAlign = ContentAlignment.MiddleCenter;
             lb.Left = (pnl.ClientSize.Width / 2) - (lb.Width / 2);
             lb.Location = new Point(lb.Left, 142);
+            lb.BackColor = Color.Transparent;
+            lb.ForeColor = Color.White;
             pnl.Controls.Add(lb);
         }
 
@@ -133,70 +140,102 @@ namespace RiskGame
             return null;
         }
 
-        private void animateTo(Control ctl, Point destination)
-        {
-            int xDiff = destination.X - ctl.Location.X;
-            int yDiff = destination.Y - ctl.Location.Y;
-            //Diffs being >0 means that control has to move right or up
-            //Otherwise move left or down
-
-            moveAssets = true;
-            if(xDiff>0)
-            {
-                moveX = 'R';
-                moveY = 'U';
-            }
-            else
-            {
-                moveX = 'L';
-                moveY = 'D';
-            }
-
-            for(int i = 0; i<Math.Abs(xDiff); i++)
-            {
-                if (xDiff > 0)
-                {
-                    ctl.Location = new Point(ctl.Location.X + 1, ctl.Location.Y);
-                }
-                else
-                {
-                    ctl.Location = new Point(ctl.Location.X - 1, ctl.Location.Y);
-                }
-                if(yDiff>0)
-                {
-                    ctl.Location = new Point(ctl.Location.X, ctl.Location.Y-1);
-                }
-                else
-                {
-                    ctl.Location = new Point(ctl.Location.X, ctl.Location.Y + 1);
-                }
-                xDiff = destination.X - ctl.Location.X;
-                yDiff = destination.Y - ctl.Location.Y;
-            }
-            
-        }
-
         private void loginUser(string usr)
         {
-            //Move user assets (username&avatar) to the centre, and create a password box, password
-            //hide/show button, and a login button.
-            PictureBox pb = Controls["pb_"+usr] as PictureBox;
-            Label lb = Controls["lb_" + usr] as Label;
+            //Make all panels invisible
+            foreach (Control c in this.Controls)
+            {
+                if (c is Panel)
+                {
+                    c.Visible = false;
+                }
+            }
 
-            //Dest locations: 
-            //Avatar: 416,99
-            //Username: 443,322
-            //animateTo(lb,new Point(443, 322));
-            //animateTo(pb, new Point(416, 99));
+            pnlBigCredentialsHolder.Visible = true;
+            pnl_Sidebar_0.Visible = true;
+            
+            // Read in the details from the users.txt file
+            string[] userDetails = File.ReadAllLines("cachedUsers.conf");
+            int currentLine = 1;
+            foreach (string user in userDetails)
+            {
+                if (user.Split('~')[0]==usr)
+                {
+                    pbBigAvatar.ImageLocation = user.Split('~')[1];
+                    lbBigUsername.Text = usr;
+                    lbBigUsername.TextAlign = ContentAlignment.MiddleCenter;
+                    lbBigUsername.Left = (pnlBigUsernameHolder.ClientSize.Width / 2) - (lbBigUsername.Width / 2);
+                    txtBigPassword.PasswordChar = '*';
+                }
+
+                Panel pnl = new Panel();
+                pnl.Name = "pnl_Sidebar_" + user.Split('~')[0];
+                pnl.Location = new Point(-250, currentLine*100);
+                pnl.Size = new Size(250, 100);
+                pnl.Visible = true;
+                Controls.Add(pnl);
+                
+                PictureBox pb = new PictureBox();
+                pb.ImageLocation = user.Split('~')[1];
+                pb.Size = new Size(75, 75);
+                pb.Location = new Point(10, 10);
+                pb.Name = "pb_Sidebar_" + user.Split('~')[0];
+                pb.SizeMode = PictureBoxSizeMode.Zoom;
+                pnl.Controls.Add(pb);
+
+                Label lb = new Label();
+                lb.Font = new Font("Segoe UI", 16);
+                lb.Name = "lb_Sidebar_" + user.Split('~')[0];
+                lb.Text = user.Split('~')[0];
+                lb.Location = new Point(90, 35);
+                lb.AutoSize = false;
+                lb.Size = new Size(200, 50); // set width and height
+                pnl.Controls.Add(lb);
+
+                //animateTo(pnl, new Point(0, currentLine * 100));
+
+                currentLine++;
+            }
 
             //Next, slide in the other accounts one by one in on the left.
+            //animateTo(pnl_Sidebar_0, new Point(0,0));
+        }
 
-            string inputPassword = Microsoft.VisualBasic.Interaction.InputBox("Enter your password:", usr, "");
-            string inputHashed = AES.GetHashString(inputPassword);
-            if(inputHashed == getPasswordHash(usr))
+        private void animateTo(Control ctl, Point pt)
+        {
+            ctl.BringToFront();
+            Point current = ctl.Location;
+
+            while (current != pt)
+            {
+                if (current.X < pt.X)
+                    current.X+=40;
+                else if (current.X > pt.X)
+                    current.X -= 40;
+                if (current.Y < pt.Y)
+                    current.Y += 40;
+                else if (current.Y > pt.Y)
+                    current.Y -= 40;
+                
+                // update the control's location using Control.Invoke
+                ctl.Invoke((MethodInvoker)delegate
+                {
+                    ctl.Location = current;
+                });
+
+                ctl.Refresh();
+                Thread.Sleep(1);
+            }
+        }
+
+        private void btnBigLogin_Click(object sender, EventArgs e)
+        {
+            string usr = lbBigUsername.Text;
+            string inputHashed = AES.GetHashString(txtBigPassword.Text);
+            if (inputHashed == getPasswordHash(usr))
             {
                 //Login!
-                human = Serializer.DeserializePlayer(usr, inputPassword);
+                human = Serializer.DeserializePlayer(usr, txtBigPassword.Text);
 
                 Hide();
                 new frmDashboard().Show();
@@ -253,6 +292,33 @@ namespace RiskGame
         private void newProgressBar1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbBigShow_MouseDown(object sender, MouseEventArgs e)
+        {
+            pbBigShow.Image = Properties.Resources.passwordHide;
+            txtBigPassword.PasswordChar = '\0';
+        }
+
+        private void pbBigShow_MouseUp(object sender, MouseEventArgs e)
+        {
+            pbBigShow.Image = Properties.Resources.passwordShow;
+            txtBigPassword.PasswordChar = '*';
+        }
+
+        private void btnDifferentAccount_Click(object sender, EventArgs e)
+        {
+            //Make all panels in the form visible
+            foreach (Control c in this.Controls)
+            {
+                if (c is Panel)
+                {
+                    c.Visible = true;
+                }
+            }
+
+            pnlBigCredentialsHolder.Visible = false;
+            pnl_Sidebar_0.Visible = false;
         }
     }
 }

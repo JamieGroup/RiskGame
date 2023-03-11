@@ -59,7 +59,9 @@ namespace RiskGame
             // lbCreate
             // 
             this.lbCreate.AutoSize = true;
+            this.lbCreate.BackColor = System.Drawing.Color.Transparent;
             this.lbCreate.Font = new System.Drawing.Font("Product Sans", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCreate.ForeColor = System.Drawing.Color.White;
             this.lbCreate.Location = new System.Drawing.Point(100, 9);
             this.lbCreate.Name = "lbCreate";
             this.lbCreate.Size = new System.Drawing.Size(316, 47);
@@ -80,6 +82,7 @@ namespace RiskGame
             // 
             this.lbUsername.AutoSize = true;
             this.lbUsername.Font = new System.Drawing.Font("Product Sans", 24F);
+            this.lbUsername.ForeColor = System.Drawing.Color.White;
             this.lbUsername.Location = new System.Drawing.Point(-7, -4);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(160, 41);
@@ -110,6 +113,7 @@ namespace RiskGame
             // 
             this.lbPassword.AutoSize = true;
             this.lbPassword.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.ForeColor = System.Drawing.Color.White;
             this.lbPassword.Location = new System.Drawing.Point(-7, 0);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(152, 41);
@@ -130,6 +134,7 @@ namespace RiskGame
             // 
             this.lbConfirmPassword.AutoSize = true;
             this.lbConfirmPassword.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConfirmPassword.ForeColor = System.Drawing.Color.White;
             this.lbConfirmPassword.Location = new System.Drawing.Point(-7, 0);
             this.lbConfirmPassword.Name = "lbConfirmPassword";
             this.lbConfirmPassword.Size = new System.Drawing.Size(274, 41);
@@ -150,7 +155,9 @@ namespace RiskGame
             // lbUsernameDescription
             // 
             this.lbUsernameDescription.AutoSize = true;
+            this.lbUsernameDescription.BackColor = System.Drawing.Color.Transparent;
             this.lbUsernameDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsernameDescription.ForeColor = System.Drawing.Color.White;
             this.lbUsernameDescription.Location = new System.Drawing.Point(295, 163);
             this.lbUsernameDescription.Name = "lbUsernameDescription";
             this.lbUsernameDescription.Size = new System.Drawing.Size(482, 63);
@@ -159,6 +166,7 @@ namespace RiskGame
             // 
             // pnlUsername
             // 
+            this.pnlUsername.BackColor = System.Drawing.Color.Transparent;
             this.pnlUsername.Controls.Add(this.lbUsername);
             this.pnlUsername.Controls.Add(this.txtUsername);
             this.pnlUsername.Location = new System.Drawing.Point(299, 75);
@@ -168,6 +176,7 @@ namespace RiskGame
             // 
             // pnlPassword
             // 
+            this.pnlPassword.BackColor = System.Drawing.Color.Transparent;
             this.pnlPassword.Controls.Add(this.lbPassword);
             this.pnlPassword.Controls.Add(this.txtPassword);
             this.pnlPassword.Location = new System.Drawing.Point(299, 183);
@@ -177,6 +186,7 @@ namespace RiskGame
             // 
             // pnlConfirmPassword
             // 
+            this.pnlConfirmPassword.BackColor = System.Drawing.Color.Transparent;
             this.pnlConfirmPassword.Controls.Add(this.lbConfirmPassword);
             this.pnlConfirmPassword.Controls.Add(this.txtConfirmPassword);
             this.pnlConfirmPassword.Location = new System.Drawing.Point(299, 297);
@@ -187,7 +197,9 @@ namespace RiskGame
             // lbPasswordDescription
             // 
             this.lbPasswordDescription.AutoSize = true;
+            this.lbPasswordDescription.BackColor = System.Drawing.Color.Transparent;
             this.lbPasswordDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPasswordDescription.ForeColor = System.Drawing.Color.White;
             this.lbPasswordDescription.Location = new System.Drawing.Point(295, 273);
             this.lbPasswordDescription.Name = "lbPasswordDescription";
             this.lbPasswordDescription.Size = new System.Drawing.Size(468, 63);
@@ -199,7 +211,9 @@ namespace RiskGame
             // lbConfirmDescription
             // 
             this.lbConfirmDescription.AutoSize = true;
+            this.lbConfirmDescription.BackColor = System.Drawing.Color.Transparent;
             this.lbConfirmDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConfirmDescription.ForeColor = System.Drawing.Color.White;
             this.lbConfirmDescription.Location = new System.Drawing.Point(299, 391);
             this.lbConfirmDescription.Name = "lbConfirmDescription";
             this.lbConfirmDescription.Size = new System.Drawing.Size(347, 21);
@@ -209,20 +223,24 @@ namespace RiskGame
             // cbIgnoreRequirements
             // 
             this.cbIgnoreRequirements.AutoSize = true;
+            this.cbIgnoreRequirements.BackColor = System.Drawing.Color.Transparent;
             this.cbIgnoreRequirements.Checked = true;
             this.cbIgnoreRequirements.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbIgnoreRequirements.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIgnoreRequirements.ForeColor = System.Drawing.Color.White;
             this.cbIgnoreRequirements.Location = new System.Drawing.Point(563, 9);
             this.cbIgnoreRequirements.Name = "cbIgnoreRequirements";
             this.cbIgnoreRequirements.Size = new System.Drawing.Size(225, 34);
             this.cbIgnoreRequirements.TabIndex = 15;
             this.cbIgnoreRequirements.Text = "Ignore Requirements";
-            this.cbIgnoreRequirements.UseVisualStyleBackColor = true;
+            this.cbIgnoreRequirements.UseVisualStyleBackColor = false;
             // 
             // lbAvatar
             // 
             this.lbAvatar.AutoSize = true;
+            this.lbAvatar.BackColor = System.Drawing.Color.Transparent;
             this.lbAvatar.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAvatar.ForeColor = System.Drawing.Color.White;
             this.lbAvatar.Location = new System.Drawing.Point(76, 250);
             this.lbAvatar.Name = "lbAvatar";
             this.lbAvatar.Size = new System.Drawing.Size(108, 41);
@@ -232,7 +250,9 @@ namespace RiskGame
             // lbAvatarDescrption
             // 
             this.lbAvatarDescrption.AutoSize = true;
+            this.lbAvatarDescrption.BackColor = System.Drawing.Color.Transparent;
             this.lbAvatarDescrption.Font = new System.Drawing.Font("Product Sans", 12F);
+            this.lbAvatarDescrption.ForeColor = System.Drawing.Color.White;
             this.lbAvatarDescrption.Location = new System.Drawing.Point(16, 291);
             this.lbAvatarDescrption.Name = "lbAvatarDescrption";
             this.lbAvatarDescrption.Size = new System.Drawing.Size(246, 60);
@@ -255,6 +275,8 @@ namespace RiskGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::RiskGame.Properties.Resources.loginBackground3;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pbAvatar);
             this.Controls.Add(this.lbAvatarDescrption);

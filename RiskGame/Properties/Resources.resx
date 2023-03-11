@@ -310,4 +310,13 @@
   <data name="passwordShow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\passwordShow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="loginBackground1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\abstract-flat-geometric-shape-background-free-vector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loginBackground2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Creative_Geometric_Background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loginBackground3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\v1016-c-08_1-ksh6mza3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

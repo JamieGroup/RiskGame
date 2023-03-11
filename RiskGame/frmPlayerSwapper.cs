@@ -113,9 +113,14 @@ namespace RiskGame
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            wmpVideoAI.Visible = true;
-            wmpVideoAI.URL = "https://drive.google.com/uc?export=download&id=1NCDCZHX6m9sSV6z2E71ASZx923Ai2spI";
-            wmpVideoAI.BringToFront();
+            //Show a message box asking if the user has their audio unmuted
+            if (MessageBox.Show("Please now unmute your audio, then click 'Ok' to continue.\r\nInfo: The following video is being streamed from Google Drive so may take a moment to download.", "Unmute your Audio", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                //If yes, play the video
+                wmpVideoAI.Visible = true;
+                wmpVideoAI.URL = "https://drive.google.com/uc?export=download&id=1NCDCZHX6m9sSV6z2E71ASZx923Ai2spI";
+                wmpVideoAI.BringToFront();
+            }
         }
     }
 }

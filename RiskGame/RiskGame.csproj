@@ -428,5 +428,14 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-flat-geometric-shape-background-free-vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Creative_Geometric_Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\v1016-c-08_1-ksh6mza3.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
