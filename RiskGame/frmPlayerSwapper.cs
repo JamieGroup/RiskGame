@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows;
 
 namespace RiskGame
 {
@@ -103,24 +104,20 @@ namespace RiskGame
             Trade();
         }
 
-        private void wmpVideoAI_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
-        {
-            if ((WMPLib.WMPPlayState)e.newState == WMPLib.WMPPlayState.wmppsMediaEnded || (WMPLib.WMPPlayState)e.newState == WMPLib.WMPPlayState.wmppsStopped)
-            {
-                wmpVideoAI.Visible = false;
-            }
-        }
-
         private void btnHelp_Click(object sender, EventArgs e)
         {
             //Show a message box asking if the user has their audio unmuted
             if (MessageBox.Show("Please now unmute your audio, then click 'Ok' to continue.\r\nInfo: The following video is being streamed from Google Drive so may take a moment to download.", "Unmute your Audio", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 //If yes, play the video
-                wmpVideoAI.Visible = true;
-                wmpVideoAI.URL = "https://drive.google.com/uc?export=download&id=1NCDCZHX6m9sSV6z2E71ASZx923Ai2spI";
-                wmpVideoAI.BringToFront();
+                webBrowser1.Navigate("https://drive.google.com/uc?export=download&id=1NCDCZHX6m9sSV6z2E71ASZx923Ai2spI");
+                
             }
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
         }
     }
 }

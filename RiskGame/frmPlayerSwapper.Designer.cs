@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlayerSwapper));
             this.label1 = new System.Windows.Forms.Label();
             this.lbPl1Username = new System.Windows.Forms.Label();
             this.pnlPlayer1 = new System.Windows.Forms.Panel();
@@ -41,7 +40,6 @@
             this.pbPl3Avatar = new System.Windows.Forms.PictureBox();
             this.pnlStripe = new System.Windows.Forms.Panel();
             this.pbTradeCards = new System.Windows.Forms.PictureBox();
-            this.wmpVideoAI = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnHelp = new System.Windows.Forms.Button();
             this.pnlPlayer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPl1Avatar)).BeginInit();
@@ -50,7 +48,6 @@
             this.pnlPlayer3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPl3Avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTradeCards)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wmpVideoAI)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -169,17 +166,6 @@
             this.pbTradeCards.TabStop = false;
             this.pbTradeCards.Click += new System.EventHandler(this.pbTradeCards_Click);
             // 
-            // wmpVideoAI
-            // 
-            this.wmpVideoAI.Enabled = true;
-            this.wmpVideoAI.Location = new System.Drawing.Point(0, 0);
-            this.wmpVideoAI.Name = "wmpVideoAI";
-            this.wmpVideoAI.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmpVideoAI.OcxState")));
-            this.wmpVideoAI.Size = new System.Drawing.Size(1034, 624);
-            this.wmpVideoAI.TabIndex = 10;
-            this.wmpVideoAI.Visible = false;
-            this.wmpVideoAI.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.wmpVideoAI_PlayStateChange);
-            // 
             // btnHelp
             // 
             this.btnHelp.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -198,7 +184,6 @@
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(1032, 621);
             this.Controls.Add(this.btnHelp);
-            this.Controls.Add(this.wmpVideoAI);
             this.Controls.Add(this.pbTradeCards);
             this.Controls.Add(this.pnlStripe);
             this.Controls.Add(this.pnlPlayer3);
@@ -218,7 +203,6 @@
             this.pnlPlayer3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPl3Avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTradeCards)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wmpVideoAI)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,7 +222,6 @@
         private System.Windows.Forms.Label lbPl3Username;
         private System.Windows.Forms.Panel pnlStripe;
         private System.Windows.Forms.PictureBox pbTradeCards;
-        private AxWMPLib.AxWindowsMediaPlayer wmpVideoAI;
         private System.Windows.Forms.Button btnHelp;
     }
 }
