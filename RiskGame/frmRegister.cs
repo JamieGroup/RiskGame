@@ -90,12 +90,27 @@ namespace RiskGame
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             //lbAvatar.Text = txtUsername.Text + " (Avatar)";
-            if (txtUsername.Text.Length < 2 || txtUsername.Text.Length > 25){
+            if (txtUsername.Text.Length < 2 || txtUsername.Text.Length > 25 || userInUse(txtUsername.Text)){
                 acceptUsername = false;
             }
             else{
                 acceptUsername = true;
             }
+        }
+
+        private bool userInUse(string usr)
+        {
+            bool inUse = false;
+            string[] usernames = File.ReadAllLines("cachedUsers.conf");
+            int i = 0;
+            foreach (string user in usernames)
+            {
+                usernames[i] = usernames[i].Split('~')[0];
+                i++;
+            }
+            if (usernames.Contains(usr))
+                inUse = true;
+            return inUse;
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
@@ -148,9 +163,13 @@ namespace RiskGame
                     PublishUser();
                 }
             }
-            else
+            else if(!userInUse(txtUsername.Text))
             {
                 PublishUser();
+            }
+            else
+            {
+                MessageBox.Show("This user already exists! \r\nTry logging in again, or reset your password.", "User in use");
             }
         }
 
