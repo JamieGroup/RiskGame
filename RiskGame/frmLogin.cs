@@ -320,5 +320,26 @@ namespace RiskGame
             pnlBigCredentialsHolder.Visible = false;
             pnl_Sidebar_0.Visible = false;
         }
+
+        private void txtBigPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((int)e.KeyChar == (int)Keys.Enter)
+            {
+                string usr = lbBigUsername.Text;
+                string inputHashed = AES.GetHashString(txtBigPassword.Text);
+                if (inputHashed == getPasswordHash(usr))
+                {
+                    //Login!
+                    human = Serializer.DeserializePlayer(usr, txtBigPassword.Text);
+
+                    Hide();
+                    new frmDashboard().Show();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Password! 3 attempts left.");
+                }
+            }
+        }
     }
 }

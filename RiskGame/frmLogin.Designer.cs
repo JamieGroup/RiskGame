@@ -39,24 +39,24 @@ namespace RiskGame
             this.btnBigLogin = new System.Windows.Forms.Button();
             this.pnlBigUsernameHolder = new System.Windows.Forms.Panel();
             this.pnlBigCredentialsHolder = new System.Windows.Forms.Panel();
-            this.pnl_Sidebar_0 = new System.Windows.Forms.Panel();
+            this.btnDifferentAccount = new System.Windows.Forms.Button();
             this.pbBigAvatar = new System.Windows.Forms.PictureBox();
             this.pbBigShow = new System.Windows.Forms.PictureBox();
+            this.pnl_Sidebar_0 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pbNewArrow = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbNewUser = new System.Windows.Forms.PictureBox();
-            this.btnDifferentAccount = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.pnlBigUsernameHolder.SuspendLayout();
             this.pnlBigCredentialsHolder.SuspendLayout();
-            this.pnl_Sidebar_0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBigAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBigShow)).BeginInit();
+            this.pnl_Sidebar_0.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNewArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNewUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -79,7 +79,7 @@ namespace RiskGame
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(376, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(307, 32);
+            this.label2.Size = new System.Drawing.Size(308, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Please select your account.";
             // 
@@ -136,6 +136,7 @@ namespace RiskGame
             this.txtBigPassword.Name = "txtBigPassword";
             this.txtBigPassword.Size = new System.Drawing.Size(220, 29);
             this.txtBigPassword.TabIndex = 12;
+            this.txtBigPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBigPassword_KeyPress);
             // 
             // btnBigLogin
             // 
@@ -171,15 +172,16 @@ namespace RiskGame
             this.pnlBigCredentialsHolder.TabIndex = 16;
             this.pnlBigCredentialsHolder.Visible = false;
             // 
-            // pnl_Sidebar_0
+            // btnDifferentAccount
             // 
-            this.pnl_Sidebar_0.BackColor = System.Drawing.SystemColors.Control;
-            this.pnl_Sidebar_0.Controls.Add(this.label3);
-            this.pnl_Sidebar_0.Controls.Add(this.pictureBox2);
-            this.pnl_Sidebar_0.Location = new System.Drawing.Point(-250, 0);
-            this.pnl_Sidebar_0.Name = "pnl_Sidebar_0";
-            this.pnl_Sidebar_0.Size = new System.Drawing.Size(250, 100);
-            this.pnl_Sidebar_0.TabIndex = 17;
+            this.btnDifferentAccount.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.btnDifferentAccount.Location = new System.Drawing.Point(139, 369);
+            this.btnDifferentAccount.Name = "btnDifferentAccount";
+            this.btnDifferentAccount.Size = new System.Drawing.Size(220, 37);
+            this.btnDifferentAccount.TabIndex = 16;
+            this.btnDifferentAccount.Text = "That\'s not me!";
+            this.btnDifferentAccount.UseVisualStyleBackColor = true;
+            this.btnDifferentAccount.Click += new System.EventHandler(this.btnDifferentAccount_Click);
             // 
             // pbBigAvatar
             // 
@@ -202,6 +204,34 @@ namespace RiskGame
             this.pbBigShow.TabStop = false;
             this.pbBigShow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBigShow_MouseDown);
             this.pbBigShow.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbBigShow_MouseUp);
+            // 
+            // pnl_Sidebar_0
+            // 
+            this.pnl_Sidebar_0.BackColor = System.Drawing.SystemColors.Control;
+            this.pnl_Sidebar_0.Controls.Add(this.label3);
+            this.pnl_Sidebar_0.Controls.Add(this.pictureBox2);
+            this.pnl_Sidebar_0.Location = new System.Drawing.Point(-250, 0);
+            this.pnl_Sidebar_0.Name = "pnl_Sidebar_0";
+            this.pnl_Sidebar_0.Size = new System.Drawing.Size(250, 100);
+            this.pnl_Sidebar_0.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(90, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(175, 30);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "NAMEGOESHERE";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // pbNewArrow
             // 
@@ -239,35 +269,6 @@ namespace RiskGame
             this.pbNewUser.TabStop = false;
             this.pbNewUser.Visible = false;
             // 
-            // btnDifferentAccount
-            // 
-            this.btnDifferentAccount.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.btnDifferentAccount.Location = new System.Drawing.Point(139, 369);
-            this.btnDifferentAccount.Name = "btnDifferentAccount";
-            this.btnDifferentAccount.Size = new System.Drawing.Size(220, 37);
-            this.btnDifferentAccount.TabIndex = 16;
-            this.btnDifferentAccount.Text = "That\'s not me!";
-            this.btnDifferentAccount.UseVisualStyleBackColor = true;
-            this.btnDifferentAccount.Click += new System.EventHandler(this.btnDifferentAccount_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(75, 75);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(90, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 30);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "NAMEGOESHERE";
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,14 +294,14 @@ namespace RiskGame
             this.pnlBigUsernameHolder.PerformLayout();
             this.pnlBigCredentialsHolder.ResumeLayout(false);
             this.pnlBigCredentialsHolder.PerformLayout();
-            this.pnl_Sidebar_0.ResumeLayout(false);
-            this.pnl_Sidebar_0.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBigAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBigShow)).EndInit();
+            this.pnl_Sidebar_0.ResumeLayout(false);
+            this.pnl_Sidebar_0.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNewArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNewUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
