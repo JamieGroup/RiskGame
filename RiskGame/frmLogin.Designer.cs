@@ -135,7 +135,7 @@ namespace RiskGame
             this.txtBigPassword.Location = new System.Drawing.Point(139, 272);
             this.txtBigPassword.Name = "txtBigPassword";
             this.txtBigPassword.Size = new System.Drawing.Size(220, 29);
-            this.txtBigPassword.TabIndex = 12;
+            this.txtBigPassword.TabIndex = 0;
             this.txtBigPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBigPassword_KeyPress);
             // 
             // btnBigLogin

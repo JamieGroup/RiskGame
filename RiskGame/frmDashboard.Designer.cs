@@ -32,7 +32,6 @@ namespace RiskGame
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.pbLogout = new System.Windows.Forms.PictureBox();
             this.btnAccentColour = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,24 +41,28 @@ namespace RiskGame
             this.lbLabelGamesWon = new System.Windows.Forms.Label();
             this.lbGamesPlayed = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
-            this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.lbTutorialEasy = new System.Windows.Forms.Label();
             this.lbTutorialHard = new System.Windows.Forms.Label();
             this.lbSkipTutorial = new System.Windows.Forms.Label();
+            this.tmrTick = new System.Windows.Forms.Timer(this.components);
             this.pbTutorialEasy = new System.Windows.Forms.PictureBox();
             this.pbTutorialHard = new System.Windows.Forms.PictureBox();
             this.pbPlay = new System.Windows.Forms.PictureBox();
-            this.tmrTick = new System.Windows.Forms.Timer(this.components);
+            this.pbAdmin = new System.Windows.Forms.PictureBox();
+            this.pbLogout = new System.Windows.Forms.PictureBox();
+            this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.pnlSidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTutorialEasy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTutorialHard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
             // 
+            this.pnlSidebar.Controls.Add(this.pbAdmin);
             this.pnlSidebar.Controls.Add(this.pbLogout);
             this.pnlSidebar.Controls.Add(this.btnAccentColour);
             this.pnlSidebar.Controls.Add(this.label5);
@@ -75,19 +78,6 @@ namespace RiskGame
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(146, 528);
             this.pnlSidebar.TabIndex = 0;
-            // 
-            // pbLogout
-            // 
-            this.pbLogout.Image = global::RiskGame.Properties.Resources.LogoutButton_Resize;
-            this.pbLogout.Location = new System.Drawing.Point(3, 457);
-            this.pbLogout.Name = "pbLogout";
-            this.pbLogout.Size = new System.Drawing.Size(140, 68);
-            this.pbLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLogout.TabIndex = 2;
-            this.pbLogout.TabStop = false;
-            this.pbLogout.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pbLogout.MouseEnter += new System.EventHandler(this.pbLogout_MouseEnter);
-            this.pbLogout.MouseLeave += new System.EventHandler(this.pbLogout_MouseLeave);
             // 
             // btnAccentColour
             // 
@@ -182,17 +172,6 @@ namespace RiskGame
             this.lbUsername.TabIndex = 5;
             this.lbUsername.Text = "TestAccount";
             // 
-            // pbAvatar
-            // 
-            this.pbAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvatar.Image")));
-            this.pbAvatar.Location = new System.Drawing.Point(1, 3);
-            this.pbAvatar.Name = "pbAvatar";
-            this.pbAvatar.Size = new System.Drawing.Size(145, 143);
-            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAvatar.TabIndex = 4;
-            this.pbAvatar.TabStop = false;
-            this.pbAvatar.Click += new System.EventHandler(this.pbAvatar_Click);
-            // 
             // lbTutorialEasy
             // 
             this.lbTutorialEasy.AutoSize = true;
@@ -230,6 +209,10 @@ namespace RiskGame
             this.lbSkipTutorial.Text = "I\'m an expert! Skip Tutorial";
             this.lbSkipTutorial.Click += new System.EventHandler(this.lbSkipTutorial_Click);
             // 
+            // tmrTick
+            // 
+            this.tmrTick.Tick += new System.EventHandler(this.tmrTick_Tick);
+            // 
             // pbTutorialEasy
             // 
             this.pbTutorialEasy.Image = global::RiskGame.Properties.Resources.book;
@@ -265,9 +248,40 @@ namespace RiskGame
             this.pbPlay.MouseEnter += new System.EventHandler(this.pbPlay_MouseEnter);
             this.pbPlay.MouseLeave += new System.EventHandler(this.pbPlay_MouseLeave);
             // 
-            // tmrTick
+            // pbAdmin
             // 
-            this.tmrTick.Tick += new System.EventHandler(this.tmrTick_Tick);
+            this.pbAdmin.Image = global::RiskGame.Properties.Resources.adminscreenicon;
+            this.pbAdmin.Location = new System.Drawing.Point(3, 383);
+            this.pbAdmin.Name = "pbAdmin";
+            this.pbAdmin.Size = new System.Drawing.Size(140, 68);
+            this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAdmin.TabIndex = 17;
+            this.pbAdmin.TabStop = false;
+            this.pbAdmin.Click += new System.EventHandler(this.pbAdmin_Click);
+            // 
+            // pbLogout
+            // 
+            this.pbLogout.Image = global::RiskGame.Properties.Resources.LogoutButton_Resize;
+            this.pbLogout.Location = new System.Drawing.Point(3, 457);
+            this.pbLogout.Name = "pbLogout";
+            this.pbLogout.Size = new System.Drawing.Size(140, 68);
+            this.pbLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogout.TabIndex = 2;
+            this.pbLogout.TabStop = false;
+            this.pbLogout.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pbLogout.MouseEnter += new System.EventHandler(this.pbLogout_MouseEnter);
+            this.pbLogout.MouseLeave += new System.EventHandler(this.pbLogout_MouseLeave);
+            // 
+            // pbAvatar
+            // 
+            this.pbAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvatar.Image")));
+            this.pbAvatar.Location = new System.Drawing.Point(1, 3);
+            this.pbAvatar.Name = "pbAvatar";
+            this.pbAvatar.Size = new System.Drawing.Size(145, 143);
+            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAvatar.TabIndex = 4;
+            this.pbAvatar.TabStop = false;
+            this.pbAvatar.Click += new System.EventHandler(this.pbAvatar_Click);
             // 
             // frmDashboard
             // 
@@ -288,11 +302,12 @@ namespace RiskGame
             this.Enter += new System.EventHandler(this.frmDashboard_Enter);
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTutorialEasy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTutorialHard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +334,6 @@ namespace RiskGame
         private System.Windows.Forms.Label lbTutorialHard;
         private System.Windows.Forms.Label lbSkipTutorial;
         private System.Windows.Forms.Timer tmrTick;
+        private System.Windows.Forms.PictureBox pbAdmin;
     }
 }

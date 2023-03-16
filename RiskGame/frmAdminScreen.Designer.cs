@@ -31,20 +31,21 @@ namespace RiskGame
         {
             this.lbTitle = new System.Windows.Forms.Label();
             this.pnl1 = new System.Windows.Forms.Panel();
+            this.lb1 = new System.Windows.Forms.Label();
             this.pb1 = new System.Windows.Forms.PictureBox();
             this.pnl2 = new System.Windows.Forms.Panel();
+            this.lb2 = new System.Windows.Forms.Label();
             this.pb2 = new System.Windows.Forms.PictureBox();
             this.pnl3 = new System.Windows.Forms.Panel();
+            this.lb3 = new System.Windows.Forms.Label();
             this.pb3 = new System.Windows.Forms.PictureBox();
             this.pnl4 = new System.Windows.Forms.Panel();
+            this.lb4 = new System.Windows.Forms.Label();
             this.pb4 = new System.Windows.Forms.PictureBox();
             this.pnl5 = new System.Windows.Forms.Panel();
-            this.pb5 = new System.Windows.Forms.PictureBox();
-            this.lb1 = new System.Windows.Forms.Label();
-            this.lb2 = new System.Windows.Forms.Label();
-            this.lb3 = new System.Windows.Forms.Label();
-            this.lb4 = new System.Windows.Forms.Label();
             this.lb5 = new System.Windows.Forms.Label();
+            this.pb5 = new System.Windows.Forms.PictureBox();
+            this.pnlAAS = new System.Windows.Forms.Panel();
             this.pnl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.pnl2.SuspendLayout();
@@ -78,6 +79,16 @@ namespace RiskGame
             this.pnl1.TabIndex = 1;
             this.pnl1.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl1_Paint);
             // 
+            // lb1
+            // 
+            this.lb1.AutoSize = true;
+            this.lb1.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.lb1.Location = new System.Drawing.Point(88, 20);
+            this.lb1.Name = "lb1";
+            this.lb1.Size = new System.Drawing.Size(230, 32);
+            this.lb1.TabIndex = 1;
+            this.lb1.Text = "Accounts && Security";
+            // 
             // pb1
             // 
             this.pb1.Image = global::RiskGame.Properties.Resources.AccountsAndsecurity;
@@ -97,6 +108,16 @@ namespace RiskGame
             this.pnl2.Name = "pnl2";
             this.pnl2.Size = new System.Drawing.Size(350, 75);
             this.pnl2.TabIndex = 2;
+            // 
+            // lb2
+            // 
+            this.lb2.AutoSize = true;
+            this.lb2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb2.Location = new System.Drawing.Point(88, 19);
+            this.lb2.Name = "lb2";
+            this.lb2.Size = new System.Drawing.Size(249, 32);
+            this.lb2.TabIndex = 2;
+            this.lb2.Text = "Data && Online Privacy";
             // 
             // pb2
             // 
@@ -118,6 +139,16 @@ namespace RiskGame
             this.pnl3.Size = new System.Drawing.Size(350, 75);
             this.pnl3.TabIndex = 3;
             // 
+            // lb3
+            // 
+            this.lb3.AutoSize = true;
+            this.lb3.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.lb3.Location = new System.Drawing.Point(88, 21);
+            this.lb3.Name = "lb3";
+            this.lb3.Size = new System.Drawing.Size(135, 32);
+            this.lb3.TabIndex = 3;
+            this.lb3.Text = "In-Game AI";
+            // 
             // pb3
             // 
             this.pb3.Image = global::RiskGame.Properties.Resources.InGame_AI;
@@ -137,6 +168,17 @@ namespace RiskGame
             this.pnl4.Name = "pnl4";
             this.pnl4.Size = new System.Drawing.Size(350, 75);
             this.pnl4.TabIndex = 4;
+            // 
+            // lb4
+            // 
+            this.lb4.AutoSize = true;
+            this.lb4.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.lb4.Location = new System.Drawing.Point(88, 20);
+            this.lb4.Name = "lb4";
+            this.lb4.Size = new System.Drawing.Size(209, 32);
+            this.lb4.TabIndex = 4;
+            this.lb4.Text = "Game Information";
+            this.lb4.Click += new System.EventHandler(this.label3_Click);
             // 
             // pb4
             // 
@@ -158,57 +200,6 @@ namespace RiskGame
             this.pnl5.Size = new System.Drawing.Size(350, 75);
             this.pnl5.TabIndex = 5;
             // 
-            // pb5
-            // 
-            this.pb5.Image = global::RiskGame.Properties.Resources.Attributes_Legal;
-            this.pb5.Location = new System.Drawing.Point(0, 0);
-            this.pb5.Name = "pb5";
-            this.pb5.Size = new System.Drawing.Size(82, 75);
-            this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb5.TabIndex = 0;
-            this.pb5.TabStop = false;
-            // 
-            // lb1
-            // 
-            this.lb1.AutoSize = true;
-            this.lb1.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.lb1.Location = new System.Drawing.Point(88, 20);
-            this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(230, 32);
-            this.lb1.TabIndex = 1;
-            this.lb1.Text = "Accounts && Security";
-            // 
-            // lb2
-            // 
-            this.lb2.AutoSize = true;
-            this.lb2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb2.Location = new System.Drawing.Point(88, 19);
-            this.lb2.Name = "lb2";
-            this.lb2.Size = new System.Drawing.Size(249, 32);
-            this.lb2.TabIndex = 2;
-            this.lb2.Text = "Data && Online Privacy";
-            // 
-            // lb3
-            // 
-            this.lb3.AutoSize = true;
-            this.lb3.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.lb3.Location = new System.Drawing.Point(88, 21);
-            this.lb3.Name = "lb3";
-            this.lb3.Size = new System.Drawing.Size(135, 32);
-            this.lb3.TabIndex = 3;
-            this.lb3.Text = "In-Game AI";
-            // 
-            // lb4
-            // 
-            this.lb4.AutoSize = true;
-            this.lb4.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.lb4.Location = new System.Drawing.Point(88, 20);
-            this.lb4.Name = "lb4";
-            this.lb4.Size = new System.Drawing.Size(209, 32);
-            this.lb4.TabIndex = 4;
-            this.lb4.Text = "Game Information";
-            this.lb4.Click += new System.EventHandler(this.label3_Click);
-            // 
             // lb5
             // 
             this.lb5.AutoSize = true;
@@ -219,11 +210,29 @@ namespace RiskGame
             this.lb5.TabIndex = 5;
             this.lb5.Text = "Attributes && Legal";
             // 
+            // pb5
+            // 
+            this.pb5.Image = global::RiskGame.Properties.Resources.Attributes_Legal;
+            this.pb5.Location = new System.Drawing.Point(0, 0);
+            this.pb5.Name = "pb5";
+            this.pb5.Size = new System.Drawing.Size(82, 75);
+            this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb5.TabIndex = 0;
+            this.pb5.TabStop = false;
+            // 
+            // pnlAAS
+            // 
+            this.pnlAAS.Location = new System.Drawing.Point(468, 315);
+            this.pnlAAS.Name = "pnlAAS";
+            this.pnlAAS.Size = new System.Drawing.Size(775, 380);
+            this.pnlAAS.TabIndex = 6;
+            // 
             // frmAdminScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pnlAAS);
             this.Controls.Add(this.pnl5);
             this.Controls.Add(this.pnl4);
             this.Controls.Add(this.pnl3);
@@ -270,5 +279,6 @@ namespace RiskGame
         private System.Windows.Forms.Panel pnl5;
         private System.Windows.Forms.Label lb5;
         private System.Windows.Forms.PictureBox pb5;
+        private System.Windows.Forms.Panel pnlAAS;
     }
 }

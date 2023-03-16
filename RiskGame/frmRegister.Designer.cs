@@ -49,6 +49,7 @@ namespace RiskGame
             this.lbAvatar = new System.Windows.Forms.Label();
             this.lbAvatarDescrption = new System.Windows.Forms.Label();
             this.pbAvatar = new System.Windows.Forms.PictureBox();
+            this.cbAdmin = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsername.SuspendLayout();
             this.pnlPassword.SuspendLayout();
@@ -59,10 +60,10 @@ namespace RiskGame
             // lbCreate
             // 
             this.lbCreate.AutoSize = true;
-            this.lbCreate.Font = new System.Drawing.Font("Product Sans", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCreate.Location = new System.Drawing.Point(100, 9);
             this.lbCreate.Name = "lbCreate";
-            this.lbCreate.Size = new System.Drawing.Size(316, 47);
+            this.lbCreate.Size = new System.Drawing.Size(324, 42);
             this.lbCreate.TabIndex = 1;
             this.lbCreate.Text = "Create an account";
             // 
@@ -79,17 +80,17 @@ namespace RiskGame
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Product Sans", 24F);
+            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
             this.lbUsername.Location = new System.Drawing.Point(-7, -4);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(160, 41);
+            this.lbUsername.Size = new System.Drawing.Size(164, 37);
             this.lbUsername.TabIndex = 2;
             this.lbUsername.Text = "Username";
             // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(0, 40);
+            this.txtUsername.Location = new System.Drawing.Point(35, 5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(465, 43);
             this.txtUsername.TabIndex = 3;
@@ -109,10 +110,10 @@ namespace RiskGame
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.Location = new System.Drawing.Point(-7, 0);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(152, 41);
+            this.lbPassword.Size = new System.Drawing.Size(158, 37);
             this.lbPassword.TabIndex = 4;
             this.lbPassword.Text = "Password";
             // 
@@ -129,16 +130,16 @@ namespace RiskGame
             // lbConfirmPassword
             // 
             this.lbConfirmPassword.AutoSize = true;
-            this.lbConfirmPassword.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbConfirmPassword.Location = new System.Drawing.Point(-7, 0);
             this.lbConfirmPassword.Name = "lbConfirmPassword";
-            this.lbConfirmPassword.Size = new System.Drawing.Size(274, 41);
+            this.lbConfirmPassword.Size = new System.Drawing.Size(280, 37);
             this.lbConfirmPassword.TabIndex = 6;
             this.lbConfirmPassword.Text = "Confirm Password";
             // 
             // btnRegister
             // 
-            this.btnRegister.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.Location = new System.Drawing.Point(20, 354);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(242, 71);
@@ -172,7 +173,7 @@ namespace RiskGame
             this.pnlPassword.Controls.Add(this.txtPassword);
             this.pnlPassword.Location = new System.Drawing.Point(299, 183);
             this.pnlPassword.Name = "pnlPassword";
-            this.pnlPassword.Size = new System.Drawing.Size(478, 85);
+            this.pnlPassword.Size = new System.Drawing.Size(478, 87);
             this.pnlPassword.TabIndex = 11;
             // 
             // pnlConfirmPassword
@@ -181,7 +182,7 @@ namespace RiskGame
             this.pnlConfirmPassword.Controls.Add(this.txtConfirmPassword);
             this.pnlConfirmPassword.Location = new System.Drawing.Point(299, 297);
             this.pnlConfirmPassword.Name = "pnlConfirmPassword";
-            this.pnlConfirmPassword.Size = new System.Drawing.Size(478, 85);
+            this.pnlConfirmPassword.Size = new System.Drawing.Size(478, 91);
             this.pnlConfirmPassword.TabIndex = 12;
             // 
             // lbPasswordDescription
@@ -222,20 +223,20 @@ namespace RiskGame
             // lbAvatar
             // 
             this.lbAvatar.AutoSize = true;
-            this.lbAvatar.Font = new System.Drawing.Font("Product Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAvatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAvatar.Location = new System.Drawing.Point(76, 250);
             this.lbAvatar.Name = "lbAvatar";
-            this.lbAvatar.Size = new System.Drawing.Size(108, 41);
+            this.lbAvatar.Size = new System.Drawing.Size(110, 37);
             this.lbAvatar.TabIndex = 16;
             this.lbAvatar.Text = "Avatar";
             // 
             // lbAvatarDescrption
             // 
             this.lbAvatarDescrption.AutoSize = true;
-            this.lbAvatarDescrption.Font = new System.Drawing.Font("Product Sans", 12F);
+            this.lbAvatarDescrption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbAvatarDescrption.Location = new System.Drawing.Point(16, 291);
             this.lbAvatarDescrption.Name = "lbAvatarDescrption";
-            this.lbAvatarDescrption.Size = new System.Drawing.Size(246, 60);
+            this.lbAvatarDescrption.Size = new System.Drawing.Size(242, 60);
             this.lbAvatarDescrption.TabIndex = 17;
             this.lbAvatarDescrption.Text = "Click the above image to change.\r\nYour avatar will appear with your\r\nusername whe" +
     "n playing.";
@@ -251,11 +252,23 @@ namespace RiskGame
             this.pbAvatar.TabStop = false;
             this.pbAvatar.Click += new System.EventHandler(this.pbAvatar_Click);
             // 
+            // cbAdmin
+            // 
+            this.cbAdmin.AutoSize = true;
+            this.cbAdmin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAdmin.Location = new System.Drawing.Point(682, 12);
+            this.cbAdmin.Name = "cbAdmin";
+            this.cbAdmin.Size = new System.Drawing.Size(95, 29);
+            this.cbAdmin.TabIndex = 19;
+            this.cbAdmin.Text = "Admin?";
+            this.cbAdmin.UseVisualStyleBackColor = true;
+            // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbAdmin);
             this.Controls.Add(this.pbAvatar);
             this.Controls.Add(this.lbAvatarDescrption);
             this.Controls.Add(this.lbAvatar);
@@ -305,5 +318,6 @@ namespace RiskGame
         private System.Windows.Forms.Label lbAvatar;
         private System.Windows.Forms.Label lbAvatarDescrption;
         private System.Windows.Forms.PictureBox pbAvatar;
+        private System.Windows.Forms.CheckBox cbAdmin;
     }
 }

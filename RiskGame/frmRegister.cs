@@ -198,8 +198,12 @@ namespace RiskGame
                 string passwordHash = AES.GetHashString(txtPassword.Text);
                 string avatar = pbAvatar.ImageLocation;
                 tmpPlayer.passwordHash = passwordHash;
+                bool isAdmin = false;
+                if (cbAdmin.Checked)
+                    isAdmin = true;
+                tmpPlayer.isAdmin = isAdmin;
 
-                sw.WriteLine($"{username}~avatars\\{txtUsername.Text}.png~{passwordHash}");
+                sw.WriteLine($"{username}~avatars\\{txtUsername.Text}.png~{passwordHash}~{isAdmin}");
 
                 sw.Dispose();
                 aFile.Dispose();

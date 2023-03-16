@@ -26,6 +26,7 @@ namespace RiskGame
         public int globalRanking { get; set; }
 
         public bool firstLaunch { get; set; }
+        public bool isAdmin { get; set; }
 
 
         public int tutorialLevel { get; set; }

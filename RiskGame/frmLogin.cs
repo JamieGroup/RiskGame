@@ -308,6 +308,7 @@ namespace RiskGame
 
         private void btnDifferentAccount_Click(object sender, EventArgs e)
         {
+            txtBigPassword.Text = "";
             //Make all panels in the form visible
             foreach (Control c in this.Controls)
             {

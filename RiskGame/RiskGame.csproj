@@ -459,5 +459,8 @@
   <ItemGroup>
     <None Include="Resources\v1016-c-08_1-ksh6mza3.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adminscreenicon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

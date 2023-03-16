@@ -51,5 +51,14 @@ namespace RiskGame
         {
 
         }
+
+        private void HideAllPanels()
+        {
+            pnlAAS.Visible = false;
+            //pnlGi.Visible = false;
+            //pnlDAP.Visible = false;
+            //pnlAAL.Visible = false;
+            //pnlIGAI.Visible = false;
+        }
     }
 }

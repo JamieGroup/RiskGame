@@ -182,5 +182,11 @@ namespace RiskGame
         {
             //System.IO./("tmp", true);
         }
+
+        private void pbAdmin_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmAdminScreen().Show();
+        }
     }
 }
