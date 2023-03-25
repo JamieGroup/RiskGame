@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Media;
 
 namespace RiskGame
 {
@@ -17,6 +18,13 @@ namespace RiskGame
             Random rnd = new Random();
             rnd.Next(1, 3);
             player.Play();
+        }
+        public static void AIInfo()
+        {
+            using (SoundPlayer player = new SoundPlayer(Properties.Resources.AIInfoAudio))
+            {
+                player.Play();
+            }
         }
     }
 }

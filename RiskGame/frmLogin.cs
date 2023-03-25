@@ -166,6 +166,7 @@ namespace RiskGame
                     lbBigUsername.TextAlign = ContentAlignment.MiddleCenter;
                     lbBigUsername.Left = (pnlBigUsernameHolder.ClientSize.Width / 2) - (lbBigUsername.Width / 2);
                     txtBigPassword.PasswordChar = '*';
+                    txtBigPassword.Focus();
                 }
 
                 Panel pnl = new Panel();

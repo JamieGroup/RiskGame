@@ -462,5 +462,17 @@
   <ItemGroup>
     <None Include="Resources\adminscreenicon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AIInfoVisuals.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AIInfoAudio.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AIInfoVisuals-minfull.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AIInfoVisuals-min.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
