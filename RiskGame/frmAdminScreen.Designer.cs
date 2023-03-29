@@ -45,7 +45,10 @@ namespace RiskGame
             this.pnl5 = new System.Windows.Forms.Panel();
             this.lb5 = new System.Windows.Forms.Label();
             this.pb5 = new System.Windows.Forms.PictureBox();
-            this.pnlAAS = new System.Windows.Forms.Panel();
+            this.pnlAdminSettings = new System.Windows.Forms.Panel();
+            this.btnOptionsBack = new System.Windows.Forms.Button();
+            this.spltOptions = new System.Windows.Forms.Splitter();
+            this.vScrollOptions = new System.Windows.Forms.VScrollBar();
             this.pnl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.pnl2.SuspendLayout();
@@ -56,6 +59,7 @@ namespace RiskGame
             ((System.ComponentModel.ISupportInitialize)(this.pb4)).BeginInit();
             this.pnl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb5)).BeginInit();
+            this.pnlAdminSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbTitle
@@ -220,19 +224,49 @@ namespace RiskGame
             this.pb5.TabIndex = 0;
             this.pb5.TabStop = false;
             // 
-            // pnlAAS
+            // pnlAdminSettings
             // 
-            this.pnlAAS.Location = new System.Drawing.Point(468, 315);
-            this.pnlAAS.Name = "pnlAAS";
-            this.pnlAAS.Size = new System.Drawing.Size(775, 380);
-            this.pnlAAS.TabIndex = 6;
+            this.pnlAdminSettings.Controls.Add(this.vScrollOptions);
+            this.pnlAdminSettings.Controls.Add(this.btnOptionsBack);
+            this.pnlAdminSettings.Controls.Add(this.spltOptions);
+            this.pnlAdminSettings.Location = new System.Drawing.Point(13, 58);
+            this.pnlAdminSettings.Name = "pnlAdminSettings";
+            this.pnlAdminSettings.Size = new System.Drawing.Size(775, 380);
+            this.pnlAdminSettings.TabIndex = 6;
+            this.pnlAdminSettings.Visible = false;
+            // 
+            // btnOptionsBack
+            // 
+            this.btnOptionsBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOptionsBack.Location = new System.Drawing.Point(3, 345);
+            this.btnOptionsBack.Name = "btnOptionsBack";
+            this.btnOptionsBack.Size = new System.Drawing.Size(237, 32);
+            this.btnOptionsBack.TabIndex = 0;
+            this.btnOptionsBack.Text = "Back";
+            this.btnOptionsBack.UseVisualStyleBackColor = true;
+            this.btnOptionsBack.Click += new System.EventHandler(this.btnOptionsBack_Click);
+            // 
+            // spltOptions
+            // 
+            this.spltOptions.Location = new System.Drawing.Point(0, 0);
+            this.spltOptions.Name = "spltOptions";
+            this.spltOptions.Size = new System.Drawing.Size(241, 380);
+            this.spltOptions.TabIndex = 1;
+            this.spltOptions.TabStop = false;
+            // 
+            // vScrollOptions
+            // 
+            this.vScrollOptions.Location = new System.Drawing.Point(223, 0);
+            this.vScrollOptions.Name = "vScrollOptions";
+            this.vScrollOptions.Size = new System.Drawing.Size(17, 342);
+            this.vScrollOptions.TabIndex = 2;
             // 
             // frmAdminScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pnlAAS);
+            this.Controls.Add(this.pnlAdminSettings);
             this.Controls.Add(this.pnl5);
             this.Controls.Add(this.pnl4);
             this.Controls.Add(this.pnl3);
@@ -256,6 +290,7 @@ namespace RiskGame
             this.pnl5.ResumeLayout(false);
             this.pnl5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb5)).EndInit();
+            this.pnlAdminSettings.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,6 +314,9 @@ namespace RiskGame
         private System.Windows.Forms.Panel pnl5;
         private System.Windows.Forms.Label lb5;
         private System.Windows.Forms.PictureBox pb5;
-        private System.Windows.Forms.Panel pnlAAS;
+        private System.Windows.Forms.Panel pnlAdminSettings;
+        private System.Windows.Forms.VScrollBar vScrollOptions;
+        private System.Windows.Forms.Button btnOptionsBack;
+        private System.Windows.Forms.Splitter spltOptions;
     }
 }
