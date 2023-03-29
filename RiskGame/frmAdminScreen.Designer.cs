@@ -45,10 +45,17 @@ namespace RiskGame
             this.pnl5 = new System.Windows.Forms.Panel();
             this.lb5 = new System.Windows.Forms.Label();
             this.pb5 = new System.Windows.Forms.PictureBox();
-            this.pnlAdminSettings = new System.Windows.Forms.Panel();
-            this.btnOptionsBack = new System.Windows.Forms.Button();
-            this.spltOptions = new System.Windows.Forms.Splitter();
-            this.vScrollOptions = new System.Windows.Forms.VScrollBar();
+            this.tcAAS = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tbAAS = new System.Windows.Forms.TabPage();
+            this.tbAASpw = new System.Windows.Forms.TabPage();
+            this.lbAASpwTitle = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lbPWCIns = new System.Windows.Forms.Label();
+            this.pnlPWchange = new System.Windows.Forms.Panel();
+            this.txtNewPW = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtConfirmNewPW = new System.Windows.Forms.TextBox();
             this.pnl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.pnl2.SuspendLayout();
@@ -59,7 +66,9 @@ namespace RiskGame
             ((System.ComponentModel.ISupportInitialize)(this.pb4)).BeginInit();
             this.pnl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb5)).BeginInit();
-            this.pnlAdminSettings.SuspendLayout();
+            this.tcAAS.SuspendLayout();
+            this.tbAASpw.SuspendLayout();
+            this.pnlPWchange.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbTitle
@@ -224,49 +233,121 @@ namespace RiskGame
             this.pb5.TabIndex = 0;
             this.pb5.TabStop = false;
             // 
-            // pnlAdminSettings
+            // tcAAS
             // 
-            this.pnlAdminSettings.Controls.Add(this.vScrollOptions);
-            this.pnlAdminSettings.Controls.Add(this.btnOptionsBack);
-            this.pnlAdminSettings.Controls.Add(this.spltOptions);
-            this.pnlAdminSettings.Location = new System.Drawing.Point(13, 58);
-            this.pnlAdminSettings.Name = "pnlAdminSettings";
-            this.pnlAdminSettings.Size = new System.Drawing.Size(775, 380);
-            this.pnlAdminSettings.TabIndex = 6;
-            this.pnlAdminSettings.Visible = false;
+            this.tcAAS.Controls.Add(this.tbAASpw);
+            this.tcAAS.Controls.Add(this.tbAAS);
+            this.tcAAS.Controls.Add(this.tabPage3);
+            this.tcAAS.Location = new System.Drawing.Point(12, 50);
+            this.tcAAS.Name = "tcAAS";
+            this.tcAAS.SelectedIndex = 0;
+            this.tcAAS.Size = new System.Drawing.Size(776, 388);
+            this.tcAAS.TabIndex = 1;
             // 
-            // btnOptionsBack
+            // tabPage3
             // 
-            this.btnOptionsBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOptionsBack.Location = new System.Drawing.Point(3, 345);
-            this.btnOptionsBack.Name = "btnOptionsBack";
-            this.btnOptionsBack.Size = new System.Drawing.Size(237, 32);
-            this.btnOptionsBack.TabIndex = 0;
-            this.btnOptionsBack.Text = "Back";
-            this.btnOptionsBack.UseVisualStyleBackColor = true;
-            this.btnOptionsBack.Click += new System.EventHandler(this.btnOptionsBack_Click);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(768, 362);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // spltOptions
+            // tbAAS
             // 
-            this.spltOptions.Location = new System.Drawing.Point(0, 0);
-            this.spltOptions.Name = "spltOptions";
-            this.spltOptions.Size = new System.Drawing.Size(241, 380);
-            this.spltOptions.TabIndex = 1;
-            this.spltOptions.TabStop = false;
+            this.tbAAS.Location = new System.Drawing.Point(4, 22);
+            this.tbAAS.Name = "tbAAS";
+            this.tbAAS.Padding = new System.Windows.Forms.Padding(3);
+            this.tbAAS.Size = new System.Drawing.Size(768, 362);
+            this.tbAAS.TabIndex = 1;
+            this.tbAAS.Text = "tabPage2";
+            this.tbAAS.UseVisualStyleBackColor = true;
             // 
-            // vScrollOptions
+            // tbAASpw
             // 
-            this.vScrollOptions.Location = new System.Drawing.Point(223, 0);
-            this.vScrollOptions.Name = "vScrollOptions";
-            this.vScrollOptions.Size = new System.Drawing.Size(17, 342);
-            this.vScrollOptions.TabIndex = 2;
+            this.tbAASpw.Controls.Add(this.pnlPWchange);
+            this.tbAASpw.Controls.Add(this.button1);
+            this.tbAASpw.Controls.Add(this.lbAASpwTitle);
+            this.tbAASpw.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAASpw.Location = new System.Drawing.Point(4, 22);
+            this.tbAASpw.Name = "tbAASpw";
+            this.tbAASpw.Padding = new System.Windows.Forms.Padding(3);
+            this.tbAASpw.Size = new System.Drawing.Size(768, 362);
+            this.tbAASpw.TabIndex = 0;
+            this.tbAASpw.Text = "Password Options";
+            this.tbAASpw.UseVisualStyleBackColor = true;
+            // 
+            // lbAASpwTitle
+            // 
+            this.lbAASpwTitle.AutoSize = true;
+            this.lbAASpwTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAASpwTitle.Location = new System.Drawing.Point(6, 3);
+            this.lbAASpwTitle.Name = "lbAASpwTitle";
+            this.lbAASpwTitle.Size = new System.Drawing.Size(463, 32);
+            this.lbAASpwTitle.TabIndex = 0;
+            this.lbAASpwTitle.Text = "Accounts and Security - Password Options";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 56);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 36);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Change Password";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lbPWCIns
+            // 
+            this.lbPWCIns.AutoSize = true;
+            this.lbPWCIns.Location = new System.Drawing.Point(3, 2);
+            this.lbPWCIns.Name = "lbPWCIns";
+            this.lbPWCIns.Size = new System.Drawing.Size(189, 21);
+            this.lbPWCIns.TabIndex = 2;
+            this.lbPWCIns.Text = "Enter your new password:";
+            // 
+            // pnlPWchange
+            // 
+            this.pnlPWchange.Controls.Add(this.txtConfirmNewPW);
+            this.pnlPWchange.Controls.Add(this.label1);
+            this.pnlPWchange.Controls.Add(this.txtNewPW);
+            this.pnlPWchange.Controls.Add(this.lbPWCIns);
+            this.pnlPWchange.Location = new System.Drawing.Point(12, 102);
+            this.pnlPWchange.Name = "pnlPWchange";
+            this.pnlPWchange.Size = new System.Drawing.Size(542, 191);
+            this.pnlPWchange.TabIndex = 3;
+            // 
+            // txtNewPW
+            // 
+            this.txtNewPW.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPW.Location = new System.Drawing.Point(7, 26);
+            this.txtNewPW.Name = "txtNewPW";
+            this.txtNewPW.Size = new System.Drawing.Size(332, 25);
+            this.txtNewPW.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(210, 21);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Confirm your new password:";
+            // 
+            // txtConfirmNewPW
+            // 
+            this.txtConfirmNewPW.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmNewPW.Location = new System.Drawing.Point(7, 95);
+            this.txtConfirmNewPW.Name = "txtConfirmNewPW";
+            this.txtConfirmNewPW.Size = new System.Drawing.Size(332, 25);
+            this.txtConfirmNewPW.TabIndex = 5;
             // 
             // frmAdminScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pnlAdminSettings);
+            this.Controls.Add(this.tcAAS);
             this.Controls.Add(this.pnl5);
             this.Controls.Add(this.pnl4);
             this.Controls.Add(this.pnl3);
@@ -290,7 +371,11 @@ namespace RiskGame
             this.pnl5.ResumeLayout(false);
             this.pnl5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb5)).EndInit();
-            this.pnlAdminSettings.ResumeLayout(false);
+            this.tcAAS.ResumeLayout(false);
+            this.tbAASpw.ResumeLayout(false);
+            this.tbAASpw.PerformLayout();
+            this.pnlPWchange.ResumeLayout(false);
+            this.pnlPWchange.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,9 +399,16 @@ namespace RiskGame
         private System.Windows.Forms.Panel pnl5;
         private System.Windows.Forms.Label lb5;
         private System.Windows.Forms.PictureBox pb5;
-        private System.Windows.Forms.Panel pnlAdminSettings;
-        private System.Windows.Forms.VScrollBar vScrollOptions;
-        private System.Windows.Forms.Button btnOptionsBack;
-        private System.Windows.Forms.Splitter spltOptions;
+        private System.Windows.Forms.TabControl tcAAS;
+        private System.Windows.Forms.TabPage tbAASpw;
+        private System.Windows.Forms.Label lbAASpwTitle;
+        private System.Windows.Forms.TabPage tbAAS;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Panel pnlPWchange;
+        private System.Windows.Forms.Label lbPWCIns;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtNewPW;
+        private System.Windows.Forms.TextBox txtConfirmNewPW;
+        private System.Windows.Forms.Label label1;
     }
 }

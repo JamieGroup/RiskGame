@@ -26,7 +26,7 @@ namespace RiskGame
 
         private void AccountAndSecurity()
         {
-            optionSelect("AAS");
+            tcAAS.Visible = true;
         }
 
         private void DataAndOnlinePrivacy()
@@ -61,7 +61,7 @@ namespace RiskGame
 
         private void HideAllPanels()
         {
-            pnlAdminSettings.Visible = false;
+            //pnlAdminSettings.Visible = false;
             //pnlGi.Visible = false;
             //pnlDAP.Visible = false;
             //pnlAAL.Visible = false;
@@ -70,7 +70,20 @@ namespace RiskGame
 
         private void btnOptionsBack_Click(object sender, EventArgs e)
         {
-            pnlAdminSettings.Visible = false;
+            //pnlAdminSettings.Visible = false;
+        }
+
+        private void pnlAdminSettings_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (pnlPWchange.Visible)
+                pnlPWchange.Visible = false;
+            else
+                pnlPWchange.Visible = true;
         }
     }
 }
