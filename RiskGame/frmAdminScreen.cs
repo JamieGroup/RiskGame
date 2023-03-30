@@ -16,7 +16,7 @@ namespace RiskGame
         public frmAdminScreen()
         {
             InitializeComponent();
-            
+            HideAllPanels();
         }
 
         private void optionSelect(string s)
@@ -61,11 +61,11 @@ namespace RiskGame
 
         private void HideAllPanels()
         {
-            //pnlAdminSettings.Visible = false;
-            //pnlGi.Visible = false;
-            //pnlDAP.Visible = false;
-            //pnlAAL.Visible = false;
-            //pnlIGAI.Visible = false;
+            btnBack.Visible = false;
+            tcAAS.Visible = false;
+            tcDAP.Visible = false;
+            tcIAI.Visible = false;
+
         }
 
         private void btnOptionsBack_Click(object sender, EventArgs e)
@@ -84,6 +84,17 @@ namespace RiskGame
                 pnlPWchange.Visible = false;
             else
                 pnlPWchange.Visible = true;
+        }
+
+        private void pnl1_Click(object sender, EventArgs e)
+        {
+            tcAAS.Visible = true;
+            btnBack.Visible = true;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            HideAllPanels();
         }
     }
 }

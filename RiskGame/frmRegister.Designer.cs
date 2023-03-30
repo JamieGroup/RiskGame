@@ -90,7 +90,7 @@ namespace RiskGame
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(35, 5);
+            this.txtUsername.Location = new System.Drawing.Point(-1, 39);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(465, 43);
             this.txtUsername.TabIndex = 3;

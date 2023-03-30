@@ -703,6 +703,7 @@ namespace RiskGame
                 INDICATORpnlDeploy.BackColor = Color.LightGray;
                 INDICATORpnlAttack.BackColor = Color.LightGray;
                 INDICATORpnlReEnforce.BackColor = (current.accentColour);
+
             }
             else if (Game.state == 3) //Change turns & prompts
             {

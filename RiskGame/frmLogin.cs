@@ -72,17 +72,17 @@ namespace RiskGame
             int y = 0;
             if (currentLine <= 4)
             {
-                y = 68;
+                y = 95;
                 x = 12 + (currentLine * 189);
             }
             else if (currentLine <= 9)
             {
-                y = 68 + 175;
+                y = 95 + 175;
                 x = 12 + ((currentLine - 5) * 189);
             }
             else
             {
-                y = 68 + 175 + 175;
+                y = 95 + 175 + 175;
                 x = 12 + ((currentLine - 10) * 189);
             }
             pnl.Location = new Point(x, y);
