@@ -36,6 +36,14 @@ namespace RiskGame
             {
                 for (int i = 0; i < 64; i++)
                 {
+                    Color weightedColour = Color.White;
+                    switch (q)
+                    {
+                        case 0: weightedColour = Color.Yellow; break;
+                        case 1: weightedColour = Color.Aqua; break;
+                        case 2: weightedColour = Color.Fuchsia; break;
+                        default: weightedColour = Color.White; break;
+                    }
                     Panel pnl = new Panel();
                     pnl.Size = new System.Drawing.Size(30, 30);
                     int xValue = 0;
@@ -85,7 +93,7 @@ namespace RiskGame
                     pnl.Name = ($"pnlMini_{i}_{q}");
 
                     Color col = new Color();
-                    int h = rnd.Next(0, 5);
+                    int h = rnd.Next(0, 7);
                     switch (h)
                     {
                         case 0: col = Color.Red; break;
@@ -93,6 +101,8 @@ namespace RiskGame
                         case 2: col = Color.Yellow; break;
                         case 3: col = Color.LightGreen; break;
                         case 4: col = Color.Fuchsia; break;
+                        case 5: col = weightedColour; break;
+                        case 6: col = weightedColour; break;
                     }
                     pnl.BackColor = col;
                     if (q == 0)
