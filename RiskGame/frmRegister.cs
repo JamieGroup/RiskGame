@@ -201,9 +201,11 @@ namespace RiskGame
                 bool isAdmin = false;
                 if (cbAdmin.Checked)
                     isAdmin = true;
+                bool isLocked = false;
+                tmpPlayer.accountLocked = isLocked;
                 tmpPlayer.isAdmin = isAdmin;
 
-                sw.WriteLine($"{username}~avatars\\{txtUsername.Text}.png~{passwordHash}~{isAdmin}");
+                sw.WriteLine($"{username}~avatars\\{txtUsername.Text}.png~{passwordHash}~{isAdmin}~{isLocked}~0");
 
                 sw.Dispose();
                 aFile.Dispose();

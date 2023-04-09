@@ -25,14 +25,18 @@ namespace RiskGame
         bool moveAssets = false;
         char moveX;
         char moveY;
+        string[] userDetails;
+        int selectedUserID = 0;
 
         public frmLogin()
         {
-
+            InitializeComponent();
+            CenterToScreen();
             if (!File.Exists("cachedUsers.conf"))
             {
                 frmLogin.human.firstLaunch = true;
                 File.Create("cachedUsers.conf").Dispose();
+                userDetails = File.ReadAllLines("cachedUsers.conf");
                 Hide();
                 new frmRegister().Show();
             }
@@ -41,9 +45,7 @@ namespace RiskGame
                 currentLine = 0;
                 numberOfUsers = File.ReadAllLines("cachedUsers.conf").Count();
                 users = new string[numberOfUsers, 4];
-                InitializeComponent();
-                CenterToScreen();
-
+                
                 // Read in the details from the users.txt file
                 string[] userDetails = File.ReadAllLines("cachedUsers.conf");
                 foreach (string user in userDetails)
@@ -57,7 +59,7 @@ namespace RiskGame
                     currentLine++;
                 }
             }
-
+            txtBigPassword.Text = "";
             txtBigPassword.PasswordChar = '*';
         }
 
@@ -153,9 +155,9 @@ namespace RiskGame
 
             pnlBigCredentialsHolder.Visible = true;
             pnl_Sidebar_0.Visible = true;
-            
+
             // Read in the details from the users.txt file
-            string[] userDetails = File.ReadAllLines("cachedUsers.conf");
+            userDetails = File.ReadAllLines("cachedUsers.conf");
             int currentLine = 1;
             foreach (string user in userDetails)
             {
@@ -167,6 +169,7 @@ namespace RiskGame
                     lbBigUsername.Left = (pnlBigUsernameHolder.ClientSize.Width / 2) - (lbBigUsername.Width / 2);
                     txtBigPassword.PasswordChar = '*';
                     txtBigPassword.Focus();
+                    selectedUserID = currentLine;
                 }
 
                 Panel pnl = new Panel();
@@ -233,7 +236,13 @@ namespace RiskGame
         {
             string usr = lbBigUsername.Text;
             string inputHashed = AES.GetHashString(txtBigPassword.Text);
-            if (inputHashed == getPasswordHash(usr))
+
+            userDetails = File.ReadAllLines("cachedUsers.conf");
+            string currentUserLine = userDetails[selectedUserID-1];
+            int attempts = Convert.ToInt32(userDetails[selectedUserID-1].Split('~')[5]);
+            bool locked = Convert.ToBoolean(userDetails[selectedUserID-1].Split('~')[4]);
+
+            if (inputHashed == getPasswordHash(usr) && !locked)
             {
                 //Login!
                 human = Serializer.DeserializePlayer(usr, txtBigPassword.Text);
@@ -241,9 +250,22 @@ namespace RiskGame
                 Hide();
                 new frmDashboard().Show();
             }
+            else if(locked)
+            {
+                MessageBox.Show("This account has been locked due to too many failed login attempts. \r\nPlease contact the admin to unlock your account.", "Account Locked", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
-                MessageBox.Show("Incorrect Password! 3 attempts left.");
+                attempts++;
+                userDetails[selectedUserID-1] = currentUserLine.Split('~')[0] + "~" + currentUserLine.Split('~')[1] + "~" + currentUserLine.Split('~')[2] + "~" + currentUserLine.Split('~')[3] + "~" + currentUserLine.Split('~')[4] + "~" + attempts;
+                File.WriteAllLines("cachedUsers.conf", userDetails);
+                if (attempts >= 2)
+                {
+                    locked = true;
+                    userDetails[selectedUserID-1] = currentUserLine.Split('~')[0] + "~" + currentUserLine.Split('~')[1] + "~" + currentUserLine.Split('~')[2] + "~" + currentUserLine.Split('~')[3] + "~" + locked + "~" + attempts;
+                    File.WriteAllLines("cachedUsers.conf", userDetails);
+                }
+                MessageBox.Show($"Incorrect Password! {3-attempts} attempts left.");
             }
         }
 
@@ -329,7 +351,11 @@ namespace RiskGame
             {
                 string usr = lbBigUsername.Text;
                 string inputHashed = AES.GetHashString(txtBigPassword.Text);
-                if (inputHashed == getPasswordHash(usr))
+                string currentUserLine = userDetails[selectedUserID - 1];
+                int attempts = Convert.ToInt32(userDetails[selectedUserID - 1].Split('~')[5]);
+                bool locked = Convert.ToBoolean(userDetails[selectedUserID - 1].Split('~')[4]);
+                
+                if (inputHashed == getPasswordHash(usr) && !locked)
                 {
                     //Login!
                     human = Serializer.DeserializePlayer(usr, txtBigPassword.Text);
@@ -337,9 +363,22 @@ namespace RiskGame
                     Hide();
                     new frmDashboard().Show();
                 }
+                else if (locked)
+                {
+                    MessageBox.Show("This account has been locked due to too many failed login attempts. \r\nPlease contact the admin to unlock your account.", "Account Locked", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
                 {
-                    MessageBox.Show("Incorrect Password! 3 attempts left.");
+                    attempts++;
+                    userDetails[selectedUserID - 1] = currentUserLine.Split('~')[0] + "~" + currentUserLine.Split('~')[1] + "~" + currentUserLine.Split('~')[2] + "~" + currentUserLine.Split('~')[3] + "~" + currentUserLine.Split('~')[4] + "~" + attempts;
+                    File.WriteAllLines("cachedUsers.conf", userDetails);
+                    if (attempts >= 2)
+                    {
+                        locked = true;
+                        userDetails[selectedUserID - 1] = currentUserLine.Split('~')[0] + "~" + currentUserLine.Split('~')[1] + "~" + currentUserLine.Split('~')[2] + "~" + currentUserLine.Split('~')[3] + "~" + locked + "~" + attempts;
+                        File.WriteAllLines("cachedUsers.conf", userDetails);
+                    }
+                    MessageBox.Show($"Incorrect Password! {3 - attempts} attempts left.");
                 }
             }
         }
