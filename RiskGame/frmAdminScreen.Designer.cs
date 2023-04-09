@@ -55,8 +55,7 @@ namespace RiskGame
             this.lbPWCIns = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lbAASpwTitle = new System.Windows.Forms.Label();
-            this.tbAAS = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tpLockedAccounts = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tcDAP = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -68,12 +67,13 @@ namespace RiskGame
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tcAttributes = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.pnl2.SuspendLayout();
@@ -87,8 +87,11 @@ namespace RiskGame
             this.tcAAS.SuspendLayout();
             this.tbAASpw.SuspendLayout();
             this.pnlPWchange.SuspendLayout();
+            this.tpLockedAccounts.SuspendLayout();
             this.tcDAP.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.tcIAI.SuspendLayout();
+            this.tabPage11.SuspendLayout();
             this.tcAttributes.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage10.SuspendLayout();
@@ -122,7 +125,7 @@ namespace RiskGame
             this.lb1.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.lb1.Location = new System.Drawing.Point(88, 20);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(230, 32);
+            this.lb1.Size = new System.Drawing.Size(229, 32);
             this.lb1.TabIndex = 1;
             this.lb1.Text = "Accounts && Security";
             // 
@@ -152,7 +155,7 @@ namespace RiskGame
             this.lb2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb2.Location = new System.Drawing.Point(88, 19);
             this.lb2.Name = "lb2";
-            this.lb2.Size = new System.Drawing.Size(249, 32);
+            this.lb2.Size = new System.Drawing.Size(248, 32);
             this.lb2.TabIndex = 2;
             this.lb2.Text = "Data && Online Privacy";
             // 
@@ -182,7 +185,7 @@ namespace RiskGame
             this.lb3.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.lb3.Location = new System.Drawing.Point(88, 21);
             this.lb3.Name = "lb3";
-            this.lb3.Size = new System.Drawing.Size(135, 32);
+            this.lb3.Size = new System.Drawing.Size(134, 32);
             this.lb3.TabIndex = 3;
             this.lb3.Text = "In-Game AI";
             // 
@@ -212,7 +215,7 @@ namespace RiskGame
             this.lb4.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.lb4.Location = new System.Drawing.Point(88, 20);
             this.lb4.Name = "lb4";
-            this.lb4.Size = new System.Drawing.Size(209, 32);
+            this.lb4.Size = new System.Drawing.Size(208, 32);
             this.lb4.TabIndex = 4;
             this.lb4.Text = "Game Information";
             this.lb4.Click += new System.EventHandler(this.label3_Click);
@@ -243,7 +246,7 @@ namespace RiskGame
             this.lb5.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.lb5.Location = new System.Drawing.Point(89, 19);
             this.lb5.Name = "lb5";
-            this.lb5.Size = new System.Drawing.Size(208, 32);
+            this.lb5.Size = new System.Drawing.Size(207, 32);
             this.lb5.TabIndex = 5;
             this.lb5.Text = "Attributes && Legal";
             // 
@@ -260,10 +263,9 @@ namespace RiskGame
             // tcAAS
             // 
             this.tcAAS.Controls.Add(this.tbAASpw);
-            this.tcAAS.Controls.Add(this.tbAAS);
-            this.tcAAS.Controls.Add(this.tabPage3);
+            this.tcAAS.Controls.Add(this.tpLockedAccounts);
             this.tcAAS.Controls.Add(this.tabPage1);
-            this.tcAAS.Location = new System.Drawing.Point(12, 50);
+            this.tcAAS.Location = new System.Drawing.Point(20, 428);
             this.tcAAS.Name = "tcAAS";
             this.tcAAS.SelectedIndex = 0;
             this.tcAAS.Size = new System.Drawing.Size(776, 388);
@@ -344,28 +346,20 @@ namespace RiskGame
             this.lbAASpwTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAASpwTitle.Location = new System.Drawing.Point(6, 3);
             this.lbAASpwTitle.Name = "lbAASpwTitle";
-            this.lbAASpwTitle.Size = new System.Drawing.Size(463, 32);
+            this.lbAASpwTitle.Size = new System.Drawing.Size(462, 32);
             this.lbAASpwTitle.TabIndex = 0;
             this.lbAASpwTitle.Text = "Accounts and Security - Password Options";
             // 
-            // tbAAS
+            // tpLockedAccounts
             // 
-            this.tbAAS.Location = new System.Drawing.Point(4, 22);
-            this.tbAAS.Name = "tbAAS";
-            this.tbAAS.Padding = new System.Windows.Forms.Padding(3);
-            this.tbAAS.Size = new System.Drawing.Size(768, 362);
-            this.tbAAS.TabIndex = 1;
-            this.tbAAS.Text = "Locked Accounts";
-            this.tbAAS.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(768, 362);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Encryption (Local)";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tpLockedAccounts.Controls.Add(this.label4);
+            this.tpLockedAccounts.Location = new System.Drawing.Point(4, 22);
+            this.tpLockedAccounts.Name = "tpLockedAccounts";
+            this.tpLockedAccounts.Padding = new System.Windows.Forms.Padding(3);
+            this.tpLockedAccounts.Size = new System.Drawing.Size(768, 362);
+            this.tpLockedAccounts.TabIndex = 1;
+            this.tpLockedAccounts.Text = "Locked Accounts";
+            this.tpLockedAccounts.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -382,7 +376,7 @@ namespace RiskGame
             this.tcDAP.Controls.Add(this.tabPage8);
             this.tcDAP.Controls.Add(this.tabPage9);
             this.tcDAP.Controls.Add(this.tabPage2);
-            this.tcDAP.Location = new System.Drawing.Point(12, 50);
+            this.tcDAP.Location = new System.Drawing.Point(794, 368);
             this.tcDAP.Name = "tcDAP";
             this.tcDAP.SelectedIndex = 0;
             this.tcDAP.Size = new System.Drawing.Size(776, 388);
@@ -390,6 +384,7 @@ namespace RiskGame
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.tcIAI);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(768, 362);
@@ -428,7 +423,7 @@ namespace RiskGame
             // 
             this.tcIAI.Controls.Add(this.tabPage11);
             this.tcIAI.Controls.Add(this.tabPage12);
-            this.tcIAI.Location = new System.Drawing.Point(12, 50);
+            this.tcIAI.Location = new System.Drawing.Point(19, 146);
             this.tcIAI.Name = "tcIAI";
             this.tcIAI.SelectedIndex = 0;
             this.tcIAI.Size = new System.Drawing.Size(776, 388);
@@ -436,6 +431,7 @@ namespace RiskGame
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.tcAttributes);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Size = new System.Drawing.Size(768, 362);
@@ -458,7 +454,7 @@ namespace RiskGame
             this.tcAttributes.Controls.Add(this.tabPage10);
             this.tcAttributes.Controls.Add(this.tabPage13);
             this.tcAttributes.Controls.Add(this.tabPage14);
-            this.tcAttributes.Location = new System.Drawing.Point(12, 50);
+            this.tcAttributes.Location = new System.Drawing.Point(69, 56);
             this.tcAttributes.Name = "tcAttributes";
             this.tcAttributes.SelectedIndex = 0;
             this.tcAttributes.Size = new System.Drawing.Size(776, 388);
@@ -474,6 +470,15 @@ namespace RiskGame
             this.tabPage6.Text = "Images";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(250, 858);
+            this.label2.TabIndex = 0;
+            this.label2.Text = resources.GetString("label2.Text");
+            // 
             // tabPage10
             // 
             this.tabPage10.Controls.Add(this.label3);
@@ -483,6 +488,16 @@ namespace RiskGame
             this.tabPage10.TabIndex = 1;
             this.tabPage10.Text = "Sounds";
             this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(250, 65);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Yes-1.mp3 & Static-1.mp3 & No1-3.mp3 Sound Effects\r\nPixabay\r\n\r\nYes-2.wav & Yes-3." +
+    "wav\r\nMixkit";
             // 
             // tabPage13
             // 
@@ -502,25 +517,6 @@ namespace RiskGame
             this.tabPage14.Text = "Diagrams";
             this.tabPage14.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(250, 858);
-            this.label2.TabIndex = 0;
-            this.label2.Text = resources.GetString("label2.Text");
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(250, 65);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Yes-1.mp3 & Static-1.mp3 & No1-3.mp3 Sound Effects\r\nPixabay\r\n\r\nYes-2.wav & Yes-3." +
-    "wav\r\nMixkit";
-            // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -532,14 +528,22 @@ namespace RiskGame
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(10, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(180, 30);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Locked Accounts";
+            // 
             // frmAdminScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.tcAttributes);
-            this.Controls.Add(this.tcIAI);
             this.Controls.Add(this.tcDAP);
             this.Controls.Add(this.tcAAS);
             this.Controls.Add(this.pnl5);
@@ -570,8 +574,12 @@ namespace RiskGame
             this.tbAASpw.PerformLayout();
             this.pnlPWchange.ResumeLayout(false);
             this.pnlPWchange.PerformLayout();
+            this.tpLockedAccounts.ResumeLayout(false);
+            this.tpLockedAccounts.PerformLayout();
             this.tcDAP.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
             this.tcIAI.ResumeLayout(false);
+            this.tabPage11.ResumeLayout(false);
             this.tcAttributes.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
@@ -603,8 +611,7 @@ namespace RiskGame
         private System.Windows.Forms.TabControl tcAAS;
         private System.Windows.Forms.TabPage tbAASpw;
         private System.Windows.Forms.Label lbAASpwTitle;
-        private System.Windows.Forms.TabPage tbAAS;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tpLockedAccounts;
         private System.Windows.Forms.Panel pnlPWchange;
         private System.Windows.Forms.Label lbPWCIns;
         private System.Windows.Forms.Button button1;
@@ -628,5 +635,6 @@ namespace RiskGame
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.TabPage tabPage14;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label4;
     }
 }
