@@ -707,18 +707,31 @@ namespace RiskGame
             }
             else if (Game.state == 3) //Change turns & prompts
             {
-                //Push to the turn swapper, and play the animation associated with a computer player's turn.
-                //Youtube link: https://youtu.be/dkXek5V-920
-                string html = "html head";
-                html += " meta content='IE=Edge' http-equiv='X-UA-Compatible'/ ";
-                html += " iframe id='video' src= 'https://youtube.com/embed/{0}' width='600' height='300' frameborder='0' allowfullscreen  /iframe ";  
-                html += " /body  /html ";
-                //wbVideo.Link = string.Format(html, "dkXek5V-920");
-
-                //Play youtube video in wbVideo web browser
-                //wbVideo.Navigate("https://youtu.be/dkXek5V-920");
-                //wbVideo.Document.Write(html);
-                //wbVideo.Refresh();
+                int numRegions = 0;
+                int aiNumRegions = 0;
+                for(int i=0;i<regions.Length;i++)
+                {
+                    if (regions[i].owner == 0)
+                        numRegions++;
+                    else if (regions[i].owner == 1)
+                        aiNumRegions++;
+                }
+                frmLogin.human.gamesPlayed++;
+                
+                if(numRegions>aiNumRegions)
+                {
+                    MessageBox.Show($"You Win! You contorl a total of {numRegions}, whereas your oppoents\r\ncontrol an average of {aiNumRegions} regions!");
+                    frmLogin.human.gamesWon++;
+                    Hide();
+                    new frmDashboard().Show();
+                }
+                else
+                {
+                    MessageBox.Show($"You Lose! Your opponents control an average of {aiNumRegions} regions! \r\nBut you only control a total of {numRegions}!");
+                    frmLogin.human.gamesLost++;
+                    Hide();
+                    new frmDashboard().Show();
+                }
             }
         }
 
