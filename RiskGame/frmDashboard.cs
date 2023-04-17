@@ -10,12 +10,15 @@ namespace RiskGame
         {
             InitializeComponent();
             CenterToScreen();
+            Serializer.SerializePlayer(frmLogin.human);
             pbLogout.Image = Properties.Resources.LogoutButton_NOTHover2;
             pbTutorialEasy.Visible = false;
             pbTutorialHard.Visible = false;
             lbTutorialEasy.Visible = false;
             lbTutorialHard.Visible = false;
             lbSkipTutorial.Visible = false;
+            label2.Text = Convert.ToString(frmLogin.human.gamesWon);
+            label3.Text = Convert.ToString(frmLogin.human.gamesLost);
             tmrTick.Start();
         }
 

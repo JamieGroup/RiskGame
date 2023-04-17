@@ -199,6 +199,9 @@ namespace RiskGame
                 string avatar = pbAvatar.ImageLocation;
                 tmpPlayer.passwordHash = passwordHash;
                 tmpPlayer.firstLaunch = true;
+                tmpPlayer.gamesPlayed = 0;
+                tmpPlayer.gamesLost = 0;
+                tmpPlayer.gamesWon = 0;
                 bool isAdmin = false;
                 if (cbAdmin.Checked)
                     isAdmin = true;
