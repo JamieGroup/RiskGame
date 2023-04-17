@@ -19,6 +19,7 @@ namespace RiskGame
             lbSkipTutorial.Visible = false;
             label2.Text = Convert.ToString(frmLogin.human.gamesWon);
             label3.Text = Convert.ToString(frmLogin.human.gamesLost);
+            label6.Text = Convert.ToString(frmLogin.human.gamesPlayed);
             tmrTick.Start();
         }
 

@@ -180,6 +180,7 @@ namespace RiskGame
                 lb.Font = new Font("Segoe UI", 18, FontStyle.Bold);
                 lb.Click += new EventHandler(troopDisplay_Click);
                 lb.Name = "lbREGION_" + regions[i].name;
+                lb.Height = 60;
                 lb.BringToFront();
             }
             rnd.Next(1, a);
@@ -720,14 +721,20 @@ namespace RiskGame
                 
                 if(numRegions>aiNumRegions)
                 {
-                    MessageBox.Show($"You Win! You contorl a total of {numRegions}, whereas your oppoents\r\ncontrol an average of {aiNumRegions} regions!");
+                    MessageBox.Show($"You Win! You contorl a total of {numRegions}, whereas your oppoents\r\ncontrol an average of {aiNumRegions} regions!\r\nReturning to the Dashboard!");
                     frmLogin.human.gamesWon++;
+                    Hide();
+                    new frmDashboard().Show();
+                }
+                else if(numRegions==aiNumRegions)
+                {
+                    MessageBox.Show($"Draw! You and your opponents both control an average of {numRegions} regions!\r\nReturning to the Dashboard!");
                     Hide();
                     new frmDashboard().Show();
                 }
                 else
                 {
-                    MessageBox.Show($"You Lose! Your opponents control an average of {aiNumRegions} regions! \r\nBut you only control a total of {numRegions}!");
+                    MessageBox.Show($"You Lose! Your opponents control an average of {aiNumRegions} regions! \r\nBut you only control a total of {numRegions}!\r\nReturning to the Dashboard!");
                     frmLogin.human.gamesLost++;
                     Hide();
                     new frmDashboard().Show();
@@ -1230,15 +1237,11 @@ namespace RiskGame
                     DiminishTroop(source, AVGTCdiff);
                     DiminishTroop(target, 1);
                 }
-                else if (AVGTCdiff > 0)
+                else if (AVGTCdiff >= 0)
                 {
                     //Source won
                     DiminishTroop(target, AVGTCdiff);
                     DiminishTroop(source, 1);
-                }
-                else
-                {
-                    //Nobody wins
                 }
             }
             else if (sourceCount > targetCount)
@@ -1266,7 +1269,7 @@ namespace RiskGame
                 target.SetController(current.gamePlayerID);
                 occupyRegion(source, target);
             }
-            if (source.troopCount <= 0)
+            else if (source.troopCount <= 0 || target.troopCount>0)
             {
                 //Source region lost
                 int animateSpeed = 2;

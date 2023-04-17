@@ -90,7 +90,7 @@ namespace RiskGame
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             //lbAvatar.Text = txtUsername.Text + " (Avatar)";
-            if (txtUsername.Text.Length < 2 || txtUsername.Text.Length > 25 || userInUse(txtUsername.Text)){
+            if (txtUsername.Text.Length < 2 || txtUsername.Text.Length > 25){
                 acceptUsername = false;
             }
             else{
@@ -140,36 +140,29 @@ namespace RiskGame
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if(!cbIgnoreRequirements.Checked)
+            if (sameAvatar)
             {
-                if (sameAvatar)
-                {
-                    MessageBox.Show("Please select an avatar!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (!acceptUsername)
-                {
-                    MessageBox.Show("Username must be 2-25 characters in length!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (!acceptPassword)
-                {
-                    MessageBox.Show("Password must be at least 6 characters in length, and contain at least 1 number and 1 uppercase letter!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (!acceptConfirmPassword)
-                {
-                    MessageBox.Show("Passwords must match!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    PublishUser();
-                }
+                MessageBox.Show("Please select an avatar!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(!userInUse(txtUsername.Text))
+            else if (!acceptUsername)
             {
-                PublishUser();
+                MessageBox.Show("Username must be 2-25 characters in length!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!acceptPassword)
+            {
+                MessageBox.Show("Password must be at least 6 characters in length, and contain at least 1 number and 1 uppercase letter!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!acceptConfirmPassword)
+            {
+                MessageBox.Show("Passwords must match!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(userInUse(txtUsername.Text))
+            {
+                MessageBox.Show("Username already in use! \r\nTry logging in again, or ask an admin to reset your password!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("This user already exists! \r\nTry logging in again, or reset your password.", "User in use");
+                PublishUser();
             }
         }
 

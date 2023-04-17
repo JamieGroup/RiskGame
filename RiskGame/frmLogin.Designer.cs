@@ -79,7 +79,7 @@ namespace RiskGame
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(376, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(308, 32);
+            this.label2.Size = new System.Drawing.Size(307, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Please select your account.";
             // 
@@ -92,6 +92,7 @@ namespace RiskGame
             this.DEBUGbtnSkipToGame.TabIndex = 5;
             this.DEBUGbtnSkipToGame.Text = "Debug: Skip to Game";
             this.DEBUGbtnSkipToGame.UseVisualStyleBackColor = true;
+            this.DEBUGbtnSkipToGame.Visible = false;
             this.DEBUGbtnSkipToGame.Click += new System.EventHandler(this.DEBUGbtnSkipToGame_Click);
             // 
             // DEBUG_cbFirstLaunch
@@ -104,6 +105,7 @@ namespace RiskGame
             this.DEBUG_cbFirstLaunch.TabIndex = 3;
             this.DEBUG_cbFirstLaunch.Text = "Debug Tool: First Launch?";
             this.DEBUG_cbFirstLaunch.UseVisualStyleBackColor = true;
+            this.DEBUG_cbFirstLaunch.Visible = false;
             this.DEBUG_cbFirstLaunch.CheckedChanged += new System.EventHandler(this.DEBUG_cbFirstLaunch_CheckedChanged);
             // 
             // DEBUGcbIgnoreAssigned
@@ -116,6 +118,7 @@ namespace RiskGame
             this.DEBUGcbIgnoreAssigned.TabIndex = 6;
             this.DEBUGcbIgnoreAssigned.Text = "Debug Tool: Ignore Assigned?";
             this.DEBUGcbIgnoreAssigned.UseVisualStyleBackColor = true;
+            this.DEBUGcbIgnoreAssigned.Visible = false;
             this.DEBUGcbIgnoreAssigned.CheckedChanged += new System.EventHandler(this.DEBUGcbIgnoreAssigned_CheckedChanged);
             // 
             // lbBigUsername

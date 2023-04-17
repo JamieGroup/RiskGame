@@ -45,7 +45,6 @@ namespace RiskGame
             this.pnlConfirmPassword = new System.Windows.Forms.Panel();
             this.lbPasswordDescription = new System.Windows.Forms.Label();
             this.lbConfirmDescription = new System.Windows.Forms.Label();
-            this.cbIgnoreRequirements = new System.Windows.Forms.CheckBox();
             this.lbAvatar = new System.Windows.Forms.Label();
             this.lbAvatarDescrption = new System.Windows.Forms.Label();
             this.pbAvatar = new System.Windows.Forms.PictureBox();
@@ -207,19 +206,6 @@ namespace RiskGame
             this.lbConfirmDescription.TabIndex = 14;
             this.lbConfirmDescription.Text = "This should be exactly the same as the password.";
             // 
-            // cbIgnoreRequirements
-            // 
-            this.cbIgnoreRequirements.AutoSize = true;
-            this.cbIgnoreRequirements.Checked = true;
-            this.cbIgnoreRequirements.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbIgnoreRequirements.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbIgnoreRequirements.Location = new System.Drawing.Point(563, 9);
-            this.cbIgnoreRequirements.Name = "cbIgnoreRequirements";
-            this.cbIgnoreRequirements.Size = new System.Drawing.Size(225, 34);
-            this.cbIgnoreRequirements.TabIndex = 15;
-            this.cbIgnoreRequirements.Text = "Ignore Requirements";
-            this.cbIgnoreRequirements.UseVisualStyleBackColor = true;
-            // 
             // lbAvatar
             // 
             this.lbAvatar.AutoSize = true;
@@ -272,7 +258,6 @@ namespace RiskGame
             this.Controls.Add(this.pbAvatar);
             this.Controls.Add(this.lbAvatarDescrption);
             this.Controls.Add(this.lbAvatar);
-            this.Controls.Add(this.cbIgnoreRequirements);
             this.Controls.Add(this.lbConfirmDescription);
             this.Controls.Add(this.pnlConfirmPassword);
             this.Controls.Add(this.pnlPassword);
@@ -314,7 +299,6 @@ namespace RiskGame
         private System.Windows.Forms.Panel pnlConfirmPassword;
         private System.Windows.Forms.Label lbPasswordDescription;
         private System.Windows.Forms.Label lbConfirmDescription;
-        private System.Windows.Forms.CheckBox cbIgnoreRequirements;
         private System.Windows.Forms.Label lbAvatar;
         private System.Windows.Forms.Label lbAvatarDescrption;
         private System.Windows.Forms.PictureBox pbAvatar;
