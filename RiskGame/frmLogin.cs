@@ -30,8 +30,6 @@ namespace RiskGame
 
         public frmLogin()
         {
-            InitializeComponent();
-            CenterToScreen();
             if (!File.Exists("cachedUsers.conf"))
             {
                 frmLogin.human.firstLaunch = true;
@@ -42,6 +40,8 @@ namespace RiskGame
             }
             else
             {
+                InitializeComponent();
+                CenterToScreen();
                 currentLine = 0;
                 numberOfUsers = File.ReadAllLines("cachedUsers.conf").Count();
                 users = new string[numberOfUsers, 4];
@@ -58,9 +58,9 @@ namespace RiskGame
                     AddToScreen(splitDetails[0], splitDetails[1], splitDetails[2]);
                     currentLine++;
                 }
+                txtBigPassword.Text = "";
+                txtBigPassword.PasswordChar = '*';
             }
-            txtBigPassword.Text = "";
-            txtBigPassword.PasswordChar = '*';
         }
 
         private void AddToScreen(string username, string avatar, string password)

@@ -25,8 +25,8 @@ namespace RiskGame
             disableDescriptions();
             txtPassword.PasswordChar = '*';
             txtConfirmPassword.PasswordChar = '*';
-            pbAvatar.ImageLocation = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
             absoluteAvatar = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
+            pbAvatar.ImageLocation = absoluteAvatar;
             ID = (File.ReadLines("cachedUsers.conf").Count());
         }
 
@@ -198,6 +198,7 @@ namespace RiskGame
                 string passwordHash = AES.GetHashString(txtPassword.Text);
                 string avatar = pbAvatar.ImageLocation;
                 tmpPlayer.passwordHash = passwordHash;
+                tmpPlayer.firstLaunch = true;
                 bool isAdmin = false;
                 if (cbAdmin.Checked)
                     isAdmin = true;

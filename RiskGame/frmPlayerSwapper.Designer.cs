@@ -31,28 +31,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbPl1Username = new System.Windows.Forms.Label();
             this.pnlPlayer1 = new System.Windows.Forms.Panel();
+            this.pbPl1Avatar = new System.Windows.Forms.PictureBox();
             this.pnlPlayer2 = new System.Windows.Forms.Panel();
+            this.pbPl2Avatar = new System.Windows.Forms.PictureBox();
             this.lbPl2Username = new System.Windows.Forms.Label();
             this.pnlPlayer3 = new System.Windows.Forms.Panel();
             this.lbPl3Username = new System.Windows.Forms.Label();
+            this.pbPl3Avatar = new System.Windows.Forms.PictureBox();
             this.pnlStripe = new System.Windows.Forms.Panel();
             this.btnHelp = new System.Windows.Forms.Button();
             this.pnlInfo = new System.Windows.Forms.Panel();
             this.btnCloseVideo = new System.Windows.Forms.Button();
             this.pbAIVisuals = new System.Windows.Forms.PictureBox();
             this.pbTradeCards = new System.Windows.Forms.PictureBox();
-            this.pbPl3Avatar = new System.Windows.Forms.PictureBox();
-            this.pbPl2Avatar = new System.Windows.Forms.PictureBox();
-            this.pbPl1Avatar = new System.Windows.Forms.PictureBox();
             this.pnlPlayer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPl1Avatar)).BeginInit();
             this.pnlPlayer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPl2Avatar)).BeginInit();
             this.pnlPlayer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPl3Avatar)).BeginInit();
             this.pnlInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAIVisuals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTradeCards)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPl3Avatar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPl2Avatar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPl1Avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -85,6 +85,16 @@
             this.pnlPlayer1.Size = new System.Drawing.Size(631, 107);
             this.pnlPlayer1.TabIndex = 5;
             // 
+            // pbPl1Avatar
+            // 
+            this.pbPl1Avatar.Image = global::RiskGame.Properties.Resources.dice;
+            this.pbPl1Avatar.Location = new System.Drawing.Point(3, 3);
+            this.pbPl1Avatar.Name = "pbPl1Avatar";
+            this.pbPl1Avatar.Size = new System.Drawing.Size(115, 101);
+            this.pbPl1Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPl1Avatar.TabIndex = 0;
+            this.pbPl1Avatar.TabStop = false;
+            // 
             // pnlPlayer2
             // 
             this.pnlPlayer2.Controls.Add(this.pbPl2Avatar);
@@ -93,6 +103,16 @@
             this.pnlPlayer2.Name = "pnlPlayer2";
             this.pnlPlayer2.Size = new System.Drawing.Size(631, 107);
             this.pnlPlayer2.TabIndex = 6;
+            // 
+            // pbPl2Avatar
+            // 
+            this.pbPl2Avatar.Image = global::RiskGame.Properties.Resources.dice;
+            this.pbPl2Avatar.Location = new System.Drawing.Point(3, 3);
+            this.pbPl2Avatar.Name = "pbPl2Avatar";
+            this.pbPl2Avatar.Size = new System.Drawing.Size(115, 101);
+            this.pbPl2Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPl2Avatar.TabIndex = 0;
+            this.pbPl2Avatar.TabStop = false;
             // 
             // lbPl2Username
             // 
@@ -122,6 +142,16 @@
             this.lbPl3Username.Size = new System.Drawing.Size(223, 37);
             this.lbPl3Username.TabIndex = 4;
             this.lbPl3Username.Text = "Player3Username";
+            // 
+            // pbPl3Avatar
+            // 
+            this.pbPl3Avatar.Image = global::RiskGame.Properties.Resources.dice;
+            this.pbPl3Avatar.Location = new System.Drawing.Point(3, 3);
+            this.pbPl3Avatar.Name = "pbPl3Avatar";
+            this.pbPl3Avatar.Size = new System.Drawing.Size(115, 101);
+            this.pbPl3Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPl3Avatar.TabIndex = 2;
+            this.pbPl3Avatar.TabStop = false;
             // 
             // pnlStripe
             // 
@@ -172,7 +202,7 @@
             // 
             // pbTradeCards
             // 
-            this.pbTradeCards.Image = global::RiskGame.Properties.Resources.tradeCardsAnimation;
+            this.pbTradeCards.Image = global::RiskGame.Properties.Resources.StartGameButton;
             this.pbTradeCards.Location = new System.Drawing.Point(800, 408);
             this.pbTradeCards.Name = "pbTradeCards";
             this.pbTradeCards.Size = new System.Drawing.Size(220, 98);
@@ -180,36 +210,6 @@
             this.pbTradeCards.TabIndex = 9;
             this.pbTradeCards.TabStop = false;
             this.pbTradeCards.Click += new System.EventHandler(this.pbTradeCards_Click);
-            // 
-            // pbPl3Avatar
-            // 
-            this.pbPl3Avatar.Image = global::RiskGame.Properties.Resources.dice;
-            this.pbPl3Avatar.Location = new System.Drawing.Point(3, 3);
-            this.pbPl3Avatar.Name = "pbPl3Avatar";
-            this.pbPl3Avatar.Size = new System.Drawing.Size(115, 101);
-            this.pbPl3Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPl3Avatar.TabIndex = 2;
-            this.pbPl3Avatar.TabStop = false;
-            // 
-            // pbPl2Avatar
-            // 
-            this.pbPl2Avatar.Image = global::RiskGame.Properties.Resources.dice;
-            this.pbPl2Avatar.Location = new System.Drawing.Point(3, 3);
-            this.pbPl2Avatar.Name = "pbPl2Avatar";
-            this.pbPl2Avatar.Size = new System.Drawing.Size(115, 101);
-            this.pbPl2Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPl2Avatar.TabIndex = 0;
-            this.pbPl2Avatar.TabStop = false;
-            // 
-            // pbPl1Avatar
-            // 
-            this.pbPl1Avatar.Image = global::RiskGame.Properties.Resources.dice;
-            this.pbPl1Avatar.Location = new System.Drawing.Point(3, 3);
-            this.pbPl1Avatar.Name = "pbPl1Avatar";
-            this.pbPl1Avatar.Size = new System.Drawing.Size(115, 101);
-            this.pbPl1Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPl1Avatar.TabIndex = 0;
-            this.pbPl1Avatar.TabStop = false;
             // 
             // frmPlayerSwapper
             // 
@@ -230,16 +230,16 @@
             this.Load += new System.EventHandler(this.frmPlayerSwapper_Load);
             this.pnlPlayer1.ResumeLayout(false);
             this.pnlPlayer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPl1Avatar)).EndInit();
             this.pnlPlayer2.ResumeLayout(false);
             this.pnlPlayer2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPl2Avatar)).EndInit();
             this.pnlPlayer3.ResumeLayout(false);
             this.pnlPlayer3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPl3Avatar)).EndInit();
             this.pnlInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbAIVisuals)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTradeCards)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPl3Avatar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPl2Avatar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPl1Avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

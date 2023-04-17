@@ -49,7 +49,7 @@ namespace RiskGame
             // 
             // prbrLoading
             // 
-            this.prbrLoading.Location = new System.Drawing.Point(186, 322);
+            this.prbrLoading.Location = new System.Drawing.Point(186, 297);
             this.prbrLoading.Name = "prbrLoading";
             this.prbrLoading.Size = new System.Drawing.Size(467, 73);
             this.prbrLoading.TabIndex = 1;
@@ -61,9 +61,9 @@ namespace RiskGame
             // lbLoading
             // 
             this.lbLoading.AutoSize = true;
-            this.lbLoading.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbLoading.BackColor = System.Drawing.SystemColors.Control;
             this.lbLoading.Font = new System.Drawing.Font("Segoe UI Black", 36F, System.Drawing.FontStyle.Bold);
-            this.lbLoading.Location = new System.Drawing.Point(352, 325);
+            this.lbLoading.Location = new System.Drawing.Point(352, 373);
             this.lbLoading.Name = "lbLoading";
             this.lbLoading.Size = new System.Drawing.Size(129, 65);
             this.lbLoading.TabIndex = 2;

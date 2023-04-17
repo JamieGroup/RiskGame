@@ -32,6 +32,8 @@ namespace RiskGame
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.pbAdmin = new System.Windows.Forms.PictureBox();
+            this.pbLogout = new System.Windows.Forms.PictureBox();
             this.btnAccentColour = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,6 +43,7 @@ namespace RiskGame
             this.lbLabelGamesWon = new System.Windows.Forms.Label();
             this.lbGamesPlayed = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
+            this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.lbTutorialEasy = new System.Windows.Forms.Label();
             this.lbTutorialHard = new System.Windows.Forms.Label();
             this.lbSkipTutorial = new System.Windows.Forms.Label();
@@ -48,20 +51,19 @@ namespace RiskGame
             this.pbTutorialEasy = new System.Windows.Forms.PictureBox();
             this.pbTutorialHard = new System.Windows.Forms.PictureBox();
             this.pbPlay = new System.Windows.Forms.PictureBox();
-            this.pbAdmin = new System.Windows.Forms.PictureBox();
-            this.pbLogout = new System.Windows.Forms.PictureBox();
-            this.pbAvatar = new System.Windows.Forms.PictureBox();
+            this.btnFeedback = new System.Windows.Forms.Button();
             this.pnlSidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialEasy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialHard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialEasy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialHard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlay)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
             // 
+            this.pnlSidebar.BackColor = System.Drawing.Color.Transparent;
             this.pnlSidebar.Controls.Add(this.pbAdmin);
             this.pnlSidebar.Controls.Add(this.pbLogout);
             this.pnlSidebar.Controls.Add(this.btnAccentColour);
@@ -78,6 +80,30 @@ namespace RiskGame
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(146, 528);
             this.pnlSidebar.TabIndex = 0;
+            // 
+            // pbAdmin
+            // 
+            this.pbAdmin.Image = global::RiskGame.Properties.Resources.adminscreenicon;
+            this.pbAdmin.Location = new System.Drawing.Point(3, 383);
+            this.pbAdmin.Name = "pbAdmin";
+            this.pbAdmin.Size = new System.Drawing.Size(140, 68);
+            this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAdmin.TabIndex = 17;
+            this.pbAdmin.TabStop = false;
+            this.pbAdmin.Click += new System.EventHandler(this.pbAdmin_Click);
+            // 
+            // pbLogout
+            // 
+            this.pbLogout.Image = global::RiskGame.Properties.Resources.LogoutButton_Resize;
+            this.pbLogout.Location = new System.Drawing.Point(3, 457);
+            this.pbLogout.Name = "pbLogout";
+            this.pbLogout.Size = new System.Drawing.Size(140, 68);
+            this.pbLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogout.TabIndex = 2;
+            this.pbLogout.TabStop = false;
+            this.pbLogout.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pbLogout.MouseEnter += new System.EventHandler(this.pbLogout_MouseEnter);
+            this.pbLogout.MouseLeave += new System.EventHandler(this.pbLogout_MouseLeave);
             // 
             // btnAccentColour
             // 
@@ -102,6 +128,7 @@ namespace RiskGame
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(34, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 21);
@@ -112,22 +139,22 @@ namespace RiskGame
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(95, 276);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 21);
+            this.label3.Size = new System.Drawing.Size(20, 21);
             this.label3.TabIndex = 10;
             this.label3.Text = "0";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label2.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.YellowGreen;
             this.label2.Location = new System.Drawing.Point(95, 246);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 21);
+            this.label2.Size = new System.Drawing.Size(20, 21);
             this.label2.TabIndex = 9;
             this.label2.Text = "0";
             // 
@@ -135,6 +162,7 @@ namespace RiskGame
             // 
             this.lbLabelGamesLost.AutoSize = true;
             this.lbLabelGamesLost.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLabelGamesLost.ForeColor = System.Drawing.Color.White;
             this.lbLabelGamesLost.Location = new System.Drawing.Point(4, 276);
             this.lbLabelGamesLost.Name = "lbLabelGamesLost";
             this.lbLabelGamesLost.Size = new System.Drawing.Size(94, 21);
@@ -146,6 +174,7 @@ namespace RiskGame
             // 
             this.lbLabelGamesWon.AutoSize = true;
             this.lbLabelGamesWon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLabelGamesWon.ForeColor = System.Drawing.Color.White;
             this.lbLabelGamesWon.Location = new System.Drawing.Point(3, 246);
             this.lbLabelGamesWon.Name = "lbLabelGamesWon";
             this.lbLabelGamesWon.Size = new System.Drawing.Size(97, 21);
@@ -156,6 +185,7 @@ namespace RiskGame
             // 
             this.lbGamesPlayed.AutoSize = true;
             this.lbGamesPlayed.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGamesPlayed.ForeColor = System.Drawing.Color.White;
             this.lbGamesPlayed.Location = new System.Drawing.Point(4, 215);
             this.lbGamesPlayed.Name = "lbGamesPlayed";
             this.lbGamesPlayed.Size = new System.Drawing.Size(124, 21);
@@ -166,11 +196,23 @@ namespace RiskGame
             // 
             this.lbUsername.AutoSize = true;
             this.lbUsername.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.ForeColor = System.Drawing.Color.White;
             this.lbUsername.Location = new System.Drawing.Point(13, 149);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(126, 30);
             this.lbUsername.TabIndex = 5;
             this.lbUsername.Text = "TestAccount";
+            // 
+            // pbAvatar
+            // 
+            this.pbAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvatar.Image")));
+            this.pbAvatar.Location = new System.Drawing.Point(1, 3);
+            this.pbAvatar.Name = "pbAvatar";
+            this.pbAvatar.Size = new System.Drawing.Size(145, 143);
+            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAvatar.TabIndex = 4;
+            this.pbAvatar.TabStop = false;
+            this.pbAvatar.Click += new System.EventHandler(this.pbAvatar_Click);
             // 
             // lbTutorialEasy
             // 
@@ -248,46 +290,24 @@ namespace RiskGame
             this.pbPlay.MouseEnter += new System.EventHandler(this.pbPlay_MouseEnter);
             this.pbPlay.MouseLeave += new System.EventHandler(this.pbPlay_MouseLeave);
             // 
-            // pbAdmin
+            // btnFeedback
             // 
-            this.pbAdmin.Image = global::RiskGame.Properties.Resources.adminscreenicon;
-            this.pbAdmin.Location = new System.Drawing.Point(3, 383);
-            this.pbAdmin.Name = "pbAdmin";
-            this.pbAdmin.Size = new System.Drawing.Size(140, 68);
-            this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAdmin.TabIndex = 17;
-            this.pbAdmin.TabStop = false;
-            this.pbAdmin.Click += new System.EventHandler(this.pbAdmin_Click);
-            // 
-            // pbLogout
-            // 
-            this.pbLogout.Image = global::RiskGame.Properties.Resources.LogoutButton_Resize;
-            this.pbLogout.Location = new System.Drawing.Point(3, 457);
-            this.pbLogout.Name = "pbLogout";
-            this.pbLogout.Size = new System.Drawing.Size(140, 68);
-            this.pbLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLogout.TabIndex = 2;
-            this.pbLogout.TabStop = false;
-            this.pbLogout.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pbLogout.MouseEnter += new System.EventHandler(this.pbLogout_MouseEnter);
-            this.pbLogout.MouseLeave += new System.EventHandler(this.pbLogout_MouseLeave);
-            // 
-            // pbAvatar
-            // 
-            this.pbAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvatar.Image")));
-            this.pbAvatar.Location = new System.Drawing.Point(1, 3);
-            this.pbAvatar.Name = "pbAvatar";
-            this.pbAvatar.Size = new System.Drawing.Size(145, 143);
-            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAvatar.TabIndex = 4;
-            this.pbAvatar.TabStop = false;
-            this.pbAvatar.Click += new System.EventHandler(this.pbAvatar_Click);
+            this.btnFeedback.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFeedback.Location = new System.Drawing.Point(1006, 12);
+            this.btnFeedback.Name = "btnFeedback";
+            this.btnFeedback.Size = new System.Drawing.Size(200, 50);
+            this.btnFeedback.TabIndex = 7;
+            this.btnFeedback.Text = "Send Feedback";
+            this.btnFeedback.UseVisualStyleBackColor = true;
+            this.btnFeedback.Click += new System.EventHandler(this.btnFeedback_Click);
             // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::RiskGame.Properties.Resources.loginBackground1;
             this.ClientSize = new System.Drawing.Size(1218, 528);
+            this.Controls.Add(this.btnFeedback);
             this.Controls.Add(this.lbSkipTutorial);
             this.Controls.Add(this.lbTutorialHard);
             this.Controls.Add(this.lbTutorialEasy);
@@ -302,12 +322,12 @@ namespace RiskGame
             this.Enter += new System.EventHandler(this.frmDashboard_Enter);
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialEasy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialHard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialEasy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTutorialHard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,5 +355,6 @@ namespace RiskGame
         private System.Windows.Forms.Label lbSkipTutorial;
         private System.Windows.Forms.Timer tmrTick;
         private System.Windows.Forms.PictureBox pbAdmin;
+        private System.Windows.Forms.Button btnFeedback;
     }
 }

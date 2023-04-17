@@ -95,8 +95,9 @@ namespace RiskGame
 
         private void Trade()
         {
+            frmGameScreen.Game.newPlayer = true;
             Hide();
-            new frmTradeCards().Show();
+            Application.OpenForms["frmGameScreen"].WindowState = FormWindowState.Normal;
         }
 
         private void pbTradeCards_Click(object sender, EventArgs e)
@@ -110,9 +111,10 @@ namespace RiskGame
             if (MessageBox.Show("Please now unmute your audio, then click 'Ok' to continue.\r\nInfo: The following video is being streamed from Google Drive so may take a moment to download.", "Unmute your Audio", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 pnlInfo.Visible = true;
-                pbAIVisuals.Image = Properties.Resources.AIInfoVisuals_min;
+                //pbAIVisuals.Image = Properties.Resources.AIInfoVisuals_min;
+                pbAIVisuals.ImageLocation = "https://cdn.discordapp.com/attachments/995459834184999053/1097145130684784820/AIInfoVisuals.gif";
                 pbAIVisuals.SizeMode = PictureBoxSizeMode.Zoom;
-                SoundDash.AIInfo();
+                //SoundDash.AIInfo();
             }
         }
 

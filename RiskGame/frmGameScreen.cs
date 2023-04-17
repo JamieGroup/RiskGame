@@ -58,7 +58,7 @@ namespace RiskGame
             {
                 AssignRegions(playerCount + 1);
             }
-            GameStateChanger(3);
+            //GameStateChanger(3);
         }
 
         public void ReturnToGameScreen()

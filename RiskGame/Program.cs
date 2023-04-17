@@ -32,7 +32,7 @@ namespace RiskGame
             // pass the font to the font collection
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmSplashScreen());
         }
     }
 }

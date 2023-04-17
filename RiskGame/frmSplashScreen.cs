@@ -31,7 +31,7 @@ namespace RiskGame
                 tmrLoading.Stop();
                 Thread.Sleep(1000);
                 Hide();
-                new frmDashboard().Show();
+                new frmLogin().Show();
             }
         }
     }

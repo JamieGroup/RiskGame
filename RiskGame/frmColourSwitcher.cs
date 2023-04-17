@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -34,7 +34,7 @@ namespace RiskGame
                     case 7: loc = new Point(160, 180); col = Color.Magenta; break;
                     case 8: loc = new Point(320, 180); col = Color.Purple; break;
                     default:
-                        MessageBox.Show("Error displaying colours. Going to Dashboard.");
+                        MessageBox.Show("Error displaying colours. Going to Dashboard.");   
                         Hide(); new frmDashboard().Show(); break;
                 }
 

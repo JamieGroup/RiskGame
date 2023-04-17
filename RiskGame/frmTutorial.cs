@@ -17,6 +17,8 @@ namespace RiskGame
         {
             InitializeComponent();
             CenterToScreen();
+            frmLogin.human.firstLaunch = false;
+            Serializer.SerializePlayer(frmLogin.human);
             if (frmLogin.human.tutorialLevel == 0)
             {
                 tutorialLevel = "Beginner";

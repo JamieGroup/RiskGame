@@ -102,7 +102,7 @@ namespace RiskGame
                         case 3: col = Color.LightGreen; break;
                         case 4: col = Color.Fuchsia; break;
                         case 5: col = weightedColour; break;
-                        case 6: col = weightedColour; break;
+                        case 6: col = weightedColour; break;    
                     }
                     pnl.BackColor = col;
                     if (q == 0)

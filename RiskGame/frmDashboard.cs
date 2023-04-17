@@ -21,8 +21,23 @@ namespace RiskGame
 
         private void pbAvatar_Click(object sender, EventArgs e)
         {
-            //Open the avatar changer
-            new frmAvatarChanger().Show();
+            //Search through open forms to see if it's already open
+            FormCollection fc = Application.OpenForms;
+            bool found = false;
+
+            foreach (Form frm in fc)
+            {
+                //iterate through
+                if (frm.Name == "frmAvatarChanger")
+                {
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                //Open the avatar changer
+                new frmAvatarChanger().Show();
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -66,17 +81,23 @@ namespace RiskGame
 
         private void btnAccentColour_Click(object sender, EventArgs e)
         {
-            //Open the colour changer
-            //ColorDialog colorDialog = new ColorDialog();
-            //colorDialog.Color = btnAccentColour.BackColor;
+            //Search through open forms to see if it's already open
+            FormCollection fc = Application.OpenForms;
+            bool found = false;
 
-            //if (colorDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    btnAccentColour.BackColor = colorDialog.Color;
-            //    frmLogin.human.accentColour = ColorTranslator.ToHtml(colorDialog.Color);
-            //}
-            frmLogin.human.sentFrom = "frmDashboard";
-            new frmColourSwitcher().Show();
+            foreach (Form frm in fc)
+            {
+                //iterate through
+                if (frm.Name == "frmColourSwitcher")
+                {
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                frmLogin.human.sentFrom = "frmDashboard";
+                new frmColourSwitcher().Show();
+            }
         }
 
         //These methods change the animated play button's image from the closed book to the open book depending on
@@ -108,6 +129,8 @@ namespace RiskGame
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            frmLogin.human.firstLaunch = false;
+            Serializer.SerializePlayer(frmLogin.human);
             Hide();
             frmLogin.human = new Plys();
             new frmLogin().Show();
@@ -152,14 +175,14 @@ namespace RiskGame
         {
             frmLogin.human.tutorialLevel = 0;
             Hide();
-            new frmTutorial().Show();
+            new frmGuide().Show();
         }
 
         private void pbTutorialHard_Click(object sender, EventArgs e)
         {
             frmLogin.human.tutorialLevel = 1;
             Hide();
-            new frmTutorialIntermediate().Show();
+            new frmGuide().Show();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -187,6 +210,12 @@ namespace RiskGame
         {
             Hide();
             new frmAdminScreen().Show();
+        }
+
+        private void btnFeedback_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmFeedback().Show();
         }
     }
 }
