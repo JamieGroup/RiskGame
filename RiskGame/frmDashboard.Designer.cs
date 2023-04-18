@@ -103,6 +103,7 @@ namespace RiskGame
             this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbAdmin.TabIndex = 17;
             this.pbAdmin.TabStop = false;
+            this.pbAdmin.Visible = false;
             this.pbAdmin.Click += new System.EventHandler(this.pbAdmin_Click);
             // 
             // pbLogout

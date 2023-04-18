@@ -28,6 +28,13 @@ namespace RiskGame
             absoluteAvatar = $"avatars\\default\\default{rnd.Next(1, 6)}.jpg";
             pbAvatar.ImageLocation = absoluteAvatar;
             ID = (File.ReadLines("cachedUsers.conf").Count());
+            for (int i = Application.OpenForms.Count - 1; i >= 0; i += -1)
+            {
+                if (!object.ReferenceEquals(Application.OpenForms[i], this))
+                {
+                    Application.OpenForms[i].Hide();
+                }
+            }
         }
 
         private void disableDescriptions()

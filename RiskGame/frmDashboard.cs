@@ -20,6 +20,8 @@ namespace RiskGame
             label2.Text = Convert.ToString(frmLogin.human.gamesWon);
             label3.Text = Convert.ToString(frmLogin.human.gamesLost);
             label6.Text = Convert.ToString(frmLogin.human.gamesPlayed);
+            if (frmLogin.human.isAdmin)
+                pbAdmin.Visible = true;
             tmrTick.Start();
         }
 
