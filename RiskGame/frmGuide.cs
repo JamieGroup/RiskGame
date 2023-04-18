@@ -27,8 +27,14 @@ namespace RiskGame
         private void btnGo_Click(object sender, EventArgs e)
         {
             frmLogin.human.firstLaunch = false;
+            Serializer.SerializePlayer(frmLogin.human);
             Hide();
             new frmDashboard().Show();
+        }
+
+        private void btnMoreHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("For more help, please visit https://products.hasbro.com", "Risk: More Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
