@@ -30,5 +30,10 @@ namespace RiskGame
             Hide();
             new frmDashboard().Show();
         }
+
+        private void btnMoreHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Please visit https://hasbro.com from more information and help!");
+        }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.rtxGuide = new System.Windows.Forms.RichTextBox();
             this.btnGo = new System.Windows.Forms.Button();
+            this.btnMoreHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rtxGuide
@@ -51,11 +52,23 @@
             this.btnGo.UseVisualStyleBackColor = true;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
+            // btnMoreHelp
+            // 
+            this.btnMoreHelp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMoreHelp.Location = new System.Drawing.Point(12, 410);
+            this.btnMoreHelp.Name = "btnMoreHelp";
+            this.btnMoreHelp.Size = new System.Drawing.Size(201, 39);
+            this.btnMoreHelp.TabIndex = 2;
+            this.btnMoreHelp.Text = "I need more help";
+            this.btnMoreHelp.UseVisualStyleBackColor = true;
+            this.btnMoreHelp.Click += new System.EventHandler(this.btnMoreHelp_Click);
+            // 
             // frmGuide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 461);
+            this.Controls.Add(this.btnMoreHelp);
             this.Controls.Add(this.btnGo);
             this.Controls.Add(this.rtxGuide);
             this.Name = "frmGuide";
@@ -68,5 +81,6 @@
 
         private System.Windows.Forms.RichTextBox rtxGuide;
         private System.Windows.Forms.Button btnGo;
+        private System.Windows.Forms.Button btnMoreHelp;
     }
 }

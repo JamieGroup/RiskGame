@@ -32,6 +32,7 @@ namespace RiskGame
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.pbAdmin = new System.Windows.Forms.PictureBox();
             this.pbLogout = new System.Windows.Forms.PictureBox();
             this.btnAccentColour = new System.Windows.Forms.Button();
@@ -52,8 +53,6 @@ namespace RiskGame
             this.pbTutorialHard = new System.Windows.Forms.PictureBox();
             this.pbPlay = new System.Windows.Forms.PictureBox();
             this.btnFeedback = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
@@ -84,6 +83,17 @@ namespace RiskGame
             this.pnlSidebar.Size = new System.Drawing.Size(146, 528);
             this.pnlSidebar.TabIndex = 0;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(110, 215);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 21);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "0";
+            // 
             // pbAdmin
             // 
             this.pbAdmin.Image = global::RiskGame.Properties.Resources.adminscreenicon;
@@ -93,6 +103,7 @@ namespace RiskGame
             this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbAdmin.TabIndex = 17;
             this.pbAdmin.TabStop = false;
+            this.pbAdmin.Visible = false;
             this.pbAdmin.Click += new System.EventHandler(this.pbAdmin_Click);
             // 
             // pbLogout
@@ -304,35 +315,12 @@ namespace RiskGame
             this.btnFeedback.UseVisualStyleBackColor = true;
             this.btnFeedback.Click += new System.EventHandler(this.btnFeedback_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(555, 254);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 21);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Games Played";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(110, 215);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(19, 21);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "0";
-            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RiskGame.Properties.Resources.loginBackground1;
             this.ClientSize = new System.Drawing.Size(1218, 528);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFeedback);
             this.Controls.Add(this.lbSkipTutorial);
             this.Controls.Add(this.lbTutorialHard);
@@ -383,6 +371,5 @@ namespace RiskGame
         private System.Windows.Forms.PictureBox pbAdmin;
         private System.Windows.Forms.Button btnFeedback;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label1;
     }
 }

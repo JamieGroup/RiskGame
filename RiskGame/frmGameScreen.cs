@@ -721,7 +721,7 @@ namespace RiskGame
                 
                 if(numRegions>aiNumRegions)
                 {
-                    MessageBox.Show($"You Win! You contorl a total of {numRegions}, whereas your oppoents\r\ncontrol an average of {aiNumRegions} regions!\r\nReturning to the Dashboard!");
+                    MessageBox.Show($"You Win! You control a total of {numRegions} regions, whereas your oppoents\r\ncontrol an average of {aiNumRegions} regions!\r\nReturning to the Dashboard!");
                     frmLogin.human.gamesWon++;
                     Hide();
                     new frmDashboard().Show();
@@ -1314,10 +1314,11 @@ namespace RiskGame
             if(Game.state == 1)
             {
                 GameStateChanger(2);
-                this.Text = "End Reinforcement";
+                btnEndAttackMode.Text = "End Reinforcement";
             }
             else
             {
+                btnEndAttackMode.Text = "End Attack";
                 GameStateChanger(3);
             }
         }
