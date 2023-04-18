@@ -244,7 +244,9 @@ namespace RiskGame
 
         private void label3_Click(object sender, EventArgs e)
         {
-
+            tcInfo.Visible = true;
+            btnBack.Visible = true;
+            rtxInfo.LoadFile("risk.rtf");
         }
 
         private void pnl1_Paint(object sender, PaintEventArgs e)
@@ -374,6 +376,16 @@ namespace RiskGame
         {
             Hide();
             new frmDashboard().Show();
+        }
+
+        private void lb1_Click(object sender, EventArgs e)
+        {
+            AccountAndSecurity();
+        }
+
+        private void lb5_Click(object sender, EventArgs e)
+        {
+            AttributesAndLegal();
         }
     }
 }

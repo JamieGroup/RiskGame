@@ -49,6 +49,7 @@ namespace RiskGame
             this.lbAvatarDescrption = new System.Windows.Forms.Label();
             this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.cbAdmin = new System.Windows.Forms.CheckBox();
+            this.btnGoToLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsername.SuspendLayout();
             this.pnlPassword.SuspendLayout();
@@ -141,7 +142,7 @@ namespace RiskGame
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.Location = new System.Drawing.Point(20, 354);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(242, 71);
+            this.btnRegister.Size = new System.Drawing.Size(242, 58);
             this.btnRegister.TabIndex = 8;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -249,11 +250,23 @@ namespace RiskGame
             this.cbAdmin.Text = "Admin?";
             this.cbAdmin.UseVisualStyleBackColor = true;
             // 
+            // btnGoToLogin
+            // 
+            this.btnGoToLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoToLogin.Location = new System.Drawing.Point(20, 414);
+            this.btnGoToLogin.Name = "btnGoToLogin";
+            this.btnGoToLogin.Size = new System.Drawing.Size(242, 33);
+            this.btnGoToLogin.TabIndex = 20;
+            this.btnGoToLogin.Text = "Return to Login";
+            this.btnGoToLogin.UseVisualStyleBackColor = true;
+            this.btnGoToLogin.Click += new System.EventHandler(this.btnGoToLogin_Click);
+            // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGoToLogin);
             this.Controls.Add(this.cbAdmin);
             this.Controls.Add(this.pbAvatar);
             this.Controls.Add(this.lbAvatarDescrption);
@@ -303,5 +316,6 @@ namespace RiskGame
         private System.Windows.Forms.Label lbAvatarDescrption;
         private System.Windows.Forms.PictureBox pbAvatar;
         private System.Windows.Forms.CheckBox cbAdmin;
+        private System.Windows.Forms.Button btnGoToLogin;
     }
 }

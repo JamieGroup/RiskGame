@@ -32,14 +32,19 @@ namespace RiskGame
             this.lbTitle = new System.Windows.Forms.Label();
             this.pnl1 = new System.Windows.Forms.Panel();
             this.lb1 = new System.Windows.Forms.Label();
+            this.pb1 = new System.Windows.Forms.PictureBox();
             this.pnl2 = new System.Windows.Forms.Panel();
             this.lb2 = new System.Windows.Forms.Label();
+            this.pb2 = new System.Windows.Forms.PictureBox();
             this.pnl3 = new System.Windows.Forms.Panel();
             this.lb3 = new System.Windows.Forms.Label();
+            this.pb3 = new System.Windows.Forms.PictureBox();
             this.pnl4 = new System.Windows.Forms.Panel();
             this.lb4 = new System.Windows.Forms.Label();
+            this.pb4 = new System.Windows.Forms.PictureBox();
             this.pnl5 = new System.Windows.Forms.Panel();
             this.lb5 = new System.Windows.Forms.Label();
+            this.pb5 = new System.Windows.Forms.PictureBox();
             this.tcAAS = new System.Windows.Forms.TabControl();
             this.tbAASpw = new System.Windows.Forms.TabPage();
             this.pnlPWchange = new System.Windows.Forms.Panel();
@@ -51,7 +56,9 @@ namespace RiskGame
             this.btnOpenChangePW = new System.Windows.Forms.Button();
             this.lbAASpwTitle = new System.Windows.Forms.Label();
             this.tpLockedAccounts = new System.Windows.Forms.TabPage();
+            this.pbLockedAccountsNotFound = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.tpManageUsers = new System.Windows.Forms.TabPage();
             this.tcDAP = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tcIAI = new System.Windows.Forms.TabControl();
@@ -66,28 +73,27 @@ namespace RiskGame
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.rtxSounds = new System.Windows.Forms.RichTextBox();
             this.btnBack = new System.Windows.Forms.Button();
-            this.tpManageUsers = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbLockedAccountsNotFound = new System.Windows.Forms.PictureBox();
-            this.pb2 = new System.Windows.Forms.PictureBox();
-            this.pb4 = new System.Windows.Forms.PictureBox();
-            this.pb3 = new System.Windows.Forms.PictureBox();
-            this.pb1 = new System.Windows.Forms.PictureBox();
-            this.pb5 = new System.Windows.Forms.PictureBox();
             this.tcInfo = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.rtxInfo = new System.Windows.Forms.RichTextBox();
             this.pnl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.pnl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
             this.pnl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3)).BeginInit();
             this.pnl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb4)).BeginInit();
             this.pnl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb5)).BeginInit();
             this.tcAAS.SuspendLayout();
             this.tbAASpw.SuspendLayout();
             this.pnlPWchange.SuspendLayout();
             this.tpLockedAccounts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLockedAccountsNotFound)).BeginInit();
             this.tcDAP.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tcIAI.SuspendLayout();
@@ -96,12 +102,6 @@ namespace RiskGame
             this.tabPage10.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLockedAccountsNotFound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb5)).BeginInit();
             this.tcInfo.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -137,6 +137,17 @@ namespace RiskGame
             this.lb1.Size = new System.Drawing.Size(229, 32);
             this.lb1.TabIndex = 1;
             this.lb1.Text = "Accounts && Security";
+            this.lb1.Click += new System.EventHandler(this.lb1_Click);
+            // 
+            // pb1
+            // 
+            this.pb1.Image = global::RiskGame.Properties.Resources.AccountsAndsecurity;
+            this.pb1.Location = new System.Drawing.Point(0, 0);
+            this.pb1.Name = "pb1";
+            this.pb1.Size = new System.Drawing.Size(82, 75);
+            this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb1.TabIndex = 0;
+            this.pb1.TabStop = false;
             // 
             // pnl2
             // 
@@ -159,6 +170,16 @@ namespace RiskGame
             this.lb2.TabIndex = 2;
             this.lb2.Text = "Data && Online Privacy";
             // 
+            // pb2
+            // 
+            this.pb2.Image = global::RiskGame.Properties.Resources.DataAndOnlinePrivacy;
+            this.pb2.Location = new System.Drawing.Point(3, 0);
+            this.pb2.Name = "pb2";
+            this.pb2.Size = new System.Drawing.Size(82, 75);
+            this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb2.TabIndex = 0;
+            this.pb2.TabStop = false;
+            // 
             // pnl3
             // 
             this.pnl3.BackColor = System.Drawing.Color.White;
@@ -179,6 +200,16 @@ namespace RiskGame
             this.lb3.Size = new System.Drawing.Size(134, 32);
             this.lb3.TabIndex = 3;
             this.lb3.Text = "In-Game AI";
+            // 
+            // pb3
+            // 
+            this.pb3.Image = global::RiskGame.Properties.Resources.InGame_AI;
+            this.pb3.Location = new System.Drawing.Point(0, 0);
+            this.pb3.Name = "pb3";
+            this.pb3.Size = new System.Drawing.Size(82, 86);
+            this.pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb3.TabIndex = 0;
+            this.pb3.TabStop = false;
             // 
             // pnl4
             // 
@@ -202,6 +233,16 @@ namespace RiskGame
             this.lb4.Text = "Game Information";
             this.lb4.Click += new System.EventHandler(this.label3_Click);
             // 
+            // pb4
+            // 
+            this.pb4.Image = global::RiskGame.Properties.Resources.GameInformation;
+            this.pb4.Location = new System.Drawing.Point(0, 0);
+            this.pb4.Name = "pb4";
+            this.pb4.Size = new System.Drawing.Size(82, 75);
+            this.pb4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb4.TabIndex = 0;
+            this.pb4.TabStop = false;
+            // 
             // pnl5
             // 
             this.pnl5.BackColor = System.Drawing.Color.White;
@@ -222,6 +263,17 @@ namespace RiskGame
             this.lb5.Size = new System.Drawing.Size(207, 32);
             this.lb5.TabIndex = 5;
             this.lb5.Text = "Attributes && Legal";
+            this.lb5.Click += new System.EventHandler(this.lb5_Click);
+            // 
+            // pb5
+            // 
+            this.pb5.Image = global::RiskGame.Properties.Resources.Attributes_Legal;
+            this.pb5.Location = new System.Drawing.Point(0, 0);
+            this.pb5.Name = "pb5";
+            this.pb5.Size = new System.Drawing.Size(82, 75);
+            this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb5.TabIndex = 0;
+            this.pb5.TabStop = false;
             // 
             // tcAAS
             // 
@@ -339,6 +391,16 @@ namespace RiskGame
             this.tpLockedAccounts.Text = "Locked Accounts";
             this.tpLockedAccounts.UseVisualStyleBackColor = true;
             // 
+            // pbLockedAccountsNotFound
+            // 
+            this.pbLockedAccountsNotFound.Image = global::RiskGame.Properties.Resources.LockedAccountsEmpty;
+            this.pbLockedAccountsNotFound.Location = new System.Drawing.Point(235, 37);
+            this.pbLockedAccountsNotFound.Name = "pbLockedAccountsNotFound";
+            this.pbLockedAccountsNotFound.Size = new System.Drawing.Size(409, 322);
+            this.pbLockedAccountsNotFound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLockedAccountsNotFound.TabIndex = 1;
+            this.pbLockedAccountsNotFound.TabStop = false;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -348,6 +410,15 @@ namespace RiskGame
             this.label4.Size = new System.Drawing.Size(180, 30);
             this.label4.TabIndex = 0;
             this.label4.Text = "Locked Accounts";
+            // 
+            // tpManageUsers
+            // 
+            this.tpManageUsers.Location = new System.Drawing.Point(4, 22);
+            this.tpManageUsers.Name = "tpManageUsers";
+            this.tpManageUsers.Size = new System.Drawing.Size(768, 362);
+            this.tpManageUsers.TabIndex = 2;
+            this.tpManageUsers.Text = "Manage Users";
+            this.tpManageUsers.UseVisualStyleBackColor = true;
             // 
             // tcDAP
             // 
@@ -484,15 +555,6 @@ namespace RiskGame
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // tpManageUsers
-            // 
-            this.tpManageUsers.Location = new System.Drawing.Point(4, 22);
-            this.tpManageUsers.Name = "tpManageUsers";
-            this.tpManageUsers.Size = new System.Drawing.Size(768, 362);
-            this.tpManageUsers.TabIndex = 2;
-            this.tpManageUsers.Text = "Manage Users";
-            this.tpManageUsers.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -523,66 +585,6 @@ namespace RiskGame
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // pbLockedAccountsNotFound
-            // 
-            this.pbLockedAccountsNotFound.Image = global::RiskGame.Properties.Resources.LockedAccountsEmpty;
-            this.pbLockedAccountsNotFound.Location = new System.Drawing.Point(235, 37);
-            this.pbLockedAccountsNotFound.Name = "pbLockedAccountsNotFound";
-            this.pbLockedAccountsNotFound.Size = new System.Drawing.Size(409, 322);
-            this.pbLockedAccountsNotFound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLockedAccountsNotFound.TabIndex = 1;
-            this.pbLockedAccountsNotFound.TabStop = false;
-            // 
-            // pb2
-            // 
-            this.pb2.Image = global::RiskGame.Properties.Resources.DataAndOnlinePrivacy;
-            this.pb2.Location = new System.Drawing.Point(3, 0);
-            this.pb2.Name = "pb2";
-            this.pb2.Size = new System.Drawing.Size(82, 75);
-            this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb2.TabIndex = 0;
-            this.pb2.TabStop = false;
-            // 
-            // pb4
-            // 
-            this.pb4.Image = global::RiskGame.Properties.Resources.GameInformation;
-            this.pb4.Location = new System.Drawing.Point(0, 0);
-            this.pb4.Name = "pb4";
-            this.pb4.Size = new System.Drawing.Size(82, 75);
-            this.pb4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb4.TabIndex = 0;
-            this.pb4.TabStop = false;
-            // 
-            // pb3
-            // 
-            this.pb3.Image = global::RiskGame.Properties.Resources.InGame_AI;
-            this.pb3.Location = new System.Drawing.Point(0, 0);
-            this.pb3.Name = "pb3";
-            this.pb3.Size = new System.Drawing.Size(82, 86);
-            this.pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb3.TabIndex = 0;
-            this.pb3.TabStop = false;
-            // 
-            // pb1
-            // 
-            this.pb1.Image = global::RiskGame.Properties.Resources.AccountsAndsecurity;
-            this.pb1.Location = new System.Drawing.Point(0, 0);
-            this.pb1.Name = "pb1";
-            this.pb1.Size = new System.Drawing.Size(82, 75);
-            this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb1.TabIndex = 0;
-            this.pb1.TabStop = false;
-            // 
-            // pb5
-            // 
-            this.pb5.Image = global::RiskGame.Properties.Resources.Attributes_Legal;
-            this.pb5.Location = new System.Drawing.Point(0, 0);
-            this.pb5.Name = "pb5";
-            this.pb5.Size = new System.Drawing.Size(82, 75);
-            this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb5.TabIndex = 0;
-            this.pb5.TabStop = false;
             // 
             // tcInfo
             // 
@@ -632,14 +634,19 @@ namespace RiskGame
             this.Text = "Risk: Admin Screen";
             this.pnl1.ResumeLayout(false);
             this.pnl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
             this.pnl2.ResumeLayout(false);
             this.pnl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();
             this.pnl3.ResumeLayout(false);
             this.pnl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3)).EndInit();
             this.pnl4.ResumeLayout(false);
             this.pnl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb4)).EndInit();
             this.pnl5.ResumeLayout(false);
             this.pnl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb5)).EndInit();
             this.tcAAS.ResumeLayout(false);
             this.tbAASpw.ResumeLayout(false);
             this.tbAASpw.PerformLayout();
@@ -647,6 +654,7 @@ namespace RiskGame
             this.pnlPWchange.PerformLayout();
             this.tpLockedAccounts.ResumeLayout(false);
             this.tpLockedAccounts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLockedAccountsNotFound)).EndInit();
             this.tcDAP.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
             this.tcIAI.ResumeLayout(false);
@@ -656,12 +664,6 @@ namespace RiskGame
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLockedAccountsNotFound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb5)).EndInit();
             this.tcInfo.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);

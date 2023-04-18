@@ -166,6 +166,7 @@ namespace RiskGame
             else
             {
                 //Open setup game screen (keep Dashboard open)
+                Hide();
                 new frmSetupGame().Show();
             }
         }

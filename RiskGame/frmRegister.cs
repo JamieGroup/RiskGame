@@ -263,5 +263,11 @@ namespace RiskGame
                 }
             }
         }
+
+        private void btnGoToLogin_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmLogin().Show();
+        }
     }
 }
