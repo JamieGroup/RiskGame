@@ -82,6 +82,7 @@ namespace RiskGame
             this.lbTroopCountInfo = new System.Windows.Forms.Label();
             this.pbBase = new System.Windows.Forms.PictureBox();
             this.btnEndAttackMode = new System.Windows.Forms.Button();
+            this.lbEndMessage = new System.Windows.Forms.Label();
             this.pnlPause.SuspendLayout();
             this.pnlPauseQuit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPauseQuit)).BeginInit();
@@ -677,6 +678,17 @@ namespace RiskGame
             this.btnEndAttackMode.UseVisualStyleBackColor = true;
             this.btnEndAttackMode.Click += new System.EventHandler(this.btnEndAttackMode_Click);
             // 
+            // lbEndMessage
+            // 
+            this.lbEndMessage.AutoSize = true;
+            this.lbEndMessage.BackColor = System.Drawing.Color.Cyan;
+            this.lbEndMessage.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEndMessage.Location = new System.Drawing.Point(1000, 735);
+            this.lbEndMessage.Name = "lbEndMessage";
+            this.lbEndMessage.Size = new System.Drawing.Size(303, 30);
+            this.lbEndMessage.TabIndex = 12;
+            this.lbEndMessage.Text = "Done attacking? Click here --->";
+            // 
             // frmGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -691,6 +703,7 @@ namespace RiskGame
             this.Controls.Add(this.INDICATORpnlDeploy);
             this.Controls.Add(this.pnlPause);
             this.Controls.Add(this.btnEndAttackMode);
+            this.Controls.Add(this.lbEndMessage);
             this.Controls.Add(this.pbBase);
             this.Name = "frmGameScreen";
             this.Text = "Risk: Game Screen";
@@ -789,5 +802,6 @@ namespace RiskGame
         private System.Windows.Forms.Button btnEndAttackMode;
         private System.Windows.Forms.Button btnMoveTroops;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Label lbEndMessage;
     }
 }

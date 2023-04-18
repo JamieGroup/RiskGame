@@ -47,6 +47,7 @@ namespace RiskGame
             Game.currentPlayer = 0;
             pnlPause.Location = new Point(-455, 0);
             MSGpnlMessageGroup.Location = new Point(1541, 48);
+            lbEndMessage.BackColor = Color.FromArgb(0, 153, 220, 243);
 
             Game.calcPlayers();
             new frmPlayerSwapper().Show();
@@ -721,23 +722,32 @@ namespace RiskGame
                 
                 if(numRegions>aiNumRegions)
                 {
-                    MessageBox.Show($"You Win! You contorl a total of {numRegions}, whereas your oppoents\r\ncontrol an average of {aiNumRegions} regions!\r\nReturning to the Dashboard!");
+                    //MessageBox.Show($"You Win! You contorl a total of {numRegions}, whereas your oppoents\r\ncontrol an average of {aiNumRegions} regions!\r\nReturning to the Dashboard!");
                     frmLogin.human.gamesWon++;
+                    frmLogin.human.lastWin = true;
+                    frmLogin.human.lastScore = numRegions;
+                    frmLogin.human.lastOpScore = aiNumRegions;
                     Hide();
-                    new frmDashboard().Show();
+                    new frmRoundEnd().Show();
                 }
                 else if(numRegions==aiNumRegions)
                 {
-                    MessageBox.Show($"Draw! You and your opponents both control an average of {numRegions} regions!\r\nReturning to the Dashboard!");
+                    MessageBox.Show($"Draw! You and your opponents both control an average of {numRegions} regions!");
+                    frmLogin.human.lastWin = true;
+                    frmLogin.human.lastScore = numRegions;
+                    frmLogin.human.lastOpScore = aiNumRegions;
                     Hide();
-                    new frmDashboard().Show();
+                    new frmRoundEnd().Show();
                 }
                 else
                 {
-                    MessageBox.Show($"You Lose! Your opponents control an average of {aiNumRegions} regions! \r\nBut you only control a total of {numRegions}!\r\nReturning to the Dashboard!");
+                    //MessageBox.Show($"You Lose! Your opponents control an average of {aiNumRegions} regions! \r\nBut you only control a total of {numRegions}!\r\nReturning to the Dashboard!");
                     frmLogin.human.gamesLost++;
+                    frmLogin.human.lastWin = false;
+                    frmLogin.human.lastScore = numRegions;
+                    frmLogin.human.lastOpScore = aiNumRegions;
                     Hide();
-                    new frmDashboard().Show();
+                    new frmRoundEnd().Show();
                 }
             }
         }
@@ -1163,7 +1173,7 @@ namespace RiskGame
                         pnlSource.Refresh();
                     }
 
-                    this.WindowState = FormWindowState.Minimized;
+                    GameStateChanger(3);
 
                     break;
             }

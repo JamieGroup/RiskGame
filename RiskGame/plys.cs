@@ -40,6 +40,9 @@ namespace RiskGame
         public int troopPocket { get; set; }
         public int gamePlayerID { get; set; }
         public string sentFrom { get; set; }
+        public bool lastWin { get; set; }
+        public int lastScore { get; set; }
+        public int lastOpScore { get; set; }
 
         //Constructors
         public Plys(string _username, string _avatar, int _gamesPlayed, int _gamesWon, int _gamesLost, Color _accentColour, List<string> _friendsList, int _globalUserID, string _passwordHash, bool _accountLocked, int _globalRanking)

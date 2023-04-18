@@ -112,6 +112,16 @@ namespace RiskGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap atleastyoutried {
+            get {
+                object obj = ResourceManager.GetObject("atleastyoutried", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Attributes_Legal {
             get {
                 object obj = ResourceManager.GetObject("Attributes_Legal", resourceCulture);
@@ -125,6 +135,16 @@ namespace RiskGame.Properties {
         internal static System.Drawing.Bitmap backbutton {
             get {
                 object obj = ResourceManager.GetObject("backbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap balloon_colors {
+            get {
+                object obj = ResourceManager.GetObject("balloon_colors", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
