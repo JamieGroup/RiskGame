@@ -501,9 +501,9 @@ namespace RiskGame
             // btnMoveTroops
             // 
             this.btnMoveTroops.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveTroops.Location = new System.Drawing.Point(1336, 705);
+            this.btnMoveTroops.Location = new System.Drawing.Point(1326, 658);
             this.btnMoveTroops.Name = "btnMoveTroops";
-            this.btnMoveTroops.Size = new System.Drawing.Size(200, 67);
+            this.btnMoveTroops.Size = new System.Drawing.Size(209, 46);
             this.btnMoveTroops.TabIndex = 11;
             this.btnMoveTroops.Text = "Move Troops!";
             this.btnMoveTroops.UseVisualStyleBackColor = true;
